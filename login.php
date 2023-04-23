@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
   if($numberOfRows > 0){
       $_SESSION["patient"] = $email;
       $_SESSION['first_name'] = $row['first_name'];
-      $_SESSION['id'] = $row['id'];
+      $_SESSION['pid'] = $row['id'];
       // echo  $_SESSION['name'] ;
     //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
       header("location: /MediCoNew/patient.php");
