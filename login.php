@@ -1,3 +1,65 @@
+<?php
+include "shared/conn.php";
+
+if(isset($_POST['login'])){
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+
+  $select = "SELECT * FROM `patient` WHERE email = '$email' and password = '$password'";
+
+  $selectQuery = mysqli_query($connect, $select);
+
+  $numberOfRows = mysqli_num_rows($selectQuery);
+
+  $row = mysqli_fetch_assoc($selectQuery);
+  if($numberOfRows > 0){
+      $_SESSION["patient"] = $email;
+      $_SESSION['first_name'] = $row['first_name'];
+      $_SESSION['id'] = $row['id'];
+      // echo  $_SESSION['name'] ;
+    //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
+      header("location: /MediCoNew/patient.php");
+  }
+
+
+
+else{
+
+  if(isset($_POST['login'])){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password'";
+
+    $selectQuery = mysqli_query($connect , $select);
+
+    $numberOfRows = mysqli_num_rows($selectQuery);
+
+    $row = mysqli_fetch_assoc($selectQuery);
+    if($numberOfRows > 0){
+        $_SESSION['doctor'] = $email;
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['id'] = $row['id'];
+
+       // echo $_SESSION['admin'];
+
+      //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
+        header("location: /MediCoNew/doctor.php");
+      }
+        
+        else{?>
+      <div class="alert alert-danger" role="alert">
+    <?php  echo "Wrong Email or Password";?>
+    
+  </div>
+  <?php }
+
+    }
+   
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,12 +92,12 @@
 
   <div class="container">
     <h1>Login</h1>
-    <form>
-      <label for="">Doctor Name:</label>
-      <input type="text" placeholder="Username" id="username" required>
+    <form method="POST">
+      <label for="">Enter Your Email</label>
+      <input name="email" type="text" placeholder="personemail@something.com" id="username" required>
       <label for="">Password:</label>
-      <input type="password" placeholder="Password" id="password" required>
-      <button type="submit" id="login-btn">Login</button>
+      <input name="password" type="password" placeholder="Password" id="password" required>
+      <button name="login" type="submit" id="login-btn">Login</button>
     </form>
   </div>
     <!--footer /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -69,9 +131,8 @@
             </div>
         </div>
     </footer>
+    <script src="js/script.js"></script>
 
-  <script src="JS/loginscript.js"></script>
-  <script src="JS/script.js"></script>
 </body>
 
 </html>
