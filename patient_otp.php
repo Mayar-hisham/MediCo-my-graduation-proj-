@@ -1,3 +1,11 @@
+<?php
+include "shared/conn.php";
+
+if(isset($_SESSION['doctor'])){  
+
+    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,13 +39,21 @@
     <!--the form -->
 
 
-    <div class="form">
-        <label for="nationalId">OTP number:</label>
-        <input type="number" id="nationalId" name="nationalId" placeholder="">
-        <a href="patient_profile.html"><button type="submit">Submit</button></a>
-    </div>
+    <form class="form" method="POST" action="patient_profile.php">
+        <label for="nationalId">Patient ID:</label>
+        <input name="pid" type="number" id="nationalId" name="nationalId" placeholder="">
+
+        <label for="nationalId">Medical Profile ID:</label>
+        <input name="mid" type="number" id="nationalId" name="nationalId" placeholder="">
+
+        <button name="go" type="submit">Submit</button>
+    </form>
+
+    <?php } ?>
 
     <script src="JS/script.js"></script>
 </body>
 
 </html>
+
+

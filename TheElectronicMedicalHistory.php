@@ -49,25 +49,11 @@ if(isset($_SESSION['doctor'])){
       <span></span>
     </div>
 
-    <form method="POST">
-<label>enter patient ID and Medical Profile ID:</label>
-<br>
-<input name="pid">
-<br><br>
-<input name="mid">
-<br><br>
-<button name="go">go</button>
-</form>
-
 
   <?php  
 
-if(isset($_POST['go'])){
-$id = $_POST['pid'];
-$mid = $_POST['mid'];
+if(isset($_SESSION["patient_profile_access"])){
 
-
-  
   $sql = "SELECT * FROM `patient`
  JOIN `medical_profile` ON 
   patient.id = medical_profile.patient_id
@@ -85,7 +71,7 @@ $mid = $_POST['mid'];
  medical_profile.id = doctor_diagnosis.medical_profile_id  
  JOIN `doctors` ON
  doctor_diagnosis.doctor_id = doctor_diagnosis.doctor_id
-  WHERE patient.id = $id and medical_profile.id = $mid";
+ WHERE patient.id = '".$_SESSION['id']."' and medical_profile.id = '".$_SESSION['mid']."' ";
   $result = mysqli_query($connect , $sql);
 
 
@@ -267,12 +253,14 @@ if($result){
 
     </div>
   </div>
+
+
+  <?php
+}}} 
+?> 
+
+<?php }?>
   <script src="JS/script.js"></script>
 </body>
 
 </html>
-<?php
-}}} 
-?> 
-
-<?php } ?>
