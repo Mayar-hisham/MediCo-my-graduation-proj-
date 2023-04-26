@@ -170,9 +170,9 @@ nav {
   margin: 0;
 }
 
-.form input[type="number"] {
+/* .form input[type="number"] {
   -moz-appearance: textfield;
-}
+} */
 
 .form button {
   background-color: #0b78b2;
