@@ -1,69 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
    <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" type="text/css" href="Register.css">
+   <link rel="stylesheet" href="CSS/style.css">
+   <link rel="stylesheet" href="CSS/footer.css">
    <style>
       .parent {
          padding-top: 100px;
          margin: auto;
          text-align: center;
       }
+
       .division {
          display: inline-block;
          border: none;
          padding: 1rem;
          margin: 100px;
       }
-
-
    </style>
 </head>
+
 <body>
-   <header>
-    
-  
 
- <header id="header-wrap">
-     
-        <!-- Navbar Start -->
-       <div id="navbar">
-         <img  id= "logoo" src="imgs/medico.png" alt="logo" width="200"> 
-  <a href="#home">Contact</a>
-  <a href="#news">About us</a>
-  <a href="Medico login.html#lo">Login</a>
-  <a href="Register.html">Register</a>
-  <a href="Medico home.html">Home</a>
-  <script>
-    var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
-</div>
-</header>
-</header>
 
+   <!-- Navbar Start -->
+   <nav>
+      <div class="logo">
+         <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+      </div>
+      <ul class="nav-links">
+         <li><a href="#">Home</a></li>
+         <li><a href="#">Login</a></li>
+         <li><a href="#">Contact Us</a></li>
+         <li><a href="#">Help and Support</a></li>
+      </ul>
+      <div class="burger">
+         <div class="line1"></div>
+         <div class="line2"></div>
+         <div class="line3"></div>
+      </div>
+   </nav>
    <div class='parent'>
-       <a href="Doctor.html"> <div class='division'><img  id= "doctor" src="imgs/10.png" width="200px" height="200px">
-      <p> Register As a Doctor</p>
-       </div></a>
-    <a href="Medico login.html">  <div class='division'><img  id= "patient" src="imgs/9.jpg" width="200px" height="200px">
+      <a href="Doctor.html">
+         <div class='division'><img id="doctor" src="Images/10.png" width="200px" height="200px">
+            <p> Register As a Doctor</p>
+         </div>
+      </a>
+      <a href="Medico login.html">
+         <div class='division'><img id="patient" src="Images/9.jpg" width="200px" height="200px">
             <p> Register As a Patient</p>
-</div> </a>
+         </div>
+      </a>
    </div>
-   <footer>
-      
-      <p>
-   Copyright ©2023 Medico. Terms and Conditions and Privacy Policy.
-</p>
-</footer>
+   <footer class="sticky-footer">
+      <div>
+         <h6>
+            Copyright ©2023 Medico. Terms and Conditions and Privacy Policy.
+         </h6>
+      </div>
+   </footer>
 </body>
+
 </html>

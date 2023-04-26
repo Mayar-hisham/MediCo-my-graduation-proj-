@@ -188,3 +188,8 @@ nav {
 .form button:hover {
   background-color: #3e518e;
 }
+
+.division:hover {
+  transform: scale(1.5);
+  transition: 2s;
+}
