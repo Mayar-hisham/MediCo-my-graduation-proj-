@@ -105,11 +105,12 @@ nav {
   height: 70px;
 }
 
-.container {
+.container_img {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 140px;
+  margin-bottom: 200px;
 }
 
 .image {
