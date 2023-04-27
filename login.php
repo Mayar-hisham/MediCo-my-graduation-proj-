@@ -71,7 +71,7 @@ if (isset($_POST['login'])) {
       <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
+      <li><a href="home.html">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
     </ul>

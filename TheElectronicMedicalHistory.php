@@ -27,10 +27,10 @@ if (isset($_SESSION['doctor'])) {
         <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
       </div>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
+        <li><a href="home.html">Home</a></li>
         <li><a href="#">Contact Us</a></li>
         <li><a href="#">Help and Support</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="home.html">Logout</a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -87,12 +87,12 @@ if (isset($_SESSION['doctor'])) {
     <div class="cont1">
       <div class="navbar">
         <a href="#" class="active">Notifications</a>
-        <a href="#">Medical History</a>
-        <a href="#">Doctors</a>
+        <a href="TheElectronicMedicalHistory.php">Medical History</a>
+        <a href="doctors.html">Doctors</a>
         <a href="#">Orders</a>
         <a href="#">Payment</a>
         <a href="#">Insurance Details</a>
-        <a href="#">Edits of EMH</a>
+        <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
       </div>
       <div class="content">
         <br>
