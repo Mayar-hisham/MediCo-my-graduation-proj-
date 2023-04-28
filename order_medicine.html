@@ -69,7 +69,13 @@
         </label>
         <h1>Or write your medicine</h1>
         <textarea name="subject" cols="40" rows="5" placeholder="write your medicine"></textarea>
-        <button type="submit" class="submit">Submit</button>
+        <button onclick="openModal()" type="submit" class="submit">Submit</button>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Your order is send sucessfully</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
