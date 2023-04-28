@@ -68,7 +68,7 @@ if (isset($_SESSION['doctor'])) {
  medical_profile.id = doctor_diagnosis.medical_profile_id  
  JOIN `doctors` ON
  doctor_diagnosis.doctor_id = doctor_diagnosis.doctor_id
- WHERE patient.id = '" . $_SESSION['id'] . "' and medical_profile.id = '" . $_SESSION['mid'] . "' ";
+ WHERE patient.id = '" . $_SESSION['id'] . "' and medical_profile.id = '" . $_SESSION['mpfid'] . "' ";
         $result = mysqli_query($connect, $sql);
 
 

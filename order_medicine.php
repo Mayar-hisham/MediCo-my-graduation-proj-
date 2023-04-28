@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/footer.css">
   <link rel="stylesheet" href="CSS/The Electronic Medical History.css">
-  <link rel="stylesheet" href="CSS/doctorform.css">
+  <link rel="stylesheet" href="CSS/ordermedicine.css">
 
   <title>Medico</title>
 </head>
@@ -42,12 +42,12 @@
       <span></span>
       <span></span>
     </div>
-    <h2 style="text-align: center; font-size: 30px; margin-left: 500px; padding: 10px;">Doctors diagnosis</h2>
+    <h2 style="text-align: center; font-size: 30px; margin-left: 500px; padding: 10px;">order your medicine</h2>
 
   </div>
   <div class="cont1">
     <div class="navbar">
-      <a href="#" class="active">Notifications</a>
+      <a href="#" class="active" id="notification-count">Notifications </a>
       <a href="TheElectronicMedicalHistory.php">Medical History</a>
       <a href="doctors.html">Doctors</a>
       <a href="#">Orders</a>
@@ -56,36 +56,56 @@
       <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
     </div>
     <div class="conent">
-      <form>
-        <label for="name">Doctor Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter doctor name...">
-        <label for="date">Date:</label>
-        <input type="text" id="date" name="date" placeholder="Enter date...">
-        <label for="specialty">Medical Specialty:</label>
-        <select id="specialty" name="specialty">
-          <option value="cardiology">Cardiology</option>
-          <option value="dermatology">Dermatology</option>
-          <option value="endocrinology">Endocrinology</option>
-          <option value="gastroenterology">Gastroenterology</option>
-          <option value="neurology">Neurology</option>
-          <option value="oncology">Oncology</option>
-          <option value="ophthalmology">Ophthalmology</option>
-          <option value="orthopedics">Orthopedics</option>
-          <option value="pediatrics">Pediatrics</option>
-          <option value="psychiatry">Psychiatry</option>
-          <option value="pulmonology">Pulmonology</option>
-          <option value="radiology">Radiology</option>
-          <option value="surgery">Surgery</option>
-          <option value="urology">Urology</option>
-        </select>
-        <label for="diagnosis">Diagnosis:</label>
-        <input type="text" id="diagnosis" name="diagnosis" placeholder="Enter diagnosis...">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" placeholder="Enter title...">
-        <button type="submit" id="save-button">Save</button>
-      </form>
+      <div class="container_order">
+      <?php
+      include "shared/conn.php";
+
+if(isset($_POST['upload'])){
+ 
+    $name = $_FILES['file']['name'];
+    $target_dir = "upload/";
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+    // Select file type
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    // Valid file extensions
+    $extensions_arr = array("jpg","jpeg","png","gif");
+
+    // Check extension
+    if( in_array($imageFileType,$extensions_arr) ){
+         // Upload file
+         if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name)){
+              // Insert record
+              $query = "insert into images(name) values('".$name."')";
+              mysqli_query($connect,$query);
+         }
+
+    }
+ 
+}
+?>
+
+       <h1>Upload your prescription/medicine</h1>
+       <form method="post" action="" enctype='multipart/form-data'>
+        <label for="medicine-img" class="custom-file-upload btn">
+          <i class="fa fa-upload"></i> Upload image of medicine/
+          ارفع الروشتة
+          <input id="medicine-img" type="file" name='file' class="input-file"/>
+        </label>
+        
+        <button onclick="openModal()" type="submit" name='upload' class="submit">Submit</button>
+</form>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Your order is send sucessfully</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="JS/script.js"></script>
+  </div>
+  <script src="JS/scriptorder.js"></script>
 </body>
 
 </html>

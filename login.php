@@ -33,8 +33,9 @@ if (isset($_POST['login'])) {
       $row = mysqli_fetch_assoc($selectQuery);
       if ($numberOfRows > 0) {
         $_SESSION['doctor'] = $email;
-        $_SESSION['first_name'] = $row['first_name'];
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['dfirst_name'] = $row['dfirst_name'] .$row['dlast_name'];
+        $_SESSION['specialization'] = $row['specialization'];
+        $_SESSION['did'] = $row['id'];
 
         // echo $_SESSION['admin'];
 

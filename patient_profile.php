@@ -76,7 +76,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 				$row = mysqli_fetch_assoc($result);
 				if ($numberOfRows > 0) {
 					$_SESSION["patient_profile_access"] = $id && $mid;
-					$_SESSION['mid'] = $row['medical_profile_id'];
+					$_SESSION['mpfid'] = $row['medical_profile_id'];
 					$_SESSION['id'] = $row['patient_id'];
 				}
 
