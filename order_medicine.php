@@ -1,3 +1,19 @@
+
+<?php  
+      include "shared/conn.php";
+
+ if(isset($_SESSION["patient"])){
+
+  $select = "SELECT * FROM `patient` 
+  JOIN `images` ON patient.id = images.patient_id WHERE patient.id = '". $_SESSION['pid'] ."'";
+
+  $sel = mysqli_query($connect , $select);
+  
+  $time = date('h:i: a', time());
+  $_date = date('Y-m-d');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +40,7 @@
       <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
       <li><a href="home.html">Logout</a></li>
@@ -58,11 +74,26 @@
     <div class="conent">
       <div class="container_order">
       <?php
-      include "shared/conn.php";
+
 
 if(isset($_POST['upload'])){
+
+
+
+
+  $_pid = $_SESSION['pid'];
+  $paddr = $_POST['paddr'];
+  $_date = $_date;
+  $_time = $time;
+
+
+  $name = $_FILES['image']['name'];
+  $ltype = $_FILES['image']['type'];
+  $ltmp = $_FILES['image']['tmp_name'];
+ $llocation = "upload/";
+move_uploaded_file($ltmp , $llocation . $name);
  
-    $name = $_FILES['file']['name'];
+   /* $name = $_FILES['file']['name'];
     $target_dir = "upload/";
     $target_file = $target_dir . basename($_FILES["file"]["name"]);
 
@@ -77,34 +108,58 @@ if(isset($_POST['upload'])){
          // Upload file
          if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name)){
               // Insert record
-              $query = "insert into images(name) values('".$name."')";
-              mysqli_query($connect,$query);
+              */
+              $query = "INSERT INTO `images` VALUES( NULL , $_pid , '$paddr' , '$_date' , '$_time' , '$name')";
+               $sel = mysqli_query($connect,$query);
+
+   //            if($sel){
+     //           echo "yes";
+       //       } else{
+         //       echo "no".mysqli_error($connect);
+           //   }
          }
 
-    }
- 
-}
 ?>
 
        <h1>Upload your prescription/medicine</h1>
-       <form method="post" action="" enctype='multipart/form-data'>
+       <form method="post" enctype='multipart/form-data'>
+
+<?php     ?>
+
+       <label for="nationalId" class="">Patient ID</label>
+       <input disabled type="number" value="<?php echo $_SESSION['pid']; ?>" id="nationalId" name="pid" placeholder="">
+
+       <br><br>
+
+       <label  >Date</label>
+        <input disabled id="date" value="<?php echo $_date ?>" name="date" placeholder="Enter date...">
+
+        <br> <br>
+
+        <label >time</label>
+        <input disabled id="time" value="<?php echo $time ?>" name="time" placeholder="Enter time...">
+
+       <br><br>
+
+       <label=>Patient Address </label>
+        <input type="text" name="paddr" placeholder="Enter address...">
+
+       <br><br>
+
+
         <label for="medicine-img" class="custom-file-upload btn">
           <i class="fa fa-upload"></i> Upload image of medicine/
           ارفع الروشتة
-          <input id="medicine-img" type="file" name='file' class="input-file"/>
+          <input id="medicine-img" type="file" name='image' class="input-file"/>
         </label>
         
-        <button onclick="openModal()" type="submit" name='upload' class="submit">Submit</button>
+        <button type="submit" name='upload' class="submit">Submit</button>
 </form>
-        <div id="modal" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Your order is send sucessfully</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
+
+  <?php } ?>
   <script src="JS/scriptorder.js"></script>
 </body>
 

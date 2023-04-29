@@ -1,3 +1,15 @@
+<?php 
+include "shared/conn.php";
+
+if (isset($_SESSION['doctor'])) {
+
+  $select = "SELECT * FROM `doctors` WHERE id = '" . $_SESSION['did'] . "'";
+  $sel = mysqli_query($connect , $select);
+
+
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +36,7 @@
       <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="doctor_home.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
       <li><a href="home.html">Logout</a></li>
@@ -56,21 +68,21 @@
           <img src="Images/pexels-thirdman-5327656.jpg" alt="Doctor's photo">
         </div>
         <div class="details">
-          <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">Dr. John Smith
+          <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">Dr. <?php echo $_SESSION['dfirst_name']; ?>
           </h2>
-          <p>Specialist in: <br> <span>Cardiology</span> </p>
-          <p>Experience: <br> <span>15 years</span> </p>
+          <?php foreach($sel as $s){ ?>
+          <p>Specialist in: <br> <span><?php echo $s['specialization']; ?> </span> </p>
+          <p>Experience: <br> <span><?php echo $s['years_of_exp']; ?> </span> </p>
           <div class="uls">
             <p>Clinic branches:</p>
 
             <ul>
-              <li>ABC Clinic - 123 Main St.</li>
-              <li>XYZ Clinic - 456 Oak St.</li>
+              <li><?php echo $s['daddress']; ?> </li>
             </ul>
             <p>Contact:</p>
             <ul>
-              <li>Phone: 555-1234</li>
-              <li>Email: john.smith@doctors.com</li>
+              <li>Phone: <?php echo $s['phone']; ?> </li>
+              <li>Email: <?php echo $s['email']; ?> </li>
             </ul>
           </div>
           <button id="upload-btn">Upload photo</button>
@@ -78,6 +90,10 @@
       </div>
     </div>
   </div>
+
+
+  <?php } }?>
+
   <script src="JS/script.js"></script>
 </body>
 

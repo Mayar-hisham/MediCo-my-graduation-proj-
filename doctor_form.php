@@ -6,7 +6,7 @@ if (isset($_SESSION['doctor'])) {
 
   //$date = date('m/d/Y h:i:s a', time());
   $time = date('h:i: a', time());
-  $date = date('m/d/Y');
+  $date = date('Y-m-d');
 
 
 
@@ -14,6 +14,8 @@ if (isset($_SESSION['doctor'])) {
 
     $_mfid = $_SESSION['mpfid'];
     $_dname = $_SESSION['did'];
+    $_dfn = $_SESSION['dfirst_name'];
+    $_dln = $_SESSION['dlast_name'];
     $_sp = $_SESSION['specialization'];
     $_date = $date;
     $_time = $time;
@@ -26,15 +28,15 @@ if (isset($_SESSION['doctor'])) {
 
 
     $insert = " INSERT INTO `doctor_diagnosis` VALUES
-     (NULL , $_mfid , $_dname , '$_sp' , $_date , '$_time' , '$weight' , '$vt' , '$observation' , '$symptoms' , '$diagnosis' , '$prescription') ";
+     (NULL , $_mfid , $_dname , '$_dfn' , '$_dln' , '$_sp' , $_date , '$_time' , '$weight' , '$vt' , '$observation' , '$symptoms' , '$diagnosis' , '$prescription') ";
 
       $ins = mysqli_query($connect , $insert);
 
-      if($ins){
-        echo "yes";
-      } else{
-        echo "no".mysqli_error($connect);
-      }
+  //    if($ins){
+    //    echo "yes";
+     // } else{
+       // echo "no".mysqli_error($connect);
+      //}
   }
 
 ?>
@@ -65,7 +67,7 @@ if (isset($_SESSION['doctor'])) {
       <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="doctor_home.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
       <li><a href="home.html">Logout</a></li>
@@ -103,7 +105,13 @@ if (isset($_SESSION['doctor'])) {
         <input type="text" disabled value=" <?php echo $_SESSION['mpfid']; ?>" id="name" name="mfid">
 
         <label for="name">Doctor ID:</label>
-        <input type="text" disabled value=" <?php echo $_SESSION['did']; ?>" id="name" name="dname">
+        <input type="text" disabled value=" <?php echo $_SESSION['did']; ?>" id="name" name="did">
+
+        <label for="name">Doctor First Name:</label>
+        <input type="text" disabled value=" <?php echo $_SESSION['dfirst_name']; ?>" id="name" name="dfn">
+
+        <label for="name">Doctor Last Name:</label>
+        <input type="text" disabled value=" <?php echo $_SESSION['dlast_name']; ?>" id="name" name="dln">
 
         <label for="date">Date:</label>
         <input type="text" disabled id="date" value="<?php echo $date ?>" name="date" placeholder="Enter date...">

@@ -19,7 +19,7 @@
       <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="doctor_home.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
       <li><a href="home.html">Logout</a></li>
@@ -41,13 +41,13 @@
       <a href="patient_otp.php">access patient profile</a>
     </div>
     <div class="image">
-      <a href="doctor_profile.html"><img src="Images/my-profile-icon-png-3.jpg"></a>
-      <a href="doctor_profile.html">My profile</a>
+      <a href="doctor_profile.php"><img src="Images/my-profile-icon-png-3.jpg"></a>
+      <a href="doctor_profile.php">My profile</a>
     </div>
     <div class="image">
-      <a href="order_medicine.html"><img
+      <a href="order_medicine.php"><img
           src="Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
-      <a href="order_medicine.html">order medicine</a>
+      <a href="order_medicine.php">order medicine</a>
     </div>
   </div>
   <script src="JS/script.js"></script>

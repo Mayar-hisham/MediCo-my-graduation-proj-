@@ -232,7 +232,7 @@ if (isset($_SESSION['doctor'])) {
                       <div class="card-header"><?php echo $r['specialization']; ?></div>
                       <p><?php echo $r['date']; ?></p>
                       <p><?php echo $r['diagnosis']; ?></p>
-                      <p><?php echo $r['dfirst_name'] . $r['dlast_name'];  ?> </p>
+                      <p><?php echo $r['dr_fname'] . $r['dr_lname'];  ?> </p>
                     </div>
 
                   </div>

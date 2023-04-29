@@ -24,7 +24,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 				<a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
 			</div>
 			<ul class="nav-links">
-				<li><a href="home.html">Home</a></li>
+				<li><a href="doctor_home.php">Home</a></li>
 				<li><a href="#">Contact Us</a></li>
 				<li><a href="#">Help and Support</a></li>
 				<li><a href="home.html">Logout</a></li>

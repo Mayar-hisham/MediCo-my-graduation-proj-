@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
         // echo $_SESSION['admin'];
 
         //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-        header("location: /MediCoNew/doctor.php");
+        header("location: /MediCoNew/doctor_home.php");
       } else { ?>
         <div class="alert alert-danger" role="alert">
           <?php echo "Wrong Email or Password"; ?>
@@ -72,7 +72,7 @@ if (isset($_POST['login'])) {
       <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
     </ul>
