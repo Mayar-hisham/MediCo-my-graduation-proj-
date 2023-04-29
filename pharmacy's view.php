@@ -1,3 +1,11 @@
+<?php 
+include "shared/conn.php";
+
+if (isset($_SESSION['pharmacy'])) {
+
+    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,40 +41,42 @@
   <!--first section-->
 
 
-  <h1 class="h1_text">Welcome Al-Ezaby</h1>
+  <h1 class="h1_text">Welcome <?php echo $_SESSION['pharname']; ?></h1>
   <div class="container">
     <div class="image">
       <a href="https://www.example.com"><img src="Images/my-profile-icon-png-3.jpg"></a>
       <a href="https://www.example.com">My profile</a>
     </div>
     <div class="image">
-      <a href="requests.html"><img src="Images/pending-order-svg-icon-free-my-job-icon-11553505427rf7ua37rbl.png"></a>
-      <a href="Requests.html">Requests</a>
+      <a href="requests.php"><img src="Images/pending-order-svg-icon-free-my-job-icon-11553505427rf7ua37rbl.png"></a>
+      <a href="Requests.php">Requests</a>
     </div>
     <div class="image">
-      <a href="current _orders.html"><img
+      <a href="current _orders.php"><img
           src="Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
-      <a href="current _orders.html">Current orders
+      <a href="current _orders.php">Current orders
       </a>
     </div>
 
   </div>
   <div class="container">
     <div class="image">
-      <a href="order_on_way.html"><img
+      <a href="order_on_way.php"><img
           src="Images/delivery-truck-pictogram-icon-image-vector-illustration-design-79386582.jpg"></a>
-      <a href="order_on_way.html">Orders on way</a>
+      <a href="order_on_way.php">Orders on way</a>
     </div>
     <div class="image">
-      <a href="finished_requests.html"><img src="Images/done.png"></a>
-      <a href="finished_requests.html">Finished requests</a>
+      <a href="finished_requests.php"><img src="Images/done.png"></a>
+      <a href="finished_requests.php">Finished requests</a>
     </div>
     <div class="image">
       <a href="pinding_orders.html"><img src="Images/pending-orders-1.png"></a>
-      <a href="pinding_orders.html">Pinding orders </a>
+      <a href="pinding_orders.php">Pinding orders </a>
     </div>
 
   </div>
+
+  <?php } ?>
   <script src="JS/script.js"></script>
 </body>
 

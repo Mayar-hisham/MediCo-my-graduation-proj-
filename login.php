@@ -41,12 +41,40 @@ if (isset($_POST['login'])) {
 
         //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
         header("location: /MediCoNew/doctor_home.php");
-      } else { ?>
+      } else{
+
+        if (isset($_POST['login'])) {
+          $email = $_POST["email"];
+          $password = $_POST["password"];
+          $select = "SELECT * FROM `pharmacy` WHERE email = '$email' and password = '$password'";
+    
+          $selectQuery = mysqli_query($connect, $select);
+    
+          $numberOfRows = mysqli_num_rows($selectQuery);
+    
+          $row = mysqli_fetch_assoc($selectQuery);
+          if ($numberOfRows > 0) {
+            $_SESSION['pharmacy'] = $email;
+            $_SESSION['pharname'] = $row['name'];
+            $_SESSION['phid'] = $row['id'];
+    
+            // echo $_SESSION['admin'];
+    
+            //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
+            header("location: /MediCoNew/pharmacy's view.php");
+
+
+      }
+      
+      
+      
+      else { ?>
         <div class="alert alert-danger" role="alert">
           <?php echo "Wrong Email or Password"; ?>
 
         </div>
 <?php }
+        }}
     }
   }
 }
