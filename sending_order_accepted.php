@@ -63,11 +63,9 @@ $insert = "INSERT INTO `orders` VALUES (NULL , $pharmacy_id , '$patient_id' , '$
  '$time_of_order' ,'$patient_address' , '$nname' , '$message' ,' $dtime' , '$dday' , $dphone , '$_date' , '$_time')";
 
 $ins = mysqli_query($connect , $insert);
-if($ins){
-    echo "yes";
-}else{
-    echo "no".mysqli_error($connect);
-}
+
+
+        header("location: /MediCoNew/order_on_way.php ");
 
 }
 ?>
