@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2023 at 09:46 PM
+-- Generation Time: May 01, 2023 at 11:00 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -132,6 +132,17 @@ INSERT INTO `family_history` (`id`, `medical_profile_id`, `relative1`, `disease1
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `finished_orders`
+--
+
+CREATE TABLE `finished_orders` (
+  `id` int(11) NOT NULL,
+  `id_of_pending` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -141,31 +152,30 @@ CREATE TABLE `images` (
   `patient_address` varchar(255) NOT NULL,
   `date_of_order` date NOT NULL,
   `time_of_order` time NOT NULL,
-  `image` mediumtext NOT NULL
+  `image` mediumtext NOT NULL,
+  `activity` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`id`, `patient_id`, `patient_address`, `date_of_order`, `time_of_order`, `image`) VALUES
-(2, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(3, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '2.jpeg'),
-(4, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(5, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(6, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(7, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(8, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(9, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(10, 2, '0.000068181430548690', '0000-00-00', '00:00:06', ''),
-(11, 2, '0.000068181430548690', '0000-00-00', '00:00:06', ''),
-(12, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg'),
-(13, 2, '17.439655172413793103', '0000-00-00', '00:00:06', '1.jpeg'),
-(14, 2, '6th of october ', '0000-00-00', '05:07:00', '2.jpeg'),
-(15, 2, '6th of october city', '0000-00-00', '05:08:00', '1.jpeg'),
-(16, 2, 'Giza', '0000-00-00', '05:11:00', '2.jpeg'),
-(17, 2, 'Giza', '0000-00-00', '05:11:00', '2.jpeg'),
-(18, 2, 'Giza', '2023-04-29', '05:14:00', '1.jpeg');
+INSERT INTO `images` (`id`, `patient_id`, `patient_address`, `date_of_order`, `time_of_order`, `image`, `activity`) VALUES
+(5, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg', ''),
+(7, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg', ''),
+(8, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg', ''),
+(9, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg', ''),
+(10, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '', ''),
+(11, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '', ''),
+(12, 2, '0.000068181430548690', '0000-00-00', '00:00:06', '1.jpeg', ''),
+(13, 2, '17.439655172413793103', '0000-00-00', '00:00:06', '1.jpeg', ''),
+(14, 2, '6th of october ', '0000-00-00', '05:07:00', '2.jpeg', ''),
+(15, 2, '6th of october city', '0000-00-00', '05:08:00', '1.jpeg', ''),
+(16, 2, 'Giza', '0000-00-00', '05:11:00', '2.jpeg', ''),
+(17, 2, 'Giza', '0000-00-00', '05:11:00', '2.jpeg', ''),
+(18, 2, 'Giza', '2023-04-29', '05:14:00', '1.jpeg', ''),
+(19, 2, 'Giza', '2023-05-01', '10:20:00', '22.png', 'yes'),
+(20, 2, 'new cairo', '2023-05-01', '10:27:00', 'app2.png', 'no');
 
 -- --------------------------------------------------------
 
@@ -193,7 +203,7 @@ INSERT INTO `medical_profile` (`id`, `patient_id`) VALUES
 --
 
 CREATE TABLE `orders` (
-  `id` int(11) NOT NULL,
+  `id_of_order` int(11) NOT NULL,
   `pharmacy_id` int(11) NOT NULL,
   `opatient_id` int(11) NOT NULL,
   `ord_id` int(11) NOT NULL,
@@ -206,30 +216,25 @@ CREATE TABLE `orders` (
   `dday` date NOT NULL,
   `dphone` int(11) NOT NULL,
   `date_of_accept` date NOT NULL,
-  `time_of_accept` time NOT NULL
+  `time_of_accept` time NOT NULL,
+  `activity` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `pharmacy_id`, `opatient_id`, `ord_id`, `order_date`, `order_time`, `patient_address`, `prescription`, `message`, `dtime`, `dday`, `dphone`, `date_of_accept`, `time_of_accept`) VALUES
-(12, 2, 2, 18, '2023-04-29', '05:14:00', 'Giza', '1.jpeg', 'this order is fulfilled completely', '00:40:00', '2023-05-06', 1012154795, '0000-00-00', '11:39:00'),
-(13, 2, 2, 18, '2023-04-29', '05:14:00', 'Giza', '1.jpeg', 'thanks', '00:47:00', '2023-05-03', 1259847632, '0000-00-00', '11:41:00'),
-(14, 2, 2, 18, '2023-04-29', '05:14:00', 'Giza', '1.jpeg', 'thanks', '00:47:00', '2023-05-03', 1259847632, '0000-00-00', '12:00:00'),
-(15, 2, 2, 18, '2023-04-29', '05:14:00', 'Giza', '1.jpeg', 'this order is fulfilled completely', '01:07:00', '2023-05-03', 1012154795, '0000-00-00', '12:02:00'),
-(16, 2, 2, 18, '2023-04-29', '05:14:00', 'Giza', '1.jpeg', 'thanks', '01:08:00', '2023-05-04', 1022512574, '0000-00-00', '12:03:00'),
-(17, 2, 2, 18, '2023-04-29', '05:14:00', 'Giza', '1.jpeg', 'this order is fulfilled completely', '01:10:00', '2023-04-26', 1259847632, '0000-00-00', '12:05:00'),
-(18, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'khui', '01:12:00', '2023-05-02', 1012154795, '0000-00-00', '12:06:00'),
-(19, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'thanks', '01:15:00', '2023-05-03', 1022512574, '0000-00-00', '12:09:00'),
-(20, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'this order is fulfilled completely', '01:17:00', '2023-05-03', 1259847632, '0000-00-00', '12:11:00'),
-(21, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'thanks', '01:26:00', '2023-05-04', 1012154795, '0000-00-00', '12:21:00'),
-(22, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'hi', '01:28:00', '2023-05-03', 1022512574, '0000-00-00', '12:22:00'),
-(23, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'hilo', '01:27:00', '2023-05-06', 10225, '0000-00-00', '12:26:00'),
-(24, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'yarab', '01:39:00', '2023-05-03', 1012144796, '0000-00-00', '12:34:00'),
-(25, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'yarab', '01:39:00', '2023-05-03', 1012144796, '0000-00-00', '12:35:00'),
-(26, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'hilo', '01:27:00', '2023-05-06', 10225, '0000-00-00', '12:36:00'),
-(27, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'hilo', '01:27:00', '2023-05-06', 10225, '2023-04-30', '12:38:00');
+INSERT INTO `orders` (`id_of_order`, `pharmacy_id`, `opatient_id`, `ord_id`, `order_date`, `order_time`, `patient_address`, `prescription`, `message`, `dtime`, `dday`, `dphone`, `date_of_accept`, `time_of_accept`, `activity`) VALUES
+(18, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'khui', '01:12:00', '2023-05-02', 1012154795, '0000-00-00', '12:06:00', ''),
+(19, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'thanks', '01:15:00', '2023-05-03', 1022512574, '0000-00-00', '12:09:00', ''),
+(20, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'this order is fulfilled completely', '01:17:00', '2023-05-03', 1259847632, '0000-00-00', '12:11:00', ''),
+(21, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'thanks', '01:26:00', '2023-05-04', 1012154795, '0000-00-00', '12:21:00', ''),
+(22, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'hi', '01:28:00', '2023-05-03', 1022512574, '0000-00-00', '12:22:00', ''),
+(23, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'hilo', '01:27:00', '2023-05-06', 10225, '0000-00-00', '12:26:00', ''),
+(24, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'yarab', '01:39:00', '2023-05-03', 1012144796, '0000-00-00', '12:34:00', ''),
+(26, 2, 2, 14, '0000-00-00', '05:07:00', '6th of october ', '2.jpeg', 'hilo', '01:27:00', '2023-05-06', 10225, '0000-00-00', '12:36:00', ''),
+(35, 2, 2, 12, '0000-00-00', '00:00:06', '0.000068181430548690', '1.jpeg', 'hiiiiiiiiii', '02:51:00', '2023-06-01', 1259847632, '2023-05-01', '01:46:00', ''),
+(36, 2, 2, 17, '0000-00-00', '05:11:00', 'Giza', '2.jpeg', '.nuiguiblj', '02:53:00', '2023-06-07', 1022512574, '2023-05-01', '01:47:00', '');
 
 -- --------------------------------------------------------
 
@@ -401,6 +406,13 @@ ALTER TABLE `family_history`
   ADD KEY `medical_profile_id` (`medical_profile_id`);
 
 --
+-- Indexes for table `finished_orders`
+--
+ALTER TABLE `finished_orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_of_pending` (`id_of_pending`);
+
+--
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
@@ -418,7 +430,7 @@ ALTER TABLE `medical_profile`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_of_order`),
   ADD KEY `pharmacy_id` (`pharmacy_id`),
   ADD KEY `ord_id` (`ord_id`),
   ADD KEY `patient_id` (`opatient_id`);
@@ -485,10 +497,16 @@ ALTER TABLE `family_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `finished_orders`
+--
+ALTER TABLE `finished_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `medical_profile`
@@ -500,7 +518,7 @@ ALTER TABLE `medical_profile`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_of_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `past_history`
@@ -554,6 +572,12 @@ ALTER TABLE `doctor_diagnosis`
 --
 ALTER TABLE `family_history`
   ADD CONSTRAINT `family_history_ibfk_1` FOREIGN KEY (`medical_profile_id`) REFERENCES `medical_profile` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `finished_orders`
+--
+ALTER TABLE `finished_orders`
+  ADD CONSTRAINT `finished_orders_ibfk_1` FOREIGN KEY (`id_of_pending`) REFERENCES `orders` (`id_of_order`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `images`
