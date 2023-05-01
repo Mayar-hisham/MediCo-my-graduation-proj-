@@ -66,6 +66,8 @@ $delete = "DELETE FROM `orders` WHERE id_of_order = $id_of_order";
                 <th>ID of pending</th>
                 <th>Date of delivery order</th>
                 <th>time of delivery order</th>
+                <th>customer phone</th>
+                <th>customer Address</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -76,6 +78,8 @@ $delete = "DELETE FROM `orders` WHERE id_of_order = $id_of_order";
                 <td><?php echo $s['id_of_order']; ?></td>
                 <td><?php echo $s['date_of_accept']; ?></td>
                 <td><?php echo $s['time_of_accept']; ?></td>
+                <td><?php echo $s['phone']; ?></td>
+                <td><?php echo $s['patient_address']; ?></td>
                 <td><a href="finished_requests.php?delete=<?php echo $s['id_of_order']; ?>">Delete</a></td>
             </tr>
             <?php } ?>

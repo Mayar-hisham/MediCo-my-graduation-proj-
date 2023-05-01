@@ -12,6 +12,8 @@ if (isset($_SESSION['pharmacy'])) {
         $insert = "INSERT INTO `finished_orders` VALUES (NULL , $id_of_order)";
         $i = mysqli_query($connect , $insert);
 
+        $alter = "UPDATE `orders` SET activity = 'no' WHERE id_of_order = $id_of_order";
+$alt = mysqli_query($connect , $alter);
 
         
         header("location: /MediCoNew/finished_requests.php ");

@@ -4,7 +4,7 @@ include "shared/conn.php";
 if (isset($_SESSION['pharmacy'])) {
 
 
-    $select = "SELECT * FROM `images`";
+    $select = "SELECT * FROM `images` WHERE activity = 'yes' ";
     $sel = mysqli_query($connect , $select);
 
     ?>

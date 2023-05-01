@@ -5,15 +5,9 @@ if (isset($_SESSION['pharmacy'])) {
 
 
     $select = "SELECT * FROM `orders` JOIN `patient` ON
-    orders.opatient_id = patient.id";
+    orders.opatient_id = patient.id WHERE orders.activity != 'no' ";
     $sel = mysqli_query($connect , $select);
 
-
-
-/*    if($sel){
-        echo "yes";
-    }else{echo"no".mysqli_error($connect);}
-*/
     ?>
 
 <!DOCTYPE html>
@@ -61,7 +55,6 @@ if (isset($_SESSION['pharmacy'])) {
                 <th>time of accepting order</th>
                 <th>delivery man phone number</th>
                 <th>Delivered</th>
-                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -76,7 +69,6 @@ if (isset($_SESSION['pharmacy'])) {
                 <td><?php echo $s['time_of_accept']; ?></td>
                 <td><?php echo $s['dphone']; ?></td>
                 <td><a href="order_delivered.php?finished=<?php echo $s['id_of_order']; ?>">Delivered</a></td>
-                <td><a href="order_on_way.php?delete=<?php echo $s['id_of_order']; ?>">Delete</a></td>
             </tr>
             <?php } ?>
         </tbody>

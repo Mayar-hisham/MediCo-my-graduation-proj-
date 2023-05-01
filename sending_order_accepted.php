@@ -60,9 +60,12 @@ $_date = $_date;
 $_time = $_time;
 
 $insert = "INSERT INTO `orders` VALUES (NULL , $pharmacy_id , '$patient_id' , '$order_id' , '$date_of_order' ,
- '$time_of_order' ,'$patient_address' , '$nname' , '$message' ,' $dtime' , '$dday' , $dphone , '$_date' , '$_time')";
+ '$time_of_order' ,'$patient_address' , '$nname' , '$message' ,' $dtime' , '$dday' , $dphone , '$_date' , '$_time' , 'yes')";
 
 $ins = mysqli_query($connect , $insert);
+
+$alter = "UPDATE `images` SET activity = 'no' WHERE id = $id";
+$alt = mysqli_query($connect , $alter);
 
 
         header("location: /MediCoNew/order_on_way.php ");
