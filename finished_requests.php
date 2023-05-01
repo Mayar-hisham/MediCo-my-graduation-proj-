@@ -1,20 +1,30 @@
-<?php 
+<?php
+
 include "shared/conn.php";
 
 if (isset($_SESSION['pharmacy'])) {
 
-
-    $select = "SELECT * FROM `orders` JOIN `patient` ON
-    orders.opatient_id = patient.id";
+    $select = "SELECT * FROM `finished_orders` 
+    JOIN `orders` ON finished_orders.id_of_pending = orders.id_of_order 
+    JOIN `patient` ON orders.opatient_id = patient.id";
     $sel = mysqli_query($connect , $select);
 
 
+    if(isset($_GET['delete'])){
+        $id_of_order = $_GET['delete'];
 
-/*    if($sel){
-        echo "yes";
-    }else{echo"no".mysqli_error($connect);}
-*/
-    ?>
+
+
+
+$delete = "DELETE FROM `orders` WHERE id_of_order = $id_of_order";
+        $del = mysqli_query($connect , $delete);
+
+        $dlt = "DELETE FROM `finished_orders` WHERE id_of_pending = $id_of_order";
+        $dl = mysqli_query($connect , $dlt);
+
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +46,7 @@ if (isset($_SESSION['pharmacy'])) {
             <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
             <li><a href="home.html">Logout</a></li>
@@ -47,36 +57,26 @@ if (isset($_SESSION['pharmacy'])) {
             <div class="line3"></div>
         </div>
     </nav>
-    <h1 class="h1_text" id="Requests">Orders on way</h1>
+    <h1 class="h1_text" id="Requests">Finished Requests</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Number</th>
-                <th>Date</th>
-                <th>Name</th>
-                <th>customet phone</th>
-                <th>Delivery Area</th>
-                <th>Date of accepting order</th>
-                <th>time of accepting order</th>
-                <th>delivery man phone number</th>
-                <th>Delivered</th>
+                <th>ID of pending</th>
+                <th>Date of delivery order</th>
+                <th>time of delivery order</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach($sel as $s){ ?>
             <tr>
+                <td><?php echo $s['id']; ?></td>
                 <td><?php echo $s['id_of_order']; ?></td>
-                <td><?php echo $s['order_date']; ?></td>
-                <td><?php echo $s['first_name']; ?></td>
-                <td><?php echo $s['phone']; ?></td>
-                <td><?php echo $s['patient_address']; ?></td>
                 <td><?php echo $s['date_of_accept']; ?></td>
                 <td><?php echo $s['time_of_accept']; ?></td>
-                <td><?php echo $s['dphone']; ?></td>
-                <td><a href="order_delivered.php?finished=<?php echo $s['id_of_order']; ?>">Delivered</a></td>
-                <td><a href="order_on_way.php?delete=<?php echo $s['id_of_order']; ?>">Delete</a></td>
+                <td><a href="finished_requests.php?delete=<?php echo $s['id_of_order']; ?>">Delete</a></td>
             </tr>
             <?php } ?>
         </tbody>
