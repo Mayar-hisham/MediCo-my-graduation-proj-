@@ -1,0 +1,114 @@
+.card_doctor {
+    min-width: 84%;
+    height: 580px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #ededed97;
+}
+
+.image {
+    flex: 1;
+    margin-right: 100px;
+}
+
+.image img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-left: -30px;
+}
+
+.details {
+    flex: 2;
+    text-align: left;
+}
+
+.details h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: blue;
+    margin: 0 0 20px 0;
+    font-weight: bolder;
+}
+
+.details p {
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin: 0 0 15px 0;
+    color: rgb(16, 86, 251);
+}
+
+.details ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.details ul li {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#upload-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: -80px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+#upload-btn:hover {
+    background-color: #3e8e41;
+}
+
+span {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+.uls {
+    margin-top: -180px;
+    margin-left: 300px;
+}
+
+#save {
+    background-color: #4CAF50;
+    /* Set background color */
+    border: none;
+    /* Remove border */
+    color: white;
+    /* Set text color */
+    padding: 10px 20px;
+    /* Add padding */
+    text-align: center;
+    /* Center text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    /* Make button inline-block */
+    font-size: 20px;
+    /* Set font size */
+    margin-top: 500px;
+    margin-bottom: 0px;
+    margin-left: 100px;
+    margin-right: 0px;
+    /* Add margin */
+    cursor: pointer;
+    /* Change cursor on hover */
+    border-radius: 25px;
+    /* Add rounded corners */
+}
