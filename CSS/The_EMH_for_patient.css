@@ -1,0 +1,58 @@
+form {
+    border: 0px solid #f1f1f1;
+    width: 82%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #efefef9c;
+    border-radius: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: rgb(1, 18, 106);
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4c87af;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #688f9c;
+}
+
+.choose {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.choose1 {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.choose2 {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+}
