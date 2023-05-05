@@ -7,3 +7,30 @@ p {
     margin-bottom: 20px;
     margin-left: 30px;
 }
+
+button {
+    background-color: #328f0d;
+    /* Set background color */
+    border: none;
+    /* Remove border */
+    color: white;
+    /* Set text color */
+    padding: 10px 20px;
+    /* Add padding */
+    text-align: center;
+    /* Center text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    /* Make button inline-block */
+    font-size: 20px;
+    /* Set font size */
+    margin-left: 1300px;
+    margin-right: -900px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    /* Change cursor on hover */
+    border-radius: 25px;
+    /* Add rounded corners */
+}

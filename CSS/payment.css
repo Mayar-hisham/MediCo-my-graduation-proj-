@@ -1,0 +1,24 @@
+.container_payment {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: -500px;
+    margin-bottom: 200px;
+}
+
+
+h1 {
+    font-size: 27px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+h1.confirmation {
+    color: blue;
+    font-size: 27px;
+    font-weight: bold;
+    margin-top: 250px;
+    margin-bottom: -500px;
+    margin-left: 400px;
+    margin-right: -500px;
+}
