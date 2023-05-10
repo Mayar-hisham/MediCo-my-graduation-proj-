@@ -1,5 +1,5 @@
 <?php
-include 'shared/conn.php';
+include "../shared/conn.php";
 
 if(isset($_POST['signup'])){
 
@@ -42,9 +42,9 @@ if(isset($_POST['signup'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/patient_registration_form.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/patient_registration_form.css">
     <title>Medico</title>
 
 </head>
@@ -52,10 +52,10 @@ if(isset($_POST['signup'])){
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
         </ul>

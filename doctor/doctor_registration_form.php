@@ -1,50 +1,49 @@
 <?php 
-include "shared/conn.php";
+include "./shared/conn.php";
 
-if (isset($_SESSION['admin'])) {
+if(isset($_POST['submit'])){
 
-    if(isset($_POST['submit'])){
-
-        $firstname = $_POST['fname'];
-        $lastname = $_POST['lname'];
-        $age = $_POST['date'];
-    
-    
-        $pp = $_FILES['pp']['name'];
-        $ptype = $_FILES['pp']['type'];
-        $ptmp = $_FILES['pp']['tmp_name'];
-       $plocation = "upload/";
-      move_uploaded_file($ptmp , $plocation . $pp);
-    
-    
-        $yoe = $_POST['yoe'];
-        $address = $_POST['address'];
-        $phone = $_POST['phone'];
-    
-    
-        $ds = $_FILES['ds']['name'];
-        $ltype = $_FILES['ds']['type'];
-        $ltmp = $_FILES['ds']['tmp_name'];
-       $llocation = "upload/";
-      move_uploaded_file($ltmp , $llocation . $ds);
-        
-        
-        $email = $_POST['email'];
-        $specialization = $_POST['spc']; 
-        $password = $_POST['password'];
-    
-    
-        $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
-         '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
-          '$ds' , '$email' , '$specialization' , $password)";
-        $i = mysqli_query($connect , $ins);
-     if($i){
-            echo"Registered Successfully";
-        }
-    }
+    $firstname = $_POST['fname'];
+    $lastname = $_POST['lname'];
+    $age = $_POST['date'];
 
 
+    $pp = $_FILES['pp']['name'];
+    $ptype = $_FILES['pp']['type'];
+    $ptmp = $_FILES['pp']['tmp_name'];
+   $plocation = "upload/";
+  move_uploaded_file($ptmp , $plocation . $pp);
 
+
+    $yoe = $_POST['yoe'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+
+
+    $ds = $_FILES['ds']['name'];
+    $ltype = $_FILES['ds']['type'];
+    $ltmp = $_FILES['ds']['tmp_name'];
+   $llocation = "upload/";
+  move_uploaded_file($ltmp , $llocation . $ds);
+    
+    
+    $email = $_POST['email'];
+    $specialization = $_POST['spc']; 
+    $password = $_POST['password'];
+
+
+    $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
+     '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
+      '$ds' , '$email' , '$specialization' , $password)";
+    $i = mysqli_query($connect , $ins);
+  /*  if($i){
+        echo"ok";
+    }else{
+        echo "no".mysqli_error($connect);
+    } */
+    
+    header("location: /MediCoNew/login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +53,9 @@ if (isset($_SESSION['admin'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/doctor_registration_form.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/doctor_registration_form.css">
     <title>Medico</title>
 
 </head>
@@ -64,11 +63,12 @@ if (isset($_SESSION['admin'])) {
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Help and Support</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -108,7 +108,6 @@ if (isset($_SESSION['admin'])) {
         </form>
     </div>
 
-    <?php } ?>
     <script src="JS/script.js"></script>
 </body>
 

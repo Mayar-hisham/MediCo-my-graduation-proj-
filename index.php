@@ -104,8 +104,8 @@
             <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="login.php">Login</a></li>
-            <li><a href="Register.html">Sign up</a></li>
+            <li><a href="./shared/login.php">Login</a></li>
+            <li><a href="./shared/Register.html">Sign up</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
         </ul>

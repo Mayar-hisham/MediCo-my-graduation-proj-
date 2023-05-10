@@ -1,7 +1,7 @@
 <?php
-include "shared/conn.php";
+include "../shared/conn.php";
 
-if (isset($_SESSION['doctor'])) {
+if (isset($_SESSION["patient"])){
 
 ?>
 
@@ -14,9 +14,9 @@ if (isset($_SESSION['doctor'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 
-    <link rel="stylesheet" href="CSS/The Electronic Medical History.css">
+    <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
 
     <title>Medico</title>
   </head>
@@ -24,7 +24,7 @@ if (isset($_SESSION['doctor'])) {
   <body>
     <nav>
       <div class="logo">
-        <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+        <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
       </div>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
@@ -49,11 +49,10 @@ if (isset($_SESSION['doctor'])) {
 
       <?php
 
-      if (isset($_SESSION["patient_profile_access"])) {
 
         $sql = "SELECT * FROM `patient`
  JOIN `medical_profile` ON 
-  patient.id = medical_profile.patient_id
+  patient.pid = medical_profile.patient_id
  JOIN `personal_hostory` ON 
   medical_profile.id = personal_hostory.medical_profile_id 
  JOIN `past_history` ON
@@ -68,16 +67,23 @@ if (isset($_SESSION['doctor'])) {
  medical_profile.id = doctor_diagnosis.medical_profile_id  
  JOIN `doctors` ON
  doctor_diagnosis.doctor_id = doctor_diagnosis.doctor_id
- WHERE patient.id = '" . $_SESSION['id'] . "' and medical_profile.id = '" . $_SESSION['mpfid'] . "' ";
+ WHERE medical_profile.patient_id = '" . $_SESSION['pid'] . "'  ";
         $result = mysqli_query($connect, $sql);
 
+        $numberOfRows = mysqli_num_rows($result);
+
+				$r = mysqli_fetch_assoc($result);
+
+                if(!$r){
+                    echo"reason".mysqli_error($connect);
+                }
 
 
-        if ($result) {
-          foreach ($result as $r) {
+
+
       ?>
             <h2>Name : <?php echo $r['first_name']; ?></h2>
-            <h2>Age : <?php echo $r['age']; ?></h2>
+            <h2>Age : <?php echo $r['date_of_birth']; ?></h2>
             <h2>Blood Type : <?php echo $r['blood_type']; ?></h2>
             <div class="search-bar">
               <input type="text" placeholder="Search">
@@ -115,6 +121,7 @@ if (isset($_SESSION['doctor'])) {
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
                 <br>
+               <?php ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['prsdate_of_edit']; ?></span> <br> <br>
                 Height: <span style="margin-left: 20px;"><?php echo $r['height']; ?></span> <br> <br>
                 Weight: <span style="margin-left: 20px;"><?php echo $r['weight']; ?></span> <br> <br>
@@ -141,6 +148,7 @@ if (isset($_SESSION['doctor'])) {
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
                 <br>
+                <?php  ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['fdate_of_edit']; ?></span> <br> <br>
                 Blood Relatives Diseases and connection <br> <br>
                 <?php echo $r['relative1']; ?> <span style="margin-left: 20px;"><?php echo $r['disease1']; ?></span> <br> <br>
@@ -160,6 +168,7 @@ if (isset($_SESSION['doctor'])) {
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
                 <br>
+                <?php ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['pdate_of_edit']; ?></span> <br> <br>
                 past illness: <span style="margin-left: 20px;"><?php echo $r['past_illness']; ?></span> <br> <br>
                 past medicine: <span style="margin-left: 20px;"><?php echo $r['past_medicine']; ?></span>
@@ -189,11 +198,12 @@ if (isset($_SESSION['doctor'])) {
                     <th>Rehabilitation</th>
                   </tr>
                   <tr>
+                  
                     <td><?php echo $r['sdate_of_edit']; ?></td>
                     <td><?php echo $r['surgery_type']; ?></td>
                     <td><?php echo $r['surgeon']; ?></td>
                     <td><?php echo $r['medication_prescribed']; ?></td>
-                    <td><?php echo $r['rehabilitation']; ?> </td>
+                    <td><?php echo $r['rehabilitation'];?> </td>
                   </tr>
                 </table>
               </div>
@@ -210,6 +220,7 @@ if (isset($_SESSION['doctor'])) {
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
                 <br>
+                <?php  ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['cdate_of_edit']; ?></span> <br> <br>
                 Files: <span style="margin-left: 20px;"><?php echo $r['files']; ?></span> <br> <br>
 
@@ -229,10 +240,11 @@ if (isset($_SESSION['doctor'])) {
                 <div class="container">
                   <div class="column">
                     <div class="card">
+                    <?php  ?>
                       <div class="card-header"><?php echo $r['specialization']; ?></div>
                       <p><?php echo $r['date']; ?></p>
                       <p><?php echo $r['diagnosis']; ?></p>
-                      <p><?php echo $r['dr_fname'] . $r['dr_lname'];  ?> </p>
+                      <p><?php echo $r['dr_fname'] . $r['dr_lname']; ?> </p>
                     </div>
 
                   </div>
@@ -247,12 +259,11 @@ if (isset($_SESSION['doctor'])) {
 
 
 <?php
-          }
-        }
-      }
+         
+ }
 ?>
 
-<?php } ?>
+
 <script src="JS/script.js"></script>
   </body>
 

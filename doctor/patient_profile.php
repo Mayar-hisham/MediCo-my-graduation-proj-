@@ -1,5 +1,5 @@
 <?php
-include "shared/conn.php";
+include "../shared/conn.php";
 
 if (isset($_SESSION['doctor'])) {  ?>
 
@@ -12,16 +12,16 @@ if (isset($_SESSION['doctor'])) {  ?>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="CSS/footer.css">
-		<link rel="stylesheet" href="CSS/style.css">
-		<link rel="stylesheet" href="CSS/patient_profile.css">
+		<link rel="stylesheet" href="../CSS/footer.css">
+		<link rel="stylesheet" href="../CSS/style.css">
+		<link rel="stylesheet" href="../CSS/patient_profile.css">
 		<title>Medico</title>
 	</head>
 
 	<body>
 		<nav>
 			<div class="logo">
-				<a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+				<a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
 			</div>
 			<ul class="nav-links">
 				<li><a href="doctor_home.php">Home</a></li>
@@ -53,7 +53,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 
 				$sql = "SELECT * FROM `patient`
  JOIN `medical_profile` ON 
-  patient.id = medical_profile.patient_id
+  patient.pid = medical_profile.patient_id
  JOIN `personal_hostory` ON 
   medical_profile.id = personal_hostory.medical_profile_id 
  JOIN `past_history` ON
@@ -68,25 +68,26 @@ if (isset($_SESSION['doctor'])) {  ?>
  medical_profile.id = doctor_diagnosis.medical_profile_id  
  JOIN `doctors` ON
  doctor_diagnosis.doctor_id = doctor_diagnosis.doctor_id
-  WHERE patient.id = $id and medical_profile.id = $mid";
+  WHERE patient.pid = $id and medical_profile.id = $mid";
 				$result = mysqli_query($connect, $sql);
 
 				$numberOfRows = mysqli_num_rows($result);
 
-				$row = mysqli_fetch_assoc($result);
+				$r = mysqli_fetch_assoc($result);
 				if ($numberOfRows > 0) {
 					$_SESSION["patient_profile_access"] = $id && $mid;
-					$_SESSION['mpfid'] = $row['medical_profile_id'];
-					$_SESSION['id'] = $row['patient_id'];
+					$_SESSION['mpfid'] = $r['medical_profile_id'];
+					$_SESSION['id'] = $r['patient_id'];
+					$_SESSION['dob'] = $r['pdate_of_birth'];
 				}
 
 
-				if ($result) {
-					foreach ($result as $r) {
+				//if ($result) {
+					//foreach ($result as $r) {
 			?>
 
 						<h2>Name : <?php echo $r['first_name']; ?></h2>
-						<h2>Age : <?php echo $r['age']; ?></h2>
+						<h2>Age : <?php echo $_SESSION['dob']; ?></h2>
 						<h2>Blood Group : <?php echo $r['blood_type']; ?></h2>
 						<div class="search-bar">
 							<input type="text" placeholder="Search">
@@ -122,16 +123,16 @@ if (isset($_SESSION['doctor'])) {  ?>
 				</div>
 			</div>
 
-		<?php }
-					foreach ($result as $d) { ?>
+		<?php 
+					//foreach ($result as $d) { ?>
 
 			<br> <br> <br> <br> <br> <br>
 			<div class="card-container">
 				<div class="card">
-					<h2>By DR.<?php echo $d['dfirst_name']; ?></h2>
-					<p class="date"><?php echo $d['date']; ?></p>
-					<h3><?php echo $d['specialization']; ?></h3>
-					<p> <?php echo $d['diagnosis']; ?></p>
+					<h2>By DR.<?php echo $r['dfirst_name']; ?></h2>
+					<p class="date"><?php echo $r['date']; ?></p>
+					<h3><?php echo $r['specialization']; ?></h3>
+					<p> <?php echo $r['diagnosis']; ?></p>
 				</div>
 			</div>
 
@@ -142,8 +143,8 @@ if (isset($_SESSION['doctor'])) {  ?>
 
 <?php }
 				}
-			}
-		} ?>
+		//	}
+		 ?>
 <script src="JS/script.js"></script>
 	</body>
 

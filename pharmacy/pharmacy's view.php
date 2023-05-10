@@ -1,5 +1,5 @@
 <?php 
-include "shared/conn.php";
+include "../shared/conn.php";
 
 if (isset($_SESSION['pharmacy'])) {
 
@@ -14,8 +14,8 @@ if (isset($_SESSION['pharmacy'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="CSS/footer.css">
-  <link rel="stylesheet" href="CSS/pharmacy's view.css">
+  <link rel="stylesheet" href="../CSS/footer.css">
+  <link rel="stylesheet" href="../CSS/pharmacy's view.css">
   <title>Pharmacy's View</title>
 
 </head>
@@ -23,7 +23,7 @@ if (isset($_SESSION['pharmacy'])) {
 <body>
   <nav>
     <div class="logo">
-      <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+      <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
       <li><a href="home.html">Home</a></li>

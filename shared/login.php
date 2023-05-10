@@ -1,25 +1,40 @@
 <?php
-include "shared/conn.php";
+include "conn.php";
 
 if (isset($_POST['login'])) {
   $email = $_POST["email"];
   $password = $_POST["password"];
 
-  $select = "SELECT * FROM `patient` WHERE email = '$email' and password = '$password'";
+  $sql = "SELECT * FROM `patient`
+  WHERE patient.email = '$email' and patient.password = '$password'";
 
-  $selectQuery = mysqli_query($connect, $select);
+  $selectQuery = mysqli_query($connect, $sql);
 
-  $numberOfRows = mysqli_num_rows($selectQuery);
+   $numberOfRows = mysqli_num_rows($selectQuery);
 
   $row = mysqli_fetch_assoc($selectQuery);
   if ($numberOfRows > 0) {
     $_SESSION["patient"] = $email;
     $_SESSION['first_name'] = $row['first_name'].$row['last_name'];
-    $_SESSION['pid'] = $row['id'];
-    // echo  $_SESSION['name'] ;
-    //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-    header("location: /MediCoNew/patient.php");
-  } else {
+    $_SESSION['pid'] = $row['pid'];
+
+    $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
+    $_SESSION['date_of_birth'] = $row['date_of_birth'];
+   $_SESSION['blood_type'] = $row ['blood_type'];
+    //$_SESSION['current_illness'] = $row['current_illness'];
+    $_SESSION['phone'] = $row['phone'];
+    $_SESSION['address'] = $row['address'];
+    $_SESSION['occupation'] = $row['occupation'];
+    $_SESSION['marital_status'] = $row['marital_status'];
+    $_SESSION['emergency_contact'] = $row['emergency_contact']; 
+
+    header("location: /MediCoNew/patient_profile_for_patient.php");
+
+
+
+  }
+  
+  else  {
 
     if (isset($_POST['login'])) {
       $email = $_POST["email"];
@@ -99,7 +114,7 @@ if (isset($_POST['login'])) {
         }}
     }
   }
-}}}
+}}} 
 
 ?>
 
@@ -110,19 +125,19 @@ if (isset($_POST['login'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="CSS/style.css">
-  <link rel="stylesheet" href="CSS/footer.css">
-  <link rel="stylesheet" href="CSS/loginstyle.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/footer.css">
+  <link rel="stylesheet" href="../CSS/loginstyle.css">
   <title>Medico</title>
 </head>
 
 <body>
   <nav>
     <div class="logo">
-      <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+      <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="index.php">Home</a></li>
+      <li><a href="../index.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
     </ul>

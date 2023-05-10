@@ -1,5 +1,5 @@
 <?php 
-include "shared/conn.php";
+include "../shared/conn.php";
 
 if (isset($_SESSION['admin'])) {
 
@@ -13,17 +13,17 @@ if (isset($_SESSION['admin'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/The Electronic Medical History.css">
-    <link rel="stylesheet" href="CSS/pharmacy's view.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
+    <link rel="stylesheet" href="../CSS/pharmacy's view.css">
+    <link rel="stylesheet" href="../CSS/style.css">
     <title>Medico</title>
 </head>
 
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>

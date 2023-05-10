@@ -1,3 +1,44 @@
+<?php 
+include "../shared/conn.php";
+
+if (isset($_SESSION["patient"])) {
+
+    $select = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "'";
+    $selectQuery = mysqli_query($connect, $select);
+
+    $numberOfRows = mysqli_num_rows($selectQuery);
+ 
+   $row = mysqli_fetch_assoc($selectQuery);
+   if ($numberOfRows > 0) {
+     $_SESSION['patient_medical_profile_id'] = $row['id'];
+     $_SESSION['access'] = $row['id'].$row['patient_id'];
+
+   }
+$date = date('Y-m-d');
+
+if(isset($_POST['persh'])){
+$height = $_POST['height'];
+$weight = $_POST['weight'];
+$caff = $_POST['caff'];
+$smoke = $_POST['smoke'];
+$medicine = $_POST['medicine'];
+$chrds = $_POST['chrds'];
+$alc = $_POST['alc'];
+$cd = $_POST['cd'];
+$cpd = $_POST['cpd'];
+$allergies = $_POST['allergies'];
+
+$insert = "INSERT INTO `personal_hostory` VALUES (NULL , '".$_SESSION['patient_medical_profile_id']."' , 
+$height , $weight , '$caff' , '$smoke' , '$medicine' , '$chrds' , '$alc' , '$cd' , '$cpd' , '$allergies' ,
+'".$_SESSION['first_name']."' , '$date' )";
+$ins = mysqli_query($connect , $insert);
+
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +51,10 @@
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/The_EMH_for_patient.css">
-    <link rel="stylesheet" href="CSS/The Electronic Medical History.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/The_EMH_for_patient.css">
+    <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
 
     <title>Medico</title>
 </head>
@@ -21,7 +62,7 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
@@ -42,9 +83,9 @@
             <span></span>
             <span></span>
         </div>
-        <h2>Name</h2>
-        <h2>Age</h2>
-        <h2>Blood Group</h2>
+        <h2>Name: <?php echo $_SESSION['first_name'];  ?></h2>
+        <h2>Date of birth:  <?php echo $_SESSION['date_of_birth'];  ?></h2>
+        <h2>Blood Group: <?php echo $_SESSION['blood_type'];  ?></h2>
         <div class="search-bar">
             <input type="text" placeholder="Search">
         </div>
@@ -59,6 +100,9 @@
             <a href="#">Insurance Details</a>
             <a href="#">Edits of EMH</a>
         </div>
+
+
+
         <div class="content">
             <h1 style="color: blue; text-align: left;">The Electronic Medical History</h1>
             <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -72,49 +116,54 @@
                     <div id="personal-history" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <form class="personal-history">
-                                <label for="height">Enter your height:</label>
+                            <form method="post" class="personal-history">
+                                
+                            <label for="height">Enter your height:</label>
                                 <input type="number" id="height" name="height" min="0"
                                     placeholder="Enter your height...">
-                                <label for="weight">Enter your weight:</label>
+                                
+                                    <label for="weight">Enter your weight:</label>
                                 <input type="number" id="weight" name="weight" min="0"
                                     placeholder="Enter your weight...">
-                                <label for="choose">Do you Drink Caffeine?</label>
+                                
+                                    <label for="choose">Do you Drink Caffeine?</label>
                                 <label class="choose" for="option1">Yes</label>
-                                <input type="radio" id="option1" name="options" value="Yes">
+                                <input type="radio" id="option1" name="caff" value="Yes">
                                 <label class="choose" for="option2">No</label>
-                                <input type="radio" id="option2" name="options" value="No">
+                                <input type="radio" id="option2" name="caff" value="No">
+                                
                                 <label for="choose1">Do you smoke?</label>
                                 <label class="choose1" for="option1">Yes</label>
-                                <input type="radio" id="option1" name="options1" value="Yes">
+                                <input type="radio" id="option1" name="smoke" value="Yes">
                                 <label class="choose1" for="option2">No</label>
-                                <input type="radio" id="option2" name="options1" value="No">
+                                <input type="radio" id="option2" name="smoke" value="No">
+                                
                                 <label for="medicine">Enter your current medicine:</label>
                                 <input type="text" id="medicine" name="medicine"
                                     placeholder="Enter your current medicine...">
-                                <label for="chronic disease">Enter your chronic disease:</label>
-                                <input type="text" id="chronic disease" name="chronic disease"
+                                
+                                    <label for="chronic disease">Enter your chronic disease:</label>
+                                <input type="text" id="chronic disease" name="chrds"
                                     placeholder="Enter your chronic disease...">
+
                                 <label for="choose2">Do you drink alcohol?</label>
                                 <label class="choose2" for="option1">Yes</label>
-                                <input type="radio" id="option1" name="options2">
+                                <input type="radio" value="yes" id="option1" name="alc">
                                 <label class="choose2" for="option2">No</label>
-                                <input type="radio" id="option2" name="options2">
+                                <input type="radio" value="no" id="option2" name="alc">
+
                                 <label for="cigarettes per day">Enter How many cigarettes per day:</label>
-                                <input type="number" id="cigarettes per day" name="cigarettes per day" min="0">
+                                <input type="number" id="cigarettes per day" name="cd" min="0">
                                 <label for="pack of cigarettes per day">Enter How many pack of cigarettes per
                                     day:</label>
-                                <input type="number" id="pack of cigarettes per day" name="pack of cigarettes per day"
+                                <input type="number" id="pack of cigarettes per day" name="cpd"
                                     min="0">
                                 <label for="Allergies">Enter your Allergies:</label>
-                                <input type="text" id="Allergies" name="Allergies"
+                                <input type="text" id="Allergies" name="allergies"
                                     placeholder="Enter your Allergies...">
-                                <label for="name">Enter name of author:</label>
-                                <input type="text" id="name" name="name" placeholder="Enter name of author...">
-                                <label for="date">Enter date of submit:</label>
-                                <input type="date" id="date" name="date" placeholder="Enter date of submit...">
+
                                 <br>
-                                <button type="submit" id="save-button">Save</button>
+                                <button name="persh" type="submit" id="save-button">Save</button>
                             </form>
                         </div>
                     </div>
@@ -147,9 +196,9 @@
                                 <input type="text" id="Additional Infomation" name="Additional Infomation"
                                     placeholder="Enter Additional Infomation...">
                                 <label for="name">Enter name of author:</label>
-                                <input type="text" id="name" name="name" placeholder="Enter name of author...">
+                                <input type="text" id="name" disabled value="<?php echo $_SESSION['first_name']; ?>" name="name" placeholder="Enter name of author...">
                                 <label for="date">Enter date of submit:</label>
-                                <input type="date" id="date" name="date" placeholder="Enter date of submit...">
+                                <input type="date" id="date" disabled value="<?php echo $date ?>" name="date" placeholder="Enter date of submit...">
                                 <br>
                                 <button type="submit" id="save-button">Save</button>
                             </form>
@@ -295,7 +344,9 @@
 
         </div>
     </div>
-    <script src="JS/script.js"></script>
+
+    <?php }?>
+  <!--  <script src="JS/script.js"></script>-->
 </body>
 
 </html>

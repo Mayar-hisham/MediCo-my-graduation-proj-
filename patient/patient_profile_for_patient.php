@@ -1,18 +1,10 @@
 <?php 
-include "shared/conn.php";
+include "./shared/conn.php";
 
 if (isset($_SESSION["patient"])) {
 
-    $select = "SELECT * FROM `patient` 
-                    JOIN `medical_profile`  ON patient.id = medical_profile.patient_id
-                    JOIN `past_history` ON medical_profile.id = past_history.medical_profile_id
-                    WHERE patient.id = '" . $_SESSION['pid'] . "'"; 
-                    $result = mysqli_query($connect , $select);
-                    
-       
 
-                    
-                  //  if($result){ echo $_SESSION['first_name']; } else{echo"no".mysqli_error($connect);}
+$select = "";
 
     ?>
 
@@ -28,10 +20,10 @@ if (isset($_SESSION["patient"])) {
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/The Electronic Medical History.css">
-    <link rel="stylesheet" href="CSS/patient_profile_for_patient.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
+    <link rel="stylesheet" href="../CSS/patient_profile_for_patient.css">
 
     <title>Medico</title>
 </head>
@@ -39,7 +31,7 @@ if (isset($_SESSION["patient"])) {
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
@@ -65,44 +57,40 @@ if (isset($_SESSION["patient"])) {
             <a href="#">Doctors</a>
             <a href="#">Orders</a>
             <a href="#">Payment</a>
+            <a href="EMH_view_patient.php">EMH</a>
             <a href="#">Insurance Details</a>
             <a href="#">Edits of EMH</a>
+            
         </div>
         <div class="conent">
             <div class="card_patient">
                 <div class="image">
-                    <!---<img src="Images/patient-profile.jpg" alt="Patient's photo">--->
+                    <img src="Images/patient-profile.jpg" alt="Patient's photo">
                 </div>
                
                 <div class="details">
+               
 
                     <h2 style="text-align: center; margin-top: 10px; margin-bottom:80px; 
                     margin-right: 300px;"><?php echo $_SESSION['first_name']; ?></h2>
-
                     <p>Name: <?php echo $_SESSION['first_name']; ?></p>
-                    <?php 
-                    
-                    foreach($result as $s){
-                    ?>
-                    <p>Profile ID: <?php echo $s['id']; ?></p>
-                    <p>Medical ID: <?php echo $s['medical_profile_id']; ?> </p>
-                    <p>Date of birth: <?php echo $s['date_of_birth']; ?></p>
-                    <p>Current illness: <?php echo $s['current_illness']; ?></p>
-                    <p>Phone no: <?php echo $s['phone']; ?></p>
-                    <p>Address: <?php echo $s['address']; ?></p>
-                    <p>Occuption: <?php echo $s['occupation']; ?></p>
-                    <p>Marital status: <?php echo $s['marital_status']; ?></p>
-                    <p>Emergency contacts: <?php echo $s['emergency_contact']; ?> </p>
-                    <?php }?>
+                    <p>Profile ID: <?php echo $_SESSION['pid']; ?></p>
+                    <p>Date of birth: <?php echo $_SESSION['date_of_birth']; ?></p>
+                    <p>Phone no: <?php echo $_SESSION['phone']; ?></p>
+                    <p>Address: <?php echo $_SESSION['address']; ?></p>
+                    <p>Occuption: <?php echo $_SESSION['occupation']; ?></p>
+                    <p>Marital status: <?php echo $_SESSION['marital_status']; ?></p>
+                    <p>Emergency contacts: <?php echo $_SESSION['emergency_contact']; ?> </p>
+                    <?php ?>
                    
                 </div>
-                <?php } ?>
+                <?php }  ?>
             </div>
         </div>
     </div>
 
     <?php  ?>
-    <script src="JS/script.js"></script>
+ <!--   <script src="JS/script.js"></script> -->
 </body>
 
 </html>
