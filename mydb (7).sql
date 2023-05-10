@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2023 at 11:00 PM
+-- Generation Time: May 10, 2023 at 08:54 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `medico`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `admin_id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`admin_id`, `email`, `password`) VALUES
+(1, 'admin@gmail.com', 123);
 
 -- --------------------------------------------------------
 
@@ -53,7 +72,7 @@ CREATE TABLE `doctors` (
   `id` int(11) NOT NULL,
   `dfirst_name` varchar(255) NOT NULL,
   `dlast_name` varchar(255) NOT NULL,
-  `age` int(11) NOT NULL,
+  `date_of_birth` date NOT NULL,
   `profession_practice` mediumtext NOT NULL,
   `years_of_exp` int(11) NOT NULL,
   `daddress` varchar(255) NOT NULL,
@@ -68,8 +87,16 @@ CREATE TABLE `doctors` (
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`id`, `dfirst_name`, `dlast_name`, `age`, `profession_practice`, `years_of_exp`, `daddress`, `phone`, `doctor_syndicate`, `email`, `specialization`, `password`) VALUES
-(2, 'mayar', 'oweys', 22, 'ok', 0, '6th of october city', 0, 'ok', 'doctor@gmail.com', 'ok', 123);
+INSERT INTO `doctors` (`id`, `dfirst_name`, `dlast_name`, `date_of_birth`, `profession_practice`, `years_of_exp`, `daddress`, `phone`, `doctor_syndicate`, `email`, `specialization`, `password`) VALUES
+(2, 'mayar', 'oweys', '0000-00-00', 'ok', 0, '6th of october city', 0, 'ok', 'doctor@gmail.com', 'ok', 123),
+(3, 'mayoura', 'oweys', '0000-00-00', '21', 22, '6th of october city', 1012144796, '21', 'mayar@gmail.com', 'health', 123),
+(4, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123),
+(5, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123),
+(6, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123),
+(7, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 123),
+(8, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 123),
+(9, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 258),
+(10, 'mostafa', 'hashim', '2023-06-09', '1.jpeg', 23, 'new cairo', 101254786, '2.jpeg', 'dr@gmail.com', 'good', 258);
 
 -- --------------------------------------------------------
 
@@ -194,7 +221,9 @@ CREATE TABLE `medical_profile` (
 
 INSERT INTO `medical_profile` (`id`, `patient_id`) VALUES
 (1, 3),
-(2, 4);
+(2, 4),
+(3, 5),
+(4, 7);
 
 -- --------------------------------------------------------
 
@@ -269,7 +298,7 @@ INSERT INTO `past_history` (`id`, `medical_profile_id`, `past_illness`, `past_me
 --
 
 CREATE TABLE `patient` (
-  `id` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
@@ -278,7 +307,7 @@ CREATE TABLE `patient` (
   `email` varchar(255) NOT NULL,
   `allergies` varchar(255) NOT NULL,
   `blood_type` varchar(255) NOT NULL,
-  `age` int(11) NOT NULL,
+  `pdate_of_birth` date NOT NULL,
   `phone` int(11) NOT NULL,
   `emergency_contact` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
@@ -289,10 +318,12 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`id`, `first_name`, `last_name`, `gender`, `occupation`, `marital_status`, `email`, `allergies`, `blood_type`, `age`, `phone`, `emergency_contact`, `address`, `password`) VALUES
-(2, 'mayar', 'oweys', 'female', '', 'single', 'patient@gmail.com', 'nothing', 'O', 21, 1012144796, 0, '6th of october city', 123),
-(3, 'mayar', 'hisham', 'female', '', 'single', 'mayaroweys2000@gmail.com', 'no', 'a', 22, 1012144796, 0, 'october', 258),
-(4, 'mayar', '', '', '', '', '', '', 'b', 34, 0, 0, '', 0);
+INSERT INTO `patient` (`pid`, `first_name`, `last_name`, `gender`, `occupation`, `marital_status`, `email`, `allergies`, `blood_type`, `pdate_of_birth`, `phone`, `emergency_contact`, `address`, `password`) VALUES
+(2, 'mayar', 'oweys', 'female', '', 'single', 'patient@gmail.com', 'nothing', 'O', '0000-00-00', 1012144796, 0, '6th of october city', 123),
+(3, 'mayar', 'hisham', 'female', '', 'single', 'mayaroweys2000@gmail.com', 'no', 'a', '0000-00-00', 1012144796, 0, 'october', 258),
+(4, 'mayar', '', '', '', '', '', '', 'b', '0000-00-00', 0, 0, '', 0),
+(5, 'mariam', 'mahmoud', '', 'doctor', 'Single', 'mariam@gmail.com', '', 'A+', '2023-05-24', 1012144796, 1349463697, '3rd settlement, new cairo', 123),
+(7, 'soha', 'moahmed', 'female', 'student', 'married', 'soha@gmail.com', 'gluten', 'A+', '2023-05-31', 101214516, 136254784, 'Rehab', 123);
 
 -- --------------------------------------------------------
 
@@ -323,7 +354,8 @@ CREATE TABLE `personal_hostory` (
 
 INSERT INTO `personal_hostory` (`id`, `medical_profile_id`, `height`, `weight`, `caffaien`, `smoking`, `current_medicine`, `suffers`, `alcohol`, `cigarettes_quantity`, `cigarettes_packes_quantity`, `allergies`, `prseditor`, `prsdate_of_edit`) VALUES
 (1, 1, 160, 55, 'no', 'no', 'nothing', 'nothing', 'no', 0, 0, 'gluten - some carbs', 'doctor', '2023-04-23'),
-(2, 2, 120, 255, '', '', '', '', '', 0, 0, '', '', '0000-00-00');
+(2, 2, 120, 255, '', '', '', '', '', 0, 0, '', '', '0000-00-00'),
+(5, 4, 160, 60, 'Yes', 'No', 'nothing', 'nothing', 'no', 0, 0, 'gluten', 'sohamoahmed', '2023-05-10');
 
 -- --------------------------------------------------------
 
@@ -376,6 +408,12 @@ INSERT INTO `surgical_history` (`id`, `medical_profile_id`, `date_of_procedure`,
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `clinical_history`
@@ -446,7 +484,7 @@ ALTER TABLE `past_history`
 -- Indexes for table `patient`
 --
 ALTER TABLE `patient`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`pid`);
 
 --
 -- Indexes for table `personal_hostory`
@@ -473,6 +511,12 @@ ALTER TABLE `surgical_history`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `clinical_history`
 --
 ALTER TABLE `clinical_history`
@@ -482,7 +526,7 @@ ALTER TABLE `clinical_history`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `doctor_diagnosis`
@@ -512,7 +556,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `medical_profile`
 --
 ALTER TABLE `medical_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -530,13 +574,13 @@ ALTER TABLE `past_history`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_hostory`
 --
 ALTER TABLE `personal_hostory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pharmacy`
@@ -583,13 +627,13 @@ ALTER TABLE `finished_orders`
 -- Constraints for table `images`
 --
 ALTER TABLE `images`
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`pid`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `medical_profile`
 --
 ALTER TABLE `medical_profile`
-  ADD CONSTRAINT `medical_profile_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `medical_profile_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`pid`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `orders`
@@ -597,7 +641,7 @@ ALTER TABLE `medical_profile`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `orders_ibfk_4` FOREIGN KEY (`ord_id`) REFERENCES `images` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_5` FOREIGN KEY (`opatient_id`) REFERENCES `patient` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `orders_ibfk_5` FOREIGN KEY (`opatient_id`) REFERENCES `patient` (`pid`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `past_history`
