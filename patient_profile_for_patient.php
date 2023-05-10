@@ -1,3 +1,21 @@
+<?php 
+include "shared/conn.php";
+
+if (isset($_SESSION["patient"])) {
+
+    $select = "SELECT * FROM `patient` 
+                    JOIN `medical_profile`  ON patient.id = medical_profile.patient_id
+                    JOIN `past_history` ON medical_profile.id = past_history.medical_profile_id
+                    WHERE patient.id = '" . $_SESSION['pid'] . "'"; 
+                    $result = mysqli_query($connect , $select);
+                    
+       
+
+                    
+                  //  if($result){ echo $_SESSION['first_name']; } else{echo"no".mysqli_error($connect);}
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,25 +71,37 @@
         <div class="conent">
             <div class="card_patient">
                 <div class="image">
-                    <img src="Images/patient-profile.jpg" alt="Patient's photo">
+                    <!---<img src="Images/patient-profile.jpg" alt="Patient's photo">--->
                 </div>
+               
                 <div class="details">
-                    <h2 style="text-align: center; margin-top: 10px; margin-bottom:80px; margin-right: 300px;">Chris
-                        Evans</h2>
-                    <p>Name:</p>
-                    <p>Profile ID:</p>
-                    <p>Medical ID:</p>
-                    <p>Date of birth:</p>
-                    <p>Current illness:</p>
-                    <p>Phone no:</p>
-                    <p>Address:</p>
-                    <p>Occuption:</p>
-                    <p>Marital status:</p>
-                    <p>Emergency contacts:</p>
+
+                    <h2 style="text-align: center; margin-top: 10px; margin-bottom:80px; 
+                    margin-right: 300px;"><?php echo $_SESSION['first_name']; ?></h2>
+
+                    <p>Name: <?php echo $_SESSION['first_name']; ?></p>
+                    <?php 
+                    
+                    foreach($result as $s){
+                    ?>
+                    <p>Profile ID: <?php echo $s['id']; ?></p>
+                    <p>Medical ID: <?php echo $s['medical_profile_id']; ?> </p>
+                    <p>Date of birth: <?php echo $s['date_of_birth']; ?></p>
+                    <p>Current illness: <?php echo $s['current_illness']; ?></p>
+                    <p>Phone no: <?php echo $s['phone']; ?></p>
+                    <p>Address: <?php echo $s['address']; ?></p>
+                    <p>Occuption: <?php echo $s['occupation']; ?></p>
+                    <p>Marital status: <?php echo $s['marital_status']; ?></p>
+                    <p>Emergency contacts: <?php echo $s['emergency_contact']; ?> </p>
+                    <?php }?>
+                   
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>
+
+    <?php  ?>
     <script src="JS/script.js"></script>
 </body>
 

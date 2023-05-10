@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
   $row = mysqli_fetch_assoc($selectQuery);
   if ($numberOfRows > 0) {
     $_SESSION["patient"] = $email;
-    $_SESSION['first_name'] = $row['first_name'];
+    $_SESSION['first_name'] = $row['first_name'].$row['last_name'];
     $_SESSION['pid'] = $row['id'];
     // echo  $_SESSION['name'] ;
     //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
@@ -64,6 +64,28 @@ if (isset($_POST['login'])) {
             header("location: /MediCoNew/pharmacy's view.php");
 
 
+      } else{
+
+        if (isset($_POST['login'])) {
+          $email = $_POST["email"];
+          $password = $_POST["password"];
+          $select = "SELECT * FROM `admins` WHERE email = '$email' and password = '$password'";
+    
+          $selectQuery = mysqli_query($connect, $select);
+    
+          $numberOfRows = mysqli_num_rows($selectQuery);
+    
+          $row = mysqli_fetch_assoc($selectQuery);
+          if ($numberOfRows > 0) {
+            $_SESSION['admin'] = $email;
+            $_SESSION['admin_id'] = $row['id'];
+    
+            // echo $_SESSION['admin'];
+    
+            //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
+            header("location: /MediCoNew/admin_home.php");
+
+
       }
       
       
@@ -77,7 +99,7 @@ if (isset($_POST['login'])) {
         }}
     }
   }
-}
+}}}
 
 ?>
 

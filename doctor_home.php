@@ -1,3 +1,9 @@
+<?php 
+include "shared/conn.php";
+
+if (isset($_SESSION['doctor'])) {
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +40,7 @@
   <!--first section-->
 
 
-  <h1 class="h1_text">Wellcome DR.Atef</h1>
+  <h1 class="h1_text">Wellcome DR.<?php echo $_SESSION['dfirst_name']; ?></h1>
   <div class="container_img">
     <div class="image">
       <a href="patient_otp.php"><img src="Images/1901374.png"></a>
@@ -50,6 +56,8 @@
       <a href="order_medicine.php">order medicine</a>
     </div>
   </div>
+
+  <?php } ?>
   <script src="JS/script.js"></script>
 </body>
 

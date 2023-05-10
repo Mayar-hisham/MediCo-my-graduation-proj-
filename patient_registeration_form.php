@@ -1,3 +1,40 @@
+<?php
+include 'shared/conn.php';
+
+if(isset($_POST['signup'])){
+
+    $firstname = $_POST['fname'];
+    $lastname = $_POST['lname'];
+    $gender = $_POST['gender'];
+    $occupation = $_POST['occupation'];
+    $maritalstatus = $_POST['maritalstatus'];
+    $email = $_POST['email'];
+    $allergies = $_POST['allergies'];
+    $bloodtype = $_POST['bloodtype'];
+    $age = $_POST['date']; 
+    $phone = $_POST['phone'];
+    $em_cont = $_POST['em_cont'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+
+
+    $ins= "INSERT INTO `patient` VALUES( Null , '$firstname',
+     '$lastname' , '$gender' , '$occupation' , '$maritalstatus' , '$email' ,
+      '$allergies' , '$bloodtype' , '$age' , $phone , $em_cont , '$address' , $password)";
+    $i = mysqli_query($connect , $ins);
+
+    if($i){
+    echo "done";   
+    }else{
+        echo"no".mysqli_error($connect);
+    }
+
+
+
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,17 +69,19 @@
     <div class="conent">
         <form method="post">
             <label for="name">First Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter name...">
+            <input type="text" id="name" name="fname" placeholder="Enter name...">
             <label for="name">Last Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter name...">
+            <input type="text" id="name" name="lname" placeholder="Enter name...">
             <label for="Gender">Gender:</label>
-            <select id="Gender" name="Gender">
+            <select id="Gender" name="gender">
                 <option value="" hidden>Select your Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
+            <label for="Phone">occupation:</label>
+            <input type="text" id="Phone" name="occupation" placeholder="Enter occupation...">
             <label for="Marital Status">Marital Status:</label>
-            <select id="Marital Status" name="Marital Status">
+            <select id="Marital Status" name="maritalstatus">
                 <option value="" hidden>Select your Marital Status</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
@@ -51,9 +90,11 @@
                 <option value="Other">Other</option>
             </select>
             <label for="Email">Email:</label>
-            <input type="email" id="Email" name="Email" placeholder="Enter Email...">
+            <input type="email" id="Email" name="email" placeholder="Enter Email...">
+            <label for="Email">Allergies:</label>
+            <input type="email" id="Email" name="allergies" placeholder="Enter allergies...">
             <label for="Blood Type">Blood Type:</label>
-            <select id="Blood Type" name="Blood Type">
+            <select id="Blood Type" name="bloodtype">
                 <option value="" hidden>Select your Blood Type</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
@@ -65,15 +106,17 @@
                 <option value="O-">O-</option>
             </select>
             <label for="Date of birth">Date of birth:</label>
-            <input type="number" id="Date of birth" name="Date of birth" placeholder="Enter Date of birth..." min="0">
+            <input type="date" id="Date of birth" name="date" placeholder="Enter Date of birth..." min="0">
             <label for="Phone">Phone:</label>
-            <input type="tel" id="Phone" name="Phone" placeholder="Enter Phone...">
+            <input type="tel" id="Phone" name="phone" placeholder="Enter Phone...">
+            <label for="Phone">Emergency contact:</label>
+            <input type="tel" id="Phone" name="em_cont" placeholder="Enter Phone...">
             <label for="Address">Address:</label>
-            <input type="text" id="Address" name="Address" placeholder="Enter Address...">
+            <input type="text" id="Address" name="address" placeholder="Enter Address...">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter password...">
             <br> <br>
-            <button type="submit" id="save-button">Save</button>
+            <button name="signup" type="submit" id="save-button">Save</button>
         </form>
     </div>
 
