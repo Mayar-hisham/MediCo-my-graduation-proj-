@@ -1,3 +1,22 @@
+
+<?php
+include "../shared/conn.php";
+
+
+    $qry="SELECT * FROM `doctors` ";
+$rslt=mysqli_query($connect,$qry); 
+
+
+if(isset($_GET['view'])){
+    $id = $_GET['view'];
+
+    $view="SELECT * FROM `doctors` where id=$id";
+    $e = mysqli_query($connect , $view);
+        $row = mysqli_fetch_assoc($e);
+}
+
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,33 +49,36 @@
     </nav>
     <h1 class="h1_text" id="Requests">Doctor Profile</h1>
     <div class="conent">
+    <?php while ($row=mysqli_fetch_array($rslt)) {?>
+
         <div class="card_doctor">
             <div class="image">
                 <img src="../Images/pexels-thirdman-5327656.jpg" alt="Doctor's photo">
             </div>
             <div class="details">
-                <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">Dr. John
-                    Smith
+                <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">NAME: 
+                <?php   echo $row['dfirst_name']    .  $row['dlast_name']   ?>
                 </h2>
-                <p>Specialist in: <br> <span>Cardiology</span> </p>
-                <p>Experience: <br> <span>15 years</span> </p>
+                <p>specialization: <br> <span><?php   echo $row['specialization']  ?></span> </p>
+                <p>Experience: <br> <span><?php   echo $row['years_of_exp']  ?></span> </p>
                 <div class="uls">
                     <p>Clinic branches:</p>
 
                     <ul>
-                        <li>ABC Clinic - 123 Main St.</li>
-                        <li>XYZ Clinic - 456 Oak St.</li>
+                        <li><?php   echo $row['clinic_branches']  ?></li>
+                        
                     </ul>
                     <p>Contact:</p>
                     <ul>
-                        <li>Phone: 555-1234</li>
-                        <li>Email: john.smith@doctors.com</li>
+                        <li>Phone:<?php   echo $row['phone']  ?></li>
+                        <li>Email: <?php   echo $row['email']  ?></li>
                     </ul>
                 </div>
                 <button id="upload-btn">Upload photo</button>
             </div>
             <button id="save" type="submit" name="save">Save</button>
         </div>
+        <?php } ?>
     </div>
     </div>
     <script src="../JS/script.js"></script>
