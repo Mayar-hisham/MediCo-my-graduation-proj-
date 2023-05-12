@@ -5,8 +5,17 @@ include "../shared/conn.php";
     $qry="SELECT * FROM `doctors` ";
 $rslt=mysqli_query($connect,$qry);
 
-	?>
+if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
 
+
+
+
+$delete = "DELETE FROM `doctors` WHERE id = $id";
+    $del = mysqli_query($connect , $delete);
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,16 +50,16 @@ $rslt=mysqli_query($connect,$qry);
         <div class="card-container">
              <?php while ($row=mysqli_fetch_array($rslt)) {?>
             <div class="card_doctors">
-                <img src="../Images/pexels-thirdman-5327656.jpg" alt="Person 1">
+             <img  src="../Images/pexels-thirdman-5327656.jpg" alt="Person 1">
                 
                 <div class="card-text">
              
                 <h3>Name:  <?php   echo $row['dfirst_name']    .  $row['dlast_name']   ?></h3></td>
                  <p>specialization: <?php   echo $row['specialization']  ?></p>
                  
-                    <button class="delete">Delete</button>
+                 <a href="view_doctors_for_admin.php?delete=<?php echo $row['id'];?> "><button class="delete">Delete</button></a>
                     <a href="edit_doctor_profile_from_admin.html"> <button class="edit">Edit</button></a>
-                    <button class="block">Block</button>
+                    <a href="edit_doctor_profile_from_admin.php?view=<?php echo $row['id'];?> "><button class="block">VIEW</button></a> 
                     
 
 

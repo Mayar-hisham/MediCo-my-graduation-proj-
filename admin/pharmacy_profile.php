@@ -1,3 +1,15 @@
+
+<?php
+include "../shared/conn.php";
+
+if(isset($_GET['view'])){
+    $id = $_GET['view'];
+
+    $view="SELECT * FROM `pharmacy` where id=$id";
+    $e = mysqli_query($connect , $view);
+        $row = mysqli_fetch_assoc($e);
+}
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +18,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="CSS/footer.css">
-    <link rel="stylesheet" href="CSS/The Electronic Medical History.css">
-    <link rel="stylesheet" href="CSS/pharmacy_profile.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
+    <link rel="stylesheet" href="../CSS/pharmacy_profile.css">
+    <link rel="stylesheet" href="../CSS/style.css">
     <title>Medico</title>
 </head>
 
