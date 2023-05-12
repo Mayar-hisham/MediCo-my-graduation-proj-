@@ -53,9 +53,9 @@ if (isset($_SESSION["patient"])){
         $sql = "SELECT * FROM `patient`
  JOIN `medical_profile` ON 
   patient.pid = medical_profile.patient_id
- JOIN `personal_hostory` ON 
+  JOIN `personal_hostory` ON 
   medical_profile.id = personal_hostory.medical_profile_id 
- JOIN `past_history` ON
+  JOIN `past_history` ON
  medical_profile.id = past_history.medical_profile_id
  JOIN `family_history` ON
  medical_profile.id = family_history.medical_profile_id
@@ -63,19 +63,21 @@ if (isset($_SESSION["patient"])){
  medical_profile.id = clinical_history.medical_profile_id 
  JOIN `surgical_history` ON
  medical_profile.id = surgical_history.medical_profile_id 
- JOIN `doctor_diagnosis` ON
- medical_profile.id = doctor_diagnosis.medical_profile_id  
- JOIN `doctors` ON
- doctor_diagnosis.doctor_id = doctor_diagnosis.doctor_id
- WHERE medical_profile.patient_id = '" . $_SESSION['pid'] . "'  ";
+ /*JOIN `doctor_diagnosis` ON
+ medical_profile.id = doctor_diagnosis.medical_profile_id */
+
+ WHERE patient.pid = '" . $_SESSION['pid'] . "' 
+ and medical_profile.id = '" . $_SESSION['patient_medical_profile_id'] . "' ";
         $result = mysqli_query($connect, $sql);
 
         $numberOfRows = mysqli_num_rows($result);
 
 				$r = mysqli_fetch_assoc($result);
 
-                if(!$r){
-                    echo"reason".mysqli_error($connect);
+                if($r){
+                    echo "ok";
+                }else{
+                  echo"reason".mysqli_error($connect);
                 }
 
 
@@ -83,7 +85,7 @@ if (isset($_SESSION["patient"])){
 
       ?>
             <h2>Name : <?php echo $r['first_name']; ?></h2>
-            <h2>Age : <?php echo $r['date_of_birth']; ?></h2>
+            <h2>Age : <?php echo $r['pdate_of_birth']; ?></h2>
             <h2>Blood Type : <?php echo $r['blood_type']; ?></h2>
             <div class="search-bar">
               <input type="text" placeholder="Search">

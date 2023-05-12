@@ -35,10 +35,11 @@ $rslt=mysqli_query($connect,$qry);
  
     <h1 class="h1_text" id="Requests">Doctors</h1>
     </div>
-    <?php while ($row=mysqli_fetch_array($rslt)) {?>
+   
     <div class="content">
         
         <div class="card-container">
+             <?php while ($row=mysqli_fetch_array($rslt)) {?>
             <div class="card_doctors">
                 <img src="../Images/pexels-thirdman-5327656.jpg" alt="Person 1">
                 
@@ -57,11 +58,12 @@ $rslt=mysqli_query($connect,$qry);
                 </div>
                 
             </div>
-            
-    </div>
-    <?php
+                <?php
 }
 ?>
+            
+    </div>
+
 
 </div>
 

@@ -92,7 +92,7 @@ if(isset($_POST['signup'])){
             <label for="Email">Email:</label>
             <input type="email" id="Email" name="email" placeholder="Enter Email...">
             <label for="Email">Allergies:</label>
-            <input type="email" id="Email" name="allergies" placeholder="Enter allergies...">
+            <input type="text" id="Email" name="allergies" placeholder="Enter allergies...">
             <label for="Blood Type">Blood Type:</label>
             <select id="Blood Type" name="bloodtype">
                 <option value="" hidden>Select your Blood Type</option>

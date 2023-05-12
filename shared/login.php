@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
     $_SESSION['marital_status'] = $row['marital_status'];
     $_SESSION['emergency_contact'] = $row['emergency_contact']; 
 
-    header("location: /MediCoNew/patient_profile_for_patient.php");
+    header("location: /MediCoNew/patient/patient_profile_for_patient.php");
 
 
 
