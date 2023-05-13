@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+include "../shared/conn.php";
 
 if (isset($_POST['login'])) {
   $email = $_POST["email"];
@@ -98,7 +98,7 @@ if (isset($_POST['login'])) {
             // echo $_SESSION['admin'];
     
             //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-            header("location: /MediCoNew/admin_home.php");
+            header("location: /MediCoNew-3/admin_home.php");
 
 
       }

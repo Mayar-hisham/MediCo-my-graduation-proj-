@@ -42,21 +42,21 @@ if (isset($_SESSION['admin'])) {
     <h1 class="h1_text">Wellcome Admin</h1>
     <div class="container_img">
         <div class="image">
-            <a href="admin_view_doctors.php"><img src="Images/10.png"></a>
+            <a href="admin_view_doctors.html"><img src="../Images/10.png"></a>
             <a href="admin_view_doctors.php">Doctors</a>
         </div>
         <div class="image">
-            <a href="admin_view_pharmacies.php"><img src="Images/pharmacy logo.png"></a>
+            <a href="admin_view_pharmacies.php"><img src="../Images/pharmacy logo.png"></a>
             <a href="admin_view_pharmacies.php">Pharmacies</a>
         </div>
         <div class="image">
-            <a href="admin_view_patients.php"><img src="Images/9.jpg"></a>
+            <a href="admin_view_patients.php"><img src="../Images/9.jpg"></a>
             <a href="admin_view_patients.php">Patients</a>
         </div>
     </div>
 
     <?php } ?>
-    <script src="JS/script.js"></script>
+    <script src="../JS/script.js"></script>
 </body>
 
 </html>
