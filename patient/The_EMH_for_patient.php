@@ -9,11 +9,7 @@ if (isset($_SESSION["patient"])) {
     $numberOfRows = mysqli_num_rows($selectQuery);
  
    $row = mysqli_fetch_assoc($selectQuery);
-   if ($numberOfRows > 0) {
-     $_SESSION['patient_medical_profile_id'] = $row['id'];
-     $_SESSION['access'] = $row['id'].$row['patient_id'];
 
-   }
 $date = date('Y-m-d');
 
 if(isset($_POST['persh'])){
@@ -34,6 +30,88 @@ $height , $weight , '$caff' , '$smoke' , '$medicine' , '$chrds' , '$alc' , '$cd'
 $ins = mysqli_query($connect , $insert);
 
 }
+
+
+if(isset($_POST['family'])){
+    $br = $_POST['br'];
+    $disease = $_POST['disease'];
+    $br2 = $_POST['br2'];
+    $disease2 = $_POST['disease2'];
+    $addinfo = $_POST['addinfo'];
+
+    $insert = "INSERT INTO `family_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
+    '$br' , '$disease' , '$br2' , '$disease2' , '$addinfo' , '".$_SESSION['pid']."' , '$date')";
+    $ins = mysqli_query($connect , $insert);
+
+
+}
+
+if(isset($_POST['past'])){
+    $pastillness = $_POST['pastillness'];
+    $pastmedicine = $_POST['pastmedicine'];
+    $pastallergies = $_POST['pastallergies'];
+    $pasthabits = $_POST['pasthabits'];
+
+    $insert = "INSERT INTO `past_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
+    '$pastillness' , '$pastmedicine' , '$pastallergies' , '$pasthabits' , '".$_SESSION['pid']."' , '$date')";
+    $ins = mysqli_query($connect , $insert);
+}
+
+if(isset($_POST['surgical'])){
+  
+    $dp1 = $_POST['dp1'];
+    $st1 = $_POST['st1'];
+     $surgeon1 = $_POST['surgeon1'];
+    $mp1 = $_POST['mp1'];
+    $rbt = $_POST['rbt'];
+
+    $dp2 = $_POST['dp2'];
+    $st2 = $_POST['st2'];
+    $surgeon2 = $_POST['surgeon2'];
+    $mp2 = $_POST['mp2'];
+    $rbt2 = $_POST['rbt2'];
+
+     $dp3 = $_POST['dp3'];
+    $st3 = $_POST['st3'];
+    $surgeon3 = $_POST['surgeon3'];
+     $mp3 = $_POST['mp3'];
+    $rbt3 = $_POST['rbt3'];
+
+    $dp4 = $_POST['dp4'];
+    $st4 = $_POST['st4'];
+    $surgeon4 = $_POST['surgeon4'];
+    $mp4 = $_POST['mp4'];
+    $rbt4 = $_POST['rbt4'];
+
+
+
+
+    $insert = "INSERT INTO `surgical_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
+    '$dp1', '$st1' , '$surgeon1' , '$mp1' , '$rbt' , 
+    '$dp2', '$st2' , '$surgeon2' , '$mp2' , '$rbt2' 
+    ,'$dp3', '$st3' , '$surgeon3' , '$mp3' , '$rbt3'
+    ,'$dp4', '$st4' , '$surgeon4' , '$mp4' , '$rbt4'
+    , '".$_SESSION['pid']."' , '$date')";
+    $ins = mysqli_query($connect , $insert);
+}
+
+
+if(isset($_POST['clinical'])){
+
+    $name = $_FILES['upload']['name'];
+    $ltype = $_FILES['upload']['type'];
+    $ltmp = $_FILES['upload']['tmp_name'];
+   $llocation = "../upload/";
+  move_uploaded_file($ltmp , $llocation . $name);
+
+    $insert = "INSERT INTO `clinical_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
+       '$name'  , '".$_SESSION['pid']."' , '$date')";
+    $ins = mysqli_query($connect , $insert);
+}
+
+
+
+
 
 
 ?>
@@ -110,6 +188,10 @@ $ins = mysqli_query($connect , $insert);
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#personal-history" aria-expanded="false" aria-controls="personal-history">
+                            
+                            
+                            
+                            
                             <h1 style="font-size: 25px;"> Personal History</h1>
                         </button>
                     </h2>
@@ -169,6 +251,12 @@ $ins = mysqli_query($connect , $insert);
                     </div>
                 </div>
 
+
+
+
+
+
+
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -179,33 +267,41 @@ $ins = mysqli_query($connect , $insert);
                     <div id="family-history" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <form class="family-history">
-                                <label for="Blood Relatives">Blood Relatives 1</label>
-                                <input type="text" id="Blood Relatives" name="Blood Relatives"
+                            <form class="family-history" method="POST">
+                                
+                            <label for="Blood Relatives">Blood Relatives 1</label>
+                                <input type="text" id="Blood Relatives" name="br"
                                     placeholder="Enter your Blood Relatives...">
-                                <label for="Diseases">Enter your Blood Relatives diseases 1</label>
-                                <input type="text" id="Diseases" name="Diseases"
+                                
+                                    <label for="Diseases">Enter your Blood Relatives diseases 1</label>
+                                <input type="text" id="Diseases" name="disease"
                                     placeholder="Enter your Blood Relatives diseases...">
-                                <label for="Blood Relatives">Blood Relatives 2</label>
-                                <input type="text" id="Blood Relatives" name="Blood Relatives"
+                              
+                                    <label for="Blood Relatives">Blood Relatives 2</label>
+                                <input type="text" id="Blood Relatives" name="br2"
                                     placeholder="Enter your Blood Relatives...">
-                                <label for="Diseases">Enter your Blood Relatives diseases 2</label>
-                                <input type="text" id="Diseases" name="Diseases"
+                                
+                                    <label for="Diseases">Enter your Blood Relatives diseases 2</label>
+                                <input type="text" id="Diseases" name="disease2"
                                     placeholder="Enter your Blood Relatives diseases...">
-                                <label for="Additional Infomation:">Additional Infomation:</label>
-                                <input type="text" id="Additional Infomation" name="Additional Infomation"
+                                
+                                    <label for="Additional Infomation:">Additional Infomation:</label>
+                                <input type="text" id="Additional Infomation" name="addinfo"
                                     placeholder="Enter Additional Infomation...">
-                                <label for="name">Enter name of author:</label>
-                                <input type="text" id="name" disabled value="<?php echo $_SESSION['first_name']; ?>" name="name" placeholder="Enter name of author...">
-                                <label for="date">Enter date of submit:</label>
-                                <input type="date" id="date" disabled value="<?php echo $date ?>" name="date" placeholder="Enter date of submit...">
+                                
+                                    
                                 <br>
-                                <button type="submit" id="save-button">Save</button>
+                                <button name="family" type="submit" id="save-button">Save</button>
                             </form>
                         </div>
                     </div>
                 </div>
 
+                
+                
+                
+                
+                
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -215,29 +311,35 @@ $ins = mysqli_query($connect , $insert);
                     </h2>
                     <div id="past-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <form class="past-history">
-                                <label for="past illness">past illness:</label>
-                                <input type="text" id="past illness" name="past illness"
+                            <form class="past-history" method="POST">
+                                
+                            <label for="past illness">past illness:</label>
+                                <input type="text" id="past illness" name="pastillness"
                                     placeholder="Enter your past illness...">
-                                <label for="past medicine">Enter your past medicine:</label>
-                                <input type="text" id="past medicine" name="past medicine"
+                                
+                                    <label for="past medicine">Enter your past medicine:</label>
+                                <input type="text" id="past medicine" name="pastmedicine"
                                     placeholder="Enter your past medicine...">
-                                <label for="past allergies">past allergies:</label>
-                                <input type="text" id="past allergies" name="past allergies"
+                                
+                                    <label for="past allergies">past allergies:</label>
+                                <input type="text" id="past allergies" name="pastallergies"
                                     placeholder="Enter your past allergies...">
-                                <label for="past habits">Enter your past habits:</label>
-                                <input type="text" id="past habits" name="past habits"
+                               
+                                    <label for="past habits">Enter your past habits:</label>
+                                <input type="text" id="past habits" name="pasthabits"
                                     placeholder="Enter your past habits...">
-                                <label for="name">Enter name of author:</label>
-                                <input type="text" id="name" name="name" placeholder="Enter name of author...">
-                                <label for="date">Enter date of submit:</label>
-                                <input type="date" id="date" name="date" placeholder="Enter date of submit...">
+                                
                                 <br>
-                                <button type="submit" id="save-button">Save</button>
+                                <button name="past" type="submit" id="save-button">Save</button>
                             </form>
                         </div>
                     </div>
                 </div>
+
+
+
+
+
 
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -249,73 +351,96 @@ $ins = mysqli_query($connect , $insert);
                     <div id="surgical-history1" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <form class="surgical-history">
-                                <label for="Date of procedure">Date of procedure 1</label>
-                                <input type="text" id="Date of procedure" name="Date of procedure"
+                            <form class="surgical-history" method="POST">
+                             
+                            <label for="Date of procedure">Date of procedure 1</label>
+                                <input type="date" id="Date of procedure" name="dp1"
                                     placeholder="Enter your Date of procedure...">
-                                <label for="surgery type">surgery type 1</label>
-                                <input type="text" id="surgery type" name="surgery type"
+                            
+                                    <label for="surgery type">surgery type 1</label>
+                                <input type="text" id="surgery type" name="st1"
                                     placeholder="Enter your surgery type...">
-                                <label for="Surgeon">Surgeon 1</label>
-                                <input type="text" id="Surgeon" name="Surgeon" placeholder="Enter your Surgeon...">
+                            
+                                    <label for="Surgeon">Surgeon 1</label>
+                                <input type="text" id="Surgeon" name="surgeon1" placeholder="Enter your Surgeon...">
                                 <label for="Medication prescribed">Medication prescribed 1</label>
-                                <input type="text" id="Medication prescribed" name="Medication prescribed"
+                             
+                                <input type="text" id="Medication prescribed" name="mp1"
                                     placeholder="Enter your Medication prescribed...">
-                                <label for="Rehabilitation">Rehabilitation 1</label>
-                                <input type="text" id="Rehabilitation" name="Rehabilitation"
+                             
+                                    <label for="Rehabilitation">Rehabilitation 1</label>
+                                <input type="text" id="Rehabilitation" name="rbt"
                                     placeholder="Enter your Rehabilitation...">
-                                <label for="Date of procedure">Date of procedure 2</label>
-                                <input type="text" id="Date of procedure" name="Date of procedure"
+
+
+                             
+                                    <label for="Date of procedure">Date of procedure 2</label>
+                                <input type="date" id="Date of procedure" name="dp2"
                                     placeholder="Enter your Date of procedure...">
-                                <label for="surgery type">surgery type 2</label>
-                                <input type="text" id="surgery type" name="surgery type"
+                            
+                                    <label for="surgery type">surgery type 2</label>
+                                <input type="text" id="surgery type" name="st2"
                                     placeholder="Enter your surgery type...">
-                                <label for="Surgeon">Surgeon 2</label>
-                                <input type="text" id="Surgeon" name="Surgeon" placeholder="Enter your Surgeon...">
+                            
+                                    <label for="Surgeon">Surgeon 2</label>
+                                <input type="text" id="Surgeon" name="surgeon2" placeholder="Enter your Surgeon...">
+                                
                                 <label for="Medication prescribed">Medication prescribed 2</label>
-                                <input type="text" id="Medication prescribed" name="Medication prescribed"
+                                <input type="text" id="Medication prescribed" name="mp2"
                                     placeholder="Enter your Medication prescribed...">
                                 <label for="Rehabilitation">Rehabilitation 2</label>
-                                <input type="text" id="Rehabilitation" name="Rehabilitation"
+
+
+                            
+                                <input type="text" id="Rehabilitation" name="rbt2"
                                     placeholder="Enter your Rehabilitation...">
                                 <label for="Date of procedure">Date of procedure 3</label>
-                                <input type="text" id="Date of procedure" name="Date of procedure"
+                             
+                                <input type="date" id="Date of procedure" name="dp3"
                                     placeholder="Enter your Date of procedure...">
                                 <label for="surgery type">surgery type 3</label>
-                                <input type="text" id="surgery type" name="surgery type"
+                           
+                                <input type="text" id="surgery type" name="st3"
                                     placeholder="Enter your surgery type...">
                                 <label for="Surgeon">Surgeon 3</label>
-                                <input type="text" id="Surgeon" name="Surgeon" placeholder="Enter your Surgeon...">
+                            
+                                <input type="text" id="Surgeon" name="surgeon3" placeholder="Enter your Surgeon...">
                                 <label for="Medication prescribed">Medication prescribed 3</label>
-                                <input type="text" id="Medication prescribed" name="Medication prescribed"
+                             
+                                <input type="text" id="Medication prescribed" name="mp3"
                                     placeholder="Enter your Medication prescribed...">
                                 <label for="Rehabilitation">Rehabilitation 3</label>
-                                <input type="text" id="Rehabilitation" name="Rehabilitation"
+                               
+                                <input type="text" id="Rehabilitation" name="rbt3"
                                     placeholder="Enter your Rehabilitation...">
                                 <label for="Date of procedure">Date of procedure 4</label>
-                                <input type="text" id="Date of procedure" name="Date of procedure"
+                             
+                                <input type="date" id="Date of procedure" name="dp4"
                                     placeholder="Enter your Date of procedure...">
                                 <label for="surgery type">surgery type 4</label>
-                                <input type="text" id="surgery type" name="surgery type"
+                             
+                                <input type="text" id="surgery type" name="st4"
                                     placeholder="Enter your surgery type...">
                                 <label for="Surgeon">Surgeon 4</label>
-                                <input type="text" id="Surgeon" name="Surgeon" placeholder="Enter your Surgeon...">
+                            
+                                <input type="text" id="Surgeon" name="surgeon4" placeholder="Enter your Surgeon...">
                                 <label for="Medication prescribed">Medication prescribed 4</label>
-                                <input type="text" id="Medication prescribed" name="Medication prescribed"
+                            
+                                <input type="text" id="Medication prescribed" name="mp4"
                                     placeholder="Enter your Medication prescribed...">
                                 <label for="Rehabilitation">Rehabilitation 4</label>
-                                <input type="text" id="Rehabilitation" name="Rehabilitation"
+                             
+                                <input type="text" id="Rehabilitation" name="rbt4"
                                     placeholder="Enter your Rehabilitation...">
-                                <label for="name">Enter name of author:</label>
-                                <input type="text" id="name" name="name" placeholder="Enter name of author...">
-                                <label for="date">Enter date of submit:</label>
-                                <input type="date" id="date" name="date" placeholder="Enter date of submit...">
+
                                 <br>
-                                <button type="submit" id="save-button">Save</button>
+                                <button name="surgical" type="submit" id="save-button">Save</button>
                             </form>
                         </div>
                     </div>
                 </div>
+
+
 
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -327,15 +452,14 @@ $ins = mysqli_query($connect , $insert);
                     <div id="surgical-history2" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <form class="clinical-history">
-                                <label for="Upload files">Upload files</label>
-                                <input type="file" id="Upload files" name="Upload files" placeholder="Upload files">
-                                <label for="name">Enter name of author:</label>
-                                <input type="text" id="name" name="name" placeholder="Enter name of author...">
-                                <label for="date">Enter date of submit:</label>
-                                <input type="date" id="date" name="date" placeholder="Enter date of submit...">
+                            <form class="clinical-history" method="POST" enctype="multipart/form-data">
+                                
+                            <label for="Upload files">Upload files</label>
+                                <input type="file" id="Upload files" name="upload" placeholder="Upload files">
+                                
+
                                 <br>
-                                <button type="submit" id="save-button">Save</button>
+                                <button name="clinical" type="submit" id="save-button">Save</button>
                             </form>
                         </div>
                     </div>
