@@ -14,7 +14,7 @@ if(isset($_GET['delete'])){
 
 
 
-$delete = "DELETE FROM `patient` WHERE id = $id";
+$delete = "DELETE FROM `patient` WHERE pid = $id";
     $del = mysqli_query($connect , $delete);
 
 }
@@ -60,21 +60,17 @@ $delete = "DELETE FROM `patient` WHERE id = $id";
                 <th>View patient profile</th>
                 <th>View patient medical profile</th>
                 <th>Delete patient profile</th>
-                <th>Approve EMH</th>
-                <th>Block patient profile</th>
             </tr>
         </thead>
         <?php while ($row=mysqli_fetch_array($rslt)) {?>
 
         <tbody>
             <tr>
-                <td><?php   echo $row['id']  ?></td>
+                <td><?php   echo $row['pid']  ?></td>
                 <td>  <?php   echo $row['first_name']    .  $row['last_name']   ?></td>
-                <td><a href="patient_profile_for_patient.php?view=<?php echo $row['id'];?> "> View</a></td>
-                <td><a href="#">Link B</a></td>
-                <td><a href="admin_view_patients.php?delete=<?php echo $row['id'];?> ">Delete</a></td>
-                <td><a href="#">Approve</a></td>
-                <td><a href="#">Block</a></td>
+                <td><a href="patient_profile_for_patient.php?view=<?php echo $row['pid'];?> "> View</a></td>
+                <td><a href="#">EMH</a></td>
+                <td><a href="admin_view_patients.php?delete=<?php echo $row['pid'];?> ">Delete</a></td>
             </tr>
         <?php
         }

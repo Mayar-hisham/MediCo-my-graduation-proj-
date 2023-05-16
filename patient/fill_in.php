@@ -24,7 +24,7 @@ please press Start to fill in your Electronic Medical History
 
 <form method="POST"action="The_EMH_for_patient.php">
 <input name="id" value="your id is <?php echo $_SESSION['pid']; ?>">
-<input name="mpid" value="your medical profile id is <?php echo $row['id'] ?>">
+<input name="mpid" value="your medical profile id is <?php echo $row['id']; ?>">
 
 <a ><button name="fill_in">start</button></a>
 </form>

@@ -3,8 +3,12 @@ include "../shared/conn.php";
 
 if (isset($_SESSION["patient"])) {
 
-    $select = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "'";
+    
+
+    $select = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "' ";
     $selectQuery = mysqli_query($connect, $select);
+
+    if($selectQuery){
 
     $numberOfRows = mysqli_num_rows($selectQuery);
  
@@ -112,6 +116,40 @@ if(isset($_POST['clinical'])){
 
 
 
+$sql = "SELECT * FROM `patient`
+JOIN `medical_profile` ON 
+ patient.pid = medical_profile.patient_id
+ JOIN `personal_hostory` ON 
+ medical_profile.id = personal_hostory.medical_profile_id 
+ JOIN `past_history` ON
+medical_profile.id = past_history.medical_profile_id
+JOIN `family_history` ON
+medical_profile.id = family_history.medical_profile_id
+JOIN `clinical_history` ON
+medical_profile.id = clinical_history.medical_profile_id 
+JOIN `surgical_history` ON
+medical_profile.id = surgical_history.medical_profile_id 
+
+/*JOIN `doctor_diagnosis` ON
+medical_profile.id = doctor_diagnosis.medical_profile_id */
+
+WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
+       $result = mysqli_query($connect, $sql);
+
+       $numberOfRows = mysqli_num_rows($result);
+
+               $r = mysqli_fetch_assoc($result);
+
+               if($r){
+                $alter = "UPDATE `patient` SET has_emh = 'yes' WHERE pid = '" . $_SESSION['pid'] . "' ";
+                $alt = mysqli_query($connect , $alter);
+
+                header("location: /MediCoNew/patient/patient_profile_for_patient.php"); 
+               }
+
+
+
+
 
 
 ?>
@@ -184,74 +222,87 @@ if(isset($_POST['clinical'])){
         <div class="content">
             <h1 style="color: blue; text-align: left;">The Electronic Medical History</h1>
             <div class="accordion accordion-flush" id="accordionFlushExample">
+
+
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#personal-history" aria-expanded="false" aria-controls="personal-history">
-                            
-                            
-                            
-                            
-                            <h1 style="font-size: 25px;"> Personal History</h1>
-                        </button>
-                    </h2>
-                    <div id="personal-history" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <form method="post" class="personal-history">
-                                
-                            <label for="height">Enter your height:</label>
-                                <input type="number" id="height" name="height" min="0"
-                                    placeholder="Enter your height...">
-                                
-                                    <label for="weight">Enter your weight:</label>
-                                <input type="number" id="weight" name="weight" min="0"
-                                    placeholder="Enter your weight...">
-                                
-                                    <label for="choose">Do you Drink Caffeine?</label>
-                                <label class="choose" for="option1">Yes</label>
-                                <input type="radio" id="option1" name="caff" value="Yes">
-                                <label class="choose" for="option2">No</label>
-                                <input type="radio" id="option2" name="caff" value="No">
-                                
-                                <label for="choose1">Do you smoke?</label>
-                                <label class="choose1" for="option1">Yes</label>
-                                <input type="radio" id="option1" name="smoke" value="Yes">
-                                <label class="choose1" for="option2">No</label>
-                                <input type="radio" id="option2" name="smoke" value="No">
-                                
-                                <label for="medicine">Enter your current medicine:</label>
-                                <input type="text" id="medicine" name="medicine"
-                                    placeholder="Enter your current medicine...">
-                                
-                                    <label for="chronic disease">Enter your chronic disease:</label>
-                                <input type="text" id="chronic disease" name="chrds"
-                                    placeholder="Enter your chronic disease...">
+                        data-bs-target="#personal-history" aria-expanded="false" aria-controls="personal-history">
+                        
+                        
 
-                                <label for="choose2">Do you drink alcohol?</label>
-                                <label class="choose2" for="option1">Yes</label>
-                                <input type="radio" value="yes" id="option1" name="alc">
-                                <label class="choose2" for="option2">No</label>
-                                <input type="radio" value="no" id="option2" name="alc">
+                        
+                        <h1 style="font-size: 25px;"> Personal History</h1>
+                    </button>
+                </h2>
+                <div id="personal-history" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
 
-                                <label for="cigarettes per day">Enter How many cigarettes per day:</label>
-                                <input type="number" id="cigarettes per day" name="cd" min="0">
-                                <label for="pack of cigarettes per day">Enter How many pack of cigarettes per
-                                    day:</label>
-                                <input type="number" id="pack of cigarettes per day" name="cpd"
-                                    min="0">
-                                <label for="Allergies">Enter your Allergies:</label>
-                                <input type="text" id="Allergies" name="allergies"
-                                    placeholder="Enter your Allergies...">
+                    <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
+                    ON patient.pid = medical_profile.patient_id JOIN `personal_hostory`
+                    ON medical_profile.id = personal_hostory.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    $s = mysqli_query($connect , $select);
+                    $num = mysqli_num_rows($s);
+                    $row = mysqli_fetch_assoc($s);
+                    if($row){
+                    echo "You already filled in your personal history, 
+                    please continue filling in the rest of data to be able to edit and view"; } else{ ?>
+                        <form method="post" class="personal-history">
+                            
+                        <label for="height">Enter your height:</label>
+                            <input type="number" id="height" name="height" min="0"
+                                placeholder="Enter your height...">
+                            
+                                <label for="weight">Enter your weight:</label>
+                            <input type="number" id="weight" name="weight" min="0"
+                                placeholder="Enter your weight...">
+                            
+                                <label for="choose">Do you Drink Caffeine?</label>
+                            <label class="choose" for="option1">Yes</label>
+                            <input type="radio" id="option1" name="caff" value="Yes">
+                            <label class="choose" for="option2">No</label>
+                            <input type="radio" id="option2" name="caff" value="No">
+                            
+                            <label for="choose1">Do you smoke?</label>
+                            <label class="choose1" for="option1">Yes</label>
+                            <input type="radio" id="option1" name="smoke" value="Yes">
+                            <label class="choose1" for="option2">No</label>
+                            <input type="radio" id="option2" name="smoke" value="No">
+                            
+                            <label for="medicine">Enter your current medicine:</label>
+                            <input type="text" id="medicine" name="medicine"
+                                placeholder="Enter your current medicine...">
+                            
+                                <label for="chronic disease">Enter your chronic disease:</label>
+                            <input type="text" id="chronic disease" name="chrds"
+                                placeholder="Enter your chronic disease...">
 
-                                <br>
-                                <button name="persh" type="submit" id="save-button">Save</button>
-                            </form>
-                        </div>
+                            <label for="choose2">Do you drink alcohol?</label>
+                            <label class="choose2" for="option1">Yes</label>
+                            <input type="radio" value="yes" id="option1" name="alc">
+                            <label class="choose2" for="option2">No</label>
+                            <input type="radio" value="no" id="option2" name="alc">
+
+                            <label for="cigarettes per day">Enter How many cigarettes per day:</label>
+                            <input type="number" id="cigarettes per day" name="cd" min="0">
+                            <label for="pack of cigarettes per day">Enter How many pack of cigarettes per
+                                day:</label>
+                            <input type="number" id="pack of cigarettes per day" name="cpd"
+                                min="0">
+                            <label for="Allergies">Enter your Allergies:</label>
+                            <input type="text" id="Allergies" name="allergies"
+                                placeholder="Enter your Allergies...">
+
+                            <br>
+                            <button name="persh" type="submit" id="save-button">Save</button>
+                        </form>
+                        <?php
+}  ?>
                     </div>
                 </div>
-
-
+                
+            </div> 
 
 
 
@@ -267,6 +318,18 @@ if(isset($_POST['clinical'])){
                     <div id="family-history" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
+
+
+                        <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
+                    ON patient.pid = medical_profile.patient_id JOIN `family_history`
+                    ON medical_profile.id = family_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    $s = mysqli_query($connect , $select);
+                    $num = mysqli_num_rows($s);
+                    $row = mysqli_fetch_assoc($s);
+                    if($row){
+                    echo "You already filled in your family history, 
+                    please continue filling in the rest of data to be able to edit and view"; } else{ ?>
+
                             <form class="family-history" method="POST">
                                 
                             <label for="Blood Relatives">Blood Relatives 1</label>
@@ -293,6 +356,7 @@ if(isset($_POST['clinical'])){
                                 <br>
                                 <button name="family" type="submit" id="save-button">Save</button>
                             </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -311,6 +375,18 @@ if(isset($_POST['clinical'])){
                     </h2>
                     <div id="past-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
+
+
+                        <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
+                    ON patient.pid = medical_profile.patient_id JOIN `past_history`
+                    ON medical_profile.id = past_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    $s = mysqli_query($connect , $select);
+                    $num = mysqli_num_rows($s);
+                    $row = mysqli_fetch_assoc($s);
+                    if($row){
+                    echo "You already filled in your past history, 
+                    please continue filling in the rest of data to be able to edit and view"; } else{ ?>
+
                             <form class="past-history" method="POST">
                                 
                             <label for="past illness">past illness:</label>
@@ -332,6 +408,7 @@ if(isset($_POST['clinical'])){
                                 <br>
                                 <button name="past" type="submit" id="save-button">Save</button>
                             </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -351,6 +428,17 @@ if(isset($_POST['clinical'])){
                     <div id="surgical-history1" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
+
+                        <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
+                    ON patient.pid = medical_profile.patient_id JOIN `surgical_history`
+                    ON medical_profile.id = surgical_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    $s = mysqli_query($connect , $select);
+                    $num = mysqli_num_rows($s);
+                    $row = mysqli_fetch_assoc($s);
+                    if($row){
+                    echo "You already filled in your surgical history, 
+                    please continue filling in the rest of data to be able to edit and view"; } else{ ?>
+
                             <form class="surgical-history" method="POST">
                              
                             <label for="Date of procedure">Date of procedure 1</label>
@@ -436,6 +524,7 @@ if(isset($_POST['clinical'])){
                                 <br>
                                 <button name="surgical" type="submit" id="save-button">Save</button>
                             </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -452,6 +541,18 @@ if(isset($_POST['clinical'])){
                     <div id="surgical-history2" class="accordion-collapse collapse"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
+
+
+                        <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
+                    ON patient.pid = medical_profile.patient_id JOIN `clinical_history`
+                    ON medical_profile.id = clinical_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    $s = mysqli_query($connect , $select);
+                    $num = mysqli_num_rows($s);
+                    $row = mysqli_fetch_assoc($s);
+                    if($row){
+                    echo "You already filled in your clinical history, 
+                    please continue filling in the rest of data to be able to edit and view"; } else{ ?>
+
                             <form class="clinical-history" method="POST" enctype="multipart/form-data">
                                 
                             <label for="Upload files">Upload files</label>
@@ -461,6 +562,7 @@ if(isset($_POST['clinical'])){
                                 <br>
                                 <button name="clinical" type="submit" id="save-button">Save</button>
                             </form>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -469,7 +571,13 @@ if(isset($_POST['clinical'])){
         </div>
     </div>
 
-    <?php }?>
+    <?php }
+/*
+else{
+ echo "you dont have it yet";
+} */
+
+}?>
   <!--  <script src="JS/script.js"></script>-->
 </body>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 12:47 AM
+-- Generation Time: May 16, 2023 at 04:21 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -61,7 +61,8 @@ CREATE TABLE `clinical_history` (
 INSERT INTO `clinical_history` (`id`, `medical_profile_id`, `files`, `editor`, `cdate_of_edit`) VALUES
 (1, 1, 'no', 'doctor', '2023-04-23'),
 (2, 2, 'empty', 'DR.mohamed', '2023-04-24'),
-(4, 5, 'DSS assignmentt.docx', '8', '2023-05-13');
+(4, 5, 'DSS assignmentt.docx', '8', '2023-05-13'),
+(5, 7, 'Documentation CH3.docx', '9', '2023-05-16');
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,6 @@ CREATE TABLE `doctors` (
 INSERT INTO `doctors` (`id`, `dfirst_name`, `dlast_name`, `date_of_birth`, `profession_practice`, `years_of_exp`, `daddress`, `phone`, `doctor_syndicate`, `email`, `specialization`, `password`) VALUES
 (2, 'mayar', 'oweys', '0000-00-00', 'ok', 0, '6th of october city', 0, 'ok', 'doctor@gmail.com', 'ok', 123),
 (3, 'mayoura', 'oweys', '0000-00-00', '21', 22, '6th of october city', 1012144796, '21', 'mayar@gmail.com', 'health', 123),
-(4, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123),
 (5, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123),
 (6, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123),
 (7, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 123),
@@ -156,7 +156,8 @@ CREATE TABLE `family_history` (
 INSERT INTO `family_history` (`id`, `medical_profile_id`, `relative1`, `disease1`, `relative2`, `disease2`, `add_info`, `editor`, `fdate_of_edit`) VALUES
 (1, 1, 'nothing', '', '', '', 'nothing', 'doctor', '2023-04-23'),
 (2, 2, 'Grandpa', 'Diabetes ', 'Grandma', 'Diabetes', 'Thanks', 'DR.Osama', '2023-04-24'),
-(3, 5, 'no', 'no', 'no', 'no', 'thnx', '8', '2023-05-12');
+(3, 5, 'no', 'no', 'no', 'no', 'thnx', '8', '2023-05-12'),
+(4, 7, 'aunt1', 'illness', '', '', '', '9', '2023-05-16');
 
 -- --------------------------------------------------------
 
@@ -224,10 +225,10 @@ CREATE TABLE `medical_profile` (
 INSERT INTO `medical_profile` (`id`, `patient_id`) VALUES
 (1, 3),
 (2, 4),
-(3, 5),
 (4, 7),
 (5, 8),
-(6, 8);
+(6, 8),
+(7, 9);
 
 -- --------------------------------------------------------
 
@@ -293,7 +294,8 @@ CREATE TABLE `past_history` (
 INSERT INTO `past_history` (`id`, `medical_profile_id`, `past_illness`, `past_medicine`, `past_allergies`, `past_habits`, `editor`, `pdate_of_edit`) VALUES
 (1, 1, 'nothing', 'nothing', 'nothing', 'nothing', 'doctor', '2023-04-23'),
 (2, 2, 'Nothing big', 'Ogmanten', 'Gluten', 'Smoking - Alcohol', 'DR.Osama', '2023-04-24'),
-(3, 5, 'nothing', 'nothingg', 'nothinggg', 'nothingggg', '8', '2023-05-12');
+(3, 5, 'nothing', 'nothingg', 'nothinggg', 'nothingggg', '8', '2023-05-12'),
+(4, 7, 'nothing', '', '', '', '9', '2023-05-16');
 
 -- --------------------------------------------------------
 
@@ -316,20 +318,21 @@ CREATE TABLE `patient` (
   `emergency_contact` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `password` int(11) NOT NULL,
-  `has_emh` varchar(255) NOT NULL
+  `has_emh` varchar(255) NOT NULL,
+  `paid` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`pid`, `first_name`, `last_name`, `gender`, `occupation`, `marital_status`, `email`, `allergies`, `blood_type`, `pdate_of_birth`, `phone`, `emergency_contact`, `address`, `password`, `has_emh`) VALUES
-(2, 'mayar', 'oweys', 'female', '', 'single', 'patient@gmail.com', 'nothing', 'O', '0000-00-00', 1012144796, 0, '6th of october city', 123, ''),
-(3, 'mayar', 'hisham', 'female', '', 'single', 'mayaroweys2000@gmail.com', 'no', 'a', '0000-00-00', 1012144796, 0, 'october', 258, ''),
-(4, 'mayar', '', '', '', '', '', '', 'b', '0000-00-00', 0, 0, '', 0, ''),
-(5, 'mariam', 'mahmoud', '', 'doctor', 'Single', 'mariam@gmail.com', '', 'A+', '2023-05-24', 1012144796, 1349463697, '3rd settlement, new cairo', 123, ''),
-(7, 'soha', 'moahmed', 'female', 'student', 'married', 'soha@gmail.com', 'gluten', 'A+', '2023-05-31', 101214516, 136254784, 'Rehab', 123, ''),
-(8, 'sara', 'murad', 'Female', 'student', 'Single', 'sarasara@gmail.com', 'no allergies', 'AB+', '2010-10-13', 1012145689, 1326547895, 'menoufeiyah', 123, '');
+INSERT INTO `patient` (`pid`, `first_name`, `last_name`, `gender`, `occupation`, `marital_status`, `email`, `allergies`, `blood_type`, `pdate_of_birth`, `phone`, `emergency_contact`, `address`, `password`, `has_emh`, `paid`) VALUES
+(2, 'mayar', 'oweys', 'female', '', 'single', 'patient@gmail.com', 'nothing', 'O', '0000-00-00', 1012144796, 0, '6th of october city', 123, 'no', ''),
+(3, 'mayar', 'hisham', 'female', '', 'single', 'mayaroweys2000@gmail.com', 'no', 'a', '0000-00-00', 1012144796, 0, 'october', 258, 'yes', ''),
+(4, 'mayar', '', '', '', '', '', '', 'b', '0000-00-00', 0, 0, '', 0, '', ''),
+(7, 'soha', 'moahmed', 'female', 'student', 'married', 'soha@gmail.com', 'gluten', 'A+', '2023-05-31', 101214516, 136254784, 'Rehab', 123, '', ''),
+(8, 'sara', 'murad', 'Female', 'student', 'Single', 'sarasara@gmail.com', 'no allergies', 'AB+', '2010-10-13', 1012145689, 1326547895, 'menoufeiyah', 123, '', ''),
+(9, 'Mona', 'Ahmed', 'Female', 'doctor', 'Married', 'mona@gmail.com', 'sugar', 'AB+', '2023-06-10', 1236547896, 1236547896, 'maadi', 123, 'yes', 'yes');
 
 -- --------------------------------------------------------
 
@@ -362,7 +365,8 @@ INSERT INTO `personal_hostory` (`id`, `medical_profile_id`, `height`, `weight`, 
 (1, 1, 160, 55, 'no', 'no', 'nothing', 'nothing', 'no', 0, 0, 'gluten - some carbs', 'doctor', '2023-04-23'),
 (2, 2, 120, 255, '', '', '', '', '', 0, 0, '', '', '0000-00-00'),
 (5, 4, 160, 60, 'Yes', 'No', 'nothing', 'nothing', 'no', 0, 0, 'gluten', 'sohamoahmed', '2023-05-10'),
-(6, 5, 120, 45, 'No', 'No', 'nothing', 'nothing', 'no', 0, 0, 'strawberry', 'saramurad', '2023-05-12');
+(6, 5, 120, 45, 'No', 'No', 'nothing', 'nothing', 'no', 0, 0, 'strawberry', 'saramurad', '2023-05-12'),
+(7, 7, 170, 65, 'No', 'Yes', 'panadol', 'no diseases', 'no', 2, 1, 'gluten', 'MonaAhmed', '2023-05-16');
 
 -- --------------------------------------------------------
 
@@ -426,7 +430,8 @@ CREATE TABLE `surgical_history` (
 INSERT INTO `surgical_history` (`id`, `medical_profile_id`, `date_of_procedure`, `surgery_type`, `surgeon`, `medication_prescribed`, `rehabilitation`, `date2`, `type2`, `surgeon2`, `medicine2`, `rbt2`, `date3`, `type3`, `surgeon3`, `medicine3`, `rbt3`, `date4`, `type4`, `surgeon4`, `medicine4`, `rbt4`, `editor`, `sdate_of_edit`) VALUES
 (1, 1, '22-2-2022', 'nothing', 'dr.Osama', 'nothing', 'nothing', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'doctor', '2023-04-23'),
 (2, 2, '22/4/2022', 'Normal Surgery', 'Dr. Mohamed Rabea', 'Antibiotics', 'Nothing New', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'DR. osama', '2023-04-24'),
-(5, 5, '2023-05-25', 'type', 'dr', 'medicine', 'rbt', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '8', '2023-05-13');
+(5, 5, '2023-05-25', 'type', 'dr', 'medicine', 'rbt', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '8', '2023-05-13'),
+(6, 7, '2023-05-11', 'type', 'dr', 'medicine', 'rbt', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '9', '2023-05-16');
 
 --
 -- Indexes for dumped tables
@@ -543,7 +548,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `clinical_history`
 --
 ALTER TABLE `clinical_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `doctors`
@@ -561,7 +566,7 @@ ALTER TABLE `doctor_diagnosis`
 -- AUTO_INCREMENT for table `family_history`
 --
 ALTER TABLE `family_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `finished_orders`
@@ -579,7 +584,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `medical_profile`
 --
 ALTER TABLE `medical_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -591,19 +596,19 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `past_history`
 --
 ALTER TABLE `past_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_hostory`
 --
 ALTER TABLE `personal_hostory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pharmacy`
@@ -615,7 +620,7 @@ ALTER TABLE `pharmacy`
 -- AUTO_INCREMENT for table `surgical_history`
 --
 ALTER TABLE `surgical_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

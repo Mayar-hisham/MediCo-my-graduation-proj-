@@ -12,7 +12,9 @@ if(isset($_GET['view'])){
 
     $view="SELECT * FROM `doctors` where id=$id";
     $e = mysqli_query($connect , $view);
+    $num = mysqli_num_rows($e);
         $row = mysqli_fetch_assoc($e);
+
 }
 
 	
@@ -47,9 +49,8 @@ if(isset($_GET['view'])){
             <div class="line3"></div>
         </div>
     </nav>
-    <h1 class="h1_text" id="Requests">Doctor Profile</h1>
+    <h1 class="h1_text" id="Requests">Doctor <?php echo $row['dfirst_name']; ?>'s Profile</h1>
     <div class="conent">
-    <?php while ($row=mysqli_fetch_array($rslt)) {?>
 
         <div class="card_doctor">
             <div class="image">
@@ -65,7 +66,7 @@ if(isset($_GET['view'])){
                     <p>Clinic branches:</p>
 
                     <ul>
-                        <li><?php   echo $row['clinic_branches']  ?></li>
+                        <li><?php   echo $row['daddress']  ?></li>
                         
                     </ul>
                     <p>Contact:</p>
@@ -74,11 +75,11 @@ if(isset($_GET['view'])){
                         <li>Email: <?php   echo $row['email']  ?></li>
                     </ul>
                 </div>
-                <button id="upload-btn">Upload photo</button>
+                
             </div>
-            <button id="save" type="submit" name="save">Save</button>
+            
         </div>
-        <?php } ?>
+
     </div>
     </div>
     <script src="../JS/script.js"></script>

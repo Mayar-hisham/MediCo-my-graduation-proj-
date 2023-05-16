@@ -20,7 +20,7 @@ if(isset($_POST['signup'])){
 
     $ins= "INSERT INTO `patient` VALUES( Null , '$firstname',
      '$lastname' , '$gender' , '$occupation' , '$maritalstatus' , '$email' ,
-      '$allergies' , '$bloodtype' , '$age' , $phone , $em_cont , '$address' , $password)";
+      '$allergies' , '$bloodtype' , '$age' , $phone , $em_cont , '$address' , $password , 'no' , 'no')";
     $i = mysqli_query($connect , $ins);
 
     if($i){

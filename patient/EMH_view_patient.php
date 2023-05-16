@@ -3,6 +3,7 @@ include "../shared/conn.php";
 
 if (isset($_SESSION["patient"])){
 
+
 ?>
 
   <!DOCTYPE html>
@@ -63,22 +64,17 @@ if (isset($_SESSION["patient"])){
  medical_profile.id = clinical_history.medical_profile_id 
  JOIN `surgical_history` ON
  medical_profile.id = surgical_history.medical_profile_id 
+ 
  /*JOIN `doctor_diagnosis` ON
  medical_profile.id = doctor_diagnosis.medical_profile_id */
 
- WHERE patient.pid = '" . $_SESSION['pid'] . "' 
- and medical_profile.id = '" . $_SESSION['patient_medical_profile_id'] . "' ";
+ WHERE patient.pid = '" . $_SESSION['pid'] . "' and
+  medical_profile.id = '" . $_SESSION['patient_medical_profile_id'] . "' ";
         $result = mysqli_query($connect, $sql);
 
         $numberOfRows = mysqli_num_rows($result);
 
 				$r = mysqli_fetch_assoc($result);
-
-                if($r){
-                    echo "ok";
-                }else{
-                  echo"reason".mysqli_error($connect);
-                }
 
 
 
@@ -121,7 +117,7 @@ if (isset($_SESSION["patient"])){
             </h2>
             <div id="personal-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="" class="edit_link">EDIT</a>
+                <a href="The_EMH_for_patient.php?=personaledit<?php echo $_SESSION['patient_medical_profile_id']; ?>" class="edit_link">EDIT</a>
                 <br>
                <?php ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['prsdate_of_edit']; ?></span> <br> <br>
@@ -261,8 +257,10 @@ if (isset($_SESSION["patient"])){
 
 
 <?php
+
+               }
          
- }
+ //}
 ?>
 
 

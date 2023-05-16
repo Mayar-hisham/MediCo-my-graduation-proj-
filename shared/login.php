@@ -1,42 +1,80 @@
 <?php
 include "../shared/conn.php";
 
-if (isset($_POST['login'])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-
-  $sql = "SELECT * FROM `patient`
-  WHERE patient.email = '$email' and patient.password = '$password'";
-
-  $selectQuery = mysqli_query($connect, $sql);
-
-   $numberOfRows = mysqli_num_rows($selectQuery);
-
-  $row = mysqli_fetch_assoc($selectQuery);
-  if ($numberOfRows > 0) {
-    $_SESSION["patient"] = $email;
-    $_SESSION['first_name'] = $row['first_name'].$row['last_name'];
-    $_SESSION['pid'] = $row['pid'];
-
-    $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
-    $_SESSION['date_of_birth'] = $row['date_of_birth'];
-   $_SESSION['blood_type'] = $row ['blood_type'];
-    //$_SESSION['current_illness'] = $row['current_illness'];
-    $_SESSION['phone'] = $row['phone'];
-    $_SESSION['address'] = $row['address'];
-    $_SESSION['occupation'] = $row['occupation'];
-    $_SESSION['marital_status'] = $row['marital_status'];
-    $_SESSION['emergency_contact'] = $row['emergency_contact']; 
-
-    header("location: /MediCoNew/patient/patient_profile_for_patient.php");
-
-
-
-  }
+  if (isset($_POST['login'])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
   
-  else  {
+    $select1 = "SELECT * FROM `patient` WHERE has_emh='yes' and email = '$email' and password = '$password'";
+    $s1 = mysqli_query($connect , $select1);
+  
+    $numberOfRows = mysqli_num_rows($s1);
+  
+    $row = mysqli_fetch_assoc($s1);
 
-    if (isset($_POST['login'])) {
+
+      if ($numberOfRows > 0) {
+        $_SESSION["patient"] = $email;
+        $_SESSION['first_name'] = $row['first_name'].$row['last_name'];
+        $_SESSION['pid'] = $row['pid'];
+    
+    
+        $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
+        $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
+       $_SESSION['blood_type'] = $row ['blood_type'];
+        //$_SESSION['current_illness'] = $row['current_illness'];
+        $_SESSION['phone'] = $row['phone'];
+        $_SESSION['address'] = $row['address'];
+        $_SESSION['occupation'] = $row['occupation'];
+        $_SESSION['marital_status'] = $row['marital_status'];
+        $_SESSION['emergency_contact'] = $row['emergency_contact']; 
+
+
+
+
+      header("location: /MediCoNew/patient/patient_profile_for_patient.php"); 
+      
+      
+        }else{
+
+         if (isset($_POST['login'])) {
+          $email = $_POST["email"];
+          $password = $_POST["password"];
+        
+          $select1 = "SELECT * FROM `patient` WHERE email = '$email' and password = '$password'";
+          $s1 = mysqli_query($connect , $select1);
+        
+          $numberOfRows = mysqli_num_rows($s1);
+        
+          $row = mysqli_fetch_assoc($s1);
+
+
+      if ($numberOfRows > 0) {
+        $_SESSION["patient"] = $email;
+        $_SESSION['first_name'] = $row['first_name'].$row['last_name'];
+        $_SESSION['pid'] = $row['pid'];
+    
+    
+        $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
+        $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
+       $_SESSION['blood_type'] = $row ['blood_type'];
+        //$_SESSION['current_illness'] = $row['current_illness'];
+        $_SESSION['phone'] = $row['phone'];
+        $_SESSION['address'] = $row['address'];
+        $_SESSION['occupation'] = $row['occupation'];
+        $_SESSION['marital_status'] = $row['marital_status'];
+        $_SESSION['emergency_contact'] = $row['emergency_contact']; 
+
+
+
+      header("location: /MediCoNew/patient/patient_profile_without_emh.php");
+  }
+
+else{
+
+  
+  
+  if (isset($_POST['login'])) {
       $email = $_POST["email"];
       $password = $_POST["password"];
       $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password'";
@@ -55,7 +93,8 @@ if (isset($_POST['login'])) {
         // echo $_SESSION['admin'];
 
         //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-        header("location: /MediCoNew/doctor_home.php");
+        header("location: /MediCoNew/doctor/doctor_home.php");
+
       } else{
 
         if (isset($_POST['login'])) {
@@ -76,7 +115,7 @@ if (isset($_POST['login'])) {
             // echo $_SESSION['admin'];
     
             //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-            header("location: /MediCoNew/pharmacy's view.php");
+            header("location: /MediCoNew/pharmacy/pharmacy's view.php");
 
 
       } else{
@@ -98,7 +137,7 @@ if (isset($_POST['login'])) {
             // echo $_SESSION['admin'];
     
             //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-            header("location: /MediCoNew-3/admin_home.php");
+            header("location: /MediCoNew/admin/admin_home.php");
 
 
       }
@@ -111,11 +150,8 @@ if (isset($_POST['login'])) {
 
         </div>
 <?php }
-        }}
-    }
-  }
-}}} 
-
+        }}}}
+    }}}}}
 ?>
 
 <!DOCTYPE html>
