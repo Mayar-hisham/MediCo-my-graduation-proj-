@@ -55,20 +55,17 @@ if (isset($_SESSION['doctor'])) {  ?>
  JOIN `medical_profile` ON 
   patient.pid = medical_profile.patient_id
  JOIN `personal_hostory` ON 
-  medical_profile.id = personal_hostory.medical_profile_id 
+  medical_profile.m_id = personal_hostory.medical_profile_id 
  JOIN `past_history` ON
- medical_profile.id = past_history.medical_profile_id
+ medical_profile.m_id = past_history.medical_profile_id
  JOIN `family_history` ON
- medical_profile.id = family_history.medical_profile_id
+ medical_profile.m_id = family_history.medical_profile_id
  JOIN `clinical_history` ON
- medical_profile.id = clinical_history.medical_profile_id 
+ medical_profile.m_id = clinical_history.medical_profile_id 
  JOIN `surgical_history` ON
- medical_profile.id = surgical_history.medical_profile_id 
- JOIN `doctor_diagnosis` ON
- medical_profile.id = doctor_diagnosis.medical_profile_id  
- JOIN `doctors` ON
- doctor_diagnosis.doctor_id = doctor_diagnosis.doctor_id
-  WHERE patient.pid = $id and medical_profile.id = $mid";
+ medical_profile.m_id = surgical_history.medical_profile_id 
+
+  WHERE patient.pid = $id and medical_profile.m_id = $mid";
 				$result = mysqli_query($connect, $sql);
 
 				$numberOfRows = mysqli_num_rows($result);
@@ -82,8 +79,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 				}
 
 
-				//if ($result) {
-					//foreach ($result as $r) {
+				//if ($result) {echo "ok";}else{echo "no".mysqli_error($connect);}
 			?>
 
 						<h2>Name : <?php echo $r['first_name']; ?></h2>
@@ -91,7 +87,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 						<h2>Blood Group : <?php echo $r['blood_type']; ?></h2>
 						<div class="search-bar">
 							<input type="text" placeholder="Search">
-							<button><img src="Images/plus_icon.png" alt="Add"></button>
+							<button><img src="../Images/plus_icon.png" alt="Add"></button>
 						</div>
 		</div>
 
@@ -124,16 +120,21 @@ if (isset($_SESSION['doctor'])) {  ?>
 			</div>
 
 		<?php 
-					//foreach ($result as $d) { ?>
+					$selec = "SELECT * FROM `doctor_diagnosis` 
+					JOIN `doctors` ON doctors.id = doctor_diagnosis.doctor_id
+					WHERE doctor_diagnosis.medical_profile_id = $mid";
+		$s = mysqli_query($connect , $selec);?>
 
 			<br> <br> <br> <br> <br> <br>
 			<div class="card-container">
+			<?php foreach($s as $r){ ?>
 				<div class="card">
 					<h2>By DR.<?php echo $r['dfirst_name']; ?></h2>
 					<p class="date"><?php echo $r['date']; ?></p>
 					<h3><?php echo $r['specialization']; ?></h3>
 					<p> <?php echo $r['diagnosis']; ?></p>
 				</div>
+				<?php } ?>
 			</div>
 
 

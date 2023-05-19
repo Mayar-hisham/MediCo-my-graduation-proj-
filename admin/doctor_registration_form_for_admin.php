@@ -36,7 +36,7 @@ if (isset($_SESSION['admin'])) {
     
         $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
          '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
-          '$ds' , '$email' , '$specialization' , $password)";
+          '$ds' , '$email' , '$specialization' , '$password' , 'no')";
         $i = mysqli_query($connect , $ins);
      if($i){
             echo"Registered Successfully";

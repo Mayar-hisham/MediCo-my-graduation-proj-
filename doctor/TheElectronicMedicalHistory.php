@@ -53,33 +53,20 @@ if (isset($_SESSION['doctor'])){
         $sql = "SELECT * FROM `patient`
  JOIN `medical_profile` ON 
   patient.pid = medical_profile.patient_id
- JOIN `personal_hostory` ON 
-  medical_profile.id = personal_hostory.medical_profile_id 
- JOIN `past_history` ON
- medical_profile.id = past_history.medical_profile_id
- JOIN `family_history` ON
- medical_profile.id = family_history.medical_profile_id
- JOIN `clinical_history` ON
- medical_profile.id = clinical_history.medical_profile_id 
- JOIN `surgical_history` ON
- medical_profile.id = surgical_history.medical_profile_id 
- JOIN `doctor_diagnosis` ON
- medical_profile.id = doctor_diagnosis.medical_profile_id  
- JOIN `doctors` ON
- doctor_diagnosis.doctor_id = doctor_diagnosis.doctor_id
- WHERE patient.pid = '" . $_SESSION['id'] . "' and medical_profile.id = '" . $_SESSION['mpfid'] . "' ";
+
+ WHERE patient.pid = '" . $_SESSION['id'] . "' and medical_profile.m_id = '" . $_SESSION['mpfid'] . "' ";
         $result = mysqli_query($connect, $sql);
 
         $numberOfRows = mysqli_num_rows($result);
 
 				$r = mysqli_fetch_assoc($result);
 
-
+if($result){
 
 
       ?>
             <h2>Name : <?php echo $r['first_name']; ?></h2>
-            <h2>Age : <?php echo $r['date_of_birth']; ?></h2>
+            <h2>Age : <?php echo $r['pdate_of_birth']; ?></h2>
             <h2>Blood Type : <?php echo $r['blood_type']; ?></h2>
             <div class="search-bar">
               <input type="text" placeholder="Search">
@@ -113,9 +100,21 @@ if (isset($_SESSION['doctor'])){
                 <h1 style="font-size: 25px;"> Personal History</h1>
               </button>
             </h2>
+            <?php
+              $selec = "SELECT * FROM `personal_hostory` WHERE prsdate_of_edit = ( SELECT MAX(prsdate_of_edit) 
+              FROM `personal_hostory` ) AND medical_profile_id = '".$_SESSION['mpfid']."'";
+  $s = mysqli_query($connect , $selec);
+  $numberOfRows = mysqli_num_rows($s);
+  $r = mysqli_fetch_assoc($s);
+
+if($s){
+
+
+
+?>
             <div id="personal-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="" class="edit_link">EDIT</a>
+                <a href="update_EMH_p.php?=personaledit<?php echo $r['medical_profile_id']; ?>" class="edit_link">EDIT</a>
                 <br>
                <?php ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['prsdate_of_edit']; ?></span> <br> <br>
@@ -132,6 +131,8 @@ if (isset($_SESSION['doctor'])){
                 Allergies: <span style="margin-left: 20px;"><?php echo $r['allergies']; ?></span> <br> <br>
               </div>
             </div>
+
+            <?php } ?>
           </div>
 
           <div class="accordion-item">
@@ -140,6 +141,22 @@ if (isset($_SESSION['doctor'])){
                 <h1 style="font-size: 25px;"> Family History </h1>
               </button>
             </h2>
+
+
+            <?php
+              $selec = "SELECT * FROM `family_history` WHERE fdate_of_edit = ( SELECT MAX(fdate_of_edit) 
+              FROM `family_history` ) AND medical_profile_id = '".$_SESSION['mpfid']."'";
+  $s = mysqli_query($connect , $selec);
+  $numberOfRows = mysqli_num_rows($s);
+  $r = mysqli_fetch_assoc($s);
+
+if($s){
+
+
+
+?>
+
+
             <div id="family-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
@@ -148,10 +165,11 @@ if (isset($_SESSION['doctor'])){
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['fdate_of_edit']; ?></span> <br> <br>
                 Blood Relatives Diseases and connection <br> <br>
                 <?php echo $r['relative1']; ?> <span style="margin-left: 20px;"><?php echo $r['disease1']; ?></span> <br> <br>
-                <?php echo $r['relative2']; ?> <span style="margin-left: 20px;"><?php echo $r['disease2']; ?></span> <br> <br>
+                <?php echo $r['relative2']; ?> <span style="margin-left: 20px;"><?php echo $r['disease2']; ?></span> <br> 
                 Additional Infomation: <?php echo $r['add_info']; ?>
               </div>
             </div>
+            <?php } ?>
           </div>
 
           <div class="accordion-item">
@@ -160,6 +178,18 @@ if (isset($_SESSION['doctor'])){
                 <h1 style="font-size: 25px;"> Past History </h1>
               </button>
             </h2>
+
+            <?php
+              $selec = "SELECT * FROM `past_history` WHERE pdate_of_edit = ( SELECT MAX(pdate_of_edit) FROM `past_history` ) AND medical_profile_id = '".$_SESSION['mpfid']."'";
+  $s = mysqli_query($connect , $selec);
+  $numberOfRows = mysqli_num_rows($s);
+  $r = mysqli_fetch_assoc($s);
+
+if($s){
+
+
+
+?>
             <div id="past-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
@@ -174,6 +204,8 @@ if (isset($_SESSION['doctor'])){
                 past phobia: <span style="margin-left: 20px;"><?php echo $r['past_phobia']; ?></span> <br> <br>
               </div>
             </div>
+
+            <?php } ?>  
           </div>
 
           <div class="accordion-item">
@@ -182,6 +214,21 @@ if (isset($_SESSION['doctor'])){
                 <h1 style="font-size: 25px;"> Surgical History </h1>
               </button>
             </h2>
+
+
+            <?php
+              $selec = "SELECT * FROM `surgical_history` WHERE sdate_of_edit = ( SELECT MAX(sdate_of_edit) FROM `surgical_history` ) AND medical_profile_id = '".$_SESSION['mpfid']."'";
+  $s = mysqli_query($connect , $selec);
+  $numberOfRows = mysqli_num_rows($s);
+  $r = mysqli_fetch_assoc($s);
+
+if($s){
+
+
+
+?>
+
+
             <div id="surgical-history1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
@@ -204,6 +251,7 @@ if (isset($_SESSION['doctor'])){
                 </table>
               </div>
             </div>
+            <?php } ?>
           </div>
 
           <div class="accordion-item">
@@ -212,6 +260,21 @@ if (isset($_SESSION['doctor'])){
                 <h1 style="font-size: 25px;"> Clinical history </h1>
               </button>
             </h2>
+
+
+            <?php
+              $selec = "SELECT * FROM `clinical_history` WHERE cdate_of_edit = ( SELECT MAX(cdate_of_edit) FROM `clinical_history` ) AND medical_profile_id = '".$_SESSION['mpfid']."'";
+  $s = mysqli_query($connect , $selec);
+  $numberOfRows = mysqli_num_rows($s);
+  $r = mysqli_fetch_assoc($s);
+
+if($s){
+
+
+
+?>
+
+
             <div id="surgical-history2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
                 <a href="" class="edit_link">EDIT</a>
@@ -222,6 +285,7 @@ if (isset($_SESSION['doctor'])){
 
               </div>
             </div>
+            <?php } ?>
           </div>
 
           <div class="accordion-item">
@@ -230,24 +294,45 @@ if (isset($_SESSION['doctor'])){
                 <h1 style="font-size: 25px;"> Doctor diagnosis </h1>
               </button>
             </h2>
+
+            <?php
+              $selec = "SELECT * FROM `doctor_diagnosis` 
+              JOIN `doctors` ON doctors.id = doctor_diagnosis.doctor_id
+              WHERE doctor_diagnosis.medical_profile_id = '".$_SESSION['mpfid']."'";
+  $s = mysqli_query($connect , $selec);
+  //$numberOfRows = mysqli_num_rows($s);
+  //$r = mysqli_fetch_assoc($s);
+
+
+
+
+
+?>
+
+
+
             <div id="doctors-diagnosis" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
                 <a href="#" class="edit_link">EDIT</a>
+
                 <div class="container">
                   <div class="column">
+                  <?php foreach($s as $r){ ?>
                     <div class="card">
-                    <?php  ?>
                       <div class="card-header"><?php echo $r['specialization']; ?></div>
                       <p><?php echo $r['date']; ?></p>
                       <p><?php echo $r['diagnosis']; ?></p>
                       <p><?php echo $r['dr_fname'] . $r['dr_lname']; ?> </p>
                     </div>
+                    <?php } ?>
 
                   </div>
 
                 </div>
+                
               </div>
             </div>
+            
           </div>
 
         </div>
@@ -256,7 +341,7 @@ if (isset($_SESSION['doctor'])){
 
 <?php
          
- }} 
+ }} }
 ?>
 
 

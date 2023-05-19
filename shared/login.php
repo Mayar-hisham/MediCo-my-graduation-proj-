@@ -77,7 +77,7 @@ else{
   if (isset($_POST['login'])) {
       $email = $_POST["email"];
       $password = $_POST["password"];
-      $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password'";
+      $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password' and accepted = 'yes'";
 
       $selectQuery = mysqli_query($connect, $select);
 

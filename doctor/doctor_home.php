@@ -43,16 +43,16 @@ if (isset($_SESSION['doctor'])) {
   <h1 class="h1_text">Wellcome DR.<?php echo $_SESSION['dfirst_name']; ?></h1>
   <div class="container_img">
     <div class="image">
-      <a href="patient_otp.php"><img src="Images/1901374.png"></a>
+      <a href="patient_otp.php"><img src="../Images/1901374.png"></a>
       <a href="patient_otp.php">access patient profile</a>
     </div>
     <div class="image">
-      <a href="doctor_profile.php"><img src="Images/my-profile-icon-png-3.jpg"></a>
+      <a href="doctor_profile.php"><img src="../Images/my-profile-icon-png-3.jpg"></a>
       <a href="doctor_profile.php">My profile</a>
     </div>
     <div class="image">
       <a href="order_medicine.php"><img
-          src="Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
+          src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
       <a href="order_medicine.php">order medicine</a>
     </div>
   </div>
