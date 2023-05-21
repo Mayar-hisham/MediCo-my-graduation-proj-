@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
 
     $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
      '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
-      '$ds' , '$email' , '$specialization' , $password , 'no')";
+      '$ds' , '$email' , '$specialization' , $password , 'no' , 'no')";
     $i = mysqli_query($connect , $ins);
   /*  if($i){
         echo"ok";

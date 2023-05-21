@@ -13,7 +13,7 @@ if (isset($_SESSION['admin'])) {
         $pp = $_FILES['pp']['name'];
         $ptype = $_FILES['pp']['type'];
         $ptmp = $_FILES['pp']['tmp_name'];
-       $plocation = "upload/";
+       $plocation = "../upload/";
       move_uploaded_file($ptmp , $plocation . $pp);
     
     
@@ -25,7 +25,7 @@ if (isset($_SESSION['admin'])) {
         $ds = $_FILES['ds']['name'];
         $ltype = $_FILES['ds']['type'];
         $ltmp = $_FILES['ds']['tmp_name'];
-       $llocation = "upload/";
+       $llocation = "../upload/";
       move_uploaded_file($ltmp , $llocation . $ds);
         
         
@@ -36,15 +36,67 @@ if (isset($_SESSION['admin'])) {
     
         $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
          '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
-          '$ds' , '$email' , '$specialization' , '$password' , 'no')";
+          '$ds' , '$email' , '$specialization' , '$password' , 'no' , 'no')";
         $i = mysqli_query($connect , $ins);
      if($i){
             echo"Registered Successfully";
         }
     }
 
+    if(isset($_GET['edit'])){
+        $id = $_GET['edit'];
 
 
+        $sel = "SELECT * FROM `doctors` WHERE id = '".$_GET['edit']."'";
+        $s = mysqli_query($connect , $sel);
+        $num = mysqli_num_rows($s);
+        $row = mysqli_fetch_assoc($s);
+    }
+
+    if(isset($_POST['edit'])){
+
+        $firstname = $_POST['fname'];
+        $lastname = $_POST['lname'];
+        $age = $_POST['date'];
+    
+    
+        $pp = $_FILES['pp']['name'];
+        $ptype = $_FILES['pp']['type'];
+        $ptmp = $_FILES['pp']['tmp_name'];
+       $plocation = "../upload/";
+      move_uploaded_file($ptmp , $plocation . $pp);
+    
+    
+        $yoe = $_POST['yoe'];
+        $address = $_POST['address'];
+        $phone = $_POST['phone'];
+    
+    
+        $ds = $_FILES['ds']['name'];
+        $ltype = $_FILES['ds']['type'];
+        $ltmp = $_FILES['ds']['tmp_name'];
+       $llocation = "../upload/";
+      move_uploaded_file($ltmp , $llocation . $ds);
+        
+        
+        $email = $_POST['email'];
+        $specialization = $_POST['spc']; 
+        $password = $_POST['password'];
+        $id = $_GET['edit'];
+    
+    
+        $ins= "UPDATE `doctors` SET dfirst_name = '$firstname',
+         dlast_name = '$lastname' , date_of_birth = '$age' , profession_practice = '$pp' , years_of_exp = $yoe , 
+         daddress = '$address' , phone = $phone ,
+          doctor_syndicate = '$ds' , email = '$email' , specialization = '$specialization' ,
+           password = '$password' WHERE id = $id";
+        $i = mysqli_query($connect , $ins);
+     if($i){
+            echo"Registered Successfully";
+        }else{echo "no".mysqli_error($connect);}
+    }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -80,31 +132,90 @@ if (isset($_SESSION['admin'])) {
     <div class="conent">
         <form method="post" enctype='multipart/form-data'>
             <label for="name">First Name:</label>
-            <input type="text" id="name" name="fname" placeholder="Enter doctor name...">
+         <?php    if(isset($_GET['edit'])){ ?>
+            <input value="<?php echo $row['dfirst_name']?>" type="text" id="name" name="fname" placeholder="Enter doctor name...">
+            <?php }else{ ?>
+                <input type="text" id="name" name="fname" placeholder="Enter doctor name...">
+              <?php } ?>
             <label for="name">Last Name:</label>
+            <?php if(isset($_GET['edit'])){ ?>
+            <input type="text" value="<?php echo $row['dlast_name']?>" id="name" name="lname" placeholder="Enter doctor name...">
+              <?php }else{ ?>
             <input type="text" id="name" name="lname" placeholder="Enter doctor name...">
+            <?php }?>
             <label for="Date of birth">Date of birth:</label>
-            <input type="date" id="Date of birth" name="date" placeholder="Enter Date of birth...">
+            <?php if(isset($_GET['edit'])){ ?>
+                <input value="<?php echo $row['date_of_birth']?>" id="Date of birth" name="date" placeholder="Enter Date of birth...">
+              <?php }else{ ?>
+                <input type="date" id="Date of birth" name="date" placeholder="Enter Date of birth...">
+            <?php }?>
+    
             <label for="Profession Practice">Profession Practice:</label>
-            <input type="file" id="Profession Practice" name="pp"
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="file" id="Profession Practice" name="pp"
                 placeholder="Enter Profession Practice...">
+              <?php }else{ ?>
+                <input type="file" id="Profession Practice" name="pp"
+                placeholder="Enter Profession Practice...">
+            <?php }?>
+            
                 <label for="Profession Practice">years of experience:</label>
+                <?php if(isset($_GET['edit'])){ ?>
+                <input value="<?php echo $row['years_of_exp']?>" id="Profession Practice" name="yoe">
+              <?php }else{ ?>
                 <input type="text" id="Profession Practice" name="yoe"
-                    placeholder="Enter years of experience...">
+                placeholder="Enter years of exp...">
+            <?php }?>
+
             <label for="Address">Your Clinic Address:</label>
-            <input type="text" id="Address" name="address" placeholder="Enter Address...">
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="text" value="<?php echo $row['daddress']?>" id="Address" name="address" placeholder="Enter Address...">
+              <?php }else{ ?>
+                <input type="text" id="Address" name="address" placeholder="Enter Address...">
+            <?php }?>
+            
             <label for="Address">phone:</label>
-            <input type="text" id="Address" name="phone" placeholder="Enter phone...">
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="text" value="<?php echo $row['phone']?>" id="Address" name="phone" placeholder="Enter phone...">
+              <?php }else{ ?>
+                <input type="text" id="Address" name="phone" placeholder="Enter phone...">
+            <?php }?>
+            
             <label for="Doctor Syndicate">Doctor Syndicate:</label>
-            <input type="file" id="Doctor Syndicate" name="ds" placeholder="Enter Doctor Syndicate...">
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="file" id="Doctor Syndicate" name="ds" placeholder="Enter Doctor Syndicate...">
+              <?php }else{ ?>
+                <input type="file" id="Doctor Syndicate" name="ds" placeholder="Enter Doctor Syndicate...">
+            <?php }?>
+            
             <label for="Email">Email:</label>
-            <input type="email" id="Email" name="email" placeholder="Enter Email...">
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="email" value="<?php echo $row['email']?>" id="Email" name="email" placeholder="Enter Email...">
+              <?php }else{ ?>
+                <input type="email" id="Email" name="email" placeholder="Enter Email...">
+            <?php }?>
+            
             <label for="Specialization">Specialization:</label>
-            <input type="text" id="Specialization" name="spc" placeholder="Enter Specialization...">
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="text" value="<?php echo $row['specialization']?>" id="Specialization" name="spc" placeholder="Enter Specialization...">
+              <?php }else{ ?>
+                <input type="text" id="Specialization" name="spc" placeholder="Enter Specialization...">
+            <?php }?>
+
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter password...">
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="password" value="<?php echo $row['password']?>" id="password" name="password" placeholder="Enter password...">
+
+              <?php }else{ ?>
+                <input type="password" id="password" name="password" placeholder="Enter password...">
+            <?php }?>
+            
             <br> <br>
-            <button name="submit" type="submit" id="save-button">Save</button>
+            <?php if(isset($_GET['edit'])){ ?>
+            <button name="edit" type="submit" id="save-button">Save</button>
+            <?php }else{?>
+                <button name="submit" type="submit" id="save-button">Save</button>
+                <?php } ?> 
         </form>
     </div>
 

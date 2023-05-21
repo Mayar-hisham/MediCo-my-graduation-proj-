@@ -69,7 +69,11 @@ $delete = "DELETE FROM `patient` WHERE pid = $id";
                 <td><?php   echo $row['pid']  ?></td>
                 <td>  <?php   echo $row['first_name']    .  $row['last_name']   ?></td>
                 <td><a href="patient_profile_for_patient.php?view=<?php echo $row['pid'];?> "> View</a></td>
-                <td><a href="#">EMH</a></td>
+                <td><?php $select = "SELECT * FROM `patient` WHERE paid = 'yes' 
+                AND has_emh = 'yes' AND pid = '".$row['pid']."' "; 
+                $sel = mysqli_query($connect , $select);
+                $sell = mysqli_num_rows($sel);
+                if($sell > 0){ ?><a href="EMH_view_admin.php?emh=<?php echo $row['pid']; ?>">EMH</a> <?php }else{ ?>No EMH <?php } ?></td>
                 <td><a href="admin_view_patients.php?delete=<?php echo $row['pid'];?> ">Delete</a></td>
             </tr>
         <?php

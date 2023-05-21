@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 03:06 PM
+-- Generation Time: May 21, 2023 at 02:03 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -83,22 +83,23 @@ CREATE TABLE `doctors` (
   `email` varchar(255) NOT NULL,
   `specialization` varchar(255) NOT NULL,
   `password` int(11) NOT NULL,
-  `accepted` varchar(255) NOT NULL
+  `accepted` varchar(255) NOT NULL,
+  `blocked` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`id`, `dfirst_name`, `dlast_name`, `date_of_birth`, `profession_practice`, `years_of_exp`, `daddress`, `phone`, `doctor_syndicate`, `email`, `specialization`, `password`, `accepted`) VALUES
-(2, 'mayar', 'oweys', '0000-00-00', 'ok', 0, '6th of october city', 0, 'ok', 'doctor@gmail.com', 'ok', 123, 'yes'),
-(3, 'mayoura', 'oweys', '0000-00-00', '21', 22, '6th of october city', 1012144796, '21', 'mayar@gmail.com', 'health', 123, ''),
-(5, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123, ''),
-(6, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123, ''),
-(7, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 123, ''),
-(8, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 123, ''),
-(9, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 258, ''),
-(10, 'mostafa', 'hashim', '2023-06-09', '1.jpeg', 23, 'new cairo', 101254786, '2.jpeg', 'dr@gmail.com', 'good', 258, '');
+INSERT INTO `doctors` (`id`, `dfirst_name`, `dlast_name`, `date_of_birth`, `profession_practice`, `years_of_exp`, `daddress`, `phone`, `doctor_syndicate`, `email`, `specialization`, `password`, `accepted`, `blocked`) VALUES
+(2, 'mayar', 'oweys', '0000-00-00', 'ok', 0, '6th of october city', 0, 'ok', 'doctor@gmail.com', 'ok', 123, 'yes', ''),
+(3, 'mayoura', 'oweys', '0000-00-00', 'lion bridge.pdf', 22, '6th of october city', 1012144796, '', 'mayar@gmail.com', 'health', 123, '', ''),
+(5, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123, '', ''),
+(6, 'sara', 'ehab', '2023-05-07', 'ok', 11, 'Giza', 112457893, 'ok', 'sara@gmail.com', 'good', 123, '', ''),
+(7, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 123, '', ''),
+(8, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 123, '', ''),
+(9, 'mostafa', 'hashim', '2023-06-09', '', 23, 'new cairo', 101254786, '', 'dr@gmail.com', 'good', 258, '', ''),
+(10, 'mostafa', 'hashim', '2023-06-09', '1.jpeg', 23, 'new cairo', 101254786, '2.jpeg', 'dr@gmail.com', 'good', 258, '', '');
 
 -- --------------------------------------------------------
 
@@ -382,15 +383,16 @@ CREATE TABLE `pharmacy` (
   `address` varchar(255) NOT NULL,
   `phphone` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` int(11) NOT NULL
+  `password` int(11) NOT NULL,
+  `blocked` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pharmacy`
 --
 
-INSERT INTO `pharmacy` (`id`, `name`, `address`, `phphone`, `email`, `password`) VALUES
-(2, 'El-Ezaby', '23 - 3rd district - 6th of october city - Giza', 18752, 'elezaby@gmail.com', 123);
+INSERT INTO `pharmacy` (`id`, `name`, `address`, `phphone`, `email`, `password`, `blocked`) VALUES
+(2, 'El-Ezaby', '23 - 3rd district - 6th of october city - Giza', 18752, 'elezaby@gmail.com', 123, '');
 
 -- --------------------------------------------------------
 

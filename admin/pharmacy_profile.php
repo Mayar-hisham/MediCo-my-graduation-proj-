@@ -49,13 +49,15 @@ if(isset($_GET['view'])){
     <h1 class="h1_text">Pharmacy Profile</h1>
     <div class="phar">
         <div class="phar name">
-            <p>Name:</p>
+            <p>Name: <?php echo $row['name']; ?></p>
         </div>
         <div class="phar branches">
-            <p>Branches:</p>
+            <p>Branches: <?php echo $row['address']; ?></p>
         </div>
         <div class="phar contacts">
             <p>Contacts:</p>
+            <p>Phone: <?php echo $row['phphone']; ?></p>
+            <p>Email: <?php echo $row['email']; ?></p>
         </div>
     </div>
     <script src="JS/script.js"></script>

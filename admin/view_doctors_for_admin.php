@@ -58,8 +58,8 @@ $delete = "DELETE FROM `doctors` WHERE id = $id";
                  <p>specialization: <?php   echo $row['specialization']  ?></p>
                  
                  <a href="view_doctors_for_admin.php?delete=<?php echo $row['id'];?> "><button class="delete">Delete</button></a>
-                    <a href="edit_doctor_profile_from_admin.html"> <button class="edit">Edit</button></a>
-                    <a href="edit_doctor_profile_from_admin.php?view=<?php echo $row['id'];?> "><button class="block">VIEW</button></a> 
+                    <a href="doctor_registration_form_for_admin.php?edit=<?php echo $row['id'];?>"> <button class="edit">Edit</button></a>
+                    <a href="vieww_doctor_profile_from_admin.php?view=<?php echo $row['id'];?> "><button class="block">VIEW</button></a> 
                     
 
 
