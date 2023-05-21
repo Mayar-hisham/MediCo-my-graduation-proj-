@@ -10,12 +10,13 @@ $rslt=mysqli_query($connect,$qry);
 if(isset($_GET['view'])){
     $id = $_GET['view'];
 
-    $view="SELECT * FROM `doctors` where id=$id";
+    $view="SELECT * FROM `doctors` where id= '".$_GET['view']."'";
     $e = mysqli_query($connect , $view);
     $num = mysqli_num_rows($e);
         $row = mysqli_fetch_assoc($e);
 
-}
+
+
 
 	
 ?>
@@ -82,6 +83,7 @@ if(isset($_GET['view'])){
 
     </div>
     </div>
+    <?php } ?>
     <script src="../JS/script.js"></script>
 </body>
 

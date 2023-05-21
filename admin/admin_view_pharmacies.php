@@ -1,5 +1,6 @@
 <?php
 include "../shared/conn.php";
+if (isset($_SESSION['admin'])) {
 ?>
 
 <?php
@@ -60,6 +61,7 @@ $delete = "DELETE FROM `pharmacy` WHERE id = $id_of_pharmacy";
                 <th>Number</th>
                 <th>Name</th>
                 <th>View pharmacy profile</th>
+                <th>Edit pharmacy</th>
                 <th>Delete pharmacy</th>
                 <th>Block pharmacy</th>
             </tr>
@@ -72,6 +74,7 @@ $delete = "DELETE FROM `pharmacy` WHERE id = $id_of_pharmacy";
                 <td> <?php   echo $row['id']?></td>
                 <td> <?php   echo $row['name']?></td>
                 <td><a href="pharmacy_profile.php?view=<?php echo $row['id'];?> ">View profile</a></td>
+                <td><a href="edit_pharmacy_profile_from_admin.php?edit=<?php echo $row['id'];?> ">Edit profile</a></td>
                 <td><a href="admin_view_pharmacies.php?delete=<?php echo $row['id'];?> ">Delete</a></td>
                 <td><a href="#">Block</a></td>
             </tr>
@@ -81,6 +84,8 @@ $delete = "DELETE FROM `pharmacy` WHERE id = $id_of_pharmacy";
                 ?>
                 </tbody>
     </table>
+
+    <?php } ?>
  
     <script src="../JS/script.js"></script>
 </body>
