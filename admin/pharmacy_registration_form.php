@@ -13,8 +13,8 @@ if(isset($_POST['reg'])) {
        // echo "password does not match";
    // }
     
-        $qq="INSERT INTO `pharmacy`
-        VALUES (NULL , '$username','$branches' ,'$contacts','$email','$password' , 'no')";
+        $qq="INSERT INTO `pharmacy`(`id`, `name`, `branches`, `contact_for_branch`,,`email`,`password`)
+        VALUES (NULL , '$username','$branches' ,'$contacts','$email','$password')";
    $q = mysqli_query($connect,$qq);
 
   //header('location:login.php');
