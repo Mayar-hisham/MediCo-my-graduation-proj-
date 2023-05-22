@@ -1,6 +1,7 @@
 <?php
 include "../shared/conn.php";
 
+
 if (isset($_SESSION['doctor'])) {
 
 ?>
@@ -27,7 +28,7 @@ if (isset($_SESSION['doctor'])) {
                 <li><a href="doctor_home.php">Home</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Help and Support</a></li>
-                <li><a href="home.html">Logout</a></li>
+                <li><a href="login.php?goodbye='1'">Logout</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -51,7 +52,9 @@ if (isset($_SESSION['doctor'])) {
 
     <?php } ?>
 
+
     <script src="JS/script.js"></script>
+    
     </body>
 
     </html>

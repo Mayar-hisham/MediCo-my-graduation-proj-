@@ -18,6 +18,7 @@ if (isset($_SESSION['admin'])) {
     <link rel="stylesheet" href="../CSS/pharmacy's view.css">
     <link rel="stylesheet" href="../CSS/style.css">
     <title>Medico</title>
+    
 </head>
 
 <body>
@@ -27,7 +28,7 @@ if (isset($_SESSION['admin'])) {
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php?bbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -56,7 +57,9 @@ if (isset($_SESSION['admin'])) {
     </div>
 
     <?php } ?>
+ 
     <script src="../JS/script.js"></script>
+   
 </body>
 
 </html>

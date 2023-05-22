@@ -41,7 +41,7 @@ if (isset($_SESSION["patient"])){
         <li><a href="home.html">Home</a></li>
         <li><a href="#">Contact Us</a></li>
         <li><a href="#">Help and Support</a></li>
-        <li><a href="home.html">Logout</a></li>
+        <li><a href="login.php?bye='1'">Logout</a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -362,6 +362,30 @@ if($s){
 
 
 <script src="JS/script.js"></script>
+<footer class="sticky-footer">
+        <div>
+            <h6>Copyright &copy Medico-2023</h6>
+        </div>
+               <div>
+               <h4 class="_14">  &nbsp  &nbsp  &nbsp CONTACT US:</h4>
+      
+                  <br>    &nbsp  &nbsp PHONE NO.: 01008775960 <br>
+                   <br>    &nbsp  &nbsp EMAIL: MediCo23@gmail.com
+</div>
+<br>
+<div class="footer-social-icons">
+  <h4 class="r"> &nbsp &nbspFOLLOW US ON</h4>
+  <br>
+  <ul class="social-icons">
+    <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px
+          src="../Images/icona1.png"></a></li>
+    <li><a href="www.instagram.com"><img width=30px hight=40px
+          src="../Images/icona2.png"></a></li></li>
+    <li><a href="www.twitter.com"><img width=30px hight=40px
+          src="../Images/twitter.jpg"></a></li>
+</ul>
+</div>
+    </footer>
   </body>
 
   </html>

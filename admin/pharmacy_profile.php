@@ -1,7 +1,6 @@
 
 <?php
 include "../shared/conn.php";
-
 if(isset($_GET['view'])){
     $id = $_GET['view'];
 
@@ -34,7 +33,7 @@ if(isset($_GET['view'])){
             <li><a href="#">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php?bbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -60,7 +59,10 @@ if(isset($_GET['view'])){
             <p>Email: <?php echo $row['email']; ?></p>
         </div>
     </div>
+   
     <script src="JS/script.js"></script>
+   
+
 </body>
 
 </html>

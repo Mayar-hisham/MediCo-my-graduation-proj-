@@ -1,6 +1,9 @@
 <?php 
 include "../shared/conn.php";
 
+
+
+
 if (isset($_SESSION['doctor'])) {
 
   $select = "SELECT * FROM `doctors` WHERE id = '" . $_SESSION['did'] . "'";
@@ -39,7 +42,7 @@ if (isset($_SESSION['doctor'])) {
       <li><a href="doctor_home.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
-      <li><a href="home.html">Logout</a></li>
+      <li><a href="login.php?goodbye='1'">Logout</a></li>
     </ul>
   </nav>
 
@@ -90,11 +93,38 @@ if (isset($_SESSION['doctor'])) {
       </div>
     </div>
   </div>
+<br>
+<br>
 
 
   <?php } }?>
+ 
 
   <script src="JS/script.js"></script>
+  <footer class="sticky-footer">
+        <div>
+            <h6>Copyright &copy Medico-2023</h6>
+        </div>
+               <div>
+               <h5 class="_14">  &nbsp  &nbsp  &nbsp CONTACT US:</h5>
+      
+                     &nbsp  &nbsp PHONE NO.: 01008775960 <br>
+                     &nbsp  &nbsp EMAIL: MediCo23@gmail.com
+</div>
+<br>
+<div class="footer-social-icons">
+  <h5 class="r"> &nbsp &nbspFOLLOW US ON</h5>
+  <br>
+  <ul class="social-icons">
+    <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px
+          src="../Images/icona1.png"></a></li>
+    <li><a href="www.instagram.com"><img width=30px hight=40px
+          src="../Images/icona2.png"></a></li></li>
+    <li><a href="www.twitter.com"><img width=30px hight=40px
+          src="../Images/twitter.jpg"></a></li>
+</ul>
+</div>
+    </footer>
 </body>
 
 </html>

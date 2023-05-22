@@ -1,5 +1,6 @@
 <?php
 include "../shared/conn.php";
+
 if (isset($_SESSION['admin'])) {
 
     $select = "SELECT * FROM `doctors` WHERE accepted = 'no'";
@@ -50,7 +51,7 @@ if (isset($_SESSION['admin'])) {
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php?bbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -82,6 +83,7 @@ if (isset($_SESSION['admin'])) {
         </tbody>
     </table>
     <?php } ?>
+   
     <script src="../JS/script.js"></script>
 </body>
 

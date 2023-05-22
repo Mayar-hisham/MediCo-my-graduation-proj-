@@ -3,6 +3,7 @@
 include "../shared/conn.php";
 
 
+
     $qry="SELECT * FROM `doctors` ";
 $rslt=mysqli_query($connect,$qry); 
 
@@ -42,7 +43,7 @@ if(isset($_GET['view'])){
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php?bbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -84,6 +85,7 @@ if(isset($_GET['view'])){
     </div>
     </div>
     <?php } ?>
+ 
     <script src="../JS/script.js"></script>
 </body>
 

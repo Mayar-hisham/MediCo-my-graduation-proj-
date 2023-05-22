@@ -1,5 +1,6 @@
 <?php
 include "../shared/conn.php";
+
 ?>
    <?php
     $qry="SELECT * FROM `doctors` ";
@@ -38,7 +39,7 @@ $delete = "DELETE FROM `doctors` WHERE id = $id";
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php?bbye='1'">Logout</a></li>
         </ul>
     </nav>
  
@@ -76,7 +77,9 @@ $delete = "DELETE FROM `doctors` WHERE id = $id";
 
 </div>
 
+
     <script src="../JS/script.js"></script>
+    
     
 </body>
 

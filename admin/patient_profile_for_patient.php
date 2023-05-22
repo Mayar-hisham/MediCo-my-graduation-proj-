@@ -1,5 +1,6 @@
 <?php 
 include "../shared/conn.php";
+//include "../shared/login.php";
 
 if ( isset($_SESSION["admin"])) {
 
@@ -50,7 +51,7 @@ if ( isset($_SESSION["admin"])) {
             <li><a href="#">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php?bbye='1'">Logout</a></li>
         </ul>
     </nav>
 
@@ -75,6 +76,8 @@ if ( isset($_SESSION["admin"])) {
     </div>
 
 <script src="JS/script.js"></script> 
+
+
 </body>
 <?php }  ?>
 </html>

@@ -1,6 +1,7 @@
 <?php
 include "../shared/conn.php";
 
+
 if (isset($_SESSION["admin"])){
   if(isset($_GET['emh'])){
 
@@ -58,7 +59,7 @@ if (isset($_SESSION["admin"])){
         <li><a href="home.html">Home</a></li>
         <li><a href="#">Contact Us</a></li>
         <li><a href="#">Help and Support</a></li>
-        <li><a href="home.html">Logout</a></li>
+        <li><a href="login.php?bbye='1'">Logout</a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -366,7 +367,9 @@ if($s){
 ?>
 
 
+
 <script src="JS/script.js"></script>
+
   </body>
 
   </html>

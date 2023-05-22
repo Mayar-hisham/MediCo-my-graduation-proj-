@@ -29,7 +29,7 @@ if (isset($_SESSION['pharmacy'])) {
       <li><a href="home.html">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
-      <li><a href="home.html">Logout</a></li>
+      <li><a href="login.php?gbye='1'">Logout</a></li>
     </ul>
     <div class="burger">
       <div class="line1"></div>
@@ -44,16 +44,16 @@ if (isset($_SESSION['pharmacy'])) {
   <h1 class="h1_text">Welcome <?php echo $_SESSION['pharname']; ?></h1>
   <div class="container">
     <div class="image">
-      <a href="https://www.example.com"><img src="Images/my-profile-icon-png-3.jpg"></a>
+      <a href="https://www.example.com"><img src="../Images/my-profile-icon-png-3.jpg"></a>
       <a href="https://www.example.com">My profile</a>
     </div>
     <div class="image">
-      <a href="requests.php"><img src="Images/pending-order-svg-icon-free-my-job-icon-11553505427rf7ua37rbl.png"></a>
+      <a href="requests.php"><img src="../Images/pending-order-svg-icon-free-my-job-icon-11553505427rf7ua37rbl.png"></a>
       <a href="Requests.php">Requests</a>
     </div>
     <div class="image">
       <a href="current _orders.php"><img
-          src="Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
+          src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
       <a href="current _orders.php">Current orders
       </a>
     </div>
@@ -62,22 +62,50 @@ if (isset($_SESSION['pharmacy'])) {
   <div class="container">
     <div class="image">
       <a href="order_on_way.php"><img
-          src="Images/delivery-truck-pictogram-icon-image-vector-illustration-design-79386582.jpg"></a>
+          src="../Images/delivery-truck-pictogram-icon-image-vector-illustration-design-79386582.jpg"></a>
       <a href="order_on_way.php">Orders on way</a>
     </div>
     <div class="image">
-      <a href="finished_requests.php"><img src="Images/done.png"></a>
+      <a href="finished_requests.php"><img src="../Images/done.png"></a>
       <a href="finished_requests.php">Finished requests</a>
     </div>
     <div class="image">
-      <a href="pinding_orders.html"><img src="Images/pending-orders-1.png"></a>
+      <a href="pinding_orders.html"><img src="../Images/pending-orders-1.png"></a>
       <a href="pinding_orders.php">Pinding orders </a>
     </div>
 
   </div>
+  <br>
+  <br>
 
   <?php } ?>
+
+
   <script src="JS/script.js"></script>
+  <footer class="sticky-footer">
+        <div>
+            <h6>Copyright &copy Medico-2023</h6>
+        </div>
+               <div>
+               <h4 class="_14">  &nbsp  &nbsp  &nbsp CONTACT US:</h4>
+      
+                  <br>    &nbsp  &nbsp PHONE NO.: 01008775960 <br>
+                   <br>    &nbsp  &nbsp EMAIL: MediCo23@gmail.com
+</div>
+<br>
+<div class="footer-social-icons">
+  <h4 class="r"> &nbsp &nbspFOLLOW US ON</h4>
+  <br>
+  <ul class="social-icons">
+    <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px
+          src="../Images/icona1.png"></a></li>
+    <li><a href="www.instagram.com"><img width=30px hight=40px
+          src="../Images/icona2.png"></a></li></li>
+    <li><a href="www.twitter.com"><img width=30px hight=40px
+          src="../Images/twitter.jpg"></a></li>
+</ul>
+</div>
+    </footer>
 </body>
 
 </html>
