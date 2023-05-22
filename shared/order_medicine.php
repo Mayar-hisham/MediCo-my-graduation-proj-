@@ -5,15 +5,39 @@
  if(isset($_SESSION["patient"])){
 
   $select = "SELECT * FROM `patient` 
-  JOIN `images` ON patient.id = images.patient_id WHERE patient.id = '". $_SESSION['pid'] ."'";
+  JOIN `images` ON patient.pid = images.patient_id WHERE patient.pid = '". $_SESSION['pid'] ."'";
 
   $sel = mysqli_query($connect , $select);
   
   $time = date('h:i: a', time());
   $_date = date('Y-m-d');
 
+  if(isset($_POST['upload'])){
 
-?>
+
+
+
+    $_pid = $_SESSION['pid'];
+    $paddr = $_POST['paddr'];
+    $_date = $_date;
+    $_time = $time;
+  
+  
+    $name = $_FILES['image']['name'];
+    $ltype = $_FILES['image']['type'];
+    $ltmp = $_FILES['image']['tmp_name'];
+   $llocation = "../upload/";
+  move_uploaded_file($ltmp , $llocation . $name);
+   
+                $query = "INSERT INTO `images` VALUES( NULL , $_pid , '$paddr' , '$_date' , '$_time' , '$name' , 'yes')";
+                 $sel = mysqli_query($connect,$query);
+                 if($sel){
+                  echo "order sent successfully";
+                 }
+  
+           }
+  
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,32 +97,8 @@
     </div>
     <div class="conent">
       <div class="container_order">
-      <?php
 
 
-if(isset($_POST['upload'])){
-
-
-
-
-  $_pid = $_SESSION['pid'];
-  $paddr = $_POST['paddr'];
-  $_date = $_date;
-  $_time = $time;
-
-
-  $name = $_FILES['image']['name'];
-  $ltype = $_FILES['image']['type'];
-  $ltmp = $_FILES['image']['tmp_name'];
- $llocation = "upload/";
-move_uploaded_file($ltmp , $llocation . $name);
- 
-              $query = "INSERT INTO `images` VALUES( NULL , $_pid , '$paddr' , '$_date' , '$_time' , '$name' , 'yes')";
-               $sel = mysqli_query($connect,$query);
-
-         }
-
-?>
 
        <h1>Upload your prescription/medicine</h1>
        <form method="post" enctype='multipart/form-data'>

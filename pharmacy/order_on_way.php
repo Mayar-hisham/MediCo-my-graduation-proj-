@@ -6,8 +6,11 @@ if (isset($_SESSION['pharmacy'])) {
 
 
     $select = "SELECT * FROM `orders` JOIN `patient` ON
-    orders.opatient_id = patient.id WHERE orders.activity != 'no' ";
+    orders.opatient_id = patient.pid WHERE orders.activity != 'no' ";
     $sel = mysqli_query($connect , $select);
+
+   // $num = mysqli_num_rows($sel);
+
 
     ?>
 
@@ -75,7 +78,6 @@ if (isset($_SESSION['pharmacy'])) {
         </tbody>
     </table>
 
-    <?php }?>
     
     <script src="JS/script.js"></script>
     <footer class="sticky-footer">
@@ -103,5 +105,6 @@ if (isset($_SESSION['pharmacy'])) {
 </div>
     </footer>
 </body>
+<?php } ?>
 
 </html>

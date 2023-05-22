@@ -7,7 +7,7 @@ if (isset($_SESSION['pharmacy'])) {
 
     $select = "SELECT * FROM `finished_orders` 
     JOIN `orders` ON finished_orders.id_of_pending = orders.id_of_order 
-    JOIN `patient` ON orders.opatient_id = patient.id";
+    JOIN `patient` ON orders.opatient_id = patient.pid";
     $sel = mysqli_query($connect , $select);
 
 

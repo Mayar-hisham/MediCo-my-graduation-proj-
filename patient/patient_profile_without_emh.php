@@ -54,7 +54,7 @@ $select = "";
         <div class="navbar">
 
             <a href="#">Doctors</a>
-            <a href="#">Orders</a>
+            <a href="../shared/order_medicine.php">Order Medicine</a>
             <a href="#">Payment</a>
             <a href="#">Insurance Details</a>
             <a href="./start_medical_profile.php">Start your medical profile</a>

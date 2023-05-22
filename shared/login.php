@@ -115,7 +115,7 @@ else{
             // echo $_SESSION['admin'];
     
             //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-            header("location: /MediCoNew/pharmacy/pharmacy's view.php");
+            header("location: /MediCoNew/pharmacy/pharmacy_view.php");
 
 
       } else{

@@ -18,7 +18,7 @@ include "../shared/conn.php";
 
   $select = "SELECT * FROM `images` 
   JOIN `orders` ON images.id = orders.ord_id
-  JOIN `patient` ON orders.opatient_id = patient.id
+  JOIN `patient` ON orders.opatient_id = patient.pid
   JOIN `pharmacy` ON orders.pharmacy_id = pharmacy.id 
   WHERE images.id = $id and pharmacy.id = '" . $_SESSION['phid'] . "' ";
 

@@ -55,7 +55,7 @@ $select = "";
             <a href="#" class="active" id="notification-count">Notifications </a>
             <a href="#">Medical History</a>
             <a href="#">Doctors</a>
-            <a href="#">Orders</a>
+            <a href="../shared/order_medicine.php">Order Medicine</a>
             <a href="#">Payment</a>
             <a href="EMH_view_patient.php">EMH</a>
             <a href="#">Insurance Details</a>

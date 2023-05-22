@@ -60,7 +60,6 @@ if (isset($_SESSION['pharmacy'])) {
                 <td><?php echo $s['patient_id']; ?></td>
                 <td><?php echo $s['patient_address']; ?></td>
                 <td><a href="sending_order_accepted.php?send=<?php echo $s['id']; ?>">Accept</a></td>
-                <td><a href="requests.php?delete=<?php echo $s['id']; ?>">Ac</a></td>
             </tr>
             <?php } ?>
         </tbody>

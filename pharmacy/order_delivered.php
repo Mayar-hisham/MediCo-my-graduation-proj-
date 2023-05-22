@@ -16,7 +16,7 @@ if (isset($_SESSION['pharmacy'])) {
 $alt = mysqli_query($connect , $alter);
 
         
-        header("location: /MediCoNew/finished_requests.php ");
+        header("location: /MediCoNew/pharmacy/finished_requests.php ");
 
 }}
 
