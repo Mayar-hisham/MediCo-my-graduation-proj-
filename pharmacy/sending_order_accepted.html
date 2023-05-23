@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/The Electronic Medical History.css">
+    <link rel="stylesheet" href="CSS/sending_order_accepted.css">
+
+    <title>Medico</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="./pharmacy_view.php">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Help and Support</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h2 style="text-align: center; font-size: 30px; margin-left: 500px; padding: 10px;">Sending your order </h2>
+
+    </div>
+    <div class="cont1">
+        <div class="navbar">
+            <a href="#" class="active">Notifications</a>
+            <a href="TheElectronicMedicalHistory.php">Medical History</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="#">Orders</a>
+            <a href="#">Payment</a>
+            <a href="#">Insurance Details</a>
+            <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
+        </div>
+        <div class="conent">
+            <form>
+                <label for="name">Pharmacy ID</label>
+                <input type="text" id="Pharmacy ID" name="Pharmacy ID" placeholder="Enter Pharmacy ID...">
+                <label for="name">Patient ID</label>
+                <input type="text" id="Patient ID" name="Patient ID" placeholder="Enter Patient ID...">
+                <label for="name">Order ID</label>
+                <input type="text" id="order ID" name="order ID" placeholder="Enter order ID...">
+                <label for="name">Pharmacy ID</label>
+                <input type="text" id="Pharmacy ID" name="Pharmacy ID" placeholder="Enter Pharmacy ID...">
+                <label for="date">Date</label>
+                <input type="text" id="date" name="date" placeholder="Enter date...">
+                <label for="time">Time</label>
+                <input type="text" id="time" name="time" placeholder="Enter time...">
+                <label for="name">Patient Address</label>
+                <input type="text" id="Patient Address" name="Patient Address" placeholder="Enter Patient Address...">
+                <label for="time">time of accepting the order</label>
+                <input type="text" id="time of accepting the order" name="time of accepting the order"
+                    placeholder="Enter time of accepting the order...">
+                <label for="name">Estimated delivery day</label>
+                <input type="text" id="estimated delivery day" name="estimated delivery day"
+                    placeholder="Enter time of accepting the order...">
+                <label for="name">Delivery man phone number</label>
+                <input type="text" id="delivery man phone number" name="delivery man phone number"
+                    placeholder="Enter delivery man phone number...">
+                <label for="name">Type a message to your customer</label>
+                <input type="text" id="type a message to your customer" name="type a message to your customer"
+                    placeholder="Enter type a message to your customer...">
+                <label for="medicine-img" class="custom-file-upload btn">
+                    <i class="fa fa-upload"></i> Upload image for medicine / ارفع الروشتة
+                    <input id="medicine-img" type="file" class="input-file">
+                </label>
+                <br>
+                <button type="submit" id="save-button">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+
+</html>
