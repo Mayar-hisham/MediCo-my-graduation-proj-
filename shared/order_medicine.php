@@ -138,7 +138,9 @@
     </div>
   </div>
 
-  <?php } ?>
+  <?php }if(isset($_SESSION['doctor'])){
+    **
+  } ?>
   <script src="JS/scriptorder.js"></script>
 </body>
 

@@ -28,7 +28,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 				<li><a href="doctor_home.php">Home</a></li>
 				<li><a href="#">Contact Us</a></li>
 				<li><a href="#">Help and Support</a></li>
-				<li><a href="login.php?goodbye='1'">Logout</a></li>
+				<li><a href="../shared/login.php?goodbye='1'">Logout</a></li>
 			</ul>
 			<div class="burger">
 				<div class="line1"></div>
@@ -96,7 +96,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 			<a href="#" class="active">Notifications</a>
 			<a href="The Electronic Medical History.html">Medical History</a>
 			<a href="doctors.html">Doctors</a>
-			<a href="#">Orders</a>
+			<a href="../shared/order_medicine.php">Order Medicine</a>
 			<a href="#">Payment</a>
 			<a href="#">Insurance Details</a>
 			<a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
