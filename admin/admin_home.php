@@ -27,8 +27,8 @@ if (isset($_SESSION['admin'])) {
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="login.php?bbye='1'">Logout</a></li>
+            <li><a href="./admin_home.php">Home</a></li>
+            <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -43,8 +43,8 @@ if (isset($_SESSION['admin'])) {
     <h1 class="h1_text">Wellcome Admin</h1>
     <div class="container_img">
         <div class="image">
-            <a href="admin_view_doctors.html"><img src="../Images/10.png"></a>
-            <a href="admin_view_doctors.php">Doctors</a>
+            <a href="./admin_view_doctors.php"><img src="../Images/10.png"></a>
+            <a href="./admin_view_doctors.php">Doctors</a>
         </div>
         <div class="image">
             <a href="admin_view_pharmacies.php"><img src="../Images/pharmacy logo.png"></a>
@@ -53,6 +53,10 @@ if (isset($_SESSION['admin'])) {
         <div class="image">
             <a href="admin_view_patients.php"><img src="../Images/9.jpg"></a>
             <a href="admin_view_patients.php">Patients</a>
+        </div>
+        <div class="image">
+            <a href="patient_payment.php"><img src="../Images/payment.png.crdownload"></a>
+            <a href="patient_payment.php">Confirm Payment</a>
         </div>
     </div>
 

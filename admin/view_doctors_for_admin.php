@@ -38,8 +38,8 @@ $delete = "DELETE FROM `doctors` WHERE id = $id";
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="login.php?bbye='1'">Logout</a></li>
+            <li><a href="./admin_home.php">Home</a></li>
+            <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
         </ul>
     </nav>
  

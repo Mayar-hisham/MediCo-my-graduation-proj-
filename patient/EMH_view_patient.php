@@ -89,13 +89,10 @@ if($result){
     </div>
     <div class="cont1">
       <div class="navbar">
-        <a href="#" class="active">Notifications</a>
-        <a href="TheElectronicMedicalHistory.php">Medical History</a>
-        <a href="doctors.html">Doctors</a>
-        <a href="#">Orders</a>
-        <a href="#">Payment</a>
-        <a href="#">Insurance Details</a>
-        <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
+      <a href="../shared/doctors.php">Doctors</a>
+            <a href="../shared/order_medicine.php">Order Medicine</a>
+            <a href="../shared/payment.html">Payment</a>
+            <a href="./start_medical_profile.php">Start your medical profile</a>
       </div>
       <div class="content">
         <br>

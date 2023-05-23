@@ -48,20 +48,25 @@ if ( isset($_SESSION["admin"])) {
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Help and Support</a></li>
-            <li><a href="login.php?bbye='1'">Logout</a></li>
+            <li><a href="./admin_home.php">Home</a></li>
+            <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
         </ul>
     </nav>
 
     <div class="header">
+    <div class="menu-icon">
+    <div class="cont1">
+        <br>
 
-        <h2 style="text-align: center; font-size: 30px; margin-left: 500px; padding: 10px;">
-        <?php echo $row['first_name']; ?>'s profile </h2>
-
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="conent">
+            <div class="card_patient">
+                <div class="image">
+                    <img src="../Images/patient-profile.jpg"  alt="Patient's photo">
+                </div>
+           
                 <div class="details">
-               
+            
                 <h2 style="text-align: center; margin-top: 10px; margin-bottom:80px; 
                     margin-right: 300px;"><?php echo $row['first_name']; ?></h2>
                     <p>Name: <?php echo $row['first_name']; ?></p>
@@ -73,6 +78,8 @@ if ( isset($_SESSION["admin"])) {
                     <p>Marital status: <?php echo $row['marital_status']; ?></p>
                     <p>Emergency contacts: <?php echo $row['emergency_contact']; ?> </p>
 </div>
+</div>
+    </div>
     </div>
 
 <script src="JS/script.js"></script> 

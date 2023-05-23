@@ -43,8 +43,8 @@ $delete = "DELETE FROM `pharmacy` WHERE id = $id_of_pharmacy";
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="login.php?bbye='1'">Logout</a></li>
+            <li><a href="./admin_home.php">Home</a></li>
+            <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -52,7 +52,7 @@ $delete = "DELETE FROM `pharmacy` WHERE id = $id_of_pharmacy";
             <div class="line3"></div>
         </div>
     </nav>
-    <h1 class="h1_text" id="Requests">Pharmacies <a href="pharmacy_registration_form.html"><button>create pharmacy
+    <h1 class="h1_text" id="Requests">Pharmacies <a href="pharmacy_registration_form.php"><button>create pharmacy
                 account</button></a></h1>
                 
     <table>

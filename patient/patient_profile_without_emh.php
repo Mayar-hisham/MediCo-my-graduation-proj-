@@ -53,24 +53,21 @@ $select = "";
     <div class="cont1">
         <div class="navbar">
 
-            <a href="#">Doctors</a>
+            <a href="../shared/doctors.php">Doctors</a>
             <a href="../shared/order_medicine.php">Order Medicine</a>
-            <a href="#">Payment</a>
-            <a href="#">Insurance Details</a>
+            <a href="../shared/payment.html">Payment</a>
             <a href="./start_medical_profile.php">Start your medical profile</a>
             
         </div>
+        <br><br><br><br><br>
         <div class="conent">
             <div class="card_patient">
                 <div class="image">
-                    <img src="Images/patient-profile.jpg" alt="Patient's photo">
+                    <img src="../Images/patient-profile.jpg" alt="Patient's photo">
                 </div>
                
                 <div class="details">
                
-
-                    <h2 style="text-align: center; margin-top: 10px; margin-bottom:80px; 
-                    margin-right: 300px;"><?php echo $_SESSION['first_name']; ?></h2>
                     <p>Name: <?php echo $_SESSION['first_name']; ?></p>
                     <p>Profile ID: <?php echo $_SESSION['pid']; ?></p>
                     <p>Date of birth: <?php echo $_SESSION['date_of_birth']; ?></p>

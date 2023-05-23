@@ -25,6 +25,7 @@ if (isset($_SESSION["patient"])) {
 </form>
 
 <?php }   else{
-    echo"Your payment is not approved or completed yet!";
+    echo"Your payment is not approved or completed yet! Go to payment page Now" ;
+    ?>  <a href="../shared/payment.php">Payment</a>  <?php
 } 
 }?>

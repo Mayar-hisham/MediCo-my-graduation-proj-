@@ -52,20 +52,18 @@ $select = "";
     </div>
     <div class="cont1">
         <div class="navbar">
-            <a href="#" class="active" id="notification-count">Notifications </a>
-            <a href="#">Medical History</a>
-            <a href="#">Doctors</a>
+            <a href="../shared/doctors.php">Doctors</a>
             <a href="../shared/order_medicine.php">Order Medicine</a>
-            <a href="#">Payment</a>
+            <a href="../shared/payment.html">Payment</a>
             <a href="EMH_view_patient.php">EMH</a>
-            <a href="#">Insurance Details</a>
             <a href="#">Edits of EMH</a>
             
         </div>
+        <br><br><br><br><br>
         <div class="conent">
             <div class="card_patient">
                 <div class="image">
-                    <img src="Images/patient-profile.jpg" alt="Patient's photo">
+                    <img src="../Images/patient-profile.jpg" alt="Patient's photo">
                 </div>
                
                 <div class="details">

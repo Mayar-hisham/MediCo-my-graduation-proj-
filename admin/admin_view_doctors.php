@@ -22,8 +22,8 @@ include "../shared/conn.php";
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="login.php?bbye='1'">Logout</a></li>
+            <li><a href="./admin_home.php">Home</a></li>
+            <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -38,8 +38,8 @@ include "../shared/conn.php";
     <h1 class="h1_text">Doctors</h1>
     <div class="container_img">
         <div class="image">
-            <a href="requests_doctors_for_admin.html"><img src="../Images/requests.png"></a>
-            <a href="requests_doctors_for_admin.html">Requests</a>
+            <a href="requests_doctors_for_admin.php"><img src="../Images/requests.png"></a>
+            <a href="requests_doctors_for_admin.php">Requests</a>
         </div>
         <div class="image">
             <a href="doctor_registration_form_for_admin.php"><img src="../Images/plus_icon.png"></a>

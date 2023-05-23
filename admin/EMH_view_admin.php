@@ -56,10 +56,8 @@ if (isset($_SESSION["admin"])){
         <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
       </div>
       <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Help and Support</a></li>
-        <li><a href="login.php?bbye='1'">Logout</a></li>
+        <li><a href="./admin_home.php">Home</a></li>
+        <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -218,7 +216,6 @@ if($s){
                 <br> <br>
                 past allergies: <span style="margin-left: 20px;"><?php echo $r['past_allergies']; ?></span> <br> <br>
                 past habits: <span style="margin-left: 20px;"><?php echo $r['past_habits']; ?></span> <br> <br>
-                past phobia: <span style="margin-left: 20px;"><?php echo $r['past_phobia']; ?></span> <br> <br>
               </div>
             </div>
 
