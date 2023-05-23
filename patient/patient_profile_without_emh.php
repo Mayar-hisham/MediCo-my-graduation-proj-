@@ -37,7 +37,7 @@ $select = "";
             <li><a href="#">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
-            <li><a href="login.php?bye='1'">Logout</a></li>
+            <li><a href="../shared/login.php?bye='1'">Logout</a></li>
         </ul>
     </nav>
 

@@ -30,10 +30,10 @@ if (isset($_SESSION['pharmacy'])) {
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
+            <li><a href="./pharmacy_view.php">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
-            <li><a href="login.php?gbye='1'">Logout</a></li>
+            <li><a href="../shared/login.php?gbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -49,6 +49,7 @@ if (isset($_SESSION['pharmacy'])) {
                 <th>Date</th>
                 <th>Name</th>
                 <th>Delivery Area</th>
+                <th>View prescription</th>
                 <th>Accept</th>
             </tr>
         </thead>
@@ -59,6 +60,7 @@ if (isset($_SESSION['pharmacy'])) {
                 <td><?php echo $s['date_of_order']; ?></td>
                 <td><?php echo $s['patient_id']; ?></td>
                 <td><?php echo $s['patient_address']; ?></td>
+                <td><a href="prescription.php?view=<?php echo $s['id']; ?>">view</a></td>
                 <td><a href="sending_order_accepted.php?send=<?php echo $s['id']; ?>">Accept</a></td>
             </tr>
             <?php } ?>

@@ -68,7 +68,7 @@ $alter = "UPDATE `images` SET activity = 'no' WHERE id = $id";
 $alt = mysqli_query($connect , $alter);
 
 
-        header("location: /MediCoNew/order_on_way.php ");
+        header("location: /MediCoNew/pharmacy/order_on_way.php ");
 
 }
 ?>

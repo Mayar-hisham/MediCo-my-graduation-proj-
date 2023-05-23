@@ -52,7 +52,7 @@ if (isset($_SESSION['doctor'])) {
       <a href="doctor_profile.php">My profile</a>
     </div>
     <div class="image">
-      <a href="order_medicine.php"><img
+      <a href="../shared/order_medicine.php"><img
           src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
           <a href="../shared/order_medicine.php">Order Medicine</a>
     </div>

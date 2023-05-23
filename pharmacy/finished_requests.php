@@ -47,10 +47,10 @@ $delete = "DELETE FROM `orders` WHERE id_of_order = $id_of_order";
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
+            <li><a href="./pharmacy_view.php">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
-            <li><a href="login.php?gbye='1'">Logout</a></li>
+            <li><a href="../shared/login.php?gbye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>

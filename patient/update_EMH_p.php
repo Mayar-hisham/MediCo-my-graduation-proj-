@@ -20,141 +20,7 @@ if (isset($_SESSION["patient"])) {
 
 $date = date('Y-m-d');
 
-//
-
     }
-/*
-
-if(isset($_POST['updatepersonal'])){
-$height = $_POST['height'];
-$weight = $_POST['weight'];
-$caff = $_POST['caff'];
-$smoke = $_POST['smoke'];
-$medicine = $_POST['medicine'];
-$chrds = $_POST['chrds'];
-$alc = $_POST['alc'];
-$cd = $_POST['cd'];
-$cpd = $_POST['cpd'];
-$allergies = $_POST['allergies'];
-
-$insert = "INSERT INTO `personal_hostory` VALUES (NULL , '".$_SESSION['patient_medical_profile_id']."' , 
-$height , $weight , '$caff' , '$smoke' , '$medicine' , '$chrds' , '$alc' , '$cd' , '$cpd' , '$allergies' ,
-'".$_SESSION['first_name']."' , '$date' )";
-$ins = mysqli_query($connect , $insert);
-
-}
-
-
-
-
-if(isset($_POST['updatefamily'])){
-    $br = $_POST['br'];
-    $disease = $_POST['disease'];
-    $br2 = $_POST['br2'];
-    $disease2 = $_POST['disease2'];
-    $addinfo = $_POST['addinfo'];
-
-    $insert = "INSERT INTO `family_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
-    '$br' , '$disease' , '$br2' , '$disease2' , '$addinfo' , '".$_SESSION['pid']."' , '$date')";
-    $ins = mysqli_query($connect , $insert);
-
-
-}
-
-if(isset($_POST['updatepast'])){
-    $pastillness = $_POST['pastillness'];
-    $pastmedicine = $_POST['pastmedicine'];
-    $pastallergies = $_POST['pastallergies'];
-    $pasthabits = $_POST['pasthabits'];
-
-    $insert = "INSERT INTO `past_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
-    '$pastillness' , '$pastmedicine' , '$pastallergies' , '$pasthabits' , '".$_SESSION['pid']."' , '$date')";
-    $ins = mysqli_query($connect , $insert);
-}
-
-if(isset($_POST['surgical'])){
-  
-    $dp1 = $_POST['dp1'];
-    $st1 = $_POST['st1'];
-     $surgeon1 = $_POST['surgeon1'];
-    $mp1 = $_POST['mp1'];
-    $rbt = $_POST['rbt'];
-
-    $dp2 = $_POST['dp2'];
-    $st2 = $_POST['st2'];
-    $surgeon2 = $_POST['surgeon2'];
-    $mp2 = $_POST['mp2'];
-    $rbt2 = $_POST['rbt2'];
-
-     $dp3 = $_POST['dp3'];
-    $st3 = $_POST['st3'];
-    $surgeon3 = $_POST['surgeon3'];
-     $mp3 = $_POST['mp3'];
-    $rbt3 = $_POST['rbt3'];
-
-    $dp4 = $_POST['dp4'];
-    $st4 = $_POST['st4'];
-    $surgeon4 = $_POST['surgeon4'];
-    $mp4 = $_POST['mp4'];
-    $rbt4 = $_POST['rbt4'];
-
-
-
-
-    $insert = "INSERT INTO `surgical_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
-    '$dp1', '$st1' , '$surgeon1' , '$mp1' , '$rbt' , 
-    '$dp2', '$st2' , '$surgeon2' , '$mp2' , '$rbt2' 
-    ,'$dp3', '$st3' , '$surgeon3' , '$mp3' , '$rbt3'
-    ,'$dp4', '$st4' , '$surgeon4' , '$mp4' , '$rbt4'
-    , '".$_SESSION['pid']."' , '$date')";
-    $ins = mysqli_query($connect , $insert);
-}
-
-
-if(isset($_POST['clinical'])){
-
-    $name = $_FILES['upload']['name'];
-    $ltype = $_FILES['upload']['type'];
-    $ltmp = $_FILES['upload']['tmp_name'];
-   $llocation = "../upload/";
-  move_uploaded_file($ltmp , $llocation . $name);
-
-    $insert = "INSERT INTO `clinical_history` VALUES(NULL , '".$_SESSION['patient_medical_profile_id']."' ,
-       '$name'  , '".$_SESSION['pid']."' , '$date')";
-    $ins = mysqli_query($connect , $insert);
-}
-
-
-
-
-$sql = "SELECT * FROM `patient`
-JOIN `medical_profile` ON 
- patient.pid = medical_profile.patient_id
- JOIN `personal_hostory` ON 
- medical_profile.m_id = personal_hostory.medical_profile_id 
- JOIN `past_history` ON
-medical_profile.m_id = past_history.medical_profile_id
-JOIN `family_history` ON
-medical_profile.m_id = family_history.medical_profile_id
-JOIN `clinical_history` ON
-medical_profile.m_id = clinical_history.medical_profile_id 
-JOIN `surgical_history` ON
-medical_profile.m_id = surgical_history.medical_profile_id 
-
-/*JOIN `doctor_diagnosis` ON
-medical_profile.id = doctor_diagnosis.medical_profile_id 
-
-WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
-       $result = mysqli_query($connect, $sql);
-
-       $numberOfRows = mysqli_num_rows($result);
-
-               $r = mysqli_fetch_assoc($result);
-
-
-
-
-*/
 
 
 ?>
@@ -189,7 +55,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
             <li><a href="#">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
-            <li><a href="login.php?bye='1'">Logout</a></li>
+            <li><a href="../shared/login.php?bye='1'">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
