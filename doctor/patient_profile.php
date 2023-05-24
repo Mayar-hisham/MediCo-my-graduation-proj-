@@ -99,7 +99,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 
 		<div class="content">
 			<div class="profile-card">
-				<img src="Images/my-profile-icon-png-3.jpg" alt="Your Profile Image" class="profile-image">
+			<img src="../upload/<?php echo $r['image'] ?>" alt="patient's photo">
 				<h2><a href="your-profile-link" style="margin-left: 25px;"><?php echo $r['first_name']; ?><?php echo $r['last_name']; ?>. </a></h2>
 				<div class="profile-details">
 					<h3>Current Illness: <?php echo $r['suffers']; ?></h3>

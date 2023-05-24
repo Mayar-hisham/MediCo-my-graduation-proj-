@@ -17,10 +17,16 @@ if(isset($_POST['signup'])){
     $address = $_POST['address'];
     $password = $_POST['password'];
 
+    $image = $_FILES['image']['name'];
+    $itype = $_FILES['image']['type'];
+    $itmp = $_FILES['image']['tmp_name'];
+   $ilocation = "../upload/";
+  move_uploaded_file($itmp , $ilocation . $image);
+
 
     $ins= "INSERT INTO `patient` VALUES( Null , '$firstname',
      '$lastname' , '$gender' , '$occupation' , '$maritalstatus' , '$email' ,
-      '$allergies' , '$bloodtype' , '$age' , $phone , $em_cont , '$address' , $password , 'no' , 'no' , 'no')";
+      '$allergies' , '$bloodtype' , '$age' , $phone , $em_cont , '$address' , $password , '$image' , 'no' , 'no' , 'no')";
     $i = mysqli_query($connect , $ins);
 
     header("location: /MediCoNew/shared/login.php");
@@ -63,7 +69,7 @@ if(isset($_POST['signup'])){
     </nav>
     <h1 class="h1_text" id="Requests">Registration</h1>
     <div class="conent">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label for="name">First Name:</label>
             <input type="text" id="name" name="fname" placeholder="Enter name...">
             <label for="name">Last Name:</label>
@@ -111,6 +117,8 @@ if(isset($_POST['signup'])){
             <input type="text" id="Address" name="address" placeholder="Enter Address...">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter password...">
+            <label for="password">Upload Personal Image:</label>
+            <input type="file" id="password" name="image" placeholder="Enter password...">
             <br> <br>
             <button name="signup" type="submit" id="save-button">Save</button>
         </form>

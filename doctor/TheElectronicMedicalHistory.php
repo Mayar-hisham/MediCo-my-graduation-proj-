@@ -200,7 +200,6 @@ if($numberOfRows > 0){
                 <br> <br>
                 past allergies: <span style="margin-left: 20px;"><?php echo $r['past_allergies']; ?></span> <br> <br>
                 past habits: <span style="margin-left: 20px;"><?php echo $r['past_habits']; ?></span> <br> <br>
-                past phobia: <span style="margin-left: 20px;"><?php echo $r['past_phobia']; ?></span> <br> <br>
               </div>
             </div>
 

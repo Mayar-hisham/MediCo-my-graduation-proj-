@@ -62,7 +62,7 @@ if ( isset($_SESSION["admin"])) {
         <div class="conent">
             <div class="card_patient">
                 <div class="image">
-                    <img src="../Images/patient-profile.jpg"  alt="Patient's photo">
+                <img src="../upload/<?php echo $row['image'] ?>" alt="patient's photo">
                 </div>
            
                 <div class="details">

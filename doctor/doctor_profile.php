@@ -8,6 +8,8 @@ if (isset($_SESSION['doctor'])) {
 
   $select = "SELECT * FROM `doctors` WHERE id = '" . $_SESSION['did'] . "'";
   $sel = mysqli_query($connect , $select);
+  
+  $row = mysqli_fetch_assoc($sel);
 
 
 
@@ -58,7 +60,7 @@ if (isset($_SESSION['doctor'])) {
   <?php  if(isset($_SESSION['doctor'])){ ?>
   <div class="cont1">
     <div class="navbar">
-      <a href="doctors.html">Doctors</a>
+      <a href="../shared/doctors.php">Doctors</a>
       <a href="../shared/order_medicine.php">Order Medicine</a>
       <a href="order_tracking.php">Track Orders</a>
       <a href="patient_otp.php">Access patients</a>
@@ -68,14 +70,15 @@ if (isset($_SESSION['doctor'])) {
     <?php } ?>
     <br><br><br><br><br>
     <div class="conent">
+    <?php foreach($sel as $s){ ?>
       <div class="card_doctor">
         <div class="image">
-          <img src="../Images/pexels-thirdman-5327656.jpg" alt="Doctor's photo">
+          <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
         </div>
         <div class="details">
           <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">Dr. <?php echo $_SESSION['dfirst_name']; ?>
           </h2>
-          <?php foreach($sel as $s){ ?>
+         
           <p>Specialist in: <br> <span><?php echo $s['specialization']; ?> </span> </p>
           <p>Experience: <br> <span><?php echo $s['years_of_exp']; ?> </span> </p>
           <div class="uls">
@@ -103,6 +106,8 @@ $id = $_GET['view'];
 
      $select = "SELECT * FROM `doctors` WHERE id = $id";
      $sel = mysqli_query($connect , $select);
+
+     $row = mysqli_fetch_assoc($sel);
    
    
    
@@ -154,7 +159,7 @@ $id = $_GET['view'];
           
            <div class="image">
            <br><br><br><br>
-             <img src="../Images/pexels-thirdman-5327656.jpg" alt="Doctor's photo">
+           <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
            </div>
            <div class="details">
            <?php foreach($sel as $s){ ?>

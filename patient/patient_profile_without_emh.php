@@ -4,7 +4,10 @@ include "../shared/conn.php";
 if (isset($_SESSION["patient"])) {
 
 
-$select = "";
+$select = "SELECT * FROM `patient` WHERE pid = '".$_SESSION['pid']."'";
+$sel = mysqli_query($connect , $select);
+
+$row = mysqli_fetch_assoc($sel);
 
     ?>
 
@@ -64,7 +67,7 @@ $select = "";
         <div class="conent">
             <div class="card_patient">
                 <div class="image">
-                    <img src="../Images/patient-profile.jpg" alt="Patient's photo">
+                <img src="../upload/<?php echo $row['image'] ?>" alt="patient's photo">
                 </div>
                
                 <div class="details">

@@ -57,7 +57,7 @@ $sel = mysqli_query($connect , $select);
       <?php foreach($sel as $s){ ?>
         
       <div class="card_doctors">
-        <img src="../Images/pexels-thirdman-5327656.jpg" alt="Person 1">
+      <img src="../upload/<?php echo $s['image'] ?>" alt="Doctor's photo">
         <div class="card-text">
           <h3>Name: <?php echo $s['dfirst_name'].$s['dlast_name'] ?></h3>
           <p>Specialist in: <?php echo $s['specialization']?></p>

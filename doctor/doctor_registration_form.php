@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "../shared/conn.php";
 
 if(isset($_POST['submit'])){
@@ -32,17 +32,22 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
 
+    $image = $_FILES['image']['name'];
+    $itype = $_FILES['image']['type'];
+    $itmp = $_FILES['image']['tmp_name'];
+   $ilocation = "../upload/";
+  move_uploaded_file($itmp , $ilocation . $image);
+
+
     $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
      '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
-      '$ds' , '$email' , '$specialization' , $password , 'no' , 'no')";
+      '$ds' , '$email' , '$specialization' , $password , '$image' , 'no' , 'no')";
     $i = mysqli_query($connect , $ins);
-  /*  if($i){
-        echo"ok";
-    }else{
-        echo "no".mysqli_error($connect);
-    } */
+   if($i){
+        echo"Wait for your account to be accepted ny admins, you will receive an email";
+    }
     
-    header("location: /MediCoNew/login.php");
+    //header("location: /MediCoNew/shared/login.php");
 }
 ?>
 
@@ -103,6 +108,8 @@ if(isset($_POST['submit'])){
             <input type="text" id="Specialization" name="spc" placeholder="Enter Specialization...">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter password...">
+            <label for="password">Upload Personal Image</label>
+            <input type="file" id="password" name="image" placeholder="Enter password...">
             <br> <br>
             <button name="submit" type="submit" id="save-button">Save</button>
         </form>

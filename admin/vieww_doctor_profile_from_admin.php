@@ -56,7 +56,7 @@ if(isset($_GET['view'])){
 
         <div class="card_doctor">
             <div class="image">
-                <img src="../Images/pexels-thirdman-5327656.jpg" alt="Doctor's photo">
+            <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
             </div>
             <div class="details">
                 <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">NAME: 

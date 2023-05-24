@@ -32,11 +32,18 @@ if (isset($_SESSION['admin'])) {
         $email = $_POST['email'];
         $specialization = $_POST['spc']; 
         $password = $_POST['password'];
+
+
+        $image = $_FILES['image']['name'];
+        $itype = $_FILES['image']['type'];
+        $itmp = $_FILES['image']['tmp_name'];
+       $ilocation = "../upload/";
+      move_uploaded_file($itmp , $ilocation . $image);
     
     
         $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
          '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
-          '$ds' , '$email' , '$specialization' , '$password' , 'no' , 'no')";
+          '$ds' , '$email' , '$specialization' , '$password' , '$image' , 'yes' , 'no')";
         $i = mysqli_query($connect , $ins);
      if($i){
             echo"Registered Successfully";
@@ -82,6 +89,12 @@ if (isset($_SESSION['admin'])) {
         $email = $_POST['email'];
         $specialization = $_POST['spc']; 
         $password = $_POST['password'];
+
+        $image = $_FILES['image']['name'];
+        $itype = $_FILES['image']['type'];
+        $itmp = $_FILES['image']['tmp_name'];
+       $ilocation = "../upload/";
+      move_uploaded_file($itmp , $ilocation . $image);
         $id = $_GET['edit'];
     
     
@@ -89,7 +102,7 @@ if (isset($_SESSION['admin'])) {
          dlast_name = '$lastname' , date_of_birth = '$age' , profession_practice = '$pp' , years_of_exp = $yoe , 
          daddress = '$address' , phone = $phone ,
           doctor_syndicate = '$ds' , email = '$email' , specialization = '$specialization' ,
-           password = '$password' WHERE id = $id";
+           password = '$password' , image = '$image' WHERE id = $id";
         $i = mysqli_query($connect , $ins);
      if($i){
             echo"Registered Successfully";
@@ -209,6 +222,17 @@ if (isset($_SESSION['admin'])) {
               <?php }else{ ?>
                 <input type="password" id="password" name="password" placeholder="Enter password...">
             <?php }?>
+
+
+            <label for="password">Upload Personal Picture:</label>
+            <?php if(isset($_GET['edit'])){ ?>
+                <input type="file" value="<?php echo $row['image']?>" id="password" name="password" placeholder="Enter password...">
+
+              <?php }else{ ?>
+                <input type="file" id="password" name="image" placeholder="Enter password...">
+            <?php }?>
+
+
             
             <br> <br>
             <?php if(isset($_GET['edit'])){ ?>

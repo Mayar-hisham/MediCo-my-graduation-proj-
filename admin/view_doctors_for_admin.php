@@ -51,7 +51,7 @@ $delete = "DELETE FROM `doctors` WHERE id = $id";
         <div class="card-container">
              <?php while ($row=mysqli_fetch_array($rslt)) {?>
             <div class="card_doctors">
-             <img  src="../Images/pexels-thirdman-5327656.jpg" alt="Person 1">
+            <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
                 
                 <div class="card-text">
              
