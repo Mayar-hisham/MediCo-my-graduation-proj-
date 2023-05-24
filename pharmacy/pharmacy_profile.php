@@ -43,17 +43,20 @@ if(isset($_GET['view'])){
 
 
     <h1 class="h1_text">Pharmacy Profile</h1>
-    <div class="phar">
-        <div class="phar name">
-            <p>Name:</p>
+        <div class="phar">
+        <img src="../upload/<?php echo $row['image'] ?>" alt="pharmacy's photo">
+            <div class="phar name">
+                <p>Name: <?php echo $row['name']; ?></p>
+            </div>
+            <div class="phar branches">
+                <p>Branches: <?php echo $row['address'];?></p>
+            </div>
+            <div class="phar contacts">
+                <p>Contacts:</p>
+                <h1>Phone: <?php echo $row['phphone'];?></h1>
+                <h1>email: <?php echo $row['email'];?></h1>
+            </div>
         </div>
-        <div class="phar branches">
-            <p>Branches:</p>
-        </div>
-        <div class="phar contacts">
-            <p>Contacts:</p>
-        </div>
-    </div>
    
     <script src="JS/script.js"></script>
     <footer class="sticky-footer">
@@ -118,7 +121,7 @@ if(isset($_GET['view'])){
                 <li><a href="./pharmacy_view.php">Home</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Help and Support</a></li>
-                <li><a href="login.php?gbye='1'">Logout</a></li>
+                <li><a href="../shared/login.php?gbye='1'">Logout</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -132,6 +135,7 @@ if(isset($_GET['view'])){
     
         <h1 class="h1_text">Pharmacy Profile</h1>
         <div class="phar">
+        <img src="../upload/<?php echo $row['image'] ?>" alt="pharmacy's photo">
             <div class="phar name">
                 <p>Name: <?php echo $row['name']; ?></p>
             </div>

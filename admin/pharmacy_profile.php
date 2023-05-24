@@ -45,6 +45,8 @@ if(isset($_GET['view'])){
 
     <h1 class="h1_text">Pharmacy Profile</h1>
     <div class="phar">
+
+    <img src="../upload/<?php echo $row['image'] ?>" alt="pharmacy's photo">
         <div class="phar name">
             <p>Name: <?php echo $row['name']; ?></p>
         </div>

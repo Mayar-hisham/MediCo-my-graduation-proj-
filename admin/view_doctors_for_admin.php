@@ -8,14 +8,23 @@ $rslt=mysqli_query($connect,$qry);
 
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
-
-
-
-
 $delete = "DELETE FROM `doctors` WHERE id = $id";
     $del = mysqli_query($connect , $delete);
-
 }
+
+if(isset($_GET['block'])){
+    $id = $_GET['block'];
+$delete = "UPDATE `doctors` SET blocked = 'yes' WHERE id = $id";
+    $del = mysqli_query($connect , $delete);
+}
+
+if(isset($_GET['unblock'])){
+    $id = $_GET['unblock'];
+$delete = "UPDATE `doctors` SET blocked = 'no' WHERE id = $id";
+    $del = mysqli_query($connect , $delete);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +70,13 @@ $delete = "DELETE FROM `doctors` WHERE id = $id";
                  <a href="view_doctors_for_admin.php?delete=<?php echo $row['id'];?> "><button class="delete">Delete</button></a>
                     <a href="doctor_registration_form_for_admin.php?edit=<?php echo $row['id'];?>"> <button class="edit">Edit</button></a>
                     <a href="vieww_doctor_profile_from_admin.php?view=<?php echo $row['id'];?> "><button class="block">VIEW</button></a> 
+                    <?php if($row['blocked'] == 'yes'){ ?>
+                    <td><a href="view_doctors_for_admin.php?unblock=<?php echo $row['id'];?> ">Unblock</a></td>
+                
+                <?php }else{ ?>
+                    <td><a href="view_doctors_for_admin.php?block=<?php echo $row['id'];?> ">Block</a></td>
+
+               <?php  } ?>
                     
 
 

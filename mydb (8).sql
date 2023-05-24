@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2023 at 01:24 PM
+-- Generation Time: May 24, 2023 at 05:06 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -367,6 +367,7 @@ CREATE TABLE `pharmacy` (
   `phphone` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` int(11) NOT NULL,
+  `image` mediumtext NOT NULL,
   `blocked` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -374,9 +375,9 @@ CREATE TABLE `pharmacy` (
 -- Dumping data for table `pharmacy`
 --
 
-INSERT INTO `pharmacy` (`id`, `name`, `address`, `phphone`, `email`, `password`, `blocked`) VALUES
-(2, 'El-Ezaby', '23 - 3rd district - 6th of october city - Giza', 147, 'elezaby@gmail.com', 123, ''),
-(5, 'Seif Pharmacies', 'new cairo', 1012144796, 'seif@gmail.com', 123, 'no');
+INSERT INTO `pharmacy` (`id`, `name`, `address`, `phphone`, `email`, `password`, `image`, `blocked`) VALUES
+(2, 'El-Ezaby', '23 - 3rd district - 6th of october city - Giza', 147, 'elezaby@gmail.com', 123, '', 'no'),
+(6, 'Seif Pharmacies', 'new cairo', 11256, 'seif@gmail.com', 123, 'seif.jpeg', 'no');
 
 -- --------------------------------------------------------
 
@@ -601,7 +602,7 @@ ALTER TABLE `personal_hostory`
 -- AUTO_INCREMENT for table `pharmacy`
 --
 ALTER TABLE `pharmacy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `surgical_history`

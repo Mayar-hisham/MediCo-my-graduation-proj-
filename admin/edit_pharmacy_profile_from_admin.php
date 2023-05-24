@@ -21,8 +21,15 @@ if (isset($_SESSION['admin'])) {
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
+                $image = $_FILES['image']['name'];
+                $itype = $_FILES['image']['type'];
+                $itmp = $_FILES['image']['tmp_name'];
+               $ilocation = "../upload/";
+              move_uploaded_file($itmp , $ilocation . $image);
+            
+
                 $edit = "UPDATE `pharmacy` SET name = '$name' , address = '$address' , phphone = $phone , 
-                email = '$email' , password = '$password' WHERE id = '".$_GET['edit']."'";
+                email = '$email' , password = '$password' , image = '$image'  WHERE id = '".$_GET['edit']."'";
                 $e = mysqli_query($connect , $edit);
 
                 if($e){
@@ -72,7 +79,7 @@ if (isset($_SESSION['admin'])) {
 
     <h1 class="h1_text" id="Requests">Registration</h1>
     <div class="conent">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label for="Username">Pharmacy Name:</label>
             <input value="<?php echo $row['name'] ?>" type="text" id="Username" name="name" placeholder="Enter Username...">
             <label for="Email">Email:</label>
@@ -84,6 +91,8 @@ if (isset($_SESSION['admin'])) {
                 placeholder="Enter Contacts for each branch...">
             <label for="password">Password:</label>
             <input value="<?php echo $row['password'] ?>" type="password" id="password" name="password" placeholder="Enter password...">
+            <label for="password">LOGO:</label>
+            <input value="<?php echo $row['image'] ?>" type="file" id="password" name="image" placeholder="Enter password...">
             <br> <br>
             <button type="submit" name="update" id="save-button">Save</button>
         </form>

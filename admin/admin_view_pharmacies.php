@@ -11,13 +11,20 @@ $rslt=mysqli_query($connect,$qry);
 
 if(isset($_GET['delete'])){
     $id_of_pharmacy = $_GET['delete'];
-
-
-
-
 $delete = "DELETE FROM `pharmacy` WHERE id = $id_of_pharmacy";
     $del = mysqli_query($connect , $delete);
+}
 
+if(isset($_GET['block'])){
+    $id_of_pharmacy = $_GET['block'];
+$delete = "UPDATE `pharmacy` SET blocked = 'yes' WHERE id = $id_of_pharmacy";
+    $del = mysqli_query($connect , $delete);
+}
+
+if(isset($_GET['unblock'])){
+    $id_of_pharmacy = $_GET['unblock'];
+$delete = "UPDATE `pharmacy` SET blocked = 'no' WHERE id = $id_of_pharmacy";
+    $del = mysqli_query($connect , $delete);
 }
 
 ?>
@@ -77,7 +84,13 @@ $delete = "DELETE FROM `pharmacy` WHERE id = $id_of_pharmacy";
                 <td><a href="pharmacy_profile.php?view=<?php echo $row['id'];?> ">View profile</a></td>
                 <td><a href="edit_pharmacy_profile_from_admin.php?edit=<?php echo $row['id'];?> ">Edit profile</a></td>
                 <td><a href="admin_view_pharmacies.php?delete=<?php echo $row['id'];?> ">Delete</a></td>
-                <td><a href="#">Block</a></td>
+                <?php if($row['blocked'] == 'yes'){ ?>
+                    <td><a href="admin_view_pharmacies.php?unblock=<?php echo $row['id'];?> ">Unblock</a></td>
+                
+                <?php }else{ ?>
+                    <td><a href="admin_view_pharmacies.php?block=<?php echo $row['id'];?> ">Block</a></td>
+
+               <?php  } ?>
             </tr>
             <?php
                 }

@@ -9,18 +9,26 @@ if(isset($_POST['reg'])) {
     $branches = mysqli_real_escape_string($connect,$_POST['branches']);
     $contacts = mysqli_real_escape_string($connect,$_POST['phone']);
 
+    $image = $_FILES['image']['name'];
+    $itype = $_FILES['image']['type'];
+    $itmp = $_FILES['image']['tmp_name'];
+   $ilocation = "../upload/";
+  move_uploaded_file($itmp , $ilocation . $image);
+
    //($password != $conpassword){
        // echo "password does not match";
    // }
     
-        $qq="INSERT INTO `pharmacy`(`id`, `name`, `branches`, `contact_for_branch`,,`email`,`password`)
-        VALUES (NULL , '$username','$branches' ,'$contacts','$email','$password')";
+        $qq="INSERT INTO `pharmacy`(`id`, `name`, `address`, `phphone`,`email`,`password` , `image` , `blocked`)
+        VALUES (NULL , '$username','$branches' ,'$contacts','$email','$password' , '$image' , 'no')";
    $q = mysqli_query($connect,$qq);
 
   //header('location:login.php');
 
   if($q){
-    echo 'NOW PLEASE LOGIN';?> <a href="../shared/login.php">LOGIN HERE</a>  <?php
+    echo"ok";
+  }else{
+    echo"no".mysqli_error($connect);
   }
     }
     ?>
@@ -55,7 +63,7 @@ if(isset($_POST['reg'])) {
     </nav>
     <h1 class="h1_text" id="Requests">Registration</h1>
     <div class="conent">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label for="Username">Pharmacy Name:</label>
             <input type="text" id="Username" name="name" placeholder="Enter Username...">
             <label for="Email">Email:</label>
@@ -67,6 +75,8 @@ if(isset($_POST['reg'])) {
                 placeholder="Enter Contacts for each branch...">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter password...">
+            <label for="password">LOGO:</label>
+            <input type="file" id="password" name="image" placeholder="Enter password...">
             <br> <br>
             <button type="submit" name="reg" id="save-button">Save</button>
         </form>
