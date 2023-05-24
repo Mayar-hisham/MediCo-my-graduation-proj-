@@ -93,13 +93,8 @@ if (isset($_SESSION['doctor'])) {  ?>
 		</div>
 
 		<div class="navbar">
-			<a href="#" class="active">Notifications</a>
-			<a href="The Electronic Medical History.html">Medical History</a>
-			<a href="doctors.html">Doctors</a>
-			<a href="../shared/order_medicine.php">Order Medicine</a>
-			<a href="#">Payment</a>
-			<a href="#">Insurance Details</a>
-			<a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
+
+			<a href="TheElectronicMedicalHistory.php">View EMH</a>
 		</div>
 
 		<div class="content">

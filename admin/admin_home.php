@@ -55,7 +55,7 @@ if (isset($_SESSION['admin'])) {
             <a href="admin_view_patients.php">Patients</a>
         </div>
         <div class="image">
-            <a href="patient_payment.php"><img src="../Images/payment.png.crdownload"></a>
+            <a href="patient_payment.php"><img src="../Images/payment.png"></a>
             <a href="patient_payment.php">Confirm Payment</a>
         </div>
     </div>

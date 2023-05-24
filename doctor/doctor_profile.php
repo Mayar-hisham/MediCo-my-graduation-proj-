@@ -55,19 +55,22 @@ if (isset($_SESSION['doctor'])) {
     <h2 style="text-align: center; font-size: 30px; margin-left: 500px; padding: 10px;">your profile </h2>
 
   </div>
+  <?php  if(isset($_SESSION['doctor'])){ ?>
   <div class="cont1">
     <div class="navbar">
-      <a href="#" class="active" id="notification-count">Notifications </a>
-      <a href="TheElectronicMedicalHistory.php">Medical History</a>
       <a href="doctors.html">Doctors</a>
       <a href="../shared/order_medicine.php">Order Medicine</a>
-      <a href="#">Insurance Details</a>
-      <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
+      <a href="order_tracking.php">Track Orders</a>
+      <a href="patient_otp.php">Access patients</a>
+      <a href="doctor_home.php">Home</a>
     </div>
+
+    <?php } ?>
+    <br><br><br><br><br>
     <div class="conent">
       <div class="card_doctor">
         <div class="image">
-          <img src="Images/pexels-thirdman-5327656.jpg" alt="Doctor's photo">
+          <img src="../Images/pexels-thirdman-5327656.jpg" alt="Doctor's photo">
         </div>
         <div class="details">
           <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">Dr. <?php echo $_SESSION['dfirst_name']; ?>
@@ -87,7 +90,6 @@ if (isset($_SESSION['doctor'])) {
               <li>Email: <?php echo $s['email']; ?> </li>
             </ul>
           </div>
-          <button id="upload-btn">Upload photo</button>
         </div>
       </div>
     </div>

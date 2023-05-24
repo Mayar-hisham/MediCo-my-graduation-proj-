@@ -32,7 +32,7 @@ include "../shared/conn.php";
 
 
 
-      header("location: /MediCoNew/patient/patient_profile_for_patient.php"); 
+      header("location: /MediCoNew/patient/patient_home.php"); 
       
       
         }else{
@@ -41,7 +41,8 @@ include "../shared/conn.php";
           $email = $_POST["email"];
           $password = $_POST["password"];
         
-          $select1 = "SELECT * FROM `patient` WHERE email = '$email' and password = '$password'";
+          $select1 = "SELECT * FROM `patient` WHERE email = '$email' 
+          and password = '$password' and blocked != 'yes'";
           $s1 = mysqli_query($connect , $select1);
         
           $numberOfRows = mysqli_num_rows($s1);
@@ -67,7 +68,7 @@ include "../shared/conn.php";
 
 
 
-      header("location: /MediCoNew/patient/patient_profile_without_emh.php");
+      header("location: /MediCoNew/patient/patient_home.php");
   }
 
 else{
@@ -77,7 +78,8 @@ else{
   if (isset($_POST['login'])) {
       $email = $_POST["email"];
       $password = $_POST["password"];
-      $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password' and accepted = 'yes'";
+      $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password' 
+      and accepted = 'yes' and blocked != 'yes'";
 
       $selectQuery = mysqli_query($connect, $select);
 
@@ -100,7 +102,8 @@ else{
         if (isset($_POST['login'])) {
           $email = $_POST["email"];
           $password = $_POST["password"];
-          $select = "SELECT * FROM `pharmacy` WHERE email = '$email' and password = '$password'";
+          $select = "SELECT * FROM `pharmacy` WHERE email = '$email' 
+          and password = '$password' and blocked != 'yes'";
     
           $selectQuery = mysqli_query($connect, $select);
     
@@ -146,8 +149,10 @@ else{
       
       else { ?>
         <div class="alert alert-danger" role="alert">
-          <?php echo "Wrong Email or Password"; ?>
-
+          <pre>
+          <?php echo " Make sure your account is not BLOCKED 
+          or maybe you entered Wrong Email or Password"; ?>
+          </pre>
         </div>
 <?php }
         }}}}

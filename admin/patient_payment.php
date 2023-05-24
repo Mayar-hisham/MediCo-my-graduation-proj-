@@ -13,7 +13,11 @@ if(isset($_POST['go'])){
    // if($sel){
         $alter = "UPDATE `patient` SET paid = 'yes' WHERE pid = $pid and email = '$pemail'";
 $alt = mysqli_query($connect , $alter);
-//}
+if($alt){
+    echo "done";
+}else{
+    echo "something went wrong";
+}
    }
 ?>
 

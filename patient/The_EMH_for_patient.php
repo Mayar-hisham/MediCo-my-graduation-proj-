@@ -9,6 +9,13 @@ if (isset($_SESSION["patient"])) {
     $select = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "' ";
     $selectQuery = mysqli_query($connect, $select);
 
+    $num = mysqli_num_rows($selectQuery);
+    $row = mysqli_fetch_assoc($selectQuery);
+
+    if($num > 0 ){
+        $_SESSION['patient_medical_profile_id'] = $row['m_id'];
+    }
+
     if($selectQuery){
 
     $numberOfRows = mysqli_num_rows($selectQuery);
@@ -116,20 +123,19 @@ if(isset($_POST['clinical'])){
 
 
 
-
 $sql = "SELECT * FROM `patient`
 JOIN `medical_profile` ON 
  patient.pid = medical_profile.patient_id
  JOIN `personal_hostory` ON 
- medical_profile.id = personal_hostory.medical_profile_id 
+ medical_profile.m_id = personal_hostory.medical_profile_id 
  JOIN `past_history` ON
-medical_profile.id = past_history.medical_profile_id
+medical_profile.m_id = past_history.medical_profile_id
 JOIN `family_history` ON
-medical_profile.id = family_history.medical_profile_id
+medical_profile.m_id = family_history.medical_profile_id
 JOIN `clinical_history` ON
-medical_profile.id = clinical_history.medical_profile_id 
+medical_profile.m_id = clinical_history.medical_profile_id 
 JOIN `surgical_history` ON
-medical_profile.id = surgical_history.medical_profile_id 
+medical_profile.m_id = surgical_history.medical_profile_id 
 
 /*JOIN `doctor_diagnosis` ON
 medical_profile.id = doctor_diagnosis.medical_profile_id */
@@ -148,12 +154,10 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
                 header("location: /MediCoNew/patient/patient_profile_for_patient.php"); 
                }
 
-
-
-
-
-
 ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -182,7 +186,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="./patient_home.php">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
             <li><a href="../shared/login.php?bye='1'">Logout</a></li>
@@ -212,10 +216,10 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
         <a href="../shared/doctors.php">Doctors</a>
             <a href="../shared/order_medicine.php">Order Medicine</a>
             <a href="../shared/payment.html">Payment</a>
-            <a href="./start_medical_profile.php">Start your medical profile</a>
+           
         </div>
 
-
+<br><br><br><br>
 
         <div class="content">
             <h1 style="color: blue; text-align: left;">The Electronic Medical History</h1>
@@ -239,7 +243,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
 
                     <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
                     ON patient.pid = medical_profile.patient_id JOIN `personal_hostory`
-                    ON medical_profile.id = personal_hostory.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    ON medical_profile.m_id = personal_hostory.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
                     $s = mysqli_query($connect , $select);
                     $num = mysqli_num_rows($s);
                     $row = mysqli_fetch_assoc($s);
@@ -320,7 +324,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
 
                         <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
                     ON patient.pid = medical_profile.patient_id JOIN `family_history`
-                    ON medical_profile.id = family_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    ON medical_profile.m_id = family_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
                     $s = mysqli_query($connect , $select);
                     $num = mysqli_num_rows($s);
                     $row = mysqli_fetch_assoc($s);
@@ -377,7 +381,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
 
                         <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
                     ON patient.pid = medical_profile.patient_id JOIN `past_history`
-                    ON medical_profile.id = past_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    ON medical_profile.m_id = past_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
                     $s = mysqli_query($connect , $select);
                     $num = mysqli_num_rows($s);
                     $row = mysqli_fetch_assoc($s);
@@ -429,7 +433,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
 
                         <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
                     ON patient.pid = medical_profile.patient_id JOIN `surgical_history`
-                    ON medical_profile.id = surgical_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    ON medical_profile.m_id = surgical_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
                     $s = mysqli_query($connect , $select);
                     $num = mysqli_num_rows($s);
                     $row = mysqli_fetch_assoc($s);
@@ -543,7 +547,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
 
                         <?php  $select = "SELECT * FROM `patient` JOIN `medical_profile` 
                     ON patient.pid = medical_profile.patient_id JOIN `clinical_history`
-                    ON medical_profile.id = clinical_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
+                    ON medical_profile.m_id = clinical_history.medical_profile_id  WHERE patient.pid = '".$_SESSION['pid']."'";
                     $s = mysqli_query($connect , $select);
                     $num = mysqli_num_rows($s);
                     $row = mysqli_fetch_assoc($s);
@@ -569,13 +573,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
         </div>
     </div>
 
-    <?php }
-/*
-else{
- echo "you dont have it yet";
-} */
 
-}?>
    <script src="JS/script.js"></script>
    <footer class="sticky-footer">
         <div>
@@ -604,3 +602,11 @@ else{
 </body>
 
 </html>
+
+
+<?php 
+
+ }
+
+
+}?>

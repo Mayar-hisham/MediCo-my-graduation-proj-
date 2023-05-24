@@ -29,7 +29,7 @@ if (isset($_SESSION['doctor'])){
         <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
       </div>
       <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
+        <li><a href="./doctor_home.php">Home</a></li>
         <li><a href="#">Contact Us</a></li>
         <li><a href="#">Help and Support</a></li>
         <li><a href="../shared/login.php?goodbye='1'">Logout</a></li>
@@ -63,7 +63,7 @@ if (isset($_SESSION['doctor'])){
 
 				$r = mysqli_fetch_assoc($result);
 
-if($result){
+if($numberOfRows > 0){
 
 
       ?>
@@ -77,13 +77,6 @@ if($result){
     </div>
     <div class="cont1">
       <div class="navbar">
-        <a href="#" class="active">Notifications</a>
-        <a href="TheElectronicMedicalHistory.php">Medical History</a>
-        <a href="doctors.php">Doctors</a>
-        <a href="../shared/order_medicine.php">Order Medicine</a>
-        <a href="#">Payment</a>
-        <a href="#">Insurance Details</a>
-        <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
       </div>
       <div class="content">
         <br>
@@ -109,7 +102,7 @@ if($result){
   $numberOfRows = mysqli_num_rows($s);
   $r = mysqli_fetch_assoc($s);
 
-if($s){
+if($numberOfRows > 0){
 
 
 
@@ -134,7 +127,9 @@ if($s){
               </div>
             </div>
 
-            <?php } ?>
+            <?php }else{
+              echo "not filled yet";
+            } ?>
           </div>
 
           <div class="accordion-item">
@@ -152,7 +147,7 @@ if($s){
   $numberOfRows = mysqli_num_rows($s);
   $r = mysqli_fetch_assoc($s);
 
-if($s){
+  if($numberOfRows > 0){
 
 
 
@@ -171,7 +166,9 @@ if($s){
                 Additional Infomation: <?php echo $r['add_info']; ?>
               </div>
             </div>
-            <?php } ?>
+            <?php }else{
+              echo "not filled yet";
+            } ?>
           </div>
 
           <div class="accordion-item">
@@ -187,7 +184,7 @@ if($s){
   $numberOfRows = mysqli_num_rows($s);
   $r = mysqli_fetch_assoc($s);
 
-if($s){
+  if($numberOfRows > 0){
 
 
 
@@ -207,7 +204,9 @@ if($s){
               </div>
             </div>
 
-            <?php } ?>  
+            <?php }else{
+              echo "not filled yet";
+            } ?> 
           </div>
 
           <div class="accordion-item">
@@ -224,7 +223,7 @@ if($s){
   $numberOfRows = mysqli_num_rows($s);
   $r = mysqli_fetch_assoc($s);
 
-if($s){
+  if($numberOfRows > 0){
 
 
 
@@ -253,7 +252,9 @@ if($s){
                 </table>
               </div>
             </div>
-            <?php } ?>
+            <?php }else{
+              echo "not filled yet";
+            } ?>
           </div>
 
           <div class="accordion-item">
@@ -270,7 +271,7 @@ if($s){
   $numberOfRows = mysqli_num_rows($s);
   $r = mysqli_fetch_assoc($s);
 
-if($s){
+  if($numberOfRows > 0){
 
 
 
@@ -287,7 +288,9 @@ if($s){
 
               </div>
             </div>
-            <?php } ?>
+            <?php }else{
+              echo "not filled yet";
+            } ?>
           </div>
 
           <div class="accordion-item">
@@ -302,10 +305,10 @@ if($s){
               JOIN `doctors` ON doctors.id = doctor_diagnosis.doctor_id
               WHERE doctor_diagnosis.medical_profile_id = '".$_SESSION['mpfid']."'";
   $s = mysqli_query($connect , $selec);
-  //$numberOfRows = mysqli_num_rows($s);
-  //$r = mysqli_fetch_assoc($s);
+  $numberOfRows = mysqli_num_rows($s);
+  $r = mysqli_fetch_assoc($s);
 
-
+if($numberOfRows > 0){
 
 
 
@@ -334,6 +337,9 @@ if($s){
                 
               </div>
             </div>
+            <?php }else{
+              echo "no diagnosis yet";
+            } ?>
             
           </div>
 
@@ -343,7 +349,9 @@ if($s){
 
 <?php
          
- }} }
+ }else{
+  echo "no EMH yet"; }
+} }
 ?>
 
 

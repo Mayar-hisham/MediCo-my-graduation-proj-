@@ -34,7 +34,7 @@ $select = "";
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="./patient_home.php">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
             <li><a href="../shared/login.php?bye='1'">Logout</a></li>
@@ -55,6 +55,7 @@ $select = "";
 
             <a href="../shared/doctors.php">Doctors</a>
             <a href="../shared/order_medicine.php">Order Medicine</a>
+            <a href="./order_tracking.php">Track your Orders</a>
             <a href="../shared/payment.html">Payment</a>
             <a href="./start_medical_profile.php">Start your medical profile</a>
             

@@ -1,5 +1,5 @@
 
-<?php  
+<?php 
 include "../shared/conn.php";
 
  if(isset($_SESSION['pharmacy'])){
@@ -73,108 +73,113 @@ $alt = mysqli_query($connect , $alter);
 }
 ?>
 
-<form method="POST" enctype='multipart/form-data'>
 
-<label for="nationalId" class="">Pharmacy ID</label>
-       <input disabled type="number" value="<?php echo $_SESSION['phid']; ?>" id="nationalId" placeholder="">
+<!DOCTYPE html>
+<html lang="en">
 
-       <br><br>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
+    <link rel="stylesheet" href="../CSS/sending_order_accepted.css">
 
-       <label for="nationalId" class="">Patient ID</label>
-       <input disabled type="number" value="<?php echo $pid ?>" id="nationalId">
+    <title>Medico</title>
+</head>
 
-       <br><br>
-
-       <label for="nationalId" class="">order ID</label>
-       <input disabled type="number" value="<?php echo $id ?>" id="nationalId">
-
-       <br><br>
-
-       <label  >Date</label>
-        <input disabled id="date" value="<?php echo $dfo ?>">
-
-        <br> <br>
-
-        <label >time</label>
-        <input disabled id="time" value="<?php echo $tfo ?>">
-
-       <br><br>
-
-       <label=>Patient Address </label>
-        <input disabled type="text" value="<?php echo $paddr ?>">
-
-       <br><br>
-
-
-<label for="medicine-img" class="custom-file-upload btn">
-  <i class="fa fa-upload"></i> Upload image of medicine/
-  ارفع الروشتة
-  <input disabled value="<?php echo $img ?>"  name="image">
-</label>
-
-<br><br>
-
-<label=>date of accepting the order </label>
- <input disabled value="<?php echo $_date ?>" >
-
- <br><br>
-
-<label=>time of accepting the order </label>
- <input disabled  name="time" value="<?php echo $_time ?>" >
-
-<br><br>
-
-       <label=>estimated delivery time </label>
-        <input type="time" name="dtime" >
-
-        <br><br>
-
-<label=>estimated delivery day </label>
- <input type="date" name="dday" >
-
-       <br><br>
-
-       <label=>delivery man phone number</label>
-        <input type="number_format" name="dphone" >
-
-
-        <br><br>
-
-<label=>type a message to your customer </label>
- <input type="text" name="message">
-
-
- <br><br>
-
-
-        
-        <button type="submit" name='upload' class="submit">Submit</button>
-</form>
-
-<?php ?>
-<footer class="sticky-footer">
-        <div>
-            <h6>Copyright &copy Medico-2023</h6>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
-               <div>
-               <h4 class="_14">  &nbsp  &nbsp  &nbsp CONTACT US:</h4>
-      
-                  <br>    &nbsp  &nbsp PHONE NO.: 01008775960 <br>
-                   <br>    &nbsp  &nbsp EMAIL: MediCo23@gmail.com
-</div>
-<br>
-<div class="footer-social-icons">
-  <h4 class="r"> &nbsp &nbspFOLLOW US ON</h4>
-  <br>
-  <ul class="social-icons">
-    <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px
-          src="../Images/icona1.png"></a></li>
-    <li><a href="www.instagram.com"><img width=30px hight=40px
-          src="../Images/icona2.png"></a></li></li>
-    <li><a href="www.twitter.com"><img width=30px hight=40px
-          src="../Images/twitter.jpg"></a></li>
-</ul>
-</div>
-    </footer>
+        <ul class="nav-links">
+            <li><a href="./pharmacy_view.php">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Help and Support</a></li>
+            <li><a href="../shared/login.php?gbye='1'">Logout</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h2 style="text-align: center; font-size: 30px; margin-left: 500px; padding: 10px;">Sending your order </h2>
+
+    </div>
+    <div class="cont1">
+        <div class="navbar">
+
+        </div>
+        <br><br><br><br><Br>
+        <div class="conent">
+            <form method="POST" enctype='multipart/form-data'>
+                <label for="name">Pharmacy ID</label>
+                <input type="text" disabled value="<?php echo $_SESSION['phid']; ?>" id="Pharmacy ID" name="Pharmacy ID" placeholder="Enter Pharmacy ID...">
+                <label for="name">Patient ID</label>
+                <input type="text"disabled value="<?php echo $pid ?>" id="Patient ID" name="Patient ID" placeholder="Enter Patient ID...">
+                <label for="name">Order ID</label>
+                <input type="text"disabled value="<?php echo $id ?>" id="order ID" name="order ID" placeholder="Enter order ID...">
+                <label for="date">Date</label>
+                <input type="text"disabled value="<?php echo $dfo ?>" id="date" name="date" placeholder="Enter date...">
+                <label for="time">Time</label>
+                <input type="text"disabled value="<?php echo $tfo ?>" id="time" name="time" placeholder="Enter time...">
+                <label for="name">Patient Address</label>
+                <input type="text"disabled value="<?php echo $paddr ?>" id="Patient Address" name="Patient Address" placeholder="Enter Patient Address...">
+                
+                <label for="medicine-img" class="custom-file-upload btn">
+                    <i class="fa fa-upload"></i> Upload image for medicine / ارفع الروشتة
+                    <input disabled value="<?php echo $img ?>" name="image" id="medicine-img" class="input-file">
+                </label>
+                
+                <label for="time">Date of accepting the order</label>
+                <input disabled value="<?php echo $_date ?>"  id="time of accepting the order" name="date of accepting the order"
+                    placeholder="Enter time of accepting the order...">
+
+                    <label for="time">Date of accepting the order</label>
+                <input disabled  name="time" value="<?php echo $_time ?>"   id="time of accepting the order"
+                    placeholder="Enter time of accepting the order...">
+
+                    <label for="name">Estimated delivery time</label>
+                <input  type="time" name="dtime"  id="estimated delivery day"
+                    placeholder="Enter time of accepting the order...">
+
+                   
+                <label for="name">Estimated delivery day</label>
+                <input  type="date" name="dday" id="estimated delivery day"
+                    placeholder="Enter time of accepting the order...">
+
+
+                   
+                <label for="name">Delivery man phone number</label>
+                <input type="text" id="delivery man phone number" name="dphone" 
+                    placeholder="Enter delivery man phone number...">
+
+                <label for="name">Type a message to your customer</label>
+                <input name="message" type="text" id="type a message to your customer"
+                    placeholder="Enter type a message to your customer...">
+
+                <br>
+                <button name="upload" type="submit" id="save-button">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    <script src="JS/script.js"></script>
 </body>
+
 </html>

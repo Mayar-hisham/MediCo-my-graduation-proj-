@@ -7,24 +7,41 @@ include "../shared/conn.php";
     $qry="SELECT * FROM `patient` ";
 $rslt=mysqli_query($connect,$qry);
 
-/*
+
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
-
-
-
 
 $delete = "DELETE FROM `patient` WHERE pid = $id ";
     $del = mysqli_query($connect , $delete);
 if($del){
     echo "ok";
-}else{echo "no".mysqli_error($connect);}
-  //  $delete = "DELETE FROM `medical_profile` WHERE patient_id = $id ";
-   // $del = mysqli_query($connect , $delete);
+}else{echo "You need to delete from database";}
+    $delete = "DELETE FROM `medical_profile` WHERE patient_id = $id ";
+    $del = mysqli_query($connect , $delete);
 
 }
 
-*/
+if(isset($_GET['block'])){
+    $id = $_GET['block'];
+
+$delete = "UPDATE `patient` SET blocked = 'yes' WHERE pid = $id ";
+    $del = mysqli_query($connect , $delete);
+if($del){
+    echo "unblocked";
+}
+}
+
+if(isset($_GET['unblock'])){
+    $id = $_GET['unblock'];
+
+$delete = "UPDATE `patient` SET blocked = 'no' WHERE pid = $id ";
+    $del = mysqli_query($connect , $delete);
+if($del){
+    echo "blocked";
+}
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +81,8 @@ if($del){
                 <th>Name</th>
                 <th>View patient profile</th>
                 <th>View patient medical profile</th>
+                <th>Delete</th>
+                <th>Block</th>
             </tr>
         </thead>
         <?php while ($row=mysqli_fetch_array($rslt)) {?>
@@ -78,7 +97,15 @@ if($del){
                 $sel = mysqli_query($connect , $select);
                 $sell = mysqli_num_rows($sel);
                 if($sell > 0){ ?><a href="EMH_view_admin.php?emh=<?php echo $row['pid']; ?>">EMH</a> <?php }else{ ?>No EMH <?php } ?></td>
-                
+                <td><a href="admin_view_patients.php?delete=<?php echo $row['pid'];?> "> delete</a></td>
+
+                <?php
+                if($row['blocked'] == 'yes'){
+                ?>
+                <td><a href="admin_view_patients.php?unblock=<?php echo $row['pid'];?> "> Unblock</a></td>
+                <?php } else { ?>
+                    <td><a href="admin_view_patients.php?block=<?php echo $row['pid'];?> "> Block</a></td>
+             <?php   } ?>
             </tr>
         <?php
         }

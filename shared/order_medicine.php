@@ -64,10 +64,10 @@
       <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="../index.php">Home</a></li>
+      <li><a href="../patient/patient_home.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
-      <li><a href="home.html">Logout</a></li>
+      <li><a href="../shared/login.php?bye='1'">Logout</a></li>
     </ul>
     <div class="burger">
       <div class="line1"></div>
@@ -87,13 +87,9 @@
   </div>
   <div class="cont1">
     <div class="navbar">
-      <a href="#" class="active" id="notification-count">Notifications </a>
-      <a href="TheElectronicMedicalHistory.php">Medical History</a>
       <a href="doctors.html">Doctors</a>
-      <a href="#">Orders</a>
-      <a href="#">Payment</a>
-      <a href="#">Insurance Details</a>
-      <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
+      <a href="../patient/order_tracking.php">Track Orders</a>
+      <a href="./payment.html">Payment</a>
     </div>
     <div class="conent">
       <div class="container_order">
@@ -204,10 +200,10 @@
       <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="../index.php">Home</a></li>
+      <li><a href="../doctor/doctor_home.php">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
-      <li><a href="home.html">Logout</a></li>
+      <li><a href="../shared/login.php?goodbye='1'">Logout</a></li>
     </ul>
     <div class="burger">
       <div class="line1"></div>
@@ -227,13 +223,11 @@
   </div>
   <div class="cont1">
     <div class="navbar">
-      <a href="#" class="active" id="notification-count">Notifications </a>
-      <a href="TheElectronicMedicalHistory.php">Medical History</a>
+
       <a href="doctors.html">Doctors</a>
-      <a href="#">Orders</a>
-      <a href="#">Payment</a>
-      <a href="#">Insurance Details</a>
-      <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
+      <a href="../doctor/order_tracking.php">Track Orders</a>
+      <a href="./payment.html">Payment</a>
+
     </div>
     <div class="conent">
       <div class="container_order">

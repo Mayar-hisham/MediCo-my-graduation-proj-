@@ -1,201 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Medico</title>
-    <link rel="icon" href="Images/medico.png">
-    <link rel="stylesheet" href="CSS/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="CSS/footer.css">
-    <style>
-        body {
-            font-family: Verdana, sans-serif;
-        }
-
-        .mySlides {
-            display: none;
-        }
-
-        img {
-            vertical-align: middle;
-        }
-
-        /* Slideshow container */
-        .slideshow-container {
-            max-width: 1520px;
-            position: relative;
-            margin: auto;
-
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-
-
-        }
-
-
-        /* Caption text */
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-
-        }
-
-        /* The dots/bullets/indicators */
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-
-        }
-
-        .active {
-            background-color: #717171;
-        }
-
-        /* Fading animation */
-        .fade {
-            animation-name: fade;
-            animation-duration: 2s;
-        }
-
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-            .text {
-                font-size: 11px
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/home_page.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Medico</title>
 </head>
 
 <body>
-    <!-- Navbar Start -->
-    <nav>
+    <!-- <nav>
         <div class="logo">
             <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="./shared/login.php">Login</a></li>
-            <li><a href="./shared/Register.html">Sign up</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Help and Support</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
         </div>
-    </nav>
-    <div class="slideshow-container">
+    </nav> -->
 
-
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 6</div>
-            <img src="Images/1.jpg" style="width: 100%" height="550">
-            <div class="text">Caption Text</div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 6</div>
-            <img src="Images/2.jfif" style="width:100%" height="550">
-            <div class="text">Caption Two</div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 6</div>
-            <img src="Images/3.jfif" style="width:100%" height="550">
-            <div class="text">Caption Three</div>
-        </div>
-        <div class="mySlides fade">
-            <div class="numbertext">4 / 6</div>
-            <img src="Images/4.jpeg" style="width:100%" height="550">
-            <div class="text">Caption four</div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">5 / 6</div>
-            <img src="Images/5.jpeg" style="width:100%" height="550">
-            <div class="text">Caption five</div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">6 / 6</div>
-            <img src="Images/6.jpeg" style="width:100%" height="550">
-            <div class="text">Caption six</div>
-        </div>
-
+    <!--first section-->
+    <div class="content">
+        <div></div>
+        <h1>Medico !</h1>
+        <h2>Your Health Your Choice</h2>
+        <button class="signin"><a href="shared/login.php">Sign in</a></button>
+        <button class="signup"><a href="shared/Register.html">Sign up</a></button>
     </div>
-    <br>
-
-
-    <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-
-    </div>
-
-    <script>
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
-    </script>
-    </header>
-    <h2 align="center"> Your healthy life is your decision </h2>
-    <footer class="sticky-footer">
-        <div>
-            <h6>Copyright &copy Medico-2023</h6>
+    <footer>
+        <div class="sticky-footer">
+            <div class="footer-content">
+                <p>Follow Us On</p>
+                <ul class="social-icons">
+                    <li><a href="#"><img src="images/facebook-logo.png" alt="Facebook Icon"></a></li>
+                    <li><a href="#"><img src="images/instagram-logo.png" alt="Instagram Icon"></a></li>
+                    <li><a href="#"><img src="images/twitter-logo.png" alt="Twitter Icon"></a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h6>Copyright &copy Medico-2023</h6>
+            </div>
         </div>
     </footer>
-    <!--- end footer-->
+    <script src="JS/script.js"></script>
 </body>
 
 </html>
