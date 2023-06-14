@@ -15,6 +15,7 @@ include "../shared/conn.php";
         $dfo = $row ['date_of_order'];
         $tfo = $row ['time_of_order'];
         $img = $row ['image'];
+        $p = $row ['order_cd'];
 
   $select = "SELECT * FROM `images` 
   JOIN `orders` ON images.id = orders.ord_id
@@ -58,9 +59,10 @@ $dday = $_POST['dday'];
 $dphone = $_POST['dphone'];
 $_date = $_date;
 $_time = $_time;
+$p = $p;
 
 $insert = "INSERT INTO `orders` VALUES (NULL , $pharmacy_id , '$patient_id' , '$order_id' , '$date_of_order' ,
- '$time_of_order' ,'$patient_address' , '$nname' , '$message' ,' $dtime' , '$dday' , $dphone , '$_date' , '$_time' , 'yes')";
+ '$time_of_order' ,'$patient_address' , '$nname' , '$message' ,' $dtime' , '$dday' , $dphone , '$_date' , '$_time' , 'yes' , $p)";
 
 $ins = mysqli_query($connect , $insert);
 
@@ -141,6 +143,10 @@ $alt = mysqli_query($connect , $alter);
                 <label for="name">Patient Address</label>
                 <input type="text"disabled value="<?php echo $paddr ?>" id="Patient Address" name="Patient Address" placeholder="Enter Patient Address...">
                 
+                <label for="time">Periodical Delivery</label>
+                <input type="text"disabled value="<?php echo $p ?>" id="time" name="time" placeholder="Enter time...">
+
+
                 <label for="medicine-img" class="custom-file-upload btn">
                     <i class="fa fa-upload"></i> Upload image for medicine / ارفع الروشتة
                     <input disabled value="<?php echo $img ?>" name="image" id="medicine-img" class="input-file">

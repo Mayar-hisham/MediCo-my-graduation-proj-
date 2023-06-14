@@ -28,8 +28,11 @@
     $ltmp = $_FILES['image']['tmp_name'];
    $llocation = "../upload/";
   move_uploaded_file($ltmp , $llocation . $name);
+
+  $perd = $_POST['perd'];
    
-                $query = "INSERT INTO `images` VALUES( NULL , $_pid , '$paddr' , '$_date' , '$_time' , '$name' , 'yes')";
+                $query = "INSERT INTO `images` VALUES( NULL , $_pid , '$paddr' ,
+                 '$_date' , '$_time' , '$name' , 'yes' , '$perd')";
                  $sel = mysqli_query($connect,$query);
                  if($sel){
                   echo "order sent successfully";
@@ -127,6 +130,27 @@
           ارفع الروشتة
           <input id="medicine-img" type="file" name='image' class="input-file"/>
         </label>
+
+               <br><br>
+
+               <?php
+    $sel = "SELECT * FROM `patient` WHERE pid = '".$_SESSION['pid']."'";
+    $s = mysqli_query($connect , $sel);
+    $num= mysqli_num_rows($s);
+    $row = mysqli_fetch_assoc($s);
+    if($row['paid'] == "yes"){ ?>
+               <label for="choose">Order this Medicine Periodically?</label>
+                            <label class="choose" for="option1">Yes</label>
+                            <input type="radio" id="option1" name="perd" value="Yes">
+                            <label class="choose" for="option2">No</label>
+                            <input type="radio" id="option2" name="perd" value="No">
+<?php }else{?>
+  <label>Order this Medicine Periodically?</label>
+                            <input name="perd" value="No" >
+                            <h7 style="color: red;">You Can't use this feature now  to use it click here <a  href="../shared/payment.html">know more</a></h3>
+<?php } ?>
+
+
         
         <button type="submit" name='upload' class="submit">Submit</button>
 </form>
@@ -169,7 +193,7 @@
                  $sel = mysqli_query($connect,$query);
                  if($sel){
                   echo "order sent successfully";
-                 }
+                 }else{echo"no".mysqli_error($connect);}
   
            }
   

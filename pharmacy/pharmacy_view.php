@@ -65,6 +65,13 @@ if (isset($_SESSION['pharmacy'])) {
       <a href="finished_requests.php">Finished requests</a>
     </div>
 
+    <div class="image">
+      <a href="pdm.php"><img src="../Images/done.png"></a>
+      <a href="pdm.php">Periodical Orders</a>
+    </div>
+
+
+
 
   </div>
   <br>

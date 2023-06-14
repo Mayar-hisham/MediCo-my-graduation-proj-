@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
       '$ds' , '$email' , '$specialization' , $password , '$image' , 'no' , 'no')";
     $i = mysqli_query($connect , $ins);
    if($i){
-        echo"Wait for your account to be accepted ny admins, you will receive an email";
+        echo"Wait for your account to be accepted by admins, you will receive a call";
     }
     
     //header("location: /MediCoNew/shared/login.php");

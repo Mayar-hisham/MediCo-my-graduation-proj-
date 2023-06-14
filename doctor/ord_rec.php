@@ -10,18 +10,67 @@ if (isset($_SESSION["doctor"])) {
     $num = mysqli_num_rows($sel);
     $row = mysqli_fetch_assoc($sel);
 
-    if($num > 0){
+
 
 ?>
- <h1><?php echo $row['pharmacy_id'] ?></h1>
+ <!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/pharmacy's view.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Medico</title>
 
+</head>
 
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="./doctor_home.php">Home</a></li>
+            <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <h1 class="h1_text" id="Requests">Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Delivery Address</th>
+                <th>Date of Delivery</th>
+                <th>Time of Delivery</th>
+                <th>Prescription</th>
+                <th>Pharmacy Message</th>
+                <th>Delivery man phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($sel as $s){ ?>
+            <tr>
+                <td><?php echo $s['patient_address']; ?></td>
+                <td><?php echo $s['dday']; ?></td>
+                <td><?php echo $s['dtime']; ?></td>
+                <td><img height="100px" width="100px" src="../upload/<?php echo $s['prescription']; ?>"></td>
+                <td><?php echo $s['message']; ?></td>
+                <td><?php echo $s['dphone']; ?></td>
+            </tr>
+           <?php } ?>
+        </tbody>
+    </table>
+    <?php }?>
+   
+    <script src="../JS/script.js"></script>
+</body>
 
-
-
-
-
-    <?php } else{
-        echo "No Orders Received yet!";
-    }}?>
+</html>

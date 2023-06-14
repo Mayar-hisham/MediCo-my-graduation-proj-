@@ -49,6 +49,7 @@ if (isset($_SESSION['pharmacy'])) {
                 <th>Date</th>
                 <th>Name</th>
                 <th>Delivery Area</th>
+                <th>Deliver Periodically</th>
                 <th>View prescription</th>
                 <th>Accept</th>
             </tr>
@@ -60,6 +61,7 @@ if (isset($_SESSION['pharmacy'])) {
                 <td><?php echo $s['date_of_order']; ?></td>
                 <td><?php echo $s['patient_id']; ?></td>
                 <td><?php echo $s['patient_address']; ?></td>
+                <td><?php echo $s['order_cd']; ?></td>
                 <td><a href="prescription.php?view=<?php echo $s['id']; ?>">view</a></td>
                 <td><a href="sending_order_accepted.php?send=<?php echo $s['id']; ?>">Accept</a></td>
             </tr>

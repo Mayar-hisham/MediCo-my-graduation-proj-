@@ -56,6 +56,12 @@ if (isset($_SESSION['doctor'])) {
           src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
           <a href="../shared/order_medicine.php">Order Medicine</a>
     </div>
+
+    <div class="image">
+      <a href="./order_tracking.php"><img
+          src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
+          <a href="./order_tracking.php">Track your Orders</a>
+    </div>
   </div>
 
   <?php } ?>
