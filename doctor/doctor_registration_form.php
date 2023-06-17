@@ -1,6 +1,45 @@
 <?php
 include "../shared/conn.php";
 
+function existing_email($connect , $email){
+    $sql = "SELECT * FROM `doctors` WHERE email = ?;";
+    $stmt = mysqli_stmt_init($connect);
+    if (!mysqli_stmt_prepare($stmt , $sql)) {
+        header("location: /xampp/htdocs/MedoCoNew/doctor/doctor_registration_form.php");
+        exit();
+    }
+    mysqli_stmt_bind_param( $stmt , "s" , $email);
+mysqli_stmt_execute($stmt);
+
+$resultdata = mysqli_stmt_get_result($stmt);
+
+if ($row = mysqli_fetch_assoc($resultdata)) {
+  return $row;
+}
+else {
+    $result = false;
+    return $result;
+}
+mysqli_stmt_close($stmt);
+}
+
+
+
+function empty_input_su($firstname , $lastname , $pp , $ds , $specialization , $email , $phone , $password){
+    $result = 0;
+    if(empty($firstname) || empty($email) || empty($phone) 
+    || empty($lastname) ||empty($pp) ||empty($ds) ||empty($specialization) || empty($password)){
+        $result = true;
+    }else{
+        $result = false;
+    }
+    return $result;
+    }
+
+
+
+
+
 if(isset($_POST['submit'])){
 
     $firstname = $_POST['fname'];
@@ -11,7 +50,7 @@ if(isset($_POST['submit'])){
     $pp = $_FILES['pp']['name'];
     $ptype = $_FILES['pp']['type'];
     $ptmp = $_FILES['pp']['tmp_name'];
-   $plocation = "upload/";
+   $plocation = "../upload";
   move_uploaded_file($ptmp , $plocation . $pp);
 
 
@@ -23,7 +62,7 @@ if(isset($_POST['submit'])){
     $ds = $_FILES['ds']['name'];
     $ltype = $_FILES['ds']['type'];
     $ltmp = $_FILES['ds']['tmp_name'];
-   $llocation = "upload/";
+   $llocation = "../upload/";
   move_uploaded_file($ltmp , $llocation . $ds);
     
     
@@ -37,6 +76,17 @@ if(isset($_POST['submit'])){
     $itmp = $_FILES['image']['tmp_name'];
    $ilocation = "../upload/";
   move_uploaded_file($itmp , $ilocation . $image);
+
+
+  if (existing_email( $connect , $email ) !== false) {
+    echo "email already exist!";
+    //exit();  
+}
+
+if (empty_input_su( $firstname , $lastname , $pp , $ds , $specialization , $email , $phone , $password ) !== false) {
+    echo "empty input!";
+    //exit(); 
+}
 
 
     $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
@@ -71,7 +121,7 @@ if(isset($_POST['submit'])){
             <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Help and Support</a></li>
         </ul>

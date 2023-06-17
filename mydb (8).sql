@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2023 at 05:06 PM
+-- Generation Time: Jun 14, 2023 at 10:56 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -189,16 +189,26 @@ CREATE TABLE `images` (
   `date_of_order` date NOT NULL,
   `time_of_order` time NOT NULL,
   `image` mediumtext NOT NULL,
-  `activity` varchar(255) NOT NULL
+  `activity` varchar(255) NOT NULL,
+  `order_cd` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`id`, `patient_id`, `patient_address`, `date_of_order`, `time_of_order`, `image`, `activity`) VALUES
-(28, 8, 'shubra', '2023-05-24', '08:18:00', 'crochet1.jpg', 'no'),
-(29, 11, 'maadi', '2023-05-24', '01:10:00', 'crochet2.jpg', 'no');
+INSERT INTO `images` (`id`, `patient_id`, `patient_address`, `date_of_order`, `time_of_order`, `image`, `activity`, `order_cd`) VALUES
+(28, 8, 'shubra', '2023-05-24', '08:18:00', 'crochet1.jpg', 'no', ''),
+(29, 11, 'maadi', '2023-05-24', '01:10:00', 'crochet2.jpg', 'no', ''),
+(35, 11, '6th of october ', '2023-05-29', '02:12:00', 'seif.jpeg', 'yes', ''),
+(36, 8, 'new cairo', '2023-06-13', '11:16:00', '', 'yes', ''),
+(37, 8, 'Giza', '2023-06-13', '11:20:00', 'seif.jpeg', 'yes', ''),
+(38, 8, '', '2023-06-13', '11:21:00', '', 'yes', ''),
+(39, 8, '', '2023-06-13', '11:22:00', '', 'yes', ''),
+(40, 10, '6th of october city', '2023-06-13', '11:33:00', 'ezaby.jpeg', 'no', 'Yes'),
+(41, 8, 'Giza', '2023-06-13', '11:36:00', 'pexels-eberhard-grossgasteiger-443446.jpg', 'yes', ''),
+(42, 8, '6th of october ', '2023-06-13', '11:40:00', 'seif.jpeg', 'yes', 'No'),
+(43, 8, 'shubra', '2023-06-13', '11:40:00', 'seif.jpeg', 'yes', '');
 
 -- --------------------------------------------------------
 
@@ -244,16 +254,17 @@ CREATE TABLE `orders` (
   `dphone` int(11) NOT NULL,
   `date_of_accept` date NOT NULL,
   `time_of_accept` time NOT NULL,
-  `activity` varchar(255) NOT NULL
+  `activity` varchar(255) NOT NULL,
+  `order_cdo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id_of_order`, `pharmacy_id`, `opatient_id`, `ord_id`, `order_date`, `order_time`, `patient_address`, `prescription`, `message`, `dtime`, `dday`, `dphone`, `date_of_accept`, `time_of_accept`, `activity`) VALUES
-(42, 2, 8, 28, '2023-05-24', '08:18:00', 'shubra', 'crochet1.jpg', 'thanks', '12:16:00', '2023-05-25', 1012154795, '2023-05-24', '11:13:00', 'yes'),
-(43, 2, 11, 29, '2023-05-24', '01:10:00', 'maadi', 'crochet2.jpg', 'this order is fulfilled completely', '14:15:00', '2023-05-25', 1022512574, '2023-05-24', '01:11:00', 'no');
+INSERT INTO `orders` (`id_of_order`, `pharmacy_id`, `opatient_id`, `ord_id`, `order_date`, `order_time`, `patient_address`, `prescription`, `message`, `dtime`, `dday`, `dphone`, `date_of_accept`, `time_of_accept`, `activity`, `order_cdo`) VALUES
+(42, 2, 8, 28, '2023-05-24', '08:18:00', 'shubra', 'crochet1.jpg', 'thanks', '12:16:00', '2023-05-25', 1012154795, '2023-05-24', '11:13:00', 'yes', 0),
+(43, 2, 11, 29, '2023-05-24', '01:10:00', 'maadi', 'crochet2.jpg', 'this order is fulfilled completely', '14:15:00', '2023-05-25', 1022512574, '2023-05-24', '01:11:00', 'no', 0);
 
 -- --------------------------------------------------------
 
@@ -566,7 +577,7 @@ ALTER TABLE `finished_orders`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `medical_profile`

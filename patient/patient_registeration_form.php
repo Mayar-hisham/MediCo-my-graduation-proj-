@@ -1,6 +1,44 @@
 <?php
 include "../shared/conn.php";
 
+
+function existing_email($connect , $email){
+    $sql = "SELECT * FROM `patient` WHERE email = ?;";
+    $stmt = mysqli_stmt_init($connect);
+    if (!mysqli_stmt_prepare($stmt , $sql)) {
+        header("location: /xampp/htdocs/MedoCoNew/patient/patient_registration_form.php");
+        exit();
+    }
+    mysqli_stmt_bind_param( $stmt , "s" , $email);
+mysqli_stmt_execute($stmt);
+
+$resultdata = mysqli_stmt_get_result($stmt);
+
+if ($row = mysqli_fetch_assoc($resultdata)) {
+  return $row;
+}
+else {
+    $result = false;
+    return $result;
+}
+mysqli_stmt_close($stmt);
+}
+
+
+
+function empty_input_su($firstname , $lastname , $email , $password){
+    $result = 0;
+    if(empty($firstname) || empty($email)
+    || empty($lastname) || empty($password)){
+        $result = true;
+    }else{
+        $result = false;
+    }
+    return $result;
+    }
+
+
+
 if(isset($_POST['signup'])){
 
     $firstname = $_POST['fname'];
@@ -24,12 +62,25 @@ if(isset($_POST['signup'])){
   move_uploaded_file($itmp , $ilocation . $image);
 
 
+
+  if (existing_email( $connect , $email ) !== false) {
+    echo "email already exist!";
+    //exit();  
+}
+
+if (empty_input_su( $firstname , $lastname , $email , $password ) !== false) {
+    echo "empty input!";
+    //exit(); 
+}
+
+
     $ins= "INSERT INTO `patient` VALUES( Null , '$firstname',
      '$lastname' , '$gender' , '$occupation' , '$maritalstatus' , '$email' ,
       '$allergies' , '$bloodtype' , '$age' , $phone , $em_cont , '$address' , $password , '$image' , 'no' , 'no' , 'no')";
     $i = mysqli_query($connect , $ins);
 
-    header("location: /MediCoNew/shared/login.php");
+    if($i){
+    header("location: /MediCoNew/shared/login.php"); }
 
 
 
