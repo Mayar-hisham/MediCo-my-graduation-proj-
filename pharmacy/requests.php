@@ -27,7 +27,7 @@ if (isset($_SESSION['pharmacy'])) {
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./pharmacy_view.php">Home</a></li>
@@ -60,7 +60,7 @@ if (isset($_SESSION['pharmacy'])) {
                 <td><?php echo $s['id']; ?></td>
                 <td><?php echo $s['date_of_order']; ?></td>
                 <td><?php echo $s['patient_id']; ?></td>
-                <td><?php echo $s['patient_address']; ?></td>
+                <td><?php echo $s['patient_address']; ?></td> 
                 <td><?php echo $s['order_cd']; ?></td>
                 <td><a href="prescription.php?view=<?php echo $s['id']; ?>">view</a></td>
                 <td><a href="sending_order_accepted.php?send=<?php echo $s['id']; ?>">Accept</a></td>

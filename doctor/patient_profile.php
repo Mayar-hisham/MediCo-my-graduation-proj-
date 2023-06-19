@@ -2,9 +2,9 @@
 include "../shared/conn.php";
 
 
-if (isset($_SESSION['doctor'])) {  ?>
+if (isset($_SESSION['doctor'])) {  
 
-
+?>
 
 	<!DOCTYPE html>
 	<html lang="en">
@@ -22,7 +22,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 	<body>
 		<nav>
 			<div class="logo">
-				<a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+				<a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
 			</div>
 			<ul class="nav-links">
 				<li><a href="doctor_home.php">Home</a></li>
@@ -66,8 +66,10 @@ if (isset($_SESSION['doctor'])) {  ?>
  JOIN `surgical_history` ON
  medical_profile.m_id = surgical_history.medical_profile_id 
 
-  WHERE patient.pid = $id and medical_profile.m_id = $mid";
+  WHERE patient.pid = $id and medical_profile.m_id = $mid and patient.has_emh = 'yes'";
 				$result = mysqli_query($connect, $sql);
+
+				if($result){
 
 				$numberOfRows = mysqli_num_rows($result);
 
@@ -87,8 +89,7 @@ if (isset($_SESSION['doctor'])) {  ?>
 						<h2>Age : <?php echo $_SESSION['dob']; ?></h2>
 						<h2>Blood Group : <?php echo $r['blood_type']; ?></h2>
 						<div class="search-bar">
-							<input type="text" placeholder="Search">
-							<button><img src="../Images/plus_icon.png" alt="Add"></button>
+							<button><a href="./doctor_form.php"><img src="../Images/plus_icon.png" alt="Add"></a></button>
 						</div>
 		</div>
 
@@ -96,10 +97,10 @@ if (isset($_SESSION['doctor'])) {  ?>
 
 			<a href="TheElectronicMedicalHistory.php">View EMH</a>
 		</div>
-
+<br><br><br><br><br><br>
 		<div class="content">
 			<div class="profile-card">
-			<img src="../upload/<?php echo $r['image'] ?>" alt="patient's photo">
+			<img width="200px" height="200px" src="../upload/ <?php echo $r['image'] ?> " alt="patient's photo">
 				<h2><a href="your-profile-link" style="margin-left: 25px;"><?php echo $r['first_name']; ?><?php echo $r['last_name']; ?>. </a></h2>
 				<div class="profile-details">
 					<h3>Current Illness: <?php echo $r['suffers']; ?></h3>
@@ -125,11 +126,11 @@ if (isset($_SESSION['doctor'])) {  ?>
 			<div class="card-container">
 			<?php foreach($s as $r){ ?>
 				<div class="card">
-					<h2>By DR.<?php echo $r['dfirst_name']; ?></h2>
-					<p class="date"><?php echo $r['date']; ?></p>
-					<h3><?php echo $r['specialization']; ?></h3>
-					<p> <?php echo $r['diagnosis']; ?></p>
-				</div>
+				<h6 style="color: white;">Doctor Specialization:</h6><div class="card-header"><?php echo $r['specialization']; ?></div>
+                      <h6 style="color: white;">Diagnosis Date:</h6><p><?php echo $r['date']; ?></p>
+                      <h6 style="color: white;">Diagnosis:</h6><p><?php echo $r['diagnosis']; ?></p>
+                      <h6 style="color: white;">Doctor Name:</h6><p><?php echo $r['dr_fname']; ?> </p>
+				</div> 
 				<?php } ?>
 			</div>
 
@@ -138,10 +139,10 @@ if (isset($_SESSION['doctor'])) {  ?>
 
 
 
-<?php }
-				}
-		//	}
-		 ?>
+<?php  }}else{
+					echo"something wrong";
+				
+				}?>
 
 
 <script src="JS/script.js"></script>
@@ -169,6 +170,12 @@ if (isset($_SESSION['doctor'])) {  ?>
 </ul>
 </div>
     </footer>
-	</body>
 
-	</html>
+
+
+
+	<?php  }?>
+
+</body>
+
+</html>

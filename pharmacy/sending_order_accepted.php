@@ -19,7 +19,7 @@ include "../shared/conn.php";
 
   $select = "SELECT * FROM `images` 
   JOIN `orders` ON images.id = orders.ord_id
-  JOIN `patient` ON orders.opatient_id = patient.pid
+  JOIN `patient` ON orders.opatient_id = patient.pid 
   JOIN `pharmacy` ON orders.pharmacy_id = pharmacy.id 
   WHERE images.id = $id and pharmacy.id = '" . $_SESSION['phid'] . "' ";
 
@@ -61,10 +61,14 @@ $_date = $_date;
 $_time = $_time;
 $p = $p;
 
-$insert = "INSERT INTO `orders` VALUES (NULL , $pharmacy_id , '$patient_id' , '$order_id' , '$date_of_order' ,
- '$time_of_order' ,'$patient_address' , '$nname' , '$message' ,' $dtime' , '$dday' , $dphone , '$_date' , '$_time' , 'yes' , $p)";
+$insert = "INSERT INTO `orders` VALUES (NULL , $pharmacy_id , '$patient_id' ,
+ '$order_id' , '$date_of_order' ,
+ '$time_of_order' ,'$patient_address' , '$nname' , '$message' ,' $dtime' ,
+  '$dday' , $dphone , '$_date' , '$_time' , 'yes' , '$p')";
 
 $ins = mysqli_query($connect , $insert);
+
+if($ins){
 
 $alter = "UPDATE `images` SET activity = 'no' WHERE id = $id";
 $alt = mysqli_query($connect , $alter);
@@ -72,6 +76,9 @@ $alt = mysqli_query($connect , $alter);
 
         header("location: /MediCoNew/pharmacy/order_on_way.php ");
 
+}else{
+    echo mysqli_error($connect);
+}
 }
 ?>
 
@@ -99,7 +106,7 @@ $alt = mysqli_query($connect , $alter);
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./pharmacy_view.php">Home</a></li>

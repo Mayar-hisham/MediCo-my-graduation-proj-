@@ -3,7 +3,7 @@ include "../shared/conn.php";
 
 ?>
    <?php
-    $qry="SELECT * FROM `doctors` ";
+    $qry="SELECT * FROM `doctors` WHERE accepted ='yes'";
 $rslt=mysqli_query($connect,$qry);
 
 if(isset($_GET['delete'])){
@@ -44,7 +44,7 @@ $delete = "UPDATE `doctors` SET blocked = 'no' WHERE id = $id";
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./admin_home.php">Home</a></li>

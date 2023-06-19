@@ -29,9 +29,10 @@ body {
 .navbar a:hover {
 	background-color: #4df8fab6;
 }
-
+ 
 .content {
 	margin-left: 200px;
+	margin-right: 100px;
 	/* Same as the width of the side navbar */
 	padding: 20px;
 }

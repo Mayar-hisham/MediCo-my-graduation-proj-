@@ -9,7 +9,8 @@ form{
     margin-bottom: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-right: 30px;
-    height: 580px;
+    height:max-content;
+    margin-left: 230px;
   }
 label {
     display: block;

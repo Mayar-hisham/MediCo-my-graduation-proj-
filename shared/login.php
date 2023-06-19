@@ -5,7 +5,7 @@ include "../shared/conn.php";
     $email = $_POST["email"];
     $password = $_POST["password"];
   
-    $select1 = "SELECT * FROM `patient` WHERE has_emh='yes' and email = '$email' and password = '$password'";
+    $select1 = "SELECT * FROM `patient` WHERE has_emh='yes' and email = '$email' and password = '$password' and blocked != 'yes'";
     $s1 = mysqli_query($connect , $select1);
   
     $numberOfRows = mysqli_num_rows($s1);
@@ -175,7 +175,7 @@ else{
 <body>
   <nav>
     <div class="logo">
-      <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+      <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
       <li><a href="../index.php">Home</a></li>

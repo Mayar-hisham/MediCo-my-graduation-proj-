@@ -1,5 +1,5 @@
 .card_doctor {
-    min-width: 84%;
+width: max-content;
     height: 580px;
     display: flex;
     flex-wrap: wrap;
@@ -11,7 +11,7 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 25px;
-    margin-left: 220px;
+    margin-left: 250px;
     background-color: #ededed97;
   }
   
@@ -30,6 +30,7 @@
   .details {
     flex: 2;
     text-align: left;
+    margin-left: 50px;
   }
   
   .details h2 {

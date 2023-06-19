@@ -39,7 +39,7 @@ if(isset($_GET['view'])){
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./admin_home.php">Home</a></li>
@@ -51,12 +51,20 @@ if(isset($_GET['view'])){
             <div class="line3"></div>
         </div>
     </nav>
-    <h1 class="h1_text" id="Requests">Doctor <?php echo $row['dfirst_name']; ?>'s Profile</h1>
+    <h1 class="h1_text" id="Requests">Doctor <?php echo $row['dfirst_name']; ?>'</h1>
     <div class="conent">
 
         <div class="card_doctor">
             <div class="image">
+                <h4>Doctor Prsonal Picture</h4>
+                <br>
             <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
+            <h4>Doctor Profession Practice Picture</h4>
+            <br>
+            <img src="../upload/<?php echo $row['profession_practice'] ?>" alt="Doctor's photo">
+            <h4>Doctor Syndicate Picture</h4>
+            <br>
+            <img src="../upload/<?php echo $row['doctor_syndicate'] ?>" alt="Doctor's photo">
             </div>
             <div class="details">
                 <h2 style="text-align: center; margin-top: -100px; margin-bottom:80px; margin-right: 300px;">NAME: 

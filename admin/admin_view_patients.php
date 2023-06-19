@@ -27,7 +27,7 @@ if(isset($_GET['block'])){
 $delete = "UPDATE `patient` SET blocked = 'yes' WHERE pid = $id ";
     $del = mysqli_query($connect , $delete);
 if($del){
-    echo "unblocked";
+    echo "blocked";
 }
 }
 
@@ -37,7 +37,7 @@ if(isset($_GET['unblock'])){
 $delete = "UPDATE `patient` SET blocked = 'no' WHERE pid = $id ";
     $del = mysqli_query($connect , $delete);
 if($del){
-    echo "blocked";
+    echo "unblocked";
 }
 }
 
@@ -61,7 +61,7 @@ if($del){
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./admin_home.php">Home</a></li>

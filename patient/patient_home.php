@@ -23,7 +23,7 @@ if (isset($_SESSION["patient"])) {
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
@@ -55,8 +55,18 @@ if (isset($_SESSION["patient"])) {
 
     if($num > 0){
 
-     if($row['paid'] == "yes" && $row['has_emh'] == "no" && 
-$row['pid'] = $_SESSION['pid'] && $row['patient_id'] = $_SESSION['pid'] ){?>
+        if($row['has_emh'] == "yes"){?>
+
+            <div class="image">
+            <a href="./EMH_view_patient.php"><img src="../Images/EMH.png"></a>
+            <a href="./EMH_view_patient.php">View your EMH</a>
+            </div>
+            
+            
+            
+            <?php }
+
+     elseif($row['has_emh'] == "yess"){?>
 
 <div class="image">
 <a href="./The_EMH_for_patient.php"><img src="../Images/EMH.png"></a>
@@ -64,29 +74,44 @@ $row['pid'] = $_SESSION['pid'] && $row['patient_id'] = $_SESSION['pid'] ){?>
 </div>
 
 
-<?php } elseif($row['has_emh'] == "yes"){?>
+<?php } 
 
-<div class="image">
-<a href="./EMH_view_patient.php"><img src="../Images/EMH.png"></a>
-<a href="./EMH_view_patient.php">View your EMH</a>
-</div>
-
-
-
-<?php } }else{ 
+ }else{ 
     
     $sel = "SELECT * FROM `patient` 
     WHERE pid = '".$_SESSION['pid']."'";
     $s = mysqli_query($connect , $sel);
     $num= mysqli_num_rows($s);
     $row = mysqli_fetch_assoc($s);
+
+    if($row['has_emh'] == "yes"){ ?>
+
+        <div class="image">
+            <a href="./start_medical_profile.php"><img src="../Images/EMH.png"></a>
+            <a href="./start_medical_profile.php">View your EMH</a>
+            
+        </div><?php }
+
+elseif($row['has_emh'] == "yess"){?>
+
+    <div class="image">
+    <a href="./The_EMH_for_patient.php"><img src="../Images/EMH.png"></a>
+    <a href="./The_EMH_for_patient.php">Fill in Your EMH</a>
+    </div>
     
-    if($row['paid'] == "yes" && $row['has_emh'] == "no"){ ?>
+    
+    <?php }
+    
+    elseif($row['paid'] == "yes" && $row['has_emh'] == "no"){ ?>
 
 <div class="image">
     <a href="./start_medical_profile.php"><img src="../Images/EMH.png"></a>
     <a href="./start_medical_profile.php">Create your EMH</a>
-</div><?php } else{ ?>
+    
+</div><?php }
+
+
+elseif($row['paid'] == "no" && $row['has_emh'] == "no"){ ?>
     <div class="image">
             <a href="../shared/payment.html"><img src="../Images/EMH.png"></a>
             <a href="../shared/payment.html">Know more about EMH
@@ -100,7 +125,7 @@ $row['pid'] = $_SESSION['pid'] && $row['patient_id'] = $_SESSION['pid'] ){?>
     $s = mysqli_query($connect , $sel);
     $num= mysqli_num_rows($s);
     $row = mysqli_fetch_assoc($s);
-    if($row['has_emh'] == "yes"){ ?>
+    if($row['has_emh'] == "yes" || $row['has_emh'] == "yess"){ ?>
         <div class="image">
             <a href="./patient_profile_for_patient.php"><img src="../Images/my-profile-icon-png-3.jpg"></a>
             <a href="./patient_profile_for_patient.php">My profile</a>

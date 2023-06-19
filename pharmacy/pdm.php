@@ -40,7 +40,7 @@ $delete = "DELETE FROM `images` WHERE id = $id";
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./pharmacy_view.php">Home</a></li>
@@ -54,7 +54,7 @@ $delete = "DELETE FROM `images` WHERE id = $id";
             <div class="line3"></div>
         </div>
     </nav>
-    <h1 class="h1_text" id="Requests">Finished Requests</h1>
+    <h1 class="h1_text" id="Requests">Periodic Delivery Orders</h1>
 
     <table>
         <thead>
@@ -73,7 +73,7 @@ $delete = "DELETE FROM `images` WHERE id = $id";
                 <td><?php echo $s['id']; ?></td>
                 <td><?php echo $s['patient_id']; ?></td>
                 <td><?php echo $s['patient_address']; ?></td>
-                <td><?php echo $s['image']; ?></td>
+                <td><a href="periodic_del.php?view=<?php echo $s['id']; ?>">view prescription</a></td>
 
                 <td><a href="pdm.php?delete=<?php echo $s['id']; ?>">Delete</a></td>
             </tr>

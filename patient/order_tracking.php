@@ -19,7 +19,7 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./patient_home.php">Home</a></li>
@@ -44,13 +44,10 @@
     </div>
     <div class="cont1">
         <div class="navbar">
-            <a href="#" class="active" id="notification-count">Notifications </a>
-            <a href="TheElectronicMedicalHistory.php">Medical History</a>
-            <a href="../shared/doctors.php">Doctors</a>
+        <a href="../shared/doctors.php">Doctors</a>
             <a href="../shared/order_medicine.php">Order Medicine</a>
+            <a href="./order_tracking.php">Track your Orders</a>
             <a href="../shared/payment.html">Payment</a>
-            <a href="#">Insurance Details</a>
-            <a href="">Edits of EMH</a>
         </div>
 
         <div class="content">

@@ -9,6 +9,11 @@ if (isset($_SESSION["patient"])) {
     $select = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "' ";
     $selectQuery = mysqli_query($connect, $select);
 
+    if($selectQuery){
+        $alter = "UPDATE `patient` SET has_emh = 'yess' WHERE pid = '" . $_SESSION['pid'] . "' ";
+        $alt = mysqli_query($connect , $alter);}
+    
+    
     $num = mysqli_num_rows($selectQuery);
     $row = mysqli_fetch_assoc($selectQuery);
 
@@ -183,7 +188,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./patient_home.php">Home</a></li>
@@ -207,14 +212,13 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
         <h2>Name: <?php echo $_SESSION['first_name'];  ?></h2>
         <h2>Date of birth:  <?php echo $_SESSION['date_of_birth'];  ?></h2>
         <h2>Blood Group: <?php echo $_SESSION['blood_type'];  ?></h2>
-        <div class="search-bar">
-            <input type="text" placeholder="Search">
-        </div>
+
     </div>
     <div class="cont1">
         <div class="navbar">
         <a href="../shared/doctors.php">Doctors</a>
             <a href="../shared/order_medicine.php">Order Medicine</a>
+            <a href="./order_tracking.php">Track your Orders</a>
             <a href="../shared/payment.html">Payment</a>
            
         </div>

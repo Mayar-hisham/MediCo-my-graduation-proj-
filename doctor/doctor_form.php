@@ -16,7 +16,6 @@ if (isset($_SESSION['doctor'])) {
     $_mfid = $_SESSION['mpfid'];
     $_dname = $_SESSION['did'];
     $_dfn = $_SESSION['dfirst_name'];
-    $_dln = $_SESSION['dlast_name'];
     $_sp = $_SESSION['specialization'];
     $_date = $date;
     $_time = $time;
@@ -29,15 +28,13 @@ if (isset($_SESSION['doctor'])) {
 
 
     $insert = " INSERT INTO `doctor_diagnosis` VALUES
-     (NULL , $_mfid , $_dname , '$_dfn' , '$_dln' , '$_sp' , $_date , '$_time' , '$weight' , '$vt' , '$observation' , '$symptoms' , '$diagnosis' , '$prescription') ";
+     (NULL , $_mfid , $_dname , '$_dfn' , '$_sp' , '$_date' , '$_time' , '$weight' , '$vt' , '$observation' , '$symptoms' , '$diagnosis' , '$prescription') ";
 
       $ins = mysqli_query($connect , $insert);
 
-  //    if($ins){
-    //    echo "yes";
-     // } else{
-       // echo "no".mysqli_error($connect);
-      //}
+   if($ins){
+     echo "Diagnosis Done Successfully";
+     }
   }
 
 ?>
@@ -65,7 +62,7 @@ if (isset($_SESSION['doctor'])) {
 <body>
   <nav>
     <div class="logo">
-      <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+      <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
       <li><a href="doctor_home.php">Home</a></li>
@@ -91,14 +88,8 @@ if (isset($_SESSION['doctor'])) {
   </div>
   <div class="cont1">
     <div class="navbar">
-      <a href="#" class="active">Notifications</a>
-      <a href="TheElectronicMedicalHistory.php">Medical History</a>
-      <a href="doctors.html">Doctors</a>
-      <a href="../shared/order_medicine.php">Order Medicine</a>
-      <a href="#">Payment</a>
-      <a href="#">Insurance Details</a>
-      <a href="TheElectronicMedicalHistory.php">Edits of EMH</a>
     </div>
+    <br><br><br><br><br>
     <div class="conent">
       <form method="POST">
 
@@ -110,9 +101,6 @@ if (isset($_SESSION['doctor'])) {
 
         <label for="name">Doctor First Name:</label>
         <input type="text" disabled value=" <?php echo $_SESSION['dfirst_name']; ?>" id="name" name="dfn">
-
-        <label for="name">Doctor Last Name:</label>
-        <input type="text" disabled value=" <?php echo $_SESSION['dlast_name']; ?>" id="name" name="dln">
 
         <label for="date">Date:</label>
         <input type="text" disabled id="date" value="<?php echo $date ?>" name="date" placeholder="Enter date...">
@@ -150,30 +138,9 @@ if (isset($_SESSION['doctor'])) {
 
 
     <script src="JS/script.js"></script>
-    <footer class="sticky-footer">
-        <div>
-            <h6>Copyright &copy Medico-2023</h6>
-        </div>
-               <div>
-               <h4 class="_14">  &nbsp  &nbsp  &nbsp CONTACT US:</h4>
-      
-                  <br>    &nbsp  &nbsp PHONE NO.: 01008775960 <br>
-                   <br>    &nbsp  &nbsp EMAIL: MediCo23@gmail.com
-</div>
-<br>
-<div class="footer-social-icons">
-  <h4 class="r"> &nbsp &nbspFOLLOW US ON</h4>
-  <br>
-  <ul class="social-icons">
-    <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px
-          src="../Images/icona1.png"></a></li>
-    <li><a href="www.instagram.com"><img width=30px hight=40px
-          src="../Images/icona2.png"></a></li></li>
-    <li><a href="www.twitter.com"><img width=30px hight=40px
-          src="../Images/twitter.jpg"></a></li>
-</ul>
-</div>
-    </footer>
+
 </body>
+
+
 
 </html>

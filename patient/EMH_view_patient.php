@@ -35,7 +35,7 @@ if (isset($_SESSION["patient"])){
   <body>
     <nav>
       <div class="logo">
-        <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+        <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
       </div>
       <ul class="nav-links">
         <li><a href="./patient_home.php">Home</a></li>
@@ -83,15 +83,16 @@ if($result){
             <h2>Age : <?php echo $row['pdate_of_birth']; ?></h2>
             <h2>Blood Type : <?php echo $row['blood_type']; ?></h2>
             <div class="search-bar">
-              <input type="text" placeholder="Search">
-              <a href="doctor_form.html"><button><img src="Images/plus_icon.png" alt="Add"></button></a>
+
             </div>
     </div>
     <div class="cont1">
       <div class="navbar">
       <a href="../shared/doctors.php">Doctors</a>
             <a href="../shared/order_medicine.php">Order Medicine</a>
+            <a href="./order_tracking.php">Track your Orders</a>
             <a href="../shared/payment.html">Payment</a>
+            <a href="EMH_view_patient.php">EMH</a>
       </div>
       <div class="content">
         <br>
@@ -124,9 +125,6 @@ if($s){
 ?>
             <div id="personal-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="update_EMH_p.php?=personaledit<?php echo $r['medical_profile_id']; ?>" class="edit_link">EDIT</a>
-                <br>
-               <?php ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['prsdate_of_edit']; ?></span> <br> <br>
                 Height: <span style="margin-left: 20px;"><?php echo $r['height']; ?></span> <br> <br>
                 Weight: <span style="margin-left: 20px;"><?php echo $r['weight']; ?></span> <br> <br>
@@ -168,7 +166,7 @@ if($s){
 
             <div id="family-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="" class="edit_link">EDIT</a>
+
                 <br>
                 <?php  ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['fdate_of_edit']; ?></span> <br> <br>
@@ -201,7 +199,7 @@ if($s){
 ?>
             <div id="past-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="" class="edit_link">EDIT</a>
+
                 <br>
                 <?php ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['pdate_of_edit']; ?></span> <br> <br>
@@ -240,8 +238,8 @@ if($s){
 
             <div id="surgical-history1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="" class="edit_link">EDIT</a>
-                <table>
+
+              <table>
                   <tr>
                     <th>Date of Procedure</th>
                     <th>Surgery Type</th>
@@ -251,11 +249,59 @@ if($s){
                   </tr>
                   <tr>
                   
-                    <td><?php echo $r['sdate_of_edit']; ?></td>
+                    <td><?php echo $r['date_of_procedure']; ?></td>
                     <td><?php echo $r['surgery_type']; ?></td>
                     <td><?php echo $r['surgeon']; ?></td>
                     <td><?php echo $r['medication_prescribed']; ?></td>
                     <td><?php echo $r['rehabilitation'];?> </td>
+                  </tr>
+                  <br>
+                  <tr>
+                    <th>Date of Procedure2</th>
+                    <th>Surgery Type2</th>
+                    <th>Surgeon2</th>
+                    <th>Medication Prescribed2</th>
+                    <th>Rehabilitation2</th>
+                  </tr>
+                  <tr>
+                  
+                    <td><?php echo $r['date2']; ?></td>
+                    <td><?php echo $r['type2']; ?></td>
+                    <td><?php echo $r['surgeon2']; ?></td>
+                    <td><?php echo $r['medicine2']; ?></td>
+                    <td><?php echo $r['rbt2'];?> </td>
+                  </tr>
+                  <br>
+                  <tr>
+                    <th>Date of Procedure3</th>
+                    <th>Surgery Type3</th>
+                    <th>Surgeon3</th>
+                    <th>Medication Prescribed3</th>
+                    <th>Rehabilitation3</th>
+                  </tr>
+                  <tr>
+                  
+                  <td><?php echo $r['date3']; ?></td>
+                    <td><?php echo $r['type3']; ?></td>
+                    <td><?php echo $r['surgeon3']; ?></td>
+                    <td><?php echo $r['medicine3']; ?></td>
+                    <td><?php echo $r['rbt3'];?> </td>
+                  </tr>
+                  <br>
+                  <tr>
+                    <th>Date of Procedure4</th>
+                    <th>Surgery Type4</th>
+                    <th>Surgeon4</th>
+                    <th>Medication Prescribed4</th>
+                    <th>Rehabilitation4</th>
+                  </tr>
+                  <tr>
+                  
+                  <td><?php echo $r['date4']; ?></td>
+                    <td><?php echo $r['type4']; ?></td>
+                    <td><?php echo $r['surgeon4']; ?></td>
+                    <td><?php echo $r['medicine4']; ?></td>
+                    <td><?php echo $r['rbt4'];?> </td>
                   </tr>
                 </table>
               </div>
@@ -286,11 +332,13 @@ if($s){
 
             <div id="surgical-history2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="" class="edit_link">EDIT</a>
+
                 <br>
                 <?php  ?>
                 Date of filling in the data: <span style="margin-left: 20px;"><?php echo $r['cdate_of_edit']; ?></span> <br> <br>
-                Files: <span style="margin-left: 20px;"><?php echo $r['files']; ?></span> <br> <br>
+                Files: <span style="margin-left: 20px;">
+               <img width="200px" height="200px"  src="../upload/<?php echo $r['files']; ?>">
+              </span> <br> <br>
 
               </div>
             </div>
@@ -322,16 +370,16 @@ if($s){
 
             <div id="doctors-diagnosis" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
-                <a href="#" class="edit_link">EDIT</a>
 
                 <div class="container">
                   <div class="column">
                   <?php foreach($s as $r){ ?>
                     <div class="card">
-                      <div class="card-header"><?php echo $r['specialization']; ?></div>
-                      <p><?php echo $r['date']; ?></p>
-                      <p><?php echo $r['diagnosis']; ?></p>
-                      <p><?php echo $r['dr_fname'] . $r['dr_lname']; ?> </p>
+
+                      <h6 style="color: white;">Doctor Specialization:</h6><div class="card-header"><?php echo $r['specialization']; ?></div>
+                      <h6 style="color: white;">Diagnosis Date:</h6><p><?php echo $r['date']; ?></p>
+                      <h6 style="color: white;">Diagnosis:</h6><p><?php echo $r['diagnosis']; ?></p>
+                      <h6 style="color: white;">Doctor Name:</h6><p><?php echo $r['dr_fname']; ?> </p>
                     </div>
                     <?php } ?>
 

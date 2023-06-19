@@ -35,7 +35,7 @@ if (isset($_SESSION["patient"])) {
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/medico.png" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="./patient_home.php">Home</a></li>
@@ -47,7 +47,7 @@ if (isset($_SESSION["patient"])) {
             <div class="line3"></div>
         </div>
     </nav>
-    <h1 class="h1_text" id="Requests">Requests</h1>
+    <h1 class="h1_text" id="Requests">Pending Orders</h1>
     <table>
         <thead>
             <tr>

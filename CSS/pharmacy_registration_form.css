@@ -9,7 +9,7 @@ form {
     margin-bottom: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-right: auto;
-    height: 650px;
+    height: max-content;
 }
 
 label {
@@ -39,7 +39,7 @@ button {
     border-radius: 25px;
     cursor: pointer;
     margin-top: 10px;
-    margin-left: 1100px;
+    margin-left: 900px;
     margin-right: -500;
 }
 

@@ -3,13 +3,15 @@ form {
     width: 82%;
     margin: 0 auto;
     padding: 10px;
+    margin-left: 230px;
     background-color: #efefef9c;
     border-radius: 20px;
     margin-top: -580px;
     margin-bottom: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-right: 30px;
-    height: 1250px;
+    height: max-content;
+    
 }
 
 label {
