@@ -82,6 +82,7 @@ if($result){
             <h2>Name : <?php echo $row['first_name']; ?></h2>
             <h2>Age : <?php echo $row['pdate_of_birth']; ?></h2>
             <h2>Blood Type : <?php echo $row['blood_type']; ?></h2>
+            <h2>Medical Profile ID : <?php echo $row['m_id']; ?></h2>
             <div class="search-bar">
 
             </div>
