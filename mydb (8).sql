@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 08:19 PM
+-- Generation Time: Jun 19, 2023 at 10:33 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -215,7 +215,8 @@ INSERT INTO `medical_profile` (`m_id`, `patient_id`) VALUES
 (15, 15),
 (18, 18),
 (19, 20),
-(20, 22);
+(20, 22),
+(21, 23);
 
 -- --------------------------------------------------------
 
@@ -310,7 +311,8 @@ INSERT INTO `patient` (`pid`, `first_name`, `last_name`, `gender`, `occupation`,
 (15, 'mayar', 'Hisham', 'Female', '01012144796', 'Single', 'mayaroweys2000@gmail.com', 'gluten', 'B+', '2023-06-29', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '5.jpeg', 'yess\r\n', 'yes', 'no'),
 (18, 'Hazem', 'Elgendy', 'Male', 'patient', 'Single', 'hazem@gmail.com', 'nothing', 'A+', '2023-06-28', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '9.jpg', 'yes', 'yes', 'no'),
 (20, 'laila', 'ahmed', 'Female', 'doctor', 'Married', 'laila@gmail.com', 'nothing', 'A-', '2023-06-20', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '6.jpeg', 'yes', 'yes', 'no'),
-(22, 'mayoura', 'oweys', 'Female', 'student', 'Single', 'mayoura@gmail.com', 'nothing', 'B-', '2023-06-22', 1012141536, 1458796325, '3rd settlement, new cairo', 123, '7.jpg', 'yess', 'yes', 'no');
+(22, 'mayoura', 'oweys', 'Female', 'student', 'Single', 'mayoura@gmail.com', 'nothing', 'B-', '2023-06-22', 1012141536, 1458796325, '3rd settlement, new cairo', 123, '7.jpg', 'yess', 'yes', 'no'),
+(23, 'Mayaar', 'Oweys', 'Female', '01012144796', 'Single', 'mayaroweys@gmail.com', 'nothing', 'A-', '2023-05-29', 1012144796, 1017133062, '3rd district', 123, '7.jpg', 'no', 'yes', 'no');
 
 -- --------------------------------------------------------
 
@@ -562,7 +564,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `medical_profile`
 --
 ALTER TABLE `medical_profile`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -580,7 +582,7 @@ ALTER TABLE `past_history`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `personal_hostory`
