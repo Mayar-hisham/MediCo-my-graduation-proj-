@@ -22,7 +22,7 @@ if (isset($_SESSION['doctor'])) {
     <body>
         <nav>
             <div class="logo">
-                <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
+                <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
             </div>
             <ul class="nav-links">
                 <li><a href="doctor_home.php">Home</a></li>
@@ -54,7 +54,7 @@ if (isset($_SESSION['doctor'])) {
 
 
     <script src="JS/script.js"></script>
-    
+
     </body>
 
     </html>

@@ -17,6 +17,7 @@
   margin: 20px 10px 0 10px;
   overflow: hidden;
   background-color: rgba(224, 224, 224, 0.561);
+  width: fit-content;
 }
 
 .card_doctors img {
@@ -96,6 +97,31 @@
 
 .block {
   background-color: #0d120d;
+  /* Set background color */
+  border: none;
+  /* Remove border */
+  color: white;
+  /* Set text color */
+  padding: 10px 10px;
+  /* Add padding */
+  text-align: center;
+  /* Center text */
+  text-decoration: none;
+  /* Remove underline */
+  display: inline-block;
+  /* Make button inline */
+  font-size: 10px;
+  /* Set font size */
+  margin: 5px;
+  /* Add margin */
+  cursor: pointer;
+  /* Change cursor on hover */
+  border-radius: 5px;
+  /* Add rounded corners */
+}
+
+.view {
+  background-color: #0915f5;
   /* Set background color */
   border: none;
   /* Remove border */

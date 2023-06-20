@@ -1,162 +1,156 @@
 <?php
 include "../shared/conn.php";
 
-  if (isset($_POST['login'])) {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-  
-    $select1 = "SELECT * FROM `patient` WHERE has_emh='yes' and email = '$email' and password = '$password' and blocked != 'yes'";
-    $s1 = mysqli_query($connect , $select1);
-  
-    $numberOfRows = mysqli_num_rows($s1);
-  
-    $row = mysqli_fetch_assoc($s1);
+if (isset($_POST['login'])) {
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+
+  $select1 = "SELECT * FROM `patient` WHERE has_emh='yes' and email = '$email' and password = '$password' and blocked != 'yes'";
+  $s1 = mysqli_query($connect, $select1);
+
+  $numberOfRows = mysqli_num_rows($s1);
+
+  $row = mysqli_fetch_assoc($s1);
 
 
-      if ($numberOfRows > 0) {
-        $_SESSION["patient"] = $email;
-        $_SESSION['first_name'] = $row['first_name'].$row['last_name'];
-        $_SESSION['pid'] = $row['pid'];
-    
-    
-        $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
-        $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
-       $_SESSION['blood_type'] = $row ['blood_type'];
-        //$_SESSION['current_illness'] = $row['current_illness'];
-        $_SESSION['phone'] = $row['phone'];
-        $_SESSION['address'] = $row['address'];
-        $_SESSION['occupation'] = $row['occupation'];
-        $_SESSION['marital_status'] = $row['marital_status'];
-        $_SESSION['emergency_contact'] = $row['emergency_contact']; 
+  if ($numberOfRows > 0) {
+    $_SESSION["patient"] = $email;
+    $_SESSION['first_name'] = $row['first_name'] . $row['last_name'];
+    $_SESSION['pid'] = $row['pid'];
 
 
-
-
-      header("location: /MediCoNew/patient/patient_home.php"); 
-      
-      
-        }else{
-
-         if (isset($_POST['login'])) {
-          $email = $_POST["email"];
-          $password = $_POST["password"];
-        
-          $select1 = "SELECT * FROM `patient` WHERE email = '$email' 
-          and password = '$password' and blocked != 'yes'";
-          $s1 = mysqli_query($connect , $select1);
-        
-          $numberOfRows = mysqli_num_rows($s1);
-        
-          $row = mysqli_fetch_assoc($s1);
-
-
-      if ($numberOfRows > 0) {
-        $_SESSION["patient"] = $email;
-        $_SESSION['first_name'] = $row['first_name'].$row['last_name'];
-        $_SESSION['pid'] = $row['pid'];
-    
-    
-        $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
-        $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
-       $_SESSION['blood_type'] = $row ['blood_type'];
-        //$_SESSION['current_illness'] = $row['current_illness'];
-        $_SESSION['phone'] = $row['phone'];
-        $_SESSION['address'] = $row['address'];
-        $_SESSION['occupation'] = $row['occupation'];
-        $_SESSION['marital_status'] = $row['marital_status'];
-        $_SESSION['emergency_contact'] = $row['emergency_contact']; 
+    $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
+    $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
+    $_SESSION['blood_type'] = $row['blood_type'];
+    //$_SESSION['current_illness'] = $row['current_illness'];
+    $_SESSION['phone'] = $row['phone'];
+    $_SESSION['address'] = $row['address'];
+    $_SESSION['occupation'] = $row['occupation'];
+    $_SESSION['marital_status'] = $row['marital_status'];
+    $_SESSION['emergency_contact'] = $row['emergency_contact'];
 
 
 
-      header("location: /MediCoNew/patient/patient_home.php");
-  }
 
-else{
+    header("location: /MediCoNew/patient/patient_home.php");
+  } else {
 
-  
-  
-  if (isset($_POST['login'])) {
+    if (isset($_POST['login'])) {
       $email = $_POST["email"];
       $password = $_POST["password"];
-      $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password' 
+
+      $select1 = "SELECT * FROM `patient` WHERE email = '$email' 
+          and password = '$password' and blocked != 'yes'";
+      $s1 = mysqli_query($connect, $select1);
+
+      $numberOfRows = mysqli_num_rows($s1);
+
+      $row = mysqli_fetch_assoc($s1);
+
+
+      if ($numberOfRows > 0) {
+        $_SESSION["patient"] = $email;
+        $_SESSION['first_name'] = $row['first_name'] . $row['last_name'];
+        $_SESSION['pid'] = $row['pid'];
+
+
+        $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
+        $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
+        $_SESSION['blood_type'] = $row['blood_type'];
+        //$_SESSION['current_illness'] = $row['current_illness'];
+        $_SESSION['phone'] = $row['phone'];
+        $_SESSION['address'] = $row['address'];
+        $_SESSION['occupation'] = $row['occupation'];
+        $_SESSION['marital_status'] = $row['marital_status'];
+        $_SESSION['emergency_contact'] = $row['emergency_contact'];
+
+
+
+        header("location: /MediCoNew/patient/patient_home.php");
+      } else {
+
+
+
+        if (isset($_POST['login'])) {
+          $email = $_POST["email"];
+          $password = $_POST["password"];
+          $select = "SELECT * FROM `doctors` WHERE email = '$email' and password = '$password' 
       and accepted = 'yes' and blocked != 'yes'";
 
-      $selectQuery = mysqli_query($connect, $select);
+          $selectQuery = mysqli_query($connect, $select);
 
-      $numberOfRows = mysqli_num_rows($selectQuery);
+          $numberOfRows = mysqli_num_rows($selectQuery);
 
-      $row = mysqli_fetch_assoc($selectQuery);
-      if ($numberOfRows > 0) {
-        $_SESSION['doctor'] = $email;
-        $_SESSION['dfirst_name'] = $row['dfirst_name'] .$row['dlast_name'];
-        $_SESSION['specialization'] = $row['specialization'];
-        $_SESSION['did'] = $row['id'];
+          $row = mysqli_fetch_assoc($selectQuery);
+          if ($numberOfRows > 0) {
+            $_SESSION['doctor'] = $email;
+            $_SESSION['dfirst_name'] = $row['dfirst_name'] . $row['dlast_name'];
+            $_SESSION['specialization'] = $row['specialization'];
+            $_SESSION['did'] = $row['id'];
 
-        // echo $_SESSION['admin'];
+            // echo $_SESSION['admin'];
 
-        //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-        header("location: /MediCoNew/doctor/doctor_home.php");
+            //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
+            header("location: /MediCoNew/doctor/doctor_home.php");
+          } else {
 
-      } else{
-
-        if (isset($_POST['login'])) {
-          $email = $_POST["email"];
-          $password = $_POST["password"];
-          $select = "SELECT * FROM `pharmacy` WHERE email = '$email' 
+            if (isset($_POST['login'])) {
+              $email = $_POST["email"];
+              $password = $_POST["password"];
+              $select = "SELECT * FROM `pharmacy` WHERE email = '$email' 
           and password = '$password' and blocked != 'yes'";
-    
-          $selectQuery = mysqli_query($connect, $select);
-    
-          $numberOfRows = mysqli_num_rows($selectQuery);
-    
-          $row = mysqli_fetch_assoc($selectQuery);
-          if ($numberOfRows > 0) {
-            $_SESSION['pharmacy'] = $email;
-            $_SESSION['pharname'] = $row['name'];
-            $_SESSION['phid'] = $row['id'];
-    
-            // echo $_SESSION['admin'];
-    
-            //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-            header("location: /MediCoNew/pharmacy/pharmacy_view.php");
 
+              $selectQuery = mysqli_query($connect, $select);
 
-      } else{
+              $numberOfRows = mysqli_num_rows($selectQuery);
 
-        if (isset($_POST['login'])) {
-          $email = $_POST["email"];
-          $password = $_POST["password"];
-          $select = "SELECT * FROM `admins` WHERE email = '$email' and password = '$password'";
-    
-          $selectQuery = mysqli_query($connect, $select);
-    
-          $numberOfRows = mysqli_num_rows($selectQuery);
-    
-          $row = mysqli_fetch_assoc($selectQuery);
-          if ($numberOfRows > 0) {
-            $_SESSION['admin'] = $email;
-            $_SESSION['admin_id'] = $row['id'];
-    
-            // echo $_SESSION['admin'];
-    
-            //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
-            header("location: /MediCoNew/admin/admin_home.php");
+              $row = mysqli_fetch_assoc($selectQuery);
+              if ($numberOfRows > 0) {
+                $_SESSION['pharmacy'] = $email;
+                $_SESSION['pharname'] = $row['name'];
+                $_SESSION['phid'] = $row['id'];
 
+                // echo $_SESSION['admin'];
 
-      }
-      
-      
-      
-      else { ?>
-        <div class="alert alert-danger" role="alert">
-          <pre>
+                //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
+                header("location: /MediCoNew/pharmacy/pharmacy_view.php");
+              } else {
+
+                if (isset($_POST['login'])) {
+                  $email = $_POST["email"];
+                  $password = $_POST["password"];
+                  $select = "SELECT * FROM `admins` WHERE email = '$email' and password = '$password'";
+
+                  $selectQuery = mysqli_query($connect, $select);
+
+                  $numberOfRows = mysqli_num_rows($selectQuery);
+
+                  $row = mysqli_fetch_assoc($selectQuery);
+                  if ($numberOfRows > 0) {
+                    $_SESSION['admin'] = $email;
+                    $_SESSION['admin_id'] = $row['id'];
+
+                    // echo $_SESSION['admin'];
+
+                    //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
+                    header("location: /MediCoNew/admin/admin_home.php");
+                  } else { ?>
+                    <div class="alert alert-danger" role="alert">
+                      <pre>
           <?php echo " Make sure your account is not BLOCKED 
           or maybe you entered Wrong Email or Password"; ?>
           </pre>
-        </div>
+                    </div>
 <?php }
-        }}}}
-    }}}}}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -175,7 +169,7 @@ else{
 <body>
   <nav>
     <div class="logo">
-      <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
+      <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
       <li><a href="../index.php">Home</a></li>
@@ -189,14 +183,14 @@ else{
     </div>
   </nav>
 
-  <div class="container">
+  <div style="margin-top: 250px; height:max-content;" class="container">
     <h1>Login</h1>
     <form method="POST">
       <label for="">Enter Your Email</label>
       <input name="email" type="text" placeholder="personemail@something.com" id="username" required>
       <label for="">Password:</label>
       <input name="password" type="password" placeholder="Password" id="password" required>
-      <button name="login" type="submit" id="login-btn">Login</button>
+      <button name="login" type="submit" id="login-btn" style="margin-top: 30px;">Login</button>
     </form>
   </div>
 

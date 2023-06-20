@@ -32,9 +32,9 @@
     <!--first section-->
     <div class="content">
         <div></div>
-        <h1>Medico !</h1>
+        <h1 style="margin-bottom: 100px;">Medico !</h1>
         <h2>Your Health Your Choice</h2>
-        <button class="signin"><a href="shared/login.php">Sign in</a></button>
+        <button class="signin" style="margin-left: 750px; margin-top: 90px; margin-right: 240px;"><a href="shared/login.php">Sign in</a></button>
         <button class="signup"><a href="shared/Register.html">Sign up</a></button>
     </div>
     <footer>

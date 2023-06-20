@@ -1,46 +1,49 @@
 <?php
 include "../shared/conn.php";
 
-function existing_email($connect , $email){
+function existing_email($connect, $email)
+{
     $sql = "SELECT * FROM `doctors` WHERE email = ?;";
     $stmt = mysqli_stmt_init($connect);
-    if (!mysqli_stmt_prepare($stmt , $sql)) {
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: /xampp/htdocs/MedoCoNew/doctor/doctor_registration_form.php");
         exit();
     }
-    mysqli_stmt_bind_param( $stmt , "s" , $email);
-mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
 
-$resultdata = mysqli_stmt_get_result($stmt);
+    $resultdata = mysqli_stmt_get_result($stmt);
 
-if ($row = mysqli_fetch_assoc($resultdata)) {
-  return $row;
+    if ($row = mysqli_fetch_assoc($resultdata)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+    mysqli_stmt_close($stmt);
 }
-else {
-    $result = false;
-    return $result;
-}
-mysqli_stmt_close($stmt);
-}
 
 
 
-function empty_input_su($firstname , $lastname , $pp , $ds , $specialization , $email , $phone , $password){
+function empty_input_su($firstname, $lastname, $pp, $ds, $specialization, $email, $phone, $password)
+{
     $result = 0;
-    if(empty($firstname) || empty($email) || empty($phone) 
-    || empty($lastname) ||empty($pp) ||empty($ds) ||empty($specialization) || empty($password)){
+    if (
+        empty($firstname) || empty($email) || empty($phone)
+        || empty($lastname) || empty($pp) || empty($ds) || empty($specialization) || empty($password)
+    ) {
         $result = true;
-    }else{
+    } else {
         $result = false;
     }
     return $result;
-    }
+}
 
 
 
 
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
     $firstname = $_POST['fname'];
     $lastname = $_POST['lname'];
@@ -50,8 +53,8 @@ if(isset($_POST['submit'])){
     $pp = $_FILES['pp']['name'];
     $ptype = $_FILES['pp']['type'];
     $ptmp = $_FILES['pp']['tmp_name'];
-   $plocation = "../upload";
-  move_uploaded_file($ptmp , $plocation . $pp);
+    $plocation = "../upload";
+    move_uploaded_file($ptmp, $plocation . $pp);
 
 
     $yoe = $_POST['yoe'];
@@ -62,41 +65,41 @@ if(isset($_POST['submit'])){
     $ds = $_FILES['ds']['name'];
     $ltype = $_FILES['ds']['type'];
     $ltmp = $_FILES['ds']['tmp_name'];
-   $llocation = "../upload/";
-  move_uploaded_file($ltmp , $llocation . $ds);
-    
-    
+    $llocation = "../upload/";
+    move_uploaded_file($ltmp, $llocation . $ds);
+
+
     $email = $_POST['email'];
-    $specialization = $_POST['spc']; 
+    $specialization = $_POST['spc'];
     $password = $_POST['password'];
 
 
     $image = $_FILES['image']['name'];
     $itype = $_FILES['image']['type'];
     $itmp = $_FILES['image']['tmp_name'];
-   $ilocation = "../upload/";
-  move_uploaded_file($itmp , $ilocation . $image);
+    $ilocation = "../upload/";
+    move_uploaded_file($itmp, $ilocation . $image);
 
 
-  if (existing_email( $connect , $email ) !== false) {
-    echo "email already exist!";
-    exit();  
-}
+    if (existing_email($connect, $email) !== false) {
+        echo "email already exist!";
+        exit();
+    }
 
-if (empty_input_su( $firstname , $lastname , $pp , $ds , $specialization , $email , $phone , $password ) !== false) {
-    echo "empty input!";
-    exit(); 
-}
+    if (empty_input_su($firstname, $lastname, $pp, $ds, $specialization, $email, $phone, $password) !== false) {
+        echo "empty input!";
+        exit();
+    }
 
 
-    $ins= "INSERT INTO `doctors` VALUES( Null , '$firstname',
+    $ins = "INSERT INTO `doctors` VALUES( Null , '$firstname',
      '$lastname' , '$age' , '$pp' , $yoe , '$address' , $phone ,
       '$ds' , '$email' , '$specialization' , $password , '$image' , 'no' , 'no')";
-    $i = mysqli_query($connect , $ins);
-   if($i){
-        echo"Wait for your account to be accepted by admins, you will receive a call";
+    $i = mysqli_query($connect, $ins);
+    if ($i) {
+        echo "Wait for your account to be accepted by admins, you will receive a call";
     }
-    
+
     //header("location: /MediCoNew/shared/login.php");
 }
 ?>
@@ -118,7 +121,7 @@ if (empty_input_su( $firstname , $lastname , $pp , $ds , $specialization , $emai
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
+            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="../index.php">Home</a></li>
@@ -133,7 +136,7 @@ if (empty_input_su( $firstname , $lastname , $pp , $ds , $specialization , $emai
     </nav>
     <h1 class="h1_text" id="Requests">Registration</h1>
     <div class="conent">
-        <form method="post" enctype='multipart/form-data'>
+        <form method="post" enctype='multipart/form-data' style="height:max-content">
             <label for="name">First Name:</label>
             <input type="text" id="name" name="fname" placeholder="Enter doctor name...">
             <label for="name">Last Name:</label>
@@ -141,11 +144,9 @@ if (empty_input_su( $firstname , $lastname , $pp , $ds , $specialization , $emai
             <label for="Date of birth">Date of birth:</label>
             <input type="date" id="Date of birth" name="date" placeholder="Enter Date of birth...">
             <label for="Profession Practice">Profession Practice:</label>
-            <input type="file" id="Profession Practice" name="pp"
-                placeholder="Enter Profession Practice...">
-                <label for="Profession Practice">years of experience:</label>
-                <input type="text" id="Profession Practice" name="yoe"
-                    placeholder="Enter years of experience...">
+            <input type="file" id="Profession Practice" name="pp" placeholder="Enter Profession Practice...">
+            <label for="Profession Practice">years of experience:</label>
+            <input type="text" id="Profession Practice" name="yoe" placeholder="Enter years of experience...">
             <label for="Address">Your Clinic Address:</label>
             <input type="text" id="Address" name="address" placeholder="Enter Address...">
             <label for="Address">phone:</label>
@@ -161,7 +162,7 @@ if (empty_input_su( $firstname , $lastname , $pp , $ds , $specialization , $emai
             <label for="password">Upload Personal Image</label>
             <input type="file" id="password" name="image" placeholder="Enter password...">
             <br> <br>
-            <button name="submit" type="submit" id="save-button">Save</button>
+            <button name="submit" type="submit" id="save-button" style="margin-left: 1500px;">Save</button>
         </form>
     </div>
 

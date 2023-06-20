@@ -2,26 +2,26 @@
 include "../shared/conn.php";
 
 ?>
-   <?php
-    $qry="SELECT * FROM `doctors` WHERE accepted ='yes'";
-$rslt=mysqli_query($connect,$qry);
+<?php
+$qry = "SELECT * FROM `doctors` WHERE accepted ='yes'";
+$rslt = mysqli_query($connect, $qry);
 
-if(isset($_GET['delete'])){
+if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-$delete = "DELETE FROM `doctors` WHERE id = $id";
-    $del = mysqli_query($connect , $delete);
+    $delete = "DELETE FROM `doctors` WHERE id = $id";
+    $del = mysqli_query($connect, $delete);
 }
 
-if(isset($_GET['block'])){
+if (isset($_GET['block'])) {
     $id = $_GET['block'];
-$delete = "UPDATE `doctors` SET blocked = 'yes' WHERE id = $id";
-    $del = mysqli_query($connect , $delete);
+    $delete = "UPDATE `doctors` SET blocked = 'yes' WHERE id = $id";
+    $del = mysqli_query($connect, $delete);
 }
 
-if(isset($_GET['unblock'])){
+if (isset($_GET['unblock'])) {
     $id = $_GET['unblock'];
-$delete = "UPDATE `doctors` SET blocked = 'no' WHERE id = $id";
-    $del = mysqli_query($connect , $delete);
+    $delete = "UPDATE `doctors` SET blocked = 'no' WHERE id = $id";
+    $del = mysqli_query($connect, $delete);
 }
 
 
@@ -44,59 +44,60 @@ $delete = "UPDATE `doctors` SET blocked = 'no' WHERE id = $id";
 <body>
     <nav>
         <div class="logo">
-            <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" height="100px" width="200px" alt="Medico Logo"></a>
+            <img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo">
         </div>
         <ul class="nav-links">
             <li><a href="./admin_home.php">Home</a></li>
             <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
         </ul>
     </nav>
- 
+
     <h1 class="h1_text" id="Requests">Doctors</h1>
     </div>
-   
+
     <div class="content">
-        
+
         <div class="card-container">
-             <?php while ($row=mysqli_fetch_array($rslt)) {?>
-            <div class="card_doctors">
-            <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
-                
-                <div class="card-text">
-             
-                <h3>Name:  <?php   echo $row['dfirst_name']    .  $row['dlast_name']   ?></h3></td>
-                 <p>specialization: <?php   echo $row['specialization']  ?></p>
-                 
-                 <a href="view_doctors_for_admin.php?delete=<?php echo $row['id'];?> "><button class="delete">Delete</button></a>
-                    <a href="doctor_registration_form_for_admin.php?edit=<?php echo $row['id'];?>"> <button class="edit">Edit</button></a>
-                    <a href="vieww_doctor_profile_from_admin.php?view=<?php echo $row['id'];?> "><button class="block">VIEW</button></a> 
-                    <?php if($row['blocked'] == 'yes'){ ?>
-                    <td><a href="view_doctors_for_admin.php?unblock=<?php echo $row['id'];?> ">Unblock</a></td>
-                
-                <?php }else{ ?>
-                    <td><a href="view_doctors_for_admin.php?block=<?php echo $row['id'];?> ">Block</a></td>
+            <?php while ($row = mysqli_fetch_array($rslt)) { ?>
+                <div class="card_doctors">
+                    <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
 
-               <?php  } ?>
-                    
+                    <div class="card-text">
+
+                        <h3>Name: <?php echo $row['dfirst_name']    .  $row['dlast_name']   ?></h3>
+                        </td>
+                        <p>specialization: <?php echo $row['specialization']  ?></p>
+
+                        <a href="view_doctors_for_admin.php?delete=<?php echo $row['id']; ?> "><button class="delete">Delete</button></a>
+                        <a href="doctor_registration_form_for_admin.php?edit=<?php echo $row['id']; ?>"> <button class="edit">Edit</button></a>
+                        <a href="vieww_doctor_profile_from_admin.php?view=<?php echo $row['id']; ?> "><button class="view">VIEW</button></a>
+                        <?php if ($row['blocked'] == 'yes') { ?>
+                            <td><a href="view_doctors_for_admin.php?unblock=<?php echo $row['id']; ?> "><button class="block">Unblock</button></a></td>
+
+                        <?php } else { ?>
+                            <td><a href="view_doctors_for_admin.php?block=<?php echo $row['id']; ?> "><button class="block">Block</button></a></td>
+
+                        <?php  } ?>
 
 
+
+
+                    </div>
 
                 </div>
-                
-            </div>
-                <?php
-}
-?>
-            
+            <?php
+            }
+            ?>
+
+        </div>
+
+
     </div>
-
-
-</div>
 
 
     <script src="../JS/script.js"></script>
-    
-    
+
+
 </body>
 
 </html>
