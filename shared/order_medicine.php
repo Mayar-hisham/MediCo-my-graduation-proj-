@@ -305,6 +305,21 @@ if (isset($_SESSION['doctor'])) {
 
     <?php
   } ?>
+    <footer>
+      <div class="sticky-footer">
+        <div class="footer-content">
+          <p style="color:white">Follow Us On</p>
+          <ul class="social-icons">
+            <li><a href="#"><img src="../images/facebook-logo.png" alt="Facebook Icon"></a></li>
+            <li><a href="#"><img src="../images/instagram-logo.png" alt="Instagram Icon"></a></li>
+            <li><a href="#"><img src="../images/twitter-logo.png" alt="Twitter Icon"></a></li>
+          </ul>
+        </div>
+        <div class="footer-info">
+          <h6>Copyright &copy Medico-2023</h6>
+        </div>
+      </div>
+    </footer>
     <script src="JS/scriptorder.js"></script>
     </body>
 

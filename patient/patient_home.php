@@ -131,13 +131,13 @@ if (isset($_SESSION["patient"])) {
 
 
             <div class="image">
-                <a href="../shared/order_medicine.php"><img src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
+                <a href="../shared/order_medicine.php"><img src="../Images/oreder icon.webp"></a>
                 <a href="../shared/order_medicine.php">Order medicine</a>
             </div>
 
 
             <div class="image">
-                <a href="./order_tracking.php"><img src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
+                <a href="./order_tracking.php"><img src="../Images/track icon.webp"></a>
                 <a href="./order_tracking.php">Track your Orders</a>
             </div>
         </div>

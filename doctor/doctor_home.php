@@ -41,7 +41,7 @@ if (isset($_SESSION['doctor'])) {
     <!--first section-->
 
 
-    <h1 class="h1_text">Wellcome DR.<?php echo $_SESSION['dfirst_name']; ?></h1>
+    <h1 class="h1_text">Welcome DR.<?php echo $_SESSION['dfirst_name']; ?></h1>
     <div class="container_img">
       <div class="image">
         <a href="patient_otp.php"><img src="../Images/1901374.png"></a>
@@ -52,42 +52,34 @@ if (isset($_SESSION['doctor'])) {
         <a href="doctor_profile.php">My profile</a>
       </div>
       <div class="image">
-        <a href="../shared/order_medicine.php"><img src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
+        <a href="../shared/order_medicine.php"><img src="../Images/oreder icon.webp"></a>
         <a href="../shared/order_medicine.php">Order Medicine</a>
       </div>
 
       <div class="image">
-        <a href="./order_tracking.php"><img src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
+        <a href="./order_tracking.php"><img src="../Images/track icon.webp"></a>
         <a href="./order_tracking.php">Track your Orders</a>
       </div>
     </div>
 
   <?php } ?>
-
-  <script src="JS/script.js"></script>
-
-  <footer class="sticky-footer">
-    <div>
-      <h6>Copyright &copy Medico-2023</h6>
-    </div>
-    <div>
-      <h4 class="_14"> &nbsp &nbsp &nbsp CONTACT US:</h4>
-
-      <br> &nbsp &nbsp PHONE NO.: 01008775960 <br>
-      <br> &nbsp &nbsp EMAIL: MediCo23@gmail.com
-    </div>
-    <br>
-    <div class="footer-social-icons">
-      <h4 class="r"> &nbsp &nbspFOLLOW US ON</h4>
-      <br>
-      <ul class="social-icons">
-        <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px src="../Images/icona1.png"></a></li>
-        <li><a href="www.instagram.com"><img width=30px hight=40px src="../Images/icona2.png"></a></li>
-        </li>
-        <li><a href="www.twitter.com"><img width=30px hight=40px src="../Images/twitter.jpg"></a></li>
-      </ul>
+  <footer>
+    <div class="sticky-footer">
+      <div class="footer-content">
+        <p>Follow Us On</p>
+        <ul class="social-icons">
+          <li><a href="#"><img src="../images/facebook-logo.png" alt="Facebook Icon"></a></li>
+          <li><a href="#"><img src="../images/instagram-logo.png" alt="Instagram Icon"></a></li>
+          <li><a href="#"><img src="../images/twitter-logo.png" alt="Twitter Icon"></a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h6>Copyright &copy Medico-2023</h6>
+      </div>
     </div>
   </footer>
+
+  <script src="JS/script.js"></script>
   </body>
 
   </html>

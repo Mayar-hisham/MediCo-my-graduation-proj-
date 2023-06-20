@@ -287,9 +287,9 @@ if (isset($_SESSION['admin'])) {
 
         <br> <br>
         <?php if (isset($_GET['edit'])) { ?>
-          <button name="edit" type="submit" id="save-button" style="margin-left: 1500px;">Save</button>
+          <button name="edit" type="submit" id="save-button">Save</button>
         <?php } else { ?>
-          <button name="submit" type="submit" id="save-button" style="margin-left: 1500px;">Save</button>
+          <button name="submit" type="submit" id="save-button">Save</button>
         <?php } ?>
       </form>
     </div>

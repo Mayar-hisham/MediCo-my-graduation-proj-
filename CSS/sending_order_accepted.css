@@ -6,12 +6,12 @@ form {
     margin-left: 230px;
     background-color: #efefef9c;
     border-radius: 20px;
-    margin-top: -580px;
+    margin-top: 580px;
     margin-bottom: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-right: 30px;
     height: max-content;
-    
+
 }
 
 label {
@@ -44,4 +44,35 @@ button {
 
 button:hover {
     background-color: #688f9c;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #2c73ae9c;
+    color: rgb(4, 29, 151);
+    padding: 15px;
+    margin-top: 12px;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18px;
+    margin-right: 20px;
+}
+
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 4px;
+    margin-right: 50px;
+    background-color: rgb(0, 0, 0);
+}
+
+h2 {
+    margin-right: 20px;
+    font-size: 18px;
+    margin: 0 70px 0 10px;
 }

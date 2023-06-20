@@ -23,7 +23,7 @@ if (isset($_SESSION['pharmacy'])) {
   <body>
     <nav>
       <div class="logo">
-        <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
+        <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" style="height:100px; width:250px; margin-left: 10px;" alt="Medico Logo"></a>
       </div>
       <ul class="nav-links">
         <li><a href="./pharmacy_view.php">Home</a></li>
@@ -48,7 +48,7 @@ if (isset($_SESSION['pharmacy'])) {
         <a href="./pharmacy_profile.php">My profile</a>
       </div>
       <div class="image">
-        <a href="requests.php"><img src="../Images/pending-order-svg-icon-free-my-job-icon-11553505427rf7ua37rbl.png"></a>
+        <a href="requests.php"><img src="../Images/req icon.webp"></a>
         <a href="Requests.php">Requests</a>
       </div>
 
@@ -56,16 +56,16 @@ if (isset($_SESSION['pharmacy'])) {
     </div>
     <div class="container">
       <div class="image">
-        <a href="order_on_way.php"><img src="../Images/delivery-truck-pictogram-icon-image-vector-illustration-design-79386582.jpg"></a>
+        <a href="order_on_way.php"><img src="../Images/medical-delivery-logo-icon-design-can-be-used-as-complement-to-125310061.jpg"></a>
         <a href="order_on_way.php">Orders on way</a>
       </div>
       <div class="image">
-        <a href="finished_requests.php"><img src="../Images/done.png"></a>
+        <a href="finished_requests.php"><img src="../Images/finish req icon.webp"></a>
         <a href="finished_requests.php">Finished requests</a>
       </div>
 
       <div class="image">
-        <a href="pdm.php"><img src="../Images/done.png"></a>
+        <a href="pdm.php"><img src="../Images/perodic icon.webp"></a>
         <a href="pdm.php">Periodical Orders</a>
       </div>
 
@@ -80,26 +80,19 @@ if (isset($_SESSION['pharmacy'])) {
 
 
   <script src="JS/script.js"></script>
-  <footer class="sticky-footer">
-    <div>
-      <h6>Copyright &copy Medico-2023</h6>
-    </div>
-    <div>
-      <h4 class="_14"> &nbsp &nbsp &nbsp CONTACT US:</h4>
-
-      <br> &nbsp &nbsp PHONE NO.: 01008775960 <br>
-      <br> &nbsp &nbsp EMAIL: MediCo23@gmail.com
-    </div>
-    <br>
-    <div class="footer-social-icons">
-      <h4 class="r"> &nbsp &nbspFOLLOW US ON</h4>
-      <br>
-      <ul class="social-icons">
-        <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px src="../Images/icona1.png"></a></li>
-        <li><a href="www.instagram.com"><img width=30px hight=40px src="../Images/icona2.png"></a></li>
-        </li>
-        <li><a href="www.twitter.com"><img width=30px hight=40px src="../Images/twitter.jpg"></a></li>
-      </ul>
+  <footer>
+    <div class="sticky-footer">
+      <div class="footer-content">
+        <p style="color:white">Follow Us On</p>
+        <ul class="social-icons">
+          <li><a href="#"><img src="../images/facebook-logo.png" alt="Facebook Icon"></a></li>
+          <li><a href="#"><img src="../images/instagram-logo.png" alt="Instagram Icon"></a></li>
+          <li><a href="#"><img src="../images/twitter-logo.png" alt="Twitter Icon"></a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h6>Copyright &copy Medico-2023</h6>
+      </div>
     </div>
   </footer>
   </body>

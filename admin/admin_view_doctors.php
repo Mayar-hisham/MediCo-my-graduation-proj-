@@ -42,7 +42,7 @@ include "../shared/conn.php";
             <a href="requests_doctors_for_admin.php">Requests</a>
         </div>
         <div class="image">
-            <a href="doctor_registration_form_for_admin.php"><img src="../Images/plus_icon.png"></a>
+            <a href="doctor_registration_form_for_admin.php"><img src="../Images/create icon.webp"></a>
             <a href="doctor_registration_form_for_admin.php">Create</a>
         </div>
         <div class="image">

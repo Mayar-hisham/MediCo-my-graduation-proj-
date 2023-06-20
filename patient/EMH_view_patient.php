@@ -26,7 +26,7 @@ if (isset($_SESSION["patient"])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css">
-
+    <link rel="stylesheet" href="../CSS/footer.css">
     <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
 
     <title>Medico</title>
@@ -412,26 +412,19 @@ if (isset($_SESSION["patient"])) {
 
 
   <script src="JS/script.js"></script>
-  <footer class="sticky-footer">
-    <div>
-      <h6>Copyright &copy Medico-2023</h6>
-    </div>
-    <div>
-      <h4 class="_14"> &nbsp &nbsp &nbsp CONTACT US:</h4>
-
-      <br> &nbsp &nbsp PHONE NO.: 01008775960 <br>
-      <br> &nbsp &nbsp EMAIL: MediCo23@gmail.com
-    </div>
-    <br>
-    <div class="footer-social-icons">
-      <h4 class="r"> &nbsp &nbspFOLLOW US ON</h4>
-      <br>
-      <ul class="social-icons">
-        <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px src="../Images/icona1.png"></a></li>
-        <li><a href="www.instagram.com"><img width=30px hight=40px src="../Images/icona2.png"></a></li>
-        </li>
-        <li><a href="www.twitter.com"><img width=30px hight=40px src="../Images/twitter.jpg"></a></li>
-      </ul>
+  <footer>
+    <div class="sticky-footer">
+      <div class="footer-content">
+        <p style="color:white">Follow Us On</p>
+        <ul class="social-icons">
+          <li><a href="#"><img src="../images/facebook-logo.png" alt="Facebook Icon"></a></li>
+          <li><a href="#"><img src="../images/instagram-logo.png" alt="Instagram Icon"></a></li>
+          <li><a href="#"><img src="../images/twitter-logo.png" alt="Twitter Icon"></a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h6>Copyright &copy Medico-2023</h6>
+      </div>
     </div>
   </footer>
   </body>

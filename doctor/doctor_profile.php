@@ -192,26 +192,19 @@ if (isset($_SESSION['doctor'])) {
 
 
   <script src="JS/script.js"></script>
-  <footer class="sticky-footer">
-    <div>
-      <h6>Copyright &copy Medico-2023</h6>
-    </div>
-    <div>
-      <h5 class="_14"> &nbsp &nbsp &nbsp CONTACT US:</h5>
-
-      &nbsp &nbsp PHONE NO.: 01008775960 <br>
-      &nbsp &nbsp EMAIL: MediCo23@gmail.com
-    </div>
-    <br>
-    <div class="footer-social-icons">
-      <h5 class="r"> &nbsp &nbspFOLLOW US ON</h5>
-      <br>
-      <ul class="social-icons">
-        <li><a href="www.facbook.com">&nbsp<img width=30px hight=40px src="../Images/icona1.png"></a></li>
-        <li><a href="www.instagram.com"><img width=30px hight=40px src="../Images/icona2.png"></a></li>
-        </li>
-        <li><a href="www.twitter.com"><img width=30px hight=40px src="../Images/twitter.jpg"></a></li>
-      </ul>
+  <footer>
+    <div class="sticky-footer">
+      <div class="footer-content">
+        <p>Follow Us On</p>
+        <ul class="social-icons">
+          <li><a href="#"><img src="../images/facebook-logo.png" alt="Facebook Icon"></a></li>
+          <li><a href="#"><img src="../images/instagram-logo.png" alt="Instagram Icon"></a></li>
+          <li><a href="#"><img src="../images/twitter-logo.png" alt="Twitter Icon"></a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <h6>Copyright &copy Medico-2023</h6>
+      </div>
     </div>
   </footer>
     </body>

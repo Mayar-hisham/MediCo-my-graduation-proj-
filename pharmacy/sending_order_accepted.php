@@ -92,7 +92,7 @@ if (isset($_POST['upload'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/footer.css">
-    <link rel="stylesheet" href="../CSS/The Electronic Medical History.css">
+    <!-- <link rel="stylesheet" href="../CSS/The Electronic Medical History.css"> -->
     <link rel="stylesheet" href="../CSS/sending_order_accepted.css">
 
     <title>Medico</title>
@@ -109,14 +109,14 @@ if (isset($_POST['upload'])) {
             <li><a href="#">Help and Support</a></li>
             <li><a href="../shared/login.php?gbye='1'">Logout</a></li>
         </ul>
-        <div class="burger">
+        <!-- <div class="burger">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
-        </div>
+        </div> -->
     </nav>
 
-    <div class="header">
+    <div class="header" style="display: flex; align-items: center; background-color: #2c73ae9c; color: rgb(4, 29, 151); padding: 15px; margin-top: 12px;">
         <div class="menu-icon">
             <span></span>
             <span></span>
@@ -131,7 +131,7 @@ if (isset($_POST['upload'])) {
         </div>
         <br><br><br><br><Br>
         <div class="conent">
-            <form method="POST" enctype='multipart/form-data'>
+            <form method="POST" enctype='multipart/form-data' style="margin-top: 0px; margin-bottom: 50px; margin-left:140px">
                 <label for="name">Pharmacy ID</label>
                 <input type="text" disabled value="<?php echo $_SESSION['phid']; ?>" id="Pharmacy ID" name="Pharmacy ID" placeholder="Enter Pharmacy ID...">
                 <label for="name">Patient ID</label>
@@ -181,6 +181,21 @@ if (isset($_POST['upload'])) {
             </form>
         </div>
     </div>
+    <footer>
+        <div class="sticky-footer">
+            <div class="footer-content">
+                <p style="color:white">Follow Us On</p>
+                <ul class="social-icons">
+                    <li><a href="#"><img src="../images/facebook-logo.png" alt="Facebook Icon"></a></li>
+                    <li><a href="#"><img src="../images/instagram-logo.png" alt="Instagram Icon"></a></li>
+                    <li><a href="#"><img src="../images/twitter-logo.png" alt="Twitter Icon"></a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h6>Copyright &copy Medico-2023</h6>
+            </div>
+        </div>
+    </footer>
     <script src="JS/script.js"></script>
 </body>
 

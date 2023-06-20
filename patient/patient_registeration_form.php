@@ -172,9 +172,24 @@ if (isset($_POST['signup'])) {
             <label for="password">Upload Personal Image:</label>
             <input type="file" id="password" name="image" placeholder="Enter password...">
             <br> <br>
-            <button name="signup" type="submit" id="save-button" style="margin-left: 1500px;">Save</button>
+            <button name="signup" type="submit" id="save-button">Save</button>
         </form>
     </div>
+    <footer>
+        <div class="sticky-footer">
+            <div class="footer-content">
+                <p style="color:white">Follow Us On</p>
+                <ul class="social-icons">
+                    <li><a href="#"><img src="../images/facebook-logo.png" alt="Facebook Icon"></a></li>
+                    <li><a href="#"><img src="../images/instagram-logo.png" alt="Instagram Icon"></a></li>
+                    <li><a href="#"><img src="../images/twitter-logo.png" alt="Twitter Icon"></a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h6>Copyright &copy Medico-2023</h6>
+            </div>
+        </div>
+    </footer>
 
     <script src="JS/script.js"></script>
 </body>
