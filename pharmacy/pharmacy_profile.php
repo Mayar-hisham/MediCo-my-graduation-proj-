@@ -132,18 +132,19 @@ if (isset($_GET['view'])) {
 
                 <h1 class="h1_text">Pharmacy Profile</h1>
                 <div class="phar">
-                    <img src="../upload/<?php echo $row['image'] ?>" alt="pharmacy's photo">
+                    <center><img src="../upload/<?php echo $row['image'] ?>" alt="pharmacy's photo"></center>
                     <div class="phar name">
                         <p>Name: <?php echo $row['name']; ?></p>
                     </div>
                     <div class="phar branches">
                         <p>Branches: <?php echo $row['address']; ?></p>
                     </div>
-                    <div class="phar contacts">
-                        <p>Contacts:</p>
+                    <div class="phar contacts" style="margin-top: 40px; margin-bottom:40px; margin-left:30px">
+                        <p>Contacts</p>
                         <h1>Phone: <?php echo $row['phphone']; ?></h1>
                         <h1>email: <?php echo $row['email']; ?></h1>
                     </div>
+
                 </div>
 
                 <script src="JS/script.js"></script>

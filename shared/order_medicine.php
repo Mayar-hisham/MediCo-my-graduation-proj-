@@ -34,7 +34,7 @@ if (isset($_SESSION["patient"])) {
                  '$_date' , '$_time' , '$name' , 'yes' , '$perd')";
     $sel = mysqli_query($connect, $query);
     if ($sel) {
-      header("location: ../patient/order_tracking.php");
+      header("location: ../patient/ord_pending.php");
     }
   }
 
@@ -193,7 +193,7 @@ if (isset($_SESSION['doctor'])) {
                  '$_time' , '$name' , 'yes' , '$perd')";
     $sel = mysqli_query($connect, $query);
     if ($sel) {
-      header("location: ../doctor/order_tracking.php");
+      header("location: ../doctor/ord_pending.php");
     } else {
       echo mysqli_error($connect);
     }

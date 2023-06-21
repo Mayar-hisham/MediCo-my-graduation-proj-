@@ -29,23 +29,23 @@ $sel = mysqli_query($connect, $select);
     </div>
     <ul class="nav-links" style="margin-left:400px">
 
-   <?php if (isset($_SESSION["patient"])) { ?>
-      <li><a href="../patient/patient_home.php">Home</a></li>
-<?php  } ?>
+      <?php if (isset($_SESSION["patient"])) { ?>
+        <li><a href="../patient/patient_home.php">Home</a></li>
+      <?php  } ?>
 
-<?php if (isset($_SESSION["doctor"])) { ?>
-      <li><a href="../doctor/doctor_home.php">Home</a></li>
-<?php  } ?>
+      <?php if (isset($_SESSION["doctor"])) { ?>
+        <li><a href="../doctor/doctor_home.php">Home</a></li>
+      <?php  } ?>
 
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
 
       <?php if (isset($_SESSION["patient"])) { ?>
-      <li><a href="../shared/login.php?bye='1'">Logout</a></li>
+        <li><a href="../shared/login.php?bye='1'">Logout</a></li>
       <?php  } ?>
 
       <?php if (isset($_SESSION["doctor"])) { ?>
-      <li><a href="../shared/login.php?goodbye='1'">Logout</a></li>
+        <li><a href="../shared/login.php?goodbye='1'">Logout</a></li>
       <?php  } ?>
 
 
@@ -81,7 +81,7 @@ $sel = mysqli_query($connect, $select);
             <h3>Name: <?php echo $s['dfirst_name'] . $s['dlast_name'] ?></h3>
             <p>Specialist in: <?php echo $s['specialization'] ?></p>
             <br>
-            <center><a href="../doctor/doctor_profile.php?view=<?php echo $s['id']; ?>"><button style="margin-top:20px; background-color: #4c87af; color: white; font-size: 25px; padding: 10px 10px; border: none; border-radius: 25px; cursor: pointer;">View</button></a></center>
+            <center><a href="./profile.php?view=<?php echo $s['id']; ?>"><button style="margin-top:20px; background-color: #4c87af; color: white; font-size: 25px; padding: 10px 10px; border: none; border-radius: 25px; cursor: pointer;">View</button></a></center>
           </div>
         </div>
       <?php } ?>

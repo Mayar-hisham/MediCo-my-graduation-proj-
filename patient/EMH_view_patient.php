@@ -3,7 +3,7 @@ include "../shared/conn.php";
 
 if (isset($_SESSION["patient"])) {
 
-  $sl = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "'";
+  $sl = "SELECT * FROM medical_profile WHERE patient_id = '" . $_SESSION['pid'] . "'";
   $sll = mysqli_query($connect, $sl);
   $num = mysqli_num_rows($sll);
   $r = mysqli_fetch_assoc($sll);
@@ -61,8 +61,8 @@ if (isset($_SESSION["patient"])) {
       <?php
 
 
-      $sql = "SELECT * FROM `patient`
- JOIN `medical_profile` ON 
+      $sql = "SELECT * FROM patient
+ JOIN medical_profile ON 
   patient.pid = medical_profile.patient_id
 
  WHERE patient.has_emh = 'yes' AND patient.paid = 'yes' AND 
@@ -114,15 +114,12 @@ if (isset($_SESSION["patient"])) {
             </h2>
 
             <?php
-            $selec = "SELECT * FROM `personal_hostory` WHERE prsdate_of_edit = ( SELECT MAX(prsdate_of_edit) FROM `personal_hostory` ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
+            $selec = "SELECT * FROM personal_hostory WHERE prsdate_of_edit = ( SELECT MAX(prsdate_of_edit) FROM personal_hostory ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
             $s = mysqli_query($connect, $selec);
             $numberOfRows = mysqli_num_rows($s);
             $r = mysqli_fetch_assoc($s);
 
             if ($s) {
-
-
-
             ?>
               <div id="personal-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
@@ -153,7 +150,7 @@ if (isset($_SESSION["patient"])) {
 
 
             <?php
-            $selec = "SELECT * FROM `family_history` WHERE fdate_of_edit = ( SELECT MAX(fdate_of_edit) FROM `family_history` ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
+            $selec = "SELECT * FROM family_history WHERE fdate_of_edit = ( SELECT MAX(fdate_of_edit) FROM family_history ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
             $s = mysqli_query($connect, $selec);
             $numberOfRows = mysqli_num_rows($s);
             $r = mysqli_fetch_assoc($s);
@@ -188,15 +185,12 @@ if (isset($_SESSION["patient"])) {
             </h2>
 
             <?php
-            $selec = "SELECT * FROM `past_history` WHERE pdate_of_edit = ( SELECT MAX(pdate_of_edit) FROM `past_history` ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
+            $selec = "SELECT * FROM past_history WHERE pdate_of_edit = ( SELECT MAX(pdate_of_edit) FROM past_history ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
             $s = mysqli_query($connect, $selec);
             $numberOfRows = mysqli_num_rows($s);
             $r = mysqli_fetch_assoc($s);
 
             if ($s) {
-
-
-
             ?>
               <div id="past-history" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
@@ -225,7 +219,7 @@ if (isset($_SESSION["patient"])) {
 
 
             <?php
-            $selec = "SELECT * FROM `surgical_history` WHERE sdate_of_edit = ( SELECT MAX(sdate_of_edit) FROM `surgical_history` ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
+            $selec = "SELECT * FROM surgical_history WHERE sdate_of_edit = ( SELECT MAX(sdate_of_edit) FROM surgical_history ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
             $s = mysqli_query($connect, $selec);
             $numberOfRows = mysqli_num_rows($s);
             $r = mysqli_fetch_assoc($s);
@@ -281,7 +275,6 @@ if (isset($_SESSION["patient"])) {
                       <th>Rehabilitation3</th>
                     </tr>
                     <tr>
-
                       <td><?php echo $r['date3']; ?></td>
                       <td><?php echo $r['type3']; ?></td>
                       <td><?php echo $r['surgeon3']; ?></td>
@@ -319,7 +312,7 @@ if (isset($_SESSION["patient"])) {
 
 
             <?php
-            $selec = "SELECT * FROM `clinical_history` WHERE cdate_of_edit = ( SELECT MAX(cdate_of_edit) FROM `clinical_history` ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
+            $selec = "SELECT * FROM clinical_history WHERE cdate_of_edit = ( SELECT MAX(cdate_of_edit) FROM clinical_history ) AND medical_profile_id = '" . $_SESSION['mpfid'] . "'";
             $s = mysqli_query($connect, $selec);
             $numberOfRows = mysqli_num_rows($s);
             $r = mysqli_fetch_assoc($s);
@@ -354,8 +347,8 @@ if (isset($_SESSION["patient"])) {
             </h2>
 
             <?php
-            $selec = "SELECT * FROM `doctor_diagnosis` 
-              JOIN `doctors` ON doctors.id = doctor_diagnosis.doctor_id
+            $selec = "SELECT * FROM doctor_diagnosis 
+              JOIN doctors ON doctors.id = doctor_diagnosis.doctor_id
               WHERE doctor_diagnosis.medical_profile_id = '" . $_SESSION['mpfid'] . "'";
             $s = mysqli_query($connect, $selec);
             //$numberOfRows = mysqli_num_rows($s);
@@ -376,7 +369,6 @@ if (isset($_SESSION["patient"])) {
                   <div class="column">
                     <?php foreach ($s as $r) { ?>
                       <div class="card">
-
                         <h6 style="color: white;">Doctor Specialization:</h6>
                         <div class="card-header"><?php echo $r['specialization']; ?></div>
                         <h6 style="color: white;">Diagnosis Date:</h6>

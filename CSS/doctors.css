@@ -9,7 +9,7 @@
 
 .card_doctors {
   width: 230px;
-  height: 280px;
+  height: 380px;
   margin: 10px;
   border: 1px solid #dfdfdfb6;
   border-radius: 15px;
@@ -22,7 +22,7 @@
 
 .card_doctors img {
   width: 100%;
-  height: 100%;
+  height: 40%;
   object-fit: cover;
 }
 
