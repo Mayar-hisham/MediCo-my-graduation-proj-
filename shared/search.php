@@ -25,19 +25,42 @@ if (isset($_POST['search'])) {
   </head>
 
   <body>
-    <nav>
-      <div class="logo">
-        <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
-      </div>
+  <nav>
+    <div class="logo">
+      <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
+    </div>
+    <ul class="nav-links" style="margin-left:400px">
 
-      <div class="search-bar" style="margin-top: 10px;">
+   <?php if (isset($_SESSION["patient"])) { ?>
+      <li><a href="../patient/patient_home.php">Home</a></li>
+<?php  } ?>
+
+<?php if (isset($_SESSION["doctor"])) { ?>
+      <li><a href="../doctor/doctor_home.php">Home</a></li>
+<?php  } ?>
+
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Help and Support</a></li>
+
+      <?php if (isset($_SESSION["patient"])) { ?>
+      <li><a href="../shared/login.php?bye='1'">Logout</a></li>
+      <?php  } ?>
+
+      <?php if (isset($_SESSION["doctor"])) { ?>
+      <li><a href="../shared/login.php?goodbye='1'">Logout</a></li>
+      <?php  } ?>
+
+
+    </ul>
+
+    <div class="search-bar" style="margin-top: 10px;">
       <form method="post" action="search.php">
         <pre>
         <input style="padding: 10px; border: none; border-radius: 5px; margin-right: 10px;" type="text" name="srch" placeholder="Search"><button style="background-color: #f1efef; color: rgb(3, 3, 6); border: none; border-radius: 5px; padding: 10px; cursor: pointer;" name="search">go</button>
         </pre>
       </form>
     </div>
-    </nav>
+  </nav>
 
     <div class="header">
       <div class="menu-icon">
