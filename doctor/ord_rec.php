@@ -3,7 +3,7 @@ include "../shared/conn.php";
 
 if (isset($_SESSION["doctor"])) {
 
-    $select = "SELECT * FROM `orders` WHERE activity = 'no'  AND d_id = '" . $_SESSION['did'] . "' ";
+    $select = "SELECT * FROM `orders` WHERE activity = 'no'  AND opatient_id = '" . $_SESSION['did'] . "' ";
 
     $sel = mysqli_query($connect, $select);
 

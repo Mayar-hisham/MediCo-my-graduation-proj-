@@ -28,26 +28,22 @@ $sel = mysqli_query($connect, $select);
       <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Contact Us</a></li>
-      <li><a href="#">Help and Support</a></li>
-      <li><a href="../shared/login.php?bye='1'">Logout</a></li>
+
     </ul>
+
+       <div class="search-bar" style="margin-top: 10px;">
+      <form method="post" action="search.php">
+        <pre>
+        <input style="padding: 10px; border: none; border-radius: 5px; margin-right: 10px;" type="text" name="srch" placeholder="Search"><button style="background-color: #f1efef; color: rgb(3, 3, 6); border: none; border-radius: 5px; padding: 10px; cursor: pointer;" name="search">go</button>
+        </pre>
+      </form>
+    </div>
   </nav>
 
   <div class="header" style="display: flex; align-items: center; background-color: #2c73ae9c; color: rgb(4, 29, 151); padding: 15px; margin-top: 12px;">
-    <!-- <div class="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div> -->
-    <h2 style="text-align: center; font-size: 30px; margin-left: 650px; padding: 10px;">Doctors</h2>
-    <!-- <div class="search-bar" style="margin-left:500px">
-      <form method="post" action="search.php">
-        <input style="padding: 10px; border: none; border-radius: 5px; margin-right: 10px;" type="text" name="srch" placeholder="Search"><button style="background-color: #f1efef; color: rgb(3, 3, 6); border: none; border-radius: 5px; padding: 10px; cursor: pointer;" name="search">go</button>
 
-      </form>
-    </div> -->
+    <h2 style="text-align: center; font-size: 30px; margin-left: 650px; padding: 10px;">Doctors</h2>
+
   </div>
   <div class="cont1">
     <div class="navbar">
@@ -60,7 +56,7 @@ $sel = mysqli_query($connect, $select);
       <?php foreach ($sel as $s) { ?>
 
         <div class="card_doctors">
-          <img src="../upload/<?php echo $s['image'] ?>" alt="Doctor's photo">
+        <img src="../upload/<?php echo $s['image'] ?>" alt="Doctor's photo">
           <div class="card-text">
             <h3>Name: <?php echo $s['dfirst_name'] . $s['dlast_name'] ?></h3>
             <p>Specialist in: <?php echo $s['specialization'] ?></p>

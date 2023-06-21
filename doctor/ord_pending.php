@@ -10,6 +10,12 @@ if (isset($_SESSION["doctor"])) {
     $num = mysqli_num_rows($sel);
     $row = mysqli_fetch_assoc($sel);
 
+    if (isset($_GET['cancel'])) {
+        $id = $_GET['cancel'];
+        $delete = "DELETE FROM `images` WHERE id = $id";
+        $del = mysqli_query($connect, $delete);
+    }
+
 
 ?>
     <!DOCTYPE html>

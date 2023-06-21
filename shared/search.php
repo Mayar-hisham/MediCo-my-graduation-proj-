@@ -29,6 +29,14 @@ if (isset($_POST['search'])) {
       <div class="logo">
         <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
       </div>
+
+      <div class="search-bar" style="margin-top: 10px;">
+      <form method="post" action="search.php">
+        <pre>
+        <input style="padding: 10px; border: none; border-radius: 5px; margin-right: 10px;" type="text" name="srch" placeholder="Search"><button style="background-color: #f1efef; color: rgb(3, 3, 6); border: none; border-radius: 5px; padding: 10px; cursor: pointer;" name="search">go</button>
+        </pre>
+      </form>
+    </div>
     </nav>
 
     <div class="header">
@@ -39,12 +47,7 @@ if (isset($_POST['search'])) {
       </div>
       <h2 style="text-align: center; font-size: 30px; margin-left: 500px; padding: 10px;">Doctors</h2>
 
-      <div class="search-bar">
-        <form method="post" action="search.php">
-          <input type="text" name="srch" placeholder="Search"><button name="search">go</button>
 
-        </form>
-      </div>
     </div>
     <div class="cont1">
       <div class="navbar">
@@ -57,7 +60,7 @@ if (isset($_POST['search'])) {
         <?php foreach ($sel as $s) { ?>
 
           <div class="card_doctors">
-            <img src="../upload/<?php echo $s['image'] ?>" alt="Doctor's photo">
+           <img src="../upload/<?php echo $s['image'] ?>" alt="Doctor's photo">
             <div class="card-text">
               <h3>Name: <?php echo $s['dfirst_name'] . $s['dlast_name'] ?></h3>
               <p>Specialist in: <?php echo $s['specialization'] ?></p>
