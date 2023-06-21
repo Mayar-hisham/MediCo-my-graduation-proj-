@@ -59,7 +59,7 @@
                     <p><a href="./ord_onway.php">Orders on way</a></p>
                 </div>
                 <div class="image">
-                    <span><img src="../Images/accept-order.jpg" alt="Order accepted"></span>
+                    <span><img src="../Images/order rec icon.webp" alt="Order accepted"></span>
                     <p><a href="./ord_rec.php">Order received</a></p>
                 </div>
             </div>
