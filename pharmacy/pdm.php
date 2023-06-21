@@ -5,8 +5,9 @@ include "../shared/conn.php";
 
 if (isset($_SESSION['pharmacy'])) {
 
-    $select = "SELECT * FROM `images` 
-WHERE order_cd = 'yes'";
+    $select = "SELECT * FROM `images`
+    JOIN `orders` ON images.id = orders.ord_id 
+WHERE order_cd = 'yes' AND orders.pharmacy_id = '".$_SESSION['phid']."'";
     $sel = mysqli_query($connect, $select);
 
 
