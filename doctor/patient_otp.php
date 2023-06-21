@@ -27,8 +27,7 @@ if (isset($_SESSION['doctor'])) {
             </div>
             <ul class="nav-links">
                 <li><a href="doctor_home.php">Home</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Help and Support</a></li>
+                <li><a href="../shared/FAQs.php">FAQs</a></li>
                 <li><a href="../shared/login.php">Logout</a></li>
             </ul>
             <div class="burger">

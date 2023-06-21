@@ -40,6 +40,7 @@ if (isset($_SESSION["doctor"])) {
             </div>
             <ul class="nav-links">
                 <li><a href="./doctor_home.php">Home</a></li>
+                <li><a href="../shared/FAQs.php">FAQs</a></li>
                 <li><a href="../shared/login.php?bbye='1'">Logout</a></li>
             </ul>
             <div class="burger">

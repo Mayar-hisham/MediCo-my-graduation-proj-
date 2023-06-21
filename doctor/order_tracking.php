@@ -22,9 +22,8 @@
         <ul class="nav-links">
             <li><a href="./doctor_home.php">Home</a></li>
             <li><a href="../shared/doctors.php">Doctors</a></li>
-            <li><a href="#">Order Medicine</a></li>
-            <li><a href="../shared/order_medicine.php">Contact Us</a></li>
-            <li><a href="#">Help and Support</a></li>
+            <li><a href="../shared/order_medicine.php">Order Medicine</a></li>
+            <li><a href="../shared/FAQs.php">FAQs</a></li>
             <li><a href="../shared/login.php?bye='1'">Logout</a></li>
         </ul>
         <!-- <div class="burger">

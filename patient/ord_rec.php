@@ -33,6 +33,7 @@ if (isset($_SESSION["patient"])) {
             </div>
             <ul class="nav-links">
                 <li><a href="./patient_home.php">Home</a></li>
+                <li><a href="../shared/FAQs.php">FAQs</a></li>
                 <li><a href="../shared/login.php?bye='1'">Logout</a></li>
             </ul>
             <div class="burger">
