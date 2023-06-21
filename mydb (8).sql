@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 10:33 PM
+-- Generation Time: Jun 21, 2023 at 03:17 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -191,7 +191,6 @@ CREATE TABLE `images` (
 
 INSERT INTO `images` (`id`, `patient_id`, `d_id`, `patient_address`, `date_of_order`, `time_of_order`, `image`, `activity`, `order_cd`) VALUES
 (53, 18, NULL, 'maadi', '2023-06-19', '12:51:00', '7.jpg', 'no', 'Yes'),
-(54, NULL, 13, 'maadi', '2023-06-19', '12:52:00', '1.jpeg', 'yes', 'Yes'),
 (55, NULL, 13, 'shubra', '2023-06-19', '01:23:00', '7.jpg', 'yes', 'Yes'),
 (56, 20, NULL, 'Giza', '2023-06-19', '05:51:00', '7.jpg', 'no', 'Yes');
 
@@ -216,7 +215,8 @@ INSERT INTO `medical_profile` (`m_id`, `patient_id`) VALUES
 (18, 18),
 (19, 20),
 (20, 22),
-(21, 23);
+(21, 23),
+(22, 23);
 
 -- --------------------------------------------------------
 
@@ -312,7 +312,8 @@ INSERT INTO `patient` (`pid`, `first_name`, `last_name`, `gender`, `occupation`,
 (18, 'Hazem', 'Elgendy', 'Male', 'patient', 'Single', 'hazem@gmail.com', 'nothing', 'A+', '2023-06-28', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '9.jpg', 'yes', 'yes', 'no'),
 (20, 'laila', 'ahmed', 'Female', 'doctor', 'Married', 'laila@gmail.com', 'nothing', 'A-', '2023-06-20', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '6.jpeg', 'yes', 'yes', 'no'),
 (22, 'mayoura', 'oweys', 'Female', 'student', 'Single', 'mayoura@gmail.com', 'nothing', 'B-', '2023-06-22', 1012141536, 1458796325, '3rd settlement, new cairo', 123, '7.jpg', 'yess', 'yes', 'no'),
-(23, 'Mayaar', 'Oweys', 'Female', '01012144796', 'Single', 'mayaroweys@gmail.com', 'nothing', 'A-', '2023-05-29', 1012144796, 1017133062, '3rd district', 123, '7.jpg', 'no', 'yes', 'no');
+(23, 'Mayaar', 'Oweys', 'Female', '01012144796', 'Single', 'mayaroweys@gmail.com', 'nothing', 'A-', '2023-05-29', 1012144796, 1017133062, '3rd district', 123, '7.jpg', 'yess', 'yes', 'no'),
+(24, 'Mahmoud', 'Elgendy', 'Male', 'student', 'Single', 'mahmoud@gmail.com', 'nothing', 'A-', '2023-06-21', 1012144796, 1326547895, '3rd settlement, new cairo', 123, '1.jpeg', 'no', 'yes', 'no');
 
 -- --------------------------------------------------------
 
@@ -343,7 +344,8 @@ CREATE TABLE `personal_hostory` (
 
 INSERT INTO `personal_hostory` (`id`, `medical_profile_id`, `height`, `weight`, `caffaien`, `smoking`, `current_medicine`, `suffers`, `alcohol`, `cigarettes_quantity`, `cigarettes_packes_quantity`, `allergies`, `prseditor`, `prsdate_of_edit`) VALUES
 (17, 18, 150, 70, 'No', 'No', 'panadol', 'Nothing', 'no', 1, 1, 'no', 'HazemElgendy', '2023-06-19'),
-(18, 19, 160, 60, 'Yes', 'No', 'nothing', 'no diseases', 'no', 0, 0, 'nothing', 'lailaahmed', '2023-06-19');
+(18, 19, 160, 60, 'Yes', 'No', 'nothing', 'no diseases', 'no', 0, 0, 'nothing', 'lailaahmed', '2023-06-19'),
+(19, 21, 10, 25, 'No', 'No', '', '', '', 0, 0, '', 'MayaarOweys', '2023-06-21');
 
 -- --------------------------------------------------------
 
@@ -564,7 +566,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `medical_profile`
 --
 ALTER TABLE `medical_profile`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -582,13 +584,13 @@ ALTER TABLE `past_history`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `personal_hostory`
 --
 ALTER TABLE `personal_hostory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `pharmacy`
