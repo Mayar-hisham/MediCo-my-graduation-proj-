@@ -6,7 +6,7 @@ if (isset($_SESSION['pharmacy'])) {
 
 
     $select = "SELECT * FROM `orders` JOIN `patient` ON
-    orders.opatient_id = patient.pid WHERE orders.activity != 'no' ";
+    orders.opatient_id = patient.pid WHERE orders.activity != 'no' AND pharmacy_id = '".$_SESSION['phid']."' ";
     $sel = mysqli_query($connect, $select);
 
     // $num = mysqli_num_rows($sel);
