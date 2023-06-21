@@ -173,8 +173,6 @@ if (isset($_POST['login'])) {
     </div>
     <ul class="nav-links">
       <li><a href="../index.php">Home</a></li>
-      <li><a href="#">Contact Us</a></li>
-      <li><a href="#">Help and Support</a></li>
     </ul>
     <div class="burger">
       <div class="line1"></div>
