@@ -1,3 +1,28 @@
+<?php
+include "../shared/conn.php";
+
+if (isset($_SESSION["admin"])) {
+
+    if (isset($_POST['go'])) {
+        $pemail = $_POST['pemail'];
+        $pid = $_POST['pid'];
+
+        $select = "SELECT * FROM `patient` WHERE email = '$pemail' and pid = '$pid' ";
+        $sel = mysqli_query($connect, $select);
+
+        // if($sel){
+        $alter = "UPDATE `patient` SET paid = 'yes' WHERE pid = $pid and email = '$pemail'";
+        $alt = mysqli_query($connect, $alter);
+        if ($alt) {
+            echo "done";
+        } else {
+            echo "something went wrong";
+        }
+    }
+?>
+<?php } ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,26 +68,3 @@
 </body>
 
 </html>
-<?php
-include "../shared/conn.php";
-
-if (isset($_SESSION["admin"])) {
-
-    if (isset($_POST['go'])) {
-        $pemail = $_POST['pemail'];
-        $pid = $_POST['pid'];
-
-        $select = "SELECT * FROM `patient` WHERE email = '$pemail' and pid = '$pid' ";
-        $sel = mysqli_query($connect, $select);
-
-        // if($sel){
-        $alter = "UPDATE `patient` SET paid = 'yes' WHERE pid = $pid and email = '$pemail'";
-        $alt = mysqli_query($connect, $alter);
-        if ($alt) {
-            echo "done";
-        } else {
-            echo "something went wrong";
-        }
-    }
-?>
-<?php } ?>
