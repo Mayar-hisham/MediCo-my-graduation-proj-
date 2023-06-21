@@ -32,10 +32,10 @@
 
     <form class="form" method="POST" action="">
         <label for="nationalId">Enter Patient Email:</label>
-        <input name="pemail" type="number" id="nationalId" name="nationalId" placeholder="">
+        <input name="pemail" type="text">
 
         <label for="nationalId">Enter Patient ID:</label>
-        <input name="pid" type="number" id="nationalId" name="nationalId" placeholder="">
+        <input name="pid" type="number">
 
         <button name="go" type="submit">Go</button>
     </form>
