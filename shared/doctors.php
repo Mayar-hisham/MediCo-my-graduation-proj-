@@ -28,10 +28,27 @@ $sel = mysqli_query($connect, $select);
       <a href="#"><img src="../Images/Medico_Logo_2_Final-removebg-preview-1.png" alt="Medico Logo"></a>
     </div>
     <ul class="nav-links" style="margin-left:400px">
+
+   <?php if (isset($_SESSION["patient"])) { ?>
       <li><a href="../patient/patient_home.php">Home</a></li>
+<?php  } ?>
+
+<?php if (isset($_SESSION["doctor"])) { ?>
+      <li><a href="../doctor/doctor_home.php">Home</a></li>
+<?php  } ?>
+
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Help and Support</a></li>
+
+      <?php if (isset($_SESSION["patient"])) { ?>
       <li><a href="../shared/login.php?bye='1'">Logout</a></li>
+      <?php  } ?>
+
+      <?php if (isset($_SESSION["doctor"])) { ?>
+      <li><a href="../shared/login.php?goodbye='1'">Logout</a></li>
+      <?php  } ?>
+
+
     </ul>
 
     <div class="search-bar" style="margin-top: 10px;">
