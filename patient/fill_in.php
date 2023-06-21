@@ -57,8 +57,8 @@ if (isset($_SESSION["patient"])) {
     <center>
       <p style="margin-top:200px; margin-bottom:40px"> Please press Start to fill in your Electronic Medical History</p>
     </center>
-    <input type="text" style="padding:20px; margin-top:15px; margin-right:30px; margin-left:550px;" name="id" value="your id is <?php echo $_SESSION['pid']; ?>">
-    <input type="text" style="padding:20px;" name="mpid" value="your medical profile id is <?php echo $row['m_id']; ?>">
+    <input disabled type="text" style="padding:20px; margin-top:15px; margin-right:30px; margin-left:550px;" name="id" value="your id is <?php echo $_SESSION['pid']; ?>">
+    <input disabled type="text" style="padding:20px;" name="mpid" value="your medical profile id is <?php echo $row['m_id']; ?>">
     <a><button style="margin-top:50px; margin-bottom:20px; margin-left:730px; background-color: #4c87af; color: white; font-size: 25px; padding: 10px 20px; border: none; border-radius: 25px; cursor: pointer;" name="fill_in">start</button></a>
   </form>
   <!-- <form class="form" method="POST" action="">
