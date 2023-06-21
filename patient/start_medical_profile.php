@@ -1,3 +1,25 @@
+<?php
+include "../shared/conn.php";
+
+if (isset($_SESSION["patient"])) {
+
+    $sel = "SELECT * FROM `patient` WHERE pid = '" . $_SESSION['pid'] . "'";
+    $s = mysqli_query($connect, $sel);
+    $num = mysqli_num_rows($s);
+    $row = mysqli_fetch_assoc($s);
+    if ($row['paid'] == "yes") {
+
+        if (isset($_POST['submit'])) {
+            //$medical_p = $_SESSION['pid'];
+
+            $insert = "INSERT INTO `medical_profile` VALUES (NULL , '" . $_SESSION['pid'] . "') ";
+            $ins = mysqli_query($connect, $insert);
+            header("location: /MediCoNew/patient/fill_in.php");
+        }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +54,8 @@
 
     <!--the form -->
     <form method="post">
-        <center><input style="margin-top:250px; padding-top:20px; padding-left:400px" type="number" disabled value="<?php echo $_SESSION['pid']; ?>"></center>
+        <center><input style="margin-top:250px; padding-top:20px; padding-left:400px" type="number" 
+        disabled value="<?php echo $_SESSION['pid']; ?>"></center>
         <button style="margin-top:20px; margin-bottom:20px; margin-left:700px; background-color: #4c87af; color: white; font-size: 25px; padding: 10px 20px; border: none; border-radius: 25px; cursor: pointer;" name="submit">Start</button>
     </form>
     <!-- <form class="form" method="POST" action="">
@@ -63,26 +86,7 @@
 </body>
 
 </html>
-<?php
-include "../shared/conn.php";
 
-if (isset($_SESSION["patient"])) {
-
-    $sel = "SELECT * FROM `patient` WHERE pid = '" . $_SESSION['pid'] . "'";
-    $s = mysqli_query($connect, $sel);
-    $num = mysqli_num_rows($s);
-    $row = mysqli_fetch_assoc($s);
-    if ($row['paid'] == "yes") {
-
-        if (isset($_POST['submit'])) {
-            //$medical_p = $_SESSION['pid'];
-
-            $insert = "INSERT INTO `medical_profile` VALUES (NULL , '" . $_SESSION['pid'] . "') ";
-            $ins = mysqli_query($connect, $insert);
-            header("location: /MediCoNew/patient/fill_in.php");
-        }
-
-?>
     <?php } else {
         echo "Your payment is not approved or completed yet! Go to payment page Now";
     ?> <a href="../shared/payment.php">Payment</a> <?php

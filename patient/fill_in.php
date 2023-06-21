@@ -1,3 +1,24 @@
+<?php
+include "../shared/conn.php";
+
+if (isset($_SESSION["patient"])) {
+
+
+
+  $select = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "'";
+  $sel = mysqli_query($connect, $select);
+  $numrow = mysqli_num_rows($sel);
+  $row = mysqli_fetch_assoc($sel);
+  if ($numrow > 0) {
+    $_SESSION['patient_medical_profile_id'] = $row['m_id'];
+    $_SESSION['access'] = $row['m_id'] . $row['patient_id'];
+  }
+
+  //header("location: /MediCoNew/patient/The_EMH_for_patient.php");
+
+?>
+<?php } ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,23 +90,3 @@
 
 </html>
 
-<?php
-include "../shared/conn.php";
-
-if (isset($_SESSION["patient"])) {
-
-
-
-  $select = "SELECT * FROM `medical_profile` WHERE patient_id = '" . $_SESSION['pid'] . "'";
-  $sel = mysqli_query($connect, $select);
-  $numrow = mysqli_num_rows($sel);
-  $row = mysqli_fetch_assoc($sel);
-  if ($numrow > 0) {
-    $_SESSION['patient_medical_profile_id'] = $row['m_id'];
-    $_SESSION['access'] = $row['m_id'] . $row['patient_id'];
-  }
-
-  //header("location: /MediCoNew/patient/The_EMH_for_patient.php");
-
-?>
-<?php } ?>
