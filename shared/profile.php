@@ -44,8 +44,7 @@ if (isset($_GET['view'])) {
                     <li><a href="../doctor/doctor_home.php">Home</a></li>
                 <?php  } ?>
 
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Help and Support</a></li>
+                <li><a href="../shared/FAQs.php">FAQs</a></li>
 
                 <?php if (isset($_SESSION["patient"])) { ?>
                     <li><a href="../shared/login.php?bye='1'">Logout</a></li>

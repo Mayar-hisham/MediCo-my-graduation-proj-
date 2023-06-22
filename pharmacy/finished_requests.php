@@ -8,7 +8,7 @@ if (isset($_SESSION['pharmacy'])) {
     $select = "SELECT * FROM `finished_orders` 
     JOIN `orders` ON finished_orders.id_of_pending = orders.id_of_order 
     JOIN `patient` ON orders.opatient_id = patient.pid
-    WHERE orders.pharmacy_id = '".$_SESSION['phid']."'";
+    WHERE orders.pharmacy_id = '" . $_SESSION['phid'] . "'";
     $sel = mysqli_query($connect, $select);
 
 
@@ -48,8 +48,6 @@ if (isset($_SESSION['pharmacy'])) {
             </div>
             <ul class="nav-links">
                 <li><a href="./pharmacy_view.php">Home</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Help and Support</a></li>
                 <li><a href="../shared/login.php?gbye='1'">Logout</a></li>
             </ul>
             <div class="burger">

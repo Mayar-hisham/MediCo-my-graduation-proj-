@@ -136,6 +136,7 @@ if (isset($_SESSION["patient"])) {
             <?php } ?>
           </div>
 
+
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#family-history" aria-expanded="false" aria-controls="family-history">
