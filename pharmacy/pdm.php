@@ -7,7 +7,7 @@ if (isset($_SESSION['pharmacy'])) {
 
     $select = "SELECT * FROM `images`
     JOIN `orders` ON images.id = orders.ord_id 
-WHERE order_cd = 'yes' AND orders.pharmacy_id = '".$_SESSION['phid']."'";
+WHERE order_cd = 'yes' AND orders.pharmacy_id = '" . $_SESSION['phid'] . "'";
     $sel = mysqli_query($connect, $select);
 
 
@@ -44,8 +44,6 @@ WHERE order_cd = 'yes' AND orders.pharmacy_id = '".$_SESSION['phid']."'";
             </div>
             <ul class="nav-links">
                 <li><a href="./pharmacy_view.php">Home</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Help and Support</a></li>
                 <li><a href="../shared/login.php?gbye='1'">Logout</a></li>
             </ul>
             <div class="burger">
