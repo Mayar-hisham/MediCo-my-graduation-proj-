@@ -1,11 +1,8 @@
 <?php
 include "../shared/conn.php";
-//include "../shared/login.php";
+
 
 if (isset($_SESSION["admin"])) {
-
-    // $qry="SELECT * FROM `patient` ";
-    //$rslt=mysqli_query($connect,$qry); 
 
 
     if (isset($_GET['view'])) {
@@ -33,7 +30,6 @@ if (isset($_SESSION["admin"])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="../CSS/footer.css">
-        <!-- <link rel="stylesheet" href="../CSS/The Electronic Medical History.css"> -->
         <link rel="stylesheet" href="../CSS/patient_profile_for_patient.css">
 
         <title>Medico</title>
@@ -68,7 +64,6 @@ if (isset($_SESSION["admin"])) {
                                  margin-right: 300px;"><?php echo $row['first_name']; ?>
                                 </h2>
                                 <p>Name: <?php echo $row['first_name']; ?></p>
-                                <!--  <p>Profile ID: <?php echo $row['pid']; ?></p>-->
                                 <p>Date of birth: <?php echo $row['pdate_of_birth']; ?></p>
                                 <p>Phone no: <?php echo $row['phone']; ?></p>
                                 <p>Address: <?php echo $row['address']; ?></p>

@@ -22,7 +22,6 @@ if (isset($_POST['login'])) {
     $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
     $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
     $_SESSION['blood_type'] = $row['blood_type'];
-    //$_SESSION['current_illness'] = $row['current_illness'];
     $_SESSION['phone'] = $row['phone'];
     $_SESSION['address'] = $row['address'];
     $_SESSION['occupation'] = $row['occupation'];
@@ -57,7 +56,6 @@ if (isset($_POST['login'])) {
         $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
         $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
         $_SESSION['blood_type'] = $row['blood_type'];
-        //$_SESSION['current_illness'] = $row['current_illness'];
         $_SESSION['phone'] = $row['phone'];
         $_SESSION['address'] = $row['address'];
         $_SESSION['occupation'] = $row['occupation'];
@@ -88,9 +86,6 @@ if (isset($_POST['login'])) {
             $_SESSION['specialization'] = $row['specialization'];
             $_SESSION['did'] = $row['id'];
 
-            // echo $_SESSION['admin'];
-
-            //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
             header("location: /MediCoNew/doctor/doctor_home.php");
           } else {
 
@@ -110,9 +105,6 @@ if (isset($_POST['login'])) {
                 $_SESSION['pharname'] = $row['name'];
                 $_SESSION['phid'] = $row['id'];
 
-                // echo $_SESSION['admin'];
-
-                //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
                 header("location: /MediCoNew/pharmacy/pharmacy_view.php");
               } else {
 
@@ -130,9 +122,6 @@ if (isset($_POST['login'])) {
                     $_SESSION['admin'] = $email;
                     $_SESSION['admin_id'] = $row['id'];
 
-                    // echo $_SESSION['admin'];
-
-                    //  $dir = isset($_GET['dir']) ? $_GET['dir'] : "/ultras/main.php";
                     header("location: /MediCoNew/admin/admin_home.php");
                   } else { ?>
                     <div class="alert alert-danger" role="alert">
@@ -208,7 +197,6 @@ if (isset($_POST['login'])) {
     </div>
   </footer>
   <script src="js/script.js"></script>
-  <!-- <script src="js/loginscript.js"></script> -->
 
 </body>
 

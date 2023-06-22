@@ -15,15 +15,11 @@ if (isset($_SESSION['admin'])) {
         $ilocation = "../upload/";
         move_uploaded_file($itmp, $ilocation . $image);
 
-        //($password != $conpassword){
-        // echo "password does not match";
-        // }
 
         $qq = "INSERT INTO `pharmacy`(`id`, `name`, `address`, `phphone`,`email`,`password` , `image` , `blocked`)
         VALUES (NULL , '$username','$branches' ,'$contacts','$email','$password' , '$image' , 'no')";
         $q = mysqli_query($connect, $qq);
 
-        //header('location:login.php');
 
         if ($q) {
             echo "ok";

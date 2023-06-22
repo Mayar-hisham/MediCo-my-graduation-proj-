@@ -69,10 +69,8 @@ if (isset($_SESSION['doctor'])) {
           <h2>Name : <?php echo $r['first_name']; ?></h2>
           <h2>Age : <?php echo $r['pdate_of_birth']; ?></h2>
           <h2>Blood Type : <?php echo $r['blood_type']; ?></h2>
-          <div class="search-bar">
 
-            <a href="doctor_form.php"><button><img src="../Images/plus_icon.png" alt="Add"></button></a>
-          </div>
+
     </div>
     <div class="cont1">
       <div class="navbar">

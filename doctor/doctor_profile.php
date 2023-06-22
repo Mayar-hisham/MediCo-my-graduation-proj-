@@ -1,9 +1,6 @@
 <?php
 include "../shared/conn.php";
 
-
-
-
 if (isset($_SESSION['doctor']) || isset($_SESSION["patient"])) {
 
   $select = "SELECT * FROM `doctors` WHERE id = '" . $_SESSION['did'] . "'";

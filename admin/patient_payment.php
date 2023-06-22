@@ -51,10 +51,7 @@ if (isset($_SESSION["admin"])) {
             <div class="line3"></div>
         </div>
     </nav>
-
-    <!--the form -->
-
-
+    
     <form class="form" method="POST" action="">
         <label for="nationalId">Enter Patient Email:</label>
         <input name="pemail" type="text">

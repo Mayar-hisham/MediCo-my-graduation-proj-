@@ -26,9 +26,7 @@ if (isset($_SESSION["admin"])) {
 
     $row = mysqli_fetch_assoc($result);
 
-    if ($numberOfRows > 0) {
-      //$_SESSION['medi_id'] = $r['medical_p_id'];
-    }
+
 
     if ($result) {
 
@@ -349,12 +347,6 @@ if (isset($_SESSION["admin"])) {
               JOIN `doctors` ON doctors.id = doctor_diagnosis.doctor_id
               WHERE doctor_diagnosis.medical_profile_id = '" . $_SESSION['mpfid'] . "'";
                 $s = mysqli_query($connect, $selec);
-                //$numberOfRows = mysqli_num_rows($s);
-                //$r = mysqli_fetch_assoc($s);
-
-
-
-
 
                 ?>
 
@@ -398,8 +390,6 @@ if (isset($_SESSION["admin"])) {
     }
   }
 }
-
-//} 
 
     ?>
 

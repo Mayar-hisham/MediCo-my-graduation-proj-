@@ -1,3 +1,19 @@
+<?php
+include "../shared/conn.php";
+
+if (isset($_SESSION['pharmacy'])) {
+
+    if (isset($_GET['view'])) {
+
+        $id = $_GET['view'];
+
+        $select = "SELECT * FROM `images` WHERE order_cd = 'yes' AND id = $id ";
+        $sel = mysqli_query($connect, $select);
+        $row = mysqli_num_rows($sel);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,21 +46,13 @@
         </div>
     </nav>
 
-    <!--the form -->
 
     <center>
-        <img style="width: 500px;height:500px" src="../upload/<?php echo $row['image'] ?> ">
+    <?php foreach($sel as $row){?>
+        <img style="width: 500px;height:500px; margin-top:50px" src="../upload/<?php echo $row['image'];?>">
+<?php } ?>
     </center>
     <a href="./pdm.php"><button style="margin-top:20px; margin-bottom:20px; margin-left:700px; background-color: #4c87af; color: white; font-size: 25px; padding: 10px 20px; border: none; border-radius: 25px; cursor: pointer;">Back</button></a>
-    <!-- <form class="form" method="POST" action="">
-        <label for="nationalId">Enter Patient Email:</label>
-        <input name="pemail" type="number" id="nationalId" name="nationalId" placeholder="">
-
-        <label for="nationalId">Enter Patient ID:</label>
-        <input name="pid" type="number" id="nationalId" name="nationalId" placeholder="">
-
-        <button name="go" type="submit">Go</button>
-    </form> -->
     <footer>
         <div class="sticky-footer">
             <div class="footer-content">
@@ -64,20 +72,5 @@
 </body>
 
 </html>
-<?php
-include "../shared/conn.php";
 
-if (isset($_SESSION['pharmacy'])) {
-
-    if (isset($_GET['view'])) {
-
-        $id = $_GET['view'];
-
-        $select = "SELECT * FROM `images` WHERE order_cd = 'yes' AND id = $id ";
-        $sel = mysqli_query($connect, $select);
-        $row = mysqli_num_rows($sel);
-?>
-<?php
-    }
-}
-?>
+<?php }} ?>

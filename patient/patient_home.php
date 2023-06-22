@@ -37,9 +37,6 @@ if (isset($_SESSION["patient"])) {
             </div>
         </nav>
 
-        <!--first section-->
-
-
         <h1 class="h1_text">Medico</h1>
         <div class="container_img">
 
@@ -55,21 +52,21 @@ if (isset($_SESSION["patient"])) {
 
             if ($num > 0) {
 
-                if ($row['has_emh'] == "yes") { ?>
-
-                    <div class="image">
-                        <a href="./EMH_view_patient.php"><img src="../Images/EMH.png"></a>
-                        <a href="./EMH_view_patient.php">View your EMH</a>
-                    </div>
-
-
-
-                <?php } elseif ($row['has_emh'] == "yess") { ?>
+                if ($row['has_emh'] == "yess" && $row['has_emh'] !== "yes") { ?>
 
                     <div class="image">
                         <a href="./The_EMH_for_patient.php"><img src="../Images/EMH.png"></a>
                         <a href="./The_EMH_for_patient.php">Fill in Your EMH</a>
                     </div>
+
+
+
+                <?php } elseif ($row['has_emh'] == "yes" && $row['has_emh'] !== "yess") { ?>
+
+<div class="image">
+    <a href="./EMH_view_patient.php"><img src="../Images/EMH.png"></a>
+    <a href="./EMH_view_patient.php">View your EMH</a>
+</div>
 
 
                 <?php }
@@ -81,13 +78,13 @@ if (isset($_SESSION["patient"])) {
                 $num = mysqli_num_rows($s);
                 $row = mysqli_fetch_assoc($s);
 
-                if ($row['has_emh'] == "yes") { ?>
+                if ($row['has_emh'] == "yes" && $row['has_emh'] !== "yess") { ?>
 
                     <div class="image">
                         <a href="./start_medical_profile.php"><img src="../Images/EMH.png"></a>
                         <a href="./start_medical_profile.php">View your EMH</a>
 
-                    </div><?php } elseif ($row['has_emh'] == "yess") { ?>
+                    </div><?php } elseif ($row['has_emh'] == "yess" && $row['has_emh'] !== "yes") { ?>
 
                     <div class="image">
                         <a href="./The_EMH_for_patient.php"><img src="../Images/EMH.png"></a>

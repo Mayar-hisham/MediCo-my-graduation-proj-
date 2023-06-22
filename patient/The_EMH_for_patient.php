@@ -140,9 +140,6 @@ medical_profile.m_id = clinical_history.medical_profile_id
 JOIN `surgical_history` ON
 medical_profile.m_id = surgical_history.medical_profile_id 
 
-/*JOIN `doctor_diagnosis` ON
-medical_profile.id = doctor_diagnosis.medical_profile_id */
-
 WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
         $result = mysqli_query($connect, $sql);
 
@@ -558,7 +555,4 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
         </html>
 
 
-<?php
-
-    }
-} ?>
+<?php }} ?>

@@ -5,7 +5,6 @@ include "../shared/conn.php";
 if (isset($_SESSION['doctor'])) {
   if (isset($_SESSION["patient_profile_access"])) {
 
-    //$date = date('m/d/Y h:i:s a', time());
     $time = date('h:i: a', time());
     $date = date('Y-m-d');
 
