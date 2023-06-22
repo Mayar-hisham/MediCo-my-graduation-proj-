@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 03:17 PM
+-- Generation Time: Jun 22, 2023 at 12:15 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -59,9 +59,8 @@ CREATE TABLE `clinical_history` (
 --
 
 INSERT INTO `clinical_history` (`id`, `medical_profile_id`, `files`, `editor`, `cdate_of_edit`) VALUES
-(11, 13, '6.jpeg', '15', '2023-06-18'),
-(14, 18, '9.jpg', '18', '2023-06-19'),
-(15, 19, '7.jpg', '20', '2023-06-19');
+(16, 24, 'cnc.jpeg', '25', '2023-06-22'),
+(17, 25, 'cnc.jpeg', '26', '2023-06-22');
 
 -- --------------------------------------------------------
 
@@ -92,11 +91,12 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `dfirst_name`, `dlast_name`, `date_of_birth`, `profession_practice`, `years_of_exp`, `daddress`, `phone`, `doctor_syndicate`, `email`, `specialization`, `password`, `image`, `accepted`, `blocked`) VALUES
-(13, 'Mayar', 'Hisham', '2023-06-28', '5.jpeg', 20, '01012144796', 1012144796, '6.jpeg', 'marketyoura@gmail.com', 'eyes', 123, '2.jfif', 'yes', 'no'),
-(14, 'doctor', 'one', '2023-06-27', '9.jpg', 20, '6th of october', 1012144796, '1901374.png', 'docotor1@gmail.com', 'eyes', 123, '10.png', 'yes', 'no'),
-(15, 'Sara', 'Ehab', '2023-06-22', '9.jpg', 20, '6th of october city', 2147483647, '7.jpg', 'hazem@gmail.com', 'doctor', 123, '10.png', 'no', 'no'),
-(16, 'Sara', 'Ehab', '2023-06-22', '9.jpg', 20, '6th of october city', 2147483647, '7.jpg', 'marketyoura@gmail.com', 'doctor', 123, '6.jpeg', 'no', 'no'),
-(17, 'Mohamed ', 'Ahmed', '2023-06-09', '1.jpeg', 13, '6th of october city', 2147483647, '2.jfif', 'ahmedm@gmail.com', 'eyes', 123, '7.jpg', 'no', 'no');
+(18, 'Haytham ', 'El- Sayed', '1980-10-14', 'هيثم.jpg', 20, '123 - Bashayer - 6th of October City', 1013256481, '1.jpg', 'dr.haytham@gmail.com', 'Internist physician - باطنة', 123, 'IMG-20230621-WA0088.jpg', 'yes', 'no'),
+(19, 'Hany ', 'Saleh', '1986-07-09', 'هاني.jpg', 35, '124 - Beverly - Hills - Sheikh Zayed City', 102539876, '2.jpg', 'dr.hany@gmail.com', 'Ophthalmologist - عيون', 123, 'IMG-20230621-WA0089.jpg', 'yes', 'no'),
+(20, 'Ahmed', 'Fathy', '1990-10-23', 'احمد مجدي.jpg', 30, '2nd district - Building 234 - 6th of October city', 120465389, '3.jpg', 'dr.ahmed@gmail.com', 'Dermatologist - أمراض جلدية', 123, 'IMG-20230621-WA0087.jpg', 'yes', 'no'),
+(21, 'Assem', 'Salem', '1990-07-11', 'عاصم.jpg', 15, '10t district - B123 - 6th of October City', 1012365478, '4.jpg', 'dr.assem@gmail.com', 'Neurologist - مخ وأعصاب', 123, 'IMG-20230621-WA0090.jpg', 'yes', 'no'),
+(22, 'Ahmed', 'Hussein', '1982-07-07', 'احمد حسين.jpg', 20, '5th district - B345 - 6th of October City', 1236547896, '5.jpg', 'dr.ahussein@gmail.com', 'Pediatrician - أطفال', 123, 'IMG-20230621-WA0074.jpg', 'yes', 'no'),
+(23, 'Kamal', 'Samir', '1970-02-03', 'كمال.jpg', 33, '3rd district - B564 - Sheikh Zayed City', 1013654789, '6.jpg', 'dr.kamal@gmail.com', 'Surgeon - جراح', 123, 'IMG-20230621-WA0075.jpg', 'yes', 'no');
 
 -- --------------------------------------------------------
 
@@ -125,10 +125,9 @@ CREATE TABLE `doctor_diagnosis` (
 --
 
 INSERT INTO `doctor_diagnosis` (`id`, `medical_profile_id`, `doctor_id`, `dr_fname`, `doctor_speciality`, `date`, `time`, `weight`, `visit_type`, `observation`, `symptoms`, `diagnosis`, `prescription`) VALUES
-(11, 18, 13, 'MayarHisham', 'eyes', '0000-00-00', '08:24:00', 100, 'new', 'new', 'new', 'new', 'ogmnten'),
-(12, 18, 13, 'MayarHisham', 'eyes', '2023-06-19', '08:25:00', 60, 'normal', 'least', 'normal', 'least', 'ogmnten'),
-(13, 18, 13, 'MayarHisham', 'eyes', '2023-06-19', '11:28:00', 80, 'OKK', 'OKK', 'OKK', 'final', 'OKK'),
-(14, 18, 13, 'MayarHisham', 'eyes', '2023-06-19', '11:50:00', 0, 'ol', 'ol', 'ol', 'ol', 'ol');
+(15, 24, 18, 'Haytham El- Sayed', 'Internist physician - باطنة', '2023-06-22', '11:14:00', 100, 'Follow-Up', 'Hard to Breath', 'Hard to Breath', 'Breathing issues', 'Breathing Machine'),
+(16, 24, 19, 'Hany Saleh', 'Ophthalmologist - عيون', '2023-06-22', '11:30:00', 80, 'New', 'Nothing to worry about', 'No Symptoms', 'Both Eyes Are Ok', 'No Medicine Needed'),
+(17, 24, 20, 'AhmedFathy', 'Dermatologist - أمراض جلدية', '2023-06-22', '11:33:00', 110, 'New', 'Nothing Observed', 'None', 'Skin is fine', 'None');
 
 -- --------------------------------------------------------
 
@@ -153,8 +152,8 @@ CREATE TABLE `family_history` (
 --
 
 INSERT INTO `family_history` (`id`, `medical_profile_id`, `relative1`, `disease1`, `relative2`, `disease2`, `add_info`, `editor`, `fdate_of_edit`) VALUES
-(10, 18, 'aunt1', 'no', 'mother', 'no', 'thnx', '18', '2023-06-19'),
-(11, 19, 'no one', '', '', '', '', '20', '2023-06-19');
+(12, 24, 'Father', 'Diabetes', 'Uncle', 'Diabetes', 'I have resistance to Insulin', '25', '2023-06-22'),
+(13, 25, 'No Diseased from family', '', '', '', '', '26', '2023-06-22');
 
 -- --------------------------------------------------------
 
@@ -166,6 +165,13 @@ CREATE TABLE `finished_orders` (
   `id` int(11) NOT NULL,
   `id_of_pending` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `finished_orders`
+--
+
+INSERT INTO `finished_orders` (`id`, `id_of_pending`) VALUES
+(36, 60);
 
 -- --------------------------------------------------------
 
@@ -190,9 +196,10 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `patient_id`, `d_id`, `patient_address`, `date_of_order`, `time_of_order`, `image`, `activity`, `order_cd`) VALUES
-(53, 18, NULL, 'maadi', '2023-06-19', '12:51:00', '7.jpg', 'no', 'Yes'),
-(55, NULL, 13, 'shubra', '2023-06-19', '01:23:00', '7.jpg', 'yes', 'Yes'),
-(56, 20, NULL, 'Giza', '2023-06-19', '05:51:00', '7.jpg', 'no', 'Yes');
+(57, 29, NULL, '6th of october city - 6th district - Building No.1242 - Apt no. 12', '2023-06-22', '10:28:00', 'pesc.png', 'yes', 'No'),
+(58, 28, NULL, '6th of october city - 4th district - Building No.14 - Apt no. 1', '2023-06-22', '10:31:00', 'psc2.jpg', 'no', 'Yes'),
+(59, 25, NULL, 'sheikh zayed city - 3rd district - Building No.14 - Apt no. 1', '2023-06-22', '10:32:00', 'prescription3.jpg.crdownload', 'no', 'Yes'),
+(60, 26, NULL, 'sheikh zayed city - beverly hills - Building No.14 - Apt no. 1', '2023-06-22', '10:33:00', 'pcs4.jpg', 'yes', 'No');
 
 -- --------------------------------------------------------
 
@@ -210,13 +217,9 @@ CREATE TABLE `medical_profile` (
 --
 
 INSERT INTO `medical_profile` (`m_id`, `patient_id`) VALUES
-(13, 15),
-(15, 15),
-(18, 18),
-(19, 20),
-(20, 22),
-(21, 23),
-(22, 23);
+(24, 25),
+(25, 26),
+(26, 27);
 
 -- --------------------------------------------------------
 
@@ -248,8 +251,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id_of_order`, `pharmacy_id`, `opatient_id`, `ord_id`, `order_date`, `order_time`, `patient_address`, `prescription`, `message`, `dtime`, `dday`, `dphone`, `date_of_accept`, `time_of_accept`, `activity`, `order_cdo`) VALUES
-(57, 2, 18, 53, '2023-06-19', '12:51:00', 'maadi', '7.jpg', 'hilo', '14:21:00', '2023-06-01', 1012154795, '2023-06-19', '01:20:00', 'yes', 0),
-(58, 2, 20, 56, '2023-06-19', '05:51:00', 'Giza', '7.jpg', 'this order is fulfilled completely', '18:52:00', '2023-06-13', 1022512574, '2023-06-19', '05:52:00', 'yes', 0);
+(59, 12, 28, 58, '2023-06-22', '10:31:00', '6th of october city - 4th district - Building No.14 - Apt no. 1', 'psc2.jpg', 'Your Order is On Way', '11:58:00', '2023-06-28', 1022512574, '2023-06-22', '10:56:00', 'yes', 0),
+(60, 9, 25, 59, '2023-06-22', '10:32:00', 'sheikh zayed city - 3rd district - Building No.14 - Apt no. 1', 'prescription3.jpg.crdownload', 'Thanks For Ordering From Us', '11:00:00', '2023-06-24', 1022512574, '2023-06-22', '10:57:00', 'no', 0);
 
 -- --------------------------------------------------------
 
@@ -273,8 +276,8 @@ CREATE TABLE `past_history` (
 --
 
 INSERT INTO `past_history` (`id`, `medical_profile_id`, `past_illness`, `past_medicine`, `past_allergies`, `past_habits`, `editor`, `pdate_of_edit`) VALUES
-(10, 18, 'nothing', 'nothingg', 'nothinggg', 'nothingggg', '18', '2023-06-19'),
-(11, 19, 'nothing', 'nothingg', 'nothinggg', 'nothingggg', '20', '2023-06-19');
+(12, 24, 'Nothing but Diabetes', 'No Past Medicine', 'Gluten till now', 'Cigarettes till now', '25', '2023-06-22'),
+(13, 25, 'No past illness', 'No past medicine', 'Sugar till now', 'Cigarettes till now', '26', '2023-06-22');
 
 -- --------------------------------------------------------
 
@@ -308,12 +311,11 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`pid`, `first_name`, `last_name`, `gender`, `occupation`, `marital_status`, `email`, `allergies`, `blood_type`, `pdate_of_birth`, `phone`, `emergency_contact`, `address`, `password`, `image`, `has_emh`, `paid`, `blocked`) VALUES
-(15, 'mayar', 'Hisham', 'Female', '01012144796', 'Single', 'mayaroweys2000@gmail.com', 'gluten', 'B+', '2023-06-29', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '5.jpeg', 'yess\r\n', 'yes', 'no'),
-(18, 'Hazem', 'Elgendy', 'Male', 'patient', 'Single', 'hazem@gmail.com', 'nothing', 'A+', '2023-06-28', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '9.jpg', 'yes', 'yes', 'no'),
-(20, 'laila', 'ahmed', 'Female', 'doctor', 'Married', 'laila@gmail.com', 'nothing', 'A-', '2023-06-20', 1012144796, 1349463697, '3rd settlement, new cairo', 123, '6.jpeg', 'yes', 'yes', 'no'),
-(22, 'mayoura', 'oweys', 'Female', 'student', 'Single', 'mayoura@gmail.com', 'nothing', 'B-', '2023-06-22', 1012141536, 1458796325, '3rd settlement, new cairo', 123, '7.jpg', 'yess', 'yes', 'no'),
-(23, 'Mayaar', 'Oweys', 'Female', '01012144796', 'Single', 'mayaroweys@gmail.com', 'nothing', 'A-', '2023-05-29', 1012144796, 1017133062, '3rd district', 123, '7.jpg', 'yess', 'yes', 'no'),
-(24, 'Mahmoud', 'Elgendy', 'Male', 'student', 'Single', 'mahmoud@gmail.com', 'nothing', 'A-', '2023-06-21', 1012144796, 1326547895, '3rd settlement, new cairo', 123, '1.jpeg', 'no', 'yes', 'no');
+(25, 'Ahmed', 'Mohsen', 'Male', 'Data Analyst', 'Married', 'ahmedmohsen@gmail.com', 'Carbs - Milk', 'A+', '1970-07-15', 1014156329, 1014562397, '1254 - 4th district - 6th of October city', 123, '11.jpg', 'yes', 'yes', 'no'),
+(26, 'Saleh', 'Fakher', 'Male', 'Dentist', 'Single', 'salehfakher@gmail.com', 'strawberry', 'A-', '1972-06-05', 1015236987, 102547896, '2341 - 5th district - 6th of October city', 123, '12.jpg', 'yes', 'yes', 'no'),
+(27, 'Salem', 'Akram', 'Male', 'Sales Manager', 'Married', 'salemakram@gmail.com', 'Gluten', 'A-', '1968-10-22', 2147483647, 1236547896, '7865 - 11th district - 6th of October', 123, '13.jpg', 'yess', 'yes', 'no'),
+(28, 'Rashed', 'Ahmed', 'Male', 'Engineer', 'Married', 'rashedahmed@gmail.com', 'No Allergies', 'AB-', '1971-07-07', 1045213060, 1236549832, '7658 - 3rd district - Sheikh Zayed city', 123, '14.jpg', 'no', 'yes', 'no'),
+(29, 'Mostafa ', 'Dagher', 'Male', 'Freelancer', 'Married', 'mostafadagher@gmail.com', 'Meats', 'B+', '1969-10-13', 1012301014, 1012136541, 'Villa no.1254 - Beverly Hills - Sheikh Zayed City', 123, '15.jpg', 'no', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -343,9 +345,8 @@ CREATE TABLE `personal_hostory` (
 --
 
 INSERT INTO `personal_hostory` (`id`, `medical_profile_id`, `height`, `weight`, `caffaien`, `smoking`, `current_medicine`, `suffers`, `alcohol`, `cigarettes_quantity`, `cigarettes_packes_quantity`, `allergies`, `prseditor`, `prsdate_of_edit`) VALUES
-(17, 18, 150, 70, 'No', 'No', 'panadol', 'Nothing', 'no', 1, 1, 'no', 'HazemElgendy', '2023-06-19'),
-(18, 19, 160, 60, 'Yes', 'No', 'nothing', 'no diseases', 'no', 0, 0, 'nothing', 'lailaahmed', '2023-06-19'),
-(19, 21, 10, 25, 'No', 'No', '', '', '', 0, 0, '', 'MayaarOweys', '2023-06-21');
+(20, 24, 185, 90, 'Yes', 'Yes', 'No Medicine Currently', 'Diabetes', 'no', 10, 2, 'Gluten', 'AhmedMohsen', '2023-06-22'),
+(22, 25, 180, 100, 'Yes', 'Yes', 'Breathing Helpers', 'No Chronic Diseases', 'yes', 20, 3, 'Sugar', 'SalehFakher', '2023-06-22');
 
 -- --------------------------------------------------------
 
@@ -369,9 +370,11 @@ CREATE TABLE `pharmacy` (
 --
 
 INSERT INTO `pharmacy` (`id`, `name`, `address`, `phphone`, `email`, `password`, `image`, `blocked`) VALUES
-(2, 'El-Ezaby', '23 - 3rd district - 6th of october city - Giza', 258, 'elezaby@gmail.com', 123, 'ezab.png', 'no'),
-(6, 'Seif Pharmacies', 'new cairo', 11256, 'seif@gmail.com', 123, 'seif.jpeg', 'no'),
-(7, 'Misr Pharmacies', 'new cairo', 1012144796, 'misr@gmail.com', 123, '9.jpg', 'no');
+(8, 'Fouad Pharmacies', '23 - 2nd district - 6th of October city', 19011, 'fouad@gmail.com', 123, 'foad.jpg', 'no'),
+(9, 'Misr Pharmacies', '50 - 4th district - 6th of October city', 16025, 'misr@gmail.com', 123, 'misr.jpg', 'no'),
+(11, 'Care Pharmacies', '5 - 10th district - 6th of October city', 22658, 'care@gmail.com', 123, 'care.jpg', 'no'),
+(12, 'El-Ezaby Pharmacies', '7 - 6th district - 6th of October city', 23987, 'elezaby@gmail.com', 123, 'ezaby.jpg', 'no'),
+(13, 'Wasfah Pharmacies', '100 - 5th district - 6th of October city', 85496, 'wasfah@gmail.com', 123, 'wasfa.jpg', 'no');
 
 -- --------------------------------------------------------
 
@@ -411,8 +414,8 @@ CREATE TABLE `surgical_history` (
 --
 
 INSERT INTO `surgical_history` (`id`, `medical_profile_id`, `date_of_procedure`, `surgery_type`, `surgeon`, `medication_prescribed`, `rehabilitation`, `date2`, `type2`, `surgeon2`, `medicine2`, `rbt2`, `date3`, `type3`, `surgeon3`, `medicine3`, `rbt3`, `date4`, `type4`, `surgeon4`, `medicine4`, `rbt4`, `editor`, `sdate_of_edit`) VALUES
-(11, 18, '2023-06-28', 'no surgeries', 'dr', 'medicine', 'rbt', '2023-06-20', 'b', 'qeff', 'evw', 'wf', '2023-06-29', 'evsdvd', 'sdvdv', 'dvwr', 'wevgrymtu', '2023-06-27', 'kmlhuo[b', 'tnrtyj', '7jty', 'tyjj', '18', '2023-06-19'),
-(12, 19, '', 'no surgeries', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '20', '2023-06-19');
+(13, 24, '', 'No Past Suregries', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '25', '2023-06-22'),
+(14, 25, '', 'No Surgeries', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '26', '2023-06-22');
 
 --
 -- Indexes for dumped tables
@@ -530,79 +533,79 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `clinical_history`
 --
 ALTER TABLE `clinical_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `doctor_diagnosis`
 --
 ALTER TABLE `doctor_diagnosis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `family_history`
 --
 ALTER TABLE `family_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `finished_orders`
 --
 ALTER TABLE `finished_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `medical_profile`
 --
 ALTER TABLE `medical_profile`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_of_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_of_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `past_history`
 --
 ALTER TABLE `past_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `personal_hostory`
 --
 ALTER TABLE `personal_hostory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `pharmacy`
 --
 ALTER TABLE `pharmacy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `surgical_history`
 --
 ALTER TABLE `surgical_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables

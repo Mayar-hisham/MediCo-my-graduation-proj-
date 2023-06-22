@@ -58,10 +58,10 @@ if (isset($_GET['view'])) {
                     <h4>Doctor Prsonal Picture</h4>
                     <br>
                     <img src="../upload/<?php echo $row['image'] ?>" alt="Doctor's photo">
-                    <h4>Doctor Profession Practice Picture</h4>
+                    <h4>Doctor Profession Practice Proof Picture</h4>
                     <br>
                     <img src="../upload/<?php echo $row['profession_practice'] ?>" alt="Doctor's photo">
-                    <h4>Doctor Syndicate Picture</h4>
+                    <h4>Doctor Syndicate Card Picture</h4>
                     <br>
                     <img src="../upload/<?php echo $row['doctor_syndicate'] ?>" alt="Doctor's photo">
                 </div>

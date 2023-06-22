@@ -10,8 +10,6 @@ if (isset($_SESSION["patient"])) {
     if ($row['paid'] == "yes") {
 
         if (isset($_POST['submit'])) {
-            //$medical_p = $_SESSION['pid'];
-
             $insert = "INSERT INTO `medical_profile` VALUES (NULL , '" . $_SESSION['pid'] . "') ";
             $ins = mysqli_query($connect, $insert);
             header("location: /MediCoNew/patient/fill_in.php");
@@ -51,20 +49,11 @@ if (isset($_SESSION["patient"])) {
                 </div>
             </nav>
 
-            <!--the form -->
             <form method="post">
                 <center><input style="margin-top:250px; padding-top:20px; padding-left:200px; padding-right:200px" type="number" disabled value="<?php echo $_SESSION['pid']; ?>"></center>
                 <button style="margin-top:20px; margin-bottom:20px; margin-left:700px; background-color: #4c87af; color: white; font-size: 25px; padding: 10px 20px; border: none; border-radius: 25px; cursor: pointer;" name="submit">Start</button>
             </form>
-            <!-- <form class="form" method="POST" action="">
-        <label for="nationalId">Enter Patient Email:</label>
-        <input name="pemail" type="number" id="nationalId" name="nationalId" placeholder="">
 
-        <label for="nationalId">Enter Patient ID:</label>
-        <input name="pid" type="number" id="nationalId" name="nationalId" placeholder="">
-
-        <button name="go" type="submit">Go</button>
-    </form> -->
             <footer>
                 <div class="sticky-footer">
                     <div class="footer-content">
@@ -87,6 +76,5 @@ if (isset($_SESSION["patient"])) {
 
     <?php } else {
         echo "Your payment is not approved or completed yet! Go to payment page Now";
-    ?> <a href="../shared/payment.php">Payment</a> <?php
-                                                }
-                                            } ?>
+    ?> <a href="../shared/payment.php">Payment</a> <?php   }} ?>
+                                              

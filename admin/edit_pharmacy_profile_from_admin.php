@@ -71,11 +71,6 @@ if (isset($_SESSION['admin'])) {
                     </div>
                 </nav>
 
-                <!--first section-->
-
-
-
-
 
                 <h1 class="h1_text" id="Requests">Registration</h1>
                 <div class="conent">

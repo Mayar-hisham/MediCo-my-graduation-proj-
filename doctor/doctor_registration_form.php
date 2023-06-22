@@ -100,7 +100,6 @@ if (isset($_POST['submit'])) {
         echo "Wait for your account to be accepted by admins, you will receive a call";
     }
 
-    //header("location: /MediCoNew/shared/login.php");
 }
 ?>
 
@@ -141,7 +140,7 @@ if (isset($_POST['submit'])) {
             <input type="text" id="name" name="lname" placeholder="Enter doctor name...">
             <label for="Date of birth">Date of birth:</label>
             <input type="date" id="Date of birth" name="date" placeholder="Enter Date of birth...">
-            <label for="Profession Practice">Profession Practice:</label>
+            <label for="Profession Practice">Profession Practice Proof:</label>
             <input type="file" id="Profession Practice" name="pp" placeholder="Enter Profession Practice...">
             <label for="Profession Practice">years of experience:</label>
             <input type="text" id="Profession Practice" name="yoe" placeholder="Enter years of experience...">
@@ -149,7 +148,7 @@ if (isset($_POST['submit'])) {
             <input type="text" id="Address" name="address" placeholder="Enter Address...">
             <label for="Address">phone:</label>
             <input type="text" id="Address" name="phone" placeholder="Enter phone...">
-            <label for="Doctor Syndicate">Doctor Syndicate:</label>
+            <label for="Doctor Syndicate">Doctor Syndicate Card:</label>
             <input type="file" id="Doctor Syndicate" name="ds" placeholder="Enter Doctor Syndicate...">
             <label for="Email">Email:</label>
             <input type="email" id="Email" name="email" placeholder="Enter Email...">

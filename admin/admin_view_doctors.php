@@ -32,8 +32,6 @@ include "../shared/conn.php";
         </div>
     </nav>
 
-    <!--first section-->
-
 
     <h1 class="h1_text">Doctors</h1>
     <div class="container_img">

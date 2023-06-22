@@ -93,8 +93,10 @@ if (isset($_GET['unblock'])) {
                     <td><?php echo $row['pid']  ?></td>
                     <td> <?php echo $row['first_name']    .  $row['last_name']   ?></td>
                     <td><a href="patient_profile_for_admin.php?view=<?php echo $row['pid']; ?> "> View</a></td>
+                    
                     <td><?php $select = "SELECT * FROM `patient` WHERE paid = 'yes' 
-                AND has_emh = 'yes' AND pid = '" . $row['pid'] . "' ";
+                     AND has_emh = 'yes' AND pid = '" . $row['pid'] . "' ";
+
                         $sel = mysqli_query($connect, $select);
                         $sell = mysqli_num_rows($sel);
                         if ($sell > 0) { ?><a href="EMH_view_admin.php?emh=<?php echo $row['pid']; ?>">EMH</a> <?php } else { ?>No EMH <?php } ?></td>

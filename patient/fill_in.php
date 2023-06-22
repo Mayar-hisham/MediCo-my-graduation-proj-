@@ -14,10 +14,8 @@ if (isset($_SESSION["patient"])) {
     $_SESSION['access'] = $row['m_id'] . $row['patient_id'];
   }
 
-  //header("location: /MediCoNew/patient/The_EMH_for_patient.php");
-
 ?>
-<?php } ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,9 +48,7 @@ if (isset($_SESSION["patient"])) {
     </div>
   </nav>
 
-  <!--the form -->
-
-  <form method="POST" action="">
+  <form method="POST" action="The_EMH_for_patient.php">
     <center>
       <p style="margin-top:200px; margin-bottom:40px"> Please press Start to fill in your Electronic Medical History</p>
     </center>
@@ -60,15 +56,7 @@ if (isset($_SESSION["patient"])) {
     <input disabled type="text" style="padding:20px;" name="mpid" value="your medical profile id is <?php echo $row['m_id']; ?>">
     <a><button style="margin-top:50px; margin-bottom:20px; margin-left:730px; background-color: #4c87af; color: white; font-size: 25px; padding: 10px 20px; border: none; border-radius: 25px; cursor: pointer;" name="fill_in">start</button></a>
   </form>
-  <!-- <form class="form" method="POST" action="">
-        <label for="nationalId">Enter Patient Email:</label>
-        <input name="pemail" type="number" id="nationalId" name="nationalId" placeholder="">
 
-        <label for="nationalId">Enter Patient ID:</label>
-        <input name="pid" type="number" id="nationalId" name="nationalId" placeholder="">
-
-        <button name="go" type="submit">Go</button>
-    </form> -->
   <footer>
     <div class="sticky-footer">
       <div class="footer-content">
@@ -88,3 +76,5 @@ if (isset($_SESSION["patient"])) {
 </body>
 
 </html>
+
+<?php } ?>

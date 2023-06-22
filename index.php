@@ -13,23 +13,6 @@
 </head>
 
 <body>
-    <!-- <nav>
-        <div class="logo">
-            <a href="#"><img src="Images/medico.png" alt="Medico Logo"></a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Logout</a></li>
-        </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </nav> -->
-
-    <!--first section-->
     <div class="content">
         <div></div>
         <h1>Medico !</h1>

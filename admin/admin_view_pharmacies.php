@@ -1,6 +1,5 @@
 <?php
 include "../shared/conn.php";
-//include "../shared/login.php";
 if (isset($_SESSION['admin'])) {
 ?>
 

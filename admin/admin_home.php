@@ -37,7 +37,6 @@ if (isset($_SESSION['admin'])) {
             </div>
         </nav>
 
-        <!--first section-->
 
 
         <h1 class="h1_text">Welcome Admin</h1>

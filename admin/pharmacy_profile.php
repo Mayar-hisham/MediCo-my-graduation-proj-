@@ -38,9 +38,6 @@ if (isset($_GET['view'])) {
         </div>
     </nav>
 
-    <!--first section-->
-
-
     <h1 class="h1_text">Pharmacy Profile</h1>
     <div class="phar">
 

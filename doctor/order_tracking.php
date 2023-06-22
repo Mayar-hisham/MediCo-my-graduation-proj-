@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css">
-    <!-- <link rel="stylesheet" href="../CSS/The Electronic Medical History.css"> -->
     <link rel="stylesheet" href="../CSS/order_tracking.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <title>Medico</title>
@@ -26,11 +25,7 @@
             <li><a href="../shared/FAQs.php">FAQs</a></li>
             <li><a href="../shared/login.php?bye='1'">Logout</a></li>
         </ul>
-        <!-- <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div> -->
+
     </nav>
     <div class="header" style="display: flex; align-items: center; background-color: #2c73ae9c; color: rgb(4, 29, 151); padding: 15px; margin-top: 12px;">
         <div class="menu-icon">

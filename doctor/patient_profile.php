@@ -80,15 +80,13 @@ if (isset($_SESSION['doctor'])) {
 						$_SESSION['dob'] = $r['pdate_of_birth'];
 					}
 
-
-					//if ($result) {echo "ok";}else{echo "no".mysqli_error($connect);}
 			?>
 
 					<h2>Name : <?php echo $r['first_name']; ?></h2>
 					<h2>Age : <?php echo $_SESSION['dob']; ?></h2>
 					<h2>Blood Group : <?php echo $r['blood_type']; ?></h2>
 					<div class="search-bar">
-						<button><a href="./doctor_form.php"><img src="../Images/plus_icon.png" alt="Add"></a></button>
+						<button><a href="doctor_form.php"><img src="../Images/plus_icon.png" alt="Add"></a></button>
 					</div>
 		</div>
 
@@ -99,7 +97,7 @@ if (isset($_SESSION['doctor'])) {
 		<br><br><br><br><br><br>
 		<div class="content">
 			<div class="profile-card">
-				<img width="200px" height="200px" src="../upload/ <?php echo $r['image'] ?> " alt="patient's photo">
+				<img width="200px" height="200px" src="../upload/<?php echo $r['image'] ?> " alt="patient's photo">
 				<h2><a href="your-profile-link" style="margin-left: 25px;"><?php echo $r['first_name']; ?><?php echo $r['last_name']; ?>. </a></h2>
 				<div class="profile-details">
 					<h3>Current Illness: <?php echo $r['suffers']; ?></h3>
@@ -143,9 +141,7 @@ if (isset($_SESSION['doctor'])) {
 
 
 <?php  }
-			} else {
-				echo "something wrong";
-			} ?>
+			}  ?>
 
 
 <script src="JS/script.js"></script>

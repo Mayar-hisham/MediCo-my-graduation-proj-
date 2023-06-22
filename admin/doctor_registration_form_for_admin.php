@@ -217,7 +217,7 @@ if (isset($_SESSION['admin'])) {
           <input type="date" id="Date of birth" name="date" placeholder="Enter Date of birth...">
         <?php } ?>
 
-        <label for="Profession Practice">Profession Practice:</label>
+        <label for="Profession Practice">Profession Practice Proof:</label>
         <?php if (isset($_GET['edit'])) { ?>
           <input type="file" id="Profession Practice" name="pp" placeholder="Enter Profession Practice...">
         <?php } else { ?>
@@ -245,7 +245,7 @@ if (isset($_SESSION['admin'])) {
           <input type="text" id="Address" name="phone" placeholder="Enter phone...">
         <?php } ?>
 
-        <label for="Doctor Syndicate">Doctor Syndicate:</label>
+        <label for="Doctor Syndicate">Doctor Syndicate Card:</label>
         <?php if (isset($_GET['edit'])) { ?>
           <input type="file" id="Doctor Syndicate" name="ds" placeholder="Enter Doctor Syndicate...">
         <?php } else { ?>

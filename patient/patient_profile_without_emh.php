@@ -56,7 +56,7 @@ if (isset($_SESSION["patient"])) {
                 <a href="../shared/order_medicine.php">Order Medicine</a>
                 <a href="./order_tracking.php">Track your Orders</a>
                 <a href="../shared/payment.html">Payment</a>
-                <a href="./start_medical_profile.php">Start your medical profile</a>
+
 
             </div>
             <br><br><br><br><br>
@@ -83,10 +83,7 @@ if (isset($_SESSION["patient"])) {
                 </div>
             </div>
         </div>
-
-        <?php  ?>
-
-        <!--   <script src="JS/script.js"></script> -->
+        
         <footer>
             <div class="sticky-footer">
                 <div class="footer-content">

@@ -37,9 +37,6 @@ if (isset($_SESSION['doctor'])) {
             </div>
         </nav>
 
-        <!--the form -->
-
-
         <form class="form" method="POST" action="patient_profile.php">
             <label for="nationalId">Patient ID:</label>
             <input name="pid" type="number" id="nationalId" name="nationalId" placeholder="">
