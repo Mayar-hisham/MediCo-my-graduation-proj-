@@ -35,6 +35,8 @@ if (isset($_SESSION['doctor'])) {
         <div class="line2"></div>
         <div class="line3"></div>
       </div>
+    </nav>
+
 
     <h1 class="h1_text">Welcome DR.<?php echo $_SESSION['dfirst_name']; ?></h1>
     <div class="container_img">

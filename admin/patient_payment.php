@@ -10,7 +10,6 @@ if (isset($_SESSION["admin"])) {
         $select = "SELECT * FROM `patient` WHERE email = '$pemail' and pid = '$pid' ";
         $sel = mysqli_query($connect, $select);
 
-        // if($sel){
         $alter = "UPDATE `patient` SET paid = 'yes' WHERE pid = $pid and email = '$pemail'";
         $alt = mysqli_query($connect, $alter);
         if ($alt) {
