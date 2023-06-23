@@ -4,6 +4,43 @@ include "../shared/conn.php";
 
 if (isset($_SESSION['doctor'])) {
 
+
+	if (isset($_POST['go'])) {
+		$id = $_POST['pid'];
+		$mid = $_POST['mid'];
+
+
+
+		$sql = "SELECT * FROM `patient`
+JOIN `medical_profile` ON 
+patient.pid = medical_profile.patient_id
+JOIN `personal_hostory` ON 
+medical_profile.m_id = personal_hostory.medical_profile_id 
+JOIN `past_history` ON
+medical_profile.m_id = past_history.medical_profile_id
+JOIN `family_history` ON
+medical_profile.m_id = family_history.medical_profile_id
+JOIN `clinical_history` ON
+medical_profile.m_id = clinical_history.medical_profile_id 
+JOIN `surgical_history` ON
+medical_profile.m_id = surgical_history.medical_profile_id 
+
+WHERE patient.pid = $id and medical_profile.m_id = $mid and patient.has_emh = 'yes'";
+		$result = mysqli_query($connect, $sql);
+
+		if ($result) {
+
+			$numberOfRows = mysqli_num_rows($result);
+
+			$r = mysqli_fetch_assoc($result);
+			if ($numberOfRows > 0) {
+				$_SESSION["patient_profile_access"] = $id && $mid;
+				$_SESSION['mpfid'] = $r['medical_profile_id'];
+				$_SESSION['id'] = $r['patient_id'];
+				$_SESSION['dob'] = $r['pdate_of_birth'];
+			
+
+
 ?>
 
 	<!DOCTYPE html>
@@ -43,44 +80,7 @@ if (isset($_SESSION['doctor'])) {
 				<span></span>
 			</div>
 
-			<?php
 
-			if (isset($_POST['go'])) {
-				$id = $_POST['pid'];
-				$mid = $_POST['mid'];
-
-
-
-				$sql = "SELECT * FROM `patient`
- JOIN `medical_profile` ON 
-  patient.pid = medical_profile.patient_id
- JOIN `personal_hostory` ON 
-  medical_profile.m_id = personal_hostory.medical_profile_id 
- JOIN `past_history` ON
- medical_profile.m_id = past_history.medical_profile_id
- JOIN `family_history` ON
- medical_profile.m_id = family_history.medical_profile_id
- JOIN `clinical_history` ON
- medical_profile.m_id = clinical_history.medical_profile_id 
- JOIN `surgical_history` ON
- medical_profile.m_id = surgical_history.medical_profile_id 
-
-  WHERE patient.pid = $id and medical_profile.m_id = $mid and patient.has_emh = 'yes'";
-				$result = mysqli_query($connect, $sql);
-
-				if ($result) {
-
-					$numberOfRows = mysqli_num_rows($result);
-
-					$r = mysqli_fetch_assoc($result);
-					if ($numberOfRows > 0) {
-						$_SESSION["patient_profile_access"] = $id && $mid;
-						$_SESSION['mpfid'] = $r['medical_profile_id'];
-						$_SESSION['id'] = $r['patient_id'];
-						$_SESSION['dob'] = $r['pdate_of_birth'];
-					}
-
-			?>
 
 					<h2>Name : <?php echo $r['first_name']; ?></h2>
 					<h2>Age : <?php echo $_SESSION['dob']; ?></h2>
@@ -140,8 +140,7 @@ if (isset($_SESSION['doctor'])) {
 
 
 
-<?php  }
-			}  ?>
+
 
 
 <script src="JS/script.js"></script>
@@ -164,7 +163,11 @@ if (isset($_SESSION['doctor'])) {
 
 
 
-<?php  } ?>
+<?php  }else{
+	echo "Wrong ID";
+
+} }}
+			}  ?> 
 
 	</body>
 

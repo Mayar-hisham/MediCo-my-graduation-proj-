@@ -21,7 +21,6 @@ if (isset($_GET['delete'])) {
     $delete = "DELETE FROM `medical_profile` WHERE patient_id = $id ";
     $del = mysqli_query($connect, $delete);
 }
-
 if (isset($_GET['block'])) {
     $id = $_GET['block'];
 
