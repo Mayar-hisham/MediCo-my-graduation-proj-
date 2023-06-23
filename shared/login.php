@@ -5,7 +5,8 @@ if (isset($_POST['login'])) {
   $email = $_POST["email"];
   $password = $_POST["password"];
 
-  $select1 = "SELECT * FROM `patient` WHERE has_emh='yes' and email = '$email' and password = '$password' and blocked != 'yes'";
+  $select1 = "SELECT * FROM `patient` WHERE has_emh='yes' 
+  and email = '$email' and password = '$password' and blocked != 'yes'";
   $s1 = mysqli_query($connect, $select1);
 
   $numberOfRows = mysqli_num_rows($s1);

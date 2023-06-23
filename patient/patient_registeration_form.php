@@ -1,7 +1,5 @@
 <?php
 include "../shared/conn.php";
-
-
 function existing_email($connect, $email)
 {
     $sql = "SELECT * FROM `patient` WHERE email = ?;";
