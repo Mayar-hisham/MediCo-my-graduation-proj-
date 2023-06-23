@@ -151,7 +151,7 @@ WHERE patient.pid = '" . $_SESSION['pid'] . "' ";
             $alter = "UPDATE `patient` SET has_emh = 'yes' WHERE pid = '" . $_SESSION['pid'] . "' ";
             $alt = mysqli_query($connect, $alter);
 
-            header("location: /MediCoNew/patient/patient_profile_for_patient.php");
+            header("location: /MediCoNew/patient/EMH_view_patient.php");
         }
 
 ?>

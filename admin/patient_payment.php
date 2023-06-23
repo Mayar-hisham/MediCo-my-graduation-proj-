@@ -7,12 +7,13 @@ if (isset($_SESSION["admin"])) {
         $pemail = $_POST['pemail'];
         $pid = $_POST['pid'];
 
-        $select = "SELECT * FROM `patient` WHERE email = '$pemail' and pid = '$pid' ";
+        $select = "SELECT * FROM `patient` WHERE email = '$pemail' and pid = '$pid' and paid = 'no' ";
         $sel = mysqli_query($connect, $select);
-
+        $row = mysqli_fetch_assoc($sel);
+ if ($row > 0) {
         $alter = "UPDATE `patient` SET paid = 'yes' WHERE pid = $pid and email = '$pemail'";
         $alt = mysqli_query($connect, $alter);
-        if ($alt) {
+       
             echo "done";
         } else {
             echo "something went wrong";

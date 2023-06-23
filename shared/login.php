@@ -53,8 +53,6 @@ if (isset($_POST['login'])) {
         $_SESSION['first_name'] = $row['first_name'] . $row['last_name'];
         $_SESSION['pid'] = $row['pid'];
 
-
-        $_SESSION['medical_profile_id'] = $row['medical_profile_id'];
         $_SESSION['date_of_birth'] = $row['pdate_of_birth'];
         $_SESSION['blood_type'] = $row['blood_type'];
         $_SESSION['phone'] = $row['phone'];
