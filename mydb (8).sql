@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2023 at 12:15 PM
+-- Generation Time: Jun 23, 2023 at 12:06 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -96,7 +96,8 @@ INSERT INTO `doctors` (`id`, `dfirst_name`, `dlast_name`, `date_of_birth`, `prof
 (20, 'Ahmed', 'Fathy', '1990-10-23', 'احمد مجدي.jpg', 30, '2nd district - Building 234 - 6th of October city', 120465389, '3.jpg', 'dr.ahmed@gmail.com', 'Dermatologist - أمراض جلدية', 123, 'IMG-20230621-WA0087.jpg', 'yes', 'no'),
 (21, 'Assem', 'Salem', '1990-07-11', 'عاصم.jpg', 15, '10t district - B123 - 6th of October City', 1012365478, '4.jpg', 'dr.assem@gmail.com', 'Neurologist - مخ وأعصاب', 123, 'IMG-20230621-WA0090.jpg', 'yes', 'no'),
 (22, 'Ahmed', 'Hussein', '1982-07-07', 'احمد حسين.jpg', 20, '5th district - B345 - 6th of October City', 1236547896, '5.jpg', 'dr.ahussein@gmail.com', 'Pediatrician - أطفال', 123, 'IMG-20230621-WA0074.jpg', 'yes', 'no'),
-(23, 'Kamal', 'Samir', '1970-02-03', 'كمال.jpg', 33, '3rd district - B564 - Sheikh Zayed City', 1013654789, '6.jpg', 'dr.kamal@gmail.com', 'Surgeon - جراح', 123, 'IMG-20230621-WA0075.jpg', 'yes', 'no');
+(23, 'Kamal', 'Samir', '1970-02-03', 'كمال.jpg', 33, '3rd district - B564 - Sheikh Zayed City', 1013654789, '6.jpg', 'dr.kamal@gmail.com', 'Surgeon - جراح', 123, 'IMG-20230621-WA0075.jpg', 'yes', 'no'),
+(24, 'mayar', 'hisham', '2023-06-15', 'foad.jpg', 20, 'oct', 1014563214, 'care.jpg', 'mayar@gmail.com', 'Ophthalmologist - عيون', 123, 'abdeen.jpg', 'yes', 'no');
 
 -- --------------------------------------------------------
 
@@ -218,8 +219,7 @@ CREATE TABLE `medical_profile` (
 
 INSERT INTO `medical_profile` (`m_id`, `patient_id`) VALUES
 (24, 25),
-(25, 26),
-(26, 27);
+(25, 26);
 
 -- --------------------------------------------------------
 
@@ -313,7 +313,6 @@ CREATE TABLE `patient` (
 INSERT INTO `patient` (`pid`, `first_name`, `last_name`, `gender`, `occupation`, `marital_status`, `email`, `allergies`, `blood_type`, `pdate_of_birth`, `phone`, `emergency_contact`, `address`, `password`, `image`, `has_emh`, `paid`, `blocked`) VALUES
 (25, 'Ahmed', 'Mohsen', 'Male', 'Data Analyst', 'Married', 'ahmedmohsen@gmail.com', 'Carbs - Milk', 'A+', '1970-07-15', 1014156329, 1014562397, '1254 - 4th district - 6th of October city', 123, '11.jpg', 'yes', 'yes', 'no'),
 (26, 'Saleh', 'Fakher', 'Male', 'Dentist', 'Single', 'salehfakher@gmail.com', 'strawberry', 'A-', '1972-06-05', 1015236987, 102547896, '2341 - 5th district - 6th of October city', 123, '12.jpg', 'yes', 'yes', 'no'),
-(27, 'Salem', 'Akram', 'Male', 'Sales Manager', 'Married', 'salemakram@gmail.com', 'Gluten', 'A-', '1968-10-22', 2147483647, 1236547896, '7865 - 11th district - 6th of October', 123, '13.jpg', 'yess', 'yes', 'no'),
 (28, 'Rashed', 'Ahmed', 'Male', 'Engineer', 'Married', 'rashedahmed@gmail.com', 'No Allergies', 'AB-', '1971-07-07', 1045213060, 1236549832, '7658 - 3rd district - Sheikh Zayed city', 123, '14.jpg', 'no', 'yes', 'no'),
 (29, 'Mostafa ', 'Dagher', 'Male', 'Freelancer', 'Married', 'mostafadagher@gmail.com', 'Meats', 'B+', '1969-10-13', 1012301014, 1012136541, 'Villa no.1254 - Beverly Hills - Sheikh Zayed City', 123, '15.jpg', 'no', 'no', 'no');
 
@@ -539,7 +538,7 @@ ALTER TABLE `clinical_history`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `doctor_diagnosis`
@@ -551,7 +550,7 @@ ALTER TABLE `doctor_diagnosis`
 -- AUTO_INCREMENT for table `family_history`
 --
 ALTER TABLE `family_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `finished_orders`
@@ -569,7 +568,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `medical_profile`
 --
 ALTER TABLE `medical_profile`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -587,13 +586,13 @@ ALTER TABLE `past_history`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `personal_hostory`
 --
 ALTER TABLE `personal_hostory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `pharmacy`
