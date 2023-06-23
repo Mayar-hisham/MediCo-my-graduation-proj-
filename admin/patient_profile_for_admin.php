@@ -52,7 +52,7 @@ if (isset($_SESSION["admin"])) {
                     <br>
 
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <div class="conent" style="margin-top: 150px;">
+                    <div class="conent" style="margin-top: 200px;">
                         <div class="card_patient" style="margin-left: 130px;">
                             <div class="image">
                                 <img src="../upload/<?php echo $row['image'] ?>" alt="patient's photo">

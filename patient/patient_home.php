@@ -63,10 +63,10 @@ if (isset($_SESSION["patient"])) {
 
                 <?php } elseif ($row['has_emh'] == "yes" && $row['has_emh'] !== "yess") { ?>
 
-<div class="image">
-    <a href="./EMH_view_patient.php"><img src="../Images/EMH.png"></a>
-    <a href="./EMH_view_patient.php">View your EMH</a>
-</div>
+                    <div class="image">
+                        <a href="./EMH_view_patient.php"><img src="../Images/EMH.png"></a>
+                        <a href="./EMH_view_patient.php">View your EMH</a>
+                    </div>
 
 
                 <?php }
