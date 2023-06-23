@@ -86,7 +86,6 @@ if (isset($_SESSION["patient"])) {
       <div class="navbar">
         <a href="doctors.html">Doctors</a>
         <a href="../patient/order_tracking.php">Track Orders</a>
-        <a href="./payment.html">Payment</a>
       </div>
       <div class="conent">
         <div class="container_order">
